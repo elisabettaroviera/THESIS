@@ -25,7 +25,7 @@ The work aims to explore the relationship between **epigenetic alterations** (su
 [01 - Notebook](./01%20-%20Notebook)  
 This folder contains all the Jupyter notebooks used for data processing, analysis, and visualization.  
 
-- **01 - Data exploration** → Initial data inspection and global methylation level analysis  
+- **[01 - Data exploration](./01%20-%20Notebook/01%20-%20Data%20exploration)** → Initial data inspection and global methylation level analysis  
 - *(More notebooks will be added as the analysis progresses)*
 
 #### **02 - Paper**

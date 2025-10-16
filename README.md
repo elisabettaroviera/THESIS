@@ -2,16 +2,11 @@
 ## Advanced study of epigenetic mechanisms in the development of neoplasms  
 
 ### 👩‍🎓 Author & Supervision
-**Author:** Elisabetta Roviera  
-
-**Thesis title:** *Advanced study of epigenetic mechanisms in the development of neoplasms*  
-
-**Supervisor:** Dr Alfredo Benso (Polytechnic University of Turin)
-
-**Co-supervisor:** Dr Sandro Gambino (Rivoli Hospital)
-
-**Institution:** Polytechnic University of Turin 
-
+**Author:** Elisabetta Roviera  \
+**Thesis title:** *Advanced study of epigenetic mechanisms in the development of neoplasms*  \
+**Supervisor:** Dr Alfredo Benso (Polytechnic University of Turin) \
+**Co-supervisor:** Dr Sandro Gambino (Rivoli Hospital) \
+**Institution:** Polytechnic University of Turin \
 **Academic Year:** 2025-2026
 
 ---

@@ -40,6 +40,8 @@ Code and analyses are developed using open-access datasets and tools.
 ##### **01 - Medical and Biological information**
 Contains the main references on cancer biology and epigenetics:
 
+0. [- Medical and Biological Information](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/%20- Medical_and_Biological_Information)
+
 1. [BRCA Gene Changes: Cancer Risk and Genetic Testing Fact Sheet – NCI](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/BRCA%20Gene%20Changes_%20Cancer%20Risk%20and%20Genetic%20Testing%20Fact%20Sheet%20-%20NCI.pdf)
 2. [Breast Cancer – StatPearls – NCBI Bookshelf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Breast%20Cancer%20-%20StatPearls%20-%20NCBI%20Bookshelf.pdf)
 3. [DNA methylation patterns and epigenetic memory – Adrian Bird](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/DNA%20methylation%20patterns%20and%20epigenetic%20memory%20-%20Adrian%20Bird.pdf)

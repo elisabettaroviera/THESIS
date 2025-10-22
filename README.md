@@ -17,12 +17,9 @@ This repository contains the materials, code, and references developed for the M
 
 The work aims to explore the relationship between **epigenetic alterations** (such as DNA methylation patterns) and **tumorigenesis**, combining biological literature review with computational analysis.
 
-Certo, Etta 🌿
-Ecco il paragrafo riscritto in **inglese fluente, accademico e coerente** con il tono del tuo README e del lavoro che stai facendo sulla tesi:
-
 ---
 
-### **Thesis Structure**
+### 🧠 Thesis Structure
 
 The overall structure of the thesis is still being refined as the research evolves, but the main framework is already outlined. The project currently follows these key components:
 

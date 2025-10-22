@@ -45,11 +45,6 @@ This folder contains all the Jupyter notebooks used for data processing, analysi
 - **[02 - Data pre-processing](./01%20-%20Notebook/02-data-pre-processing.ipynb)** → Initial data pre-processing (work in progress...)
 - *(More notebooks will be added as the analysis progresses)*
 
-Perfetto Etta 🌸
-Ecco la sezione **completa e sistemata** del tuo `README.md`, con tutti i paper presenti nello screenshot, mantenendo il tuo stile coerente e accademico:
-
----
-
 #### **02 - Paper**
 
 [02 - Paper](./02%20-%20Paper)

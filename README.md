@@ -86,16 +86,18 @@ Papers focused on data analysis, methodology, and applications of methylation ar
 12. [The integrative epigenomic–transcriptomic landscape of ER positive breast cancer – Gao.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/ERpositive%20Gao.pdf)
 
 
-##### [**03 - Data Exploration & Visualization**](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION)
+##### [**03 - Data Exploration & Visualization**](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION)
 
 Includes exploratory analyses and visualization strategies related to DNA methylation and outlier detection.
 
-0. [– Data Visualization Information (recap).pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/%20-%20Data_Visualization_Information.pdf)
-1. [A urine-based DNA methylation assay – Zhao.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Zhao.pdf)
-2. [Charting differential DNA methylation changes in cancer – Benelli et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Benelli.pdf)
-3. [DNA methylation outlier burden, health, and aging – Seeboth et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Seeboth.pdf)
-4. [DNA methylation outliers in normal breast tissue – Teschendorff.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Teschendorff.pdf)
-5. [Genome-wide DNA methylation array normalization – Maksimovic et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Maksimovic.pdf)
+0. [– Data Visualization Information (recap).pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/%20-%20Data_Visualization_Information.pdf)
+1. [A urine-based DNA methylation assay – Zhao.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/A%20urine-based%20DNA%20methylation%20assay%20–%20Zhao.pdf)
+2. [Charting differential DNA methylation changes in cancer – Benelli et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/Charting%20differential%20DNA%20methylation%20changes%20in%20cancer%20–%20Benelli%20et%20al.pdf)
+3. [DNA methylation outlier burden, health, and aging – Seeboth et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/DNA%20methylation%20outlier%20burden,%20health,%20and%20aging%20–%20Seeboth%20et%20al.pdf)
+4. [DNA methylation outliers in normal breast tissue – Teschendorff.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/DNA%20methylation%20outliers%20in%20normal%20breast%20tissue%20–%20Teschendorff.pdf)
+5. [Genome-wide DNA methylation array normalization – Maksimovic et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/Genome-wide%20DNA%20methylation%20array%20normalization%20–%20Maksimovic%20et%20al.pdf)
+
+
 
 ##### **04 - Data Pre-Processing**
 

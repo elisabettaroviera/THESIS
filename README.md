@@ -85,10 +85,12 @@ Papers focused on data analysis, methodology, and applications of methylation ar
 11. [Prediction of Disease Genes based on Stage-Specific Gene Regulatory Networks in Breast Cancer – Fan.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/Fan.pdf)
 12. [The integrative epigenomic–transcriptomic landscape of ER positive breast cancer – Gao.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/ERpositive%20Gao.pdf)
 
-##### **03 - Data Exploration & Visualization**
+
+##### [**03 - Data Exploration & Visualization**](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION)
 
 Includes exploratory analyses and visualization strategies related to DNA methylation and outlier detection.
 
+0. [– Data Visualization Information (recap).pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/%20-%20Data_Visualization_Information.pdf)
 1. [A urine-based DNA methylation assay – Zhao.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Zhao.pdf)
 2. [Charting differential DNA methylation changes in cancer – Benelli et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Benelli.pdf)
 3. [DNA methylation outlier burden, health, and aging – Seeboth et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20&%20VISUALIZATION/Seeboth.pdf)

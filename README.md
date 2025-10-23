@@ -55,7 +55,7 @@ Code and analyses are developed using open-access datasets and tools.
 
 Contains the main references on cancer biology and epigenetics:
 
-0. [– Medical and Biological Information (recap).pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/%20-%20Medical%20and%20Biological%20Information.pdf)
+0. [Medical and Biological Information (recap).pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Medical%20and%20Biological%20Information.pdf)
 1. [A comprehensive methylome map of lineage commitment from hematopoietic progenitors – Ji.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/A%20comprehensive%20methylome%20map%20of%20lineage%20commitment%20from%20hematopoietic%20progenitors%20-%20Ji.pdf)
 2. [BRCA Gene Changes: Cancer Risk and Genetic Testing Fact Sheet – NCI.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/BRCA%20Gene%20Changes_%20Cancer%20Risk%20and%20Genetic%20Testing%20Fact%20Sheet%20-%20NCI.pdf)
 3. [Breast Cancer – StatPearls – NCBI Bookshelf.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Breast%20Cancer%20-%20StatPearls%20-%20NCBI%20Bookshelf.pdf)
@@ -90,7 +90,7 @@ Papers focused on data analysis, methodology, and applications of methylation ar
 
 Includes exploratory analyses and visualization strategies related to DNA methylation and outlier detection.
 
-0. [– Data Visualization Information (recap).pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/%20-%20Data_Visualization_Information.pdf)
+0. [Data Visualization Information (recap).pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/Data_Visualization_Information.pdf)
 1. [A urine-based DNA methylation assay – Zhao.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/A%20urine-based%20DNA%20methylation%20assay%20–%20Zhao.pdf)
 2. [Charting differential DNA methylation changes in cancer – Benelli et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/Charting%20differential%20DNA%20methylation%20changes%20in%20cancer%20–%20Benelli%20et%20al.pdf)
 3. [DNA methylation outlier burden, health, and aging – Seeboth et al.pdf](./02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/DNA%20methylation%20outlier%20burden,%20health,%20and%20aging%20–%20Seeboth%20et%20al.pdf)

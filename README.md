@@ -51,10 +51,11 @@ This folder includes all the scientific papers and documents used to guide the a
 All papers included are used **for academic and educational purposes only**.
 Code and analyses are developed using open-access datasets and tools.
 
-##### **01 - Medical and Biological Information**
+##### [**01 - Medical and Biological Information**](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information)
 
 Contains the main references on cancer biology and epigenetics:
 
+0. [– Medical and Biological Information (recap).pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/%20-%20Medical%20and%20Biological%20Information.pdf)
 1. [A comprehensive methylome map of lineage commitment from hematopoietic progenitors – Ji.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/A%20comprehensive%20methylome%20map%20of%20lineage%20commitment%20from%20hematopoietic%20progenitors%20-%20Ji.pdf)
 2. [BRCA Gene Changes: Cancer Risk and Genetic Testing Fact Sheet – NCI.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/BRCA%20Gene%20Changes_%20Cancer%20Risk%20and%20Genetic%20Testing%20Fact%20Sheet%20-%20NCI.pdf)
 3. [Breast Cancer – StatPearls – NCBI Bookshelf.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Breast%20Cancer%20-%20StatPearls%20-%20NCBI%20Bookshelf.pdf)
@@ -65,6 +66,7 @@ Contains the main references on cancer biology and epigenetics:
 8. [The CpG Landscape of Protein Coding DNA in Vertebrates – Wilcox, Ord, Kappei, Gossmann.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/The%20CpG%20Landscape%20of%20Protein%20Coding%20DNA%20in%20Vertebrates%20-%20Wilcox,%20Ord,%20Kappei,%20Gossmann.pdf)
 9. [The Hallmarks of Cancer – Hanahan, Weinberg.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/The%20Hallmarks%20of%20Cancer%20-%20Hanahan,%20Weinberg.pdf)
 10. [Understanding Cancer – NIH Curriculum Supplement Series – NCBI Bookshelf.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Understanding%20Cancer%20-%20NIH%20Curriculum%20Supplement%20Series%20-%20NCBI%20Bookshelf.pdf)
+
 
 ##### **02 - GSE67915 Application**
 

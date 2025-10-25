@@ -34,17 +34,15 @@ The overall structure of the thesis is still being refined as the research evolv
 
 ### 📂 Repository structure
 
-#### **01 - Notebook**
-[01 - Notebook](./01%20-%20Notebook)  
+#### [01 - Notebook](./01%20-%20Notebook)  
 This folder contains all the Jupyter notebooks used for data processing, analysis, and visualization.  
 
 - **[01 - Data exploration](./01%20-%20Notebook/01-data-exploration.ipynb)** → Initial data inspection and global methylation level analysis  
 - **[02 - Data pre-processing](./01%20-%20Notebook/02-data-pre-processing.ipynb)** → Initial data pre-processing (work in progress...)
 - *(More notebooks will be added as the analysis progresses)*
 
-#### **02 - Paper**
+#### [02 - Paper](./02%20-%20Paper)
 
-[02 - Paper](./02%20-%20Paper)
 This folder includes all the scientific papers and documents used to guide the analysis and support the writing of the thesis chapters.
 
 **🧾 Notes**
@@ -119,9 +117,8 @@ Papers and references used to guide data normalization, preprocessing, and methy
 12. [Reducing the risk of false discovery enabling identification of biologically significant genome-wide methylation status using the HumanMethylation450 array – Naeem.pdf](./02%20-%20Paper/04%20-%20Data%20PRE-PROCESSING/Reducing%20the%20risk%20of%20false%20discovery%20-%20Naeem.pdf)
 
 
-#### **03 - Report**
+#### [03 - Report](./03%20-%20Report)
 
-[03 - Report](./03%20-%20Report)
 This folder collects written summaries and contextual notes that support the analysis.
 
 Current documents:
@@ -136,9 +133,8 @@ Current documents:
   Recap of visualization strategies (which plots, why they’re informative, and how they relate to CpG methylation data).
 
 
-#### **04 - Figures**
+#### [04 - Figures](./04%20-%20Figures)
 
-[04 - Figures](./04%20-%20Figures)
 This folder collects all visual material used in the project, including:
 
 * plots generated in the notebooks;

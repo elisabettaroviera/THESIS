@@ -119,6 +119,31 @@ Papers and references used to guide data normalization, preprocessing, and methy
 12. [Reducing the risk of false discovery enabling identification of biologically significant genome-wide methylation status using the HumanMethylation450 array – Naeem.pdf](./02%20-%20Paper/04%20-%20Data%20PRE-PROCESSING/Reducing%20the%20risk%20of%20false%20discovery%20-%20Naeem.pdf)
 
 
+#### **03 - Report**
+
+[03 - Report](./03%20-%20Report)
+This folder collects written summaries and contextual notes that support the analysis.
+
+Current documents:
+
+* [a - Report Data exploration and visualization.pdf](./03%20-%20Report/01%20-%20Notebook/a%20-%20Report%20Data%20exploration%20and%20visualization.pdf)
+  Summary of exploratory analysis on the dataset and first visualization choices.
+
+* [Medical and Biological Information.pdf](./03%20-%20Report/02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Medical%20and%20Biological%20Information.pdf)
+  Background notes on cancer biology, epigenetics, and methylation context.
+
+* [Data_Visualization_Information.pdf](./03%20-%20Report/02%20-%20Paper/03%20-%20Data%20EXPLORATION%20%26%20VISUALIZATION/Data_Visualization_Information.pdf)
+  Recap of visualization strategies (which plots, why they’re informative, and how they relate to CpG methylation data).
+
+
+#### **04 - Figures**
+
+[04 - Figures](./04%20-%20Figures)
+This folder collects all visual material used in the project, including:
+
+* plots generated in the notebooks;
+* selected figures from key papers that are useful to keep for reference during the analysis.
+
 ---
 
 ### ⚙️ Work in progress

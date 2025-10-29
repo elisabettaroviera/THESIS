@@ -66,11 +66,11 @@ Contains the main references on cancer biology and epigenetics:
 10. [Understanding Cancer – NIH Curriculum Supplement Series – NCBI Bookshelf.pdf](./02%20-%20Paper/01%20-%20Medical%20and%20Biological%20information/Understanding%20Cancer%20-%20NIH%20Curriculum%20Supplement%20Series%20-%20NCBI%20Bookshelf.pdf)
 
 
-##### **02 - GSE67915 Application**
+##### **02 - GSE67915 Application**(./02%20-%20Paper/02%20-%GSE67915%20Application)
 
 Papers focused on data analysis, methodology, and applications of methylation arrays (including the dataset GSE69914):
 
-1. [GSE67915 Application.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/GSE67915%20Application.pdf)
+1. [GSE67915 Application.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/About%20GSE67919's%20Application.pdf)
 2. [An improved epigenetic computer to track mitotic age in normal and precancerous tissues – Zhu.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/Zhu.pdf)
 3. [An integrative pan-cancer-wide analysis epigenetic enzymes reveals universal cancer – Yang.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/Yang.pdf)
 4. [DNA methylation outliers in normal breast tissue identify field defects that are enriched in cancer – Teschendorff.pdf](./02%20-%20Paper/02%20-%20GSE67915%20Application/Teschendorff.pdf)

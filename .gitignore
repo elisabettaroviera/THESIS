@@ -1,0 +1,33 @@
+# ---------------------------
+# 💾 Dataset build artifacts
+# ---------------------------
+
+# Exclude large or derived dataset files
+*.parquet
+*.feather
+*.arrow
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.csv.gz
+*.tsv.gz
+
+# Intermediate processing outputs
+*.tmp
+*.bak
+*.log
+*.cache
+*_temp/
+*/__pycache__/
+
+# Kaggle / working directories (optional)
+kaggle/working/
+*/outputs/
+*/cache/
+*/data/
+
+# System and editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/

@@ -150,10 +150,3 @@ Notebooks, results, and references will be updated regularly as new analyses are
 ### 📚 Keywords
 `Epigenetics` · `DNA methylation` · `Neoplasms` · `Cancer biology` · `Bioinformatics` · `Methylation data analysis`
 
-
-| Nome Dataset | Link | Tessuto Normale | Tessuto Adiacente | Tessuto Tumorale | Accoppiamento | Campioni (Normale / Adiacente / Tumore) |
-|--------------|------|------------------|--------------------|-------------------|----------------|------------------------------------------|
-| GSE69914 | [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE69914) | ✅ (donatrici sane) | ✅ | ✅ | Tumore–Adiacente | 50 / 42 / 263 |
-| GSE287331 | [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE287331) | ✅ (sano + controlaterale) | ✅ | ✅ | Normale–Adiacente–Tumore | 182 (sani) + 68 (controlat.) / 60 / 69 |
-| GSE225845 | [link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE225845) | ✅ (donatrici sane) | ✅ | ✅ | Tumore–Adiacente | 104 / 113 / 185 |
-

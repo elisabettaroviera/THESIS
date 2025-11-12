@@ -12,6 +12,9 @@
 *.npy
 *.csv.gz
 *.tsv.gz
+*.csv
+*.txt
+*.tsv
 
 # Intermediate processing outputs
 *.tmp

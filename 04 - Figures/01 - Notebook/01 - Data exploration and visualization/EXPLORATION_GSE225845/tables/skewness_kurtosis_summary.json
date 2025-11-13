@@ -1,0 +1,14 @@
+{
+  "Normal": {
+    "median_skewness": -0.4516008794307709,
+    "median_kurtosis": -1.3354793787002563
+  },
+  "Adjacent": {
+    "median_skewness": -0.45442649722099304,
+    "median_kurtosis": -1.3209273219108582
+  },
+  "Tumor": {
+    "median_skewness": -0.4407646059989929,
+    "median_kurtosis": -1.2963178157806396
+  }
+}

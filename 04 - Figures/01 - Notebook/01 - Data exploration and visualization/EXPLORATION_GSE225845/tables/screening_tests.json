@@ -1,0 +1,23 @@
+{
+  "Normal_vs_Adjacent": {
+    "ks_stat": 0.012963006502403562,
+    "ks_p": 0.0,
+    "levene_stat": 8.465230566180043,
+    "levene_p": 0.003944716476031557,
+    "cliffs_delta_on_means": 0.05018963337547409
+  },
+  "Normal_vs_Tumor": {
+    "ks_stat": 0.02187721428168954,
+    "ks_p": 0.0,
+    "levene_stat": 30.667049914017547,
+    "levene_p": 6.19922853533068e-08,
+    "cliffs_delta_on_means": 0.14151390644753475
+  },
+  "Adjacent_vs_Tumor": {
+    "ks_stat": 0.013793081006178931,
+    "ks_p": 0.0,
+    "levene_stat": 13.933508244741802,
+    "levene_p": 0.0002198625452235987,
+    "cliffs_delta_on_means": 0.08475765306122449
+  }
+}

@@ -1,23 +1,23 @@
 {
   "Normal_vs_Adjacent": {
-    "ks_stat": 0.09556045559777548,
+    "ks_stat": 0.09424348435421215,
     "ks_p": 0.0,
-    "levene_stat": 2.6270516901485723,
-    "levene_p": 0.10589714453220034,
-    "cliffs_delta_on_means": 0.99774584389969
+    "levene_stat": 0.028273498661669352,
+    "levene_p": 0.8666090466783481,
+    "cliffs_delta_on_means": 0.9954212454212454
   },
   "Normal_vs_Tumor": {
-    "ks_stat": 0.10706371926626379,
+    "ks_stat": 0.1075583545370814,
     "ks_p": 0.0,
-    "levene_stat": 54.430716217893256,
-    "levene_p": 2.3951441994333896e-12,
-    "cliffs_delta_on_means": 0.9654403567447045
+    "levene_stat": 54.55303798358102,
+    "levene_p": 2.2759116817226946e-12,
+    "cliffs_delta_on_means": 0.9655996177735309
   },
   "Adjacent_vs_Tumor": {
-    "ks_stat": 0.02989207907222613,
+    "ks_stat": 0.02860198925546964,
     "ks_p": 0.0,
-    "levene_stat": 68.53755074460517,
-    "levene_p": 6.419296773371867e-15,
-    "cliffs_delta_on_means": 0.2329988851727982
+    "levene_stat": 19.375122709837715,
+    "levene_p": 2.2534079885316828e-05,
+    "cliffs_delta_on_means": 0.2763285024154589
   }
 }

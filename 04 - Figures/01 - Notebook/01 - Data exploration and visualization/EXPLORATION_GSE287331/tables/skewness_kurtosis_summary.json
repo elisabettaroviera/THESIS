@@ -1,14 +1,14 @@
 {
   "Normal": {
-    "median_skewness": -0.5948882699012756,
-    "median_kurtosis": -1.2815749049186707
+    "median_skewness": -0.5985109210014343,
+    "median_kurtosis": -1.2771614789962769
   },
   "Adjacent": {
-    "median_skewness": -0.5252328515052795,
-    "median_kurtosis": -1.3098716735839844
+    "median_skewness": -0.5410541892051697,
+    "median_kurtosis": -1.295462965965271
   },
   "Tumor": {
-    "median_skewness": -0.5120874047279358,
-    "median_kurtosis": -1.2548424005508423
+    "median_skewness": -0.5158212184906006,
+    "median_kurtosis": -1.2508925199508667
   }
 }

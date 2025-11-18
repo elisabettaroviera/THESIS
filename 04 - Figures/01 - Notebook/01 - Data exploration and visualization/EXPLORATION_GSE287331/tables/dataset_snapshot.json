@@ -1,6 +1,6 @@
 {
-  "n_samples": 446,
-  "n_cpg": 702573,
+  "n_samples": 311,
+  "n_cpg": 703166,
   "missing_sample_median": 0.0,
   "missing_sample_iqr": 0.0,
   "missing_cpg_median": 0.0,

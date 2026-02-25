@@ -1,0 +1,31 @@
+{
+  "run_tag": "cross_from5k_GSE287331_n3970",
+  "timestamp": "2026-02-20T14:38:27",
+  "train_dataset": "CURRENT_TRAIN",
+  "external_dataset": "GSE287331",
+  "n_common_cpgs": 3970,
+  "internal_metrics": {
+    "roc_auc": 0.9487577639751553,
+    "balanced_accuracy": 0.859472049689441,
+    "precision": 0.8620689655172413,
+    "recall": 0.8928571428571429,
+    "f1": 0.8771929824561403,
+    "mcc": 0.7223168032676477,
+    "tn": 19,
+    "fp": 4,
+    "fn": 3,
+    "tp": 25
+  },
+  "external_metrics": {
+    "roc_auc": 0.04459706959706959,
+    "balanced_accuracy": 0.10796703296703297,
+    "precision": 0.05027932960893855,
+    "recall": 0.15,
+    "f1": 0.07531380753138076,
+    "mcc": -0.7715553980945616,
+    "tn": 12,
+    "fp": 170,
+    "fn": 51,
+    "tp": 9
+  }
+}

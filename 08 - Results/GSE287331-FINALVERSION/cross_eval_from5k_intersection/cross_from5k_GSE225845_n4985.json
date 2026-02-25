@@ -1,0 +1,31 @@
+{
+  "run_tag": "cross_from5k_GSE225845_n4985",
+  "timestamp": "2026-02-20T12:25:53",
+  "train_dataset": "CURRENT_TRAIN",
+  "external_dataset": "GSE225845",
+  "n_common_cpgs": 4985,
+  "internal_metrics": {
+    "roc_auc": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "tn": 37,
+    "fp": 0,
+    "fn": 0,
+    "tp": 12
+  },
+  "external_metrics": {
+    "roc_auc": 0.41826801517067,
+    "balanced_accuracy": 0.5,
+    "precision": 0.5533596837944664,
+    "recall": 1.0,
+    "f1": 0.712468193384224,
+    "mcc": 0.0,
+    "tn": 0,
+    "fp": 113,
+    "fn": 0,
+    "tp": 140
+  }
+}

@@ -46,18 +46,18 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Three-way overlap of the final 5{,}000 CpG signatures independently selected in GSE69914, GSE225845 and GSE287331. }}{78}{figure.caption.141}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Inter-dataset effect concordance of the final 5{,}000 CpG signatures. }}{80}{figure.caption.144}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces GSE69914: KNN decision geometry and compressed-model score distributions.}}{95}{figure.caption.166}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces GSE69914: compressed panel diagnostics — discriminative weight versus effect size (left) and score decomposition by component (right).}}{96}{figure.caption.170}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces GSE225845: calibrated SVM decision boundary projected onto the first two principal components.}}{99}{figure.caption.176}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces GSE225845: SVM decision score distributions for the full and compressed panels.}}{99}{figure.caption.177}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces GSE225845: compressed panel diagnostics.}}{101}{figure.caption.181}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces GSE287331: SVM decision score distributions for the full and compressed panels.}}{104}{figure.caption.188}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces GSE287331: calibrated SVM decision boundary projected onto the first two principal components.}}{104}{figure.caption.189}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces GSE287331: compressed panel diagnostics.}}{105}{figure.caption.190}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces PC1 discriminative power for phenotype separation (Normal vs.\ Adjacent, within each dataset) and for batch separation (between datasets), reported as AUC. In all pairwise comparisons, dataset identity is at least as separable as biological class.}}{108}{figure.caption.197}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Pairwise $\Delta M$ (Adjacent -- Normal) concordance scatter plots on the shared CpG intersection. Each point is one CpG; axes show the mean $\Delta M$ computed independently in each cohort.}}{109}{figure.caption.200}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Heatmap of signed $\Delta M$ directions across the three cohorts on the shared CpG intersection, highlighting the polarity inversion of GSE287331 relative to the other two datasets.}}{110}{figure.caption.201}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts on the shared CpG intersection, stratified by sign-concordance group.}}{111}{figure.caption.202}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE69914. }}{95}{figure.caption.166}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE69914. }}{96}{figure.caption.170}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE69914. }}{97}{figure.caption.171}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE225845. }}{99}{figure.caption.177}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE225845. }}{101}{figure.caption.181}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE225845. }}{102}{figure.caption.182}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE287331. }}{104}{figure.caption.189}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE287331. }}{105}{figure.caption.190}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE287331. }}{106}{figure.caption.191}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces PC1 discriminative power for phenotype separation (Normal vs.\ Adjacent, within each dataset) and for batch separation (between datasets), reported as AUC. In all pairwise comparisons, dataset identity is at least as separable as biological class.}}{108}{figure.caption.198}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Pairwise $\Delta M$ (Adjacent -- Normal) concordance scatter plots on the shared CpG intersection. Each point is one CpG; axes show the mean $\Delta M$ computed independently in each cohort.}}{110}{figure.caption.201}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts on the shared CpG intersection, stratified by sign-concordance group.}}{110}{figure.caption.202}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

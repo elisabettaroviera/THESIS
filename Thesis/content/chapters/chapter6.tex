@@ -486,7 +486,7 @@ analyses below quantify the downstream consequences of this
 property on classification performance and external
 transferability.
 
-\subsubsection*{Intrinsic separability of the 5,000-CpG panel}
+\paragraph{Intrinsic separability of the 5,000-CpG panel}
 
 A $k$-Nearest Neighbours classifier ($k = 21$, uniform
 weights) is applied to the full 5,000-CpG panel under the
@@ -536,23 +536,26 @@ alongside the probability score distribution of the
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_knn_boundary}
-  \caption{KNN decision boundary — 5,000 CpGs,
-           PCA projection.}
+    {images/cap6/GSE69914_ScoreDist.pdf}
+  \caption{Distribution of KNN decision scores
+           for the 5,000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_knncheck_proba_dist_50cpg}
-  \caption{Probability score distribution —
-           50-CpG compressed model.}
+    {images/cap6/GSE69914_knncheck_proba_dist_50cpg.pdf}
+  \caption{Distribution of KNN decision scores
+           for the 50-CpG constrained panel.}
 \end{subfigure}
-\caption{GSE69914: KNN decision geometry and
-         compressed-model score distributions.}
+\caption{
+Score distributions for Normal and Adjacent samples under
+the full 5,000-CpG panel and the
+compressed 50-CpG subset in GSE69914.
+}
 \label{fig:gse69914_knn}
 \end{figure}
 
-\subsubsection*{Separation along the Tumor axis}
+\paragraph{Separation along the Tumor axis}
 
 For reference, a five-fold cross-validated evaluation on
 Normal versus Tumor tissue yields AUC = 1.000 and mean
@@ -563,7 +566,7 @@ comparatively subtle, consistent with the biological
 model of progressive epigenetic drift discussed in
 Chapter~\ref{chap:background}.
 
-\subsubsection*{Compression to 50 CpGs}
+\paragraph{Compression to 50 CpGs}
 
 The constrained optimisation ($\mu = 1.0$,
 $w_{\mathrm{COSMIC}} = 1$) yields the metrics in
@@ -600,28 +603,41 @@ right panel) shows substantial class overlap, confirming
 that neither panel version achieves confident separation
 in this cohort.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_volcano_50cpg}
-  \caption{Volcano plot: SVM coefficient magnitude
-           vs.\ $\Delta M$ effect size.}
+    {images/cap6/GSE69914_knn_boundary.pdf}
+  \caption{Projection of the KNN decision surface
+           onto the first two principal components (PC1$-$PC2).
+           }
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_knapsack_selected_contributions_stacked}
-  \caption{Stacked objective contributions for the
-           50 selected CpGs.}
+    {images/cap6/GSE69914_volcano_50cpg.pdf}
+  \caption{Relationship between KNN coefficient magnitude and
+           $\Delta M$ effect size (Adjacent $-$ Normal) for the
+           constrained 50-CpG panel.}
 \end{subfigure}
-\caption{GSE69914: compressed panel diagnostics —
-         discriminative weight versus effect size (left)
-         and score decomposition by component (right).}
-\label{fig:gse69914_compression}
+\caption{
+Decision geometry and coefficient–effect-size relationship 
+for the constrained 50-CpG predictive model in GSE69914. 
+}  
+\label{fig:gse69914_boundary} 
 \end{figure}
 
-\subsubsection*{Cross-dataset transferability}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]
+    {images/cap6/GSE69914_knapsack_selected_contributions_stacked.pdf}
+    \caption{ Component-wise decomposition of the MILP objective for the
+selected 50-CpG panel in GSE69914.
+    }
+    \label{fig:gse69914_compression}
+\end{figure}
+
+\paragraph{Cross-dataset transferability}
 
 External evaluation yields near-random discrimination on
 both target cohorts: AUC = 0.517 on GSE225845 and
@@ -635,7 +651,7 @@ shared epigenetic axis — a finding consistent with the
 low pairwise $\Delta\beta$ concordance documented in
 Chapter~\ref{chap:feature_selection}.
 
-\subsubsection*{Gene-level coherence and functional enrichment}
+\paragraph{Gene-level coherence and functional enrichment}
 
 The 50-CpG panel maps to 40 unique genes. Neither KEGG
 nor MSigDB Hallmark analysis yields significant terms at
@@ -696,7 +712,7 @@ samples, suggesting that the selected loci lie on the
 biological continuum of progressive epigenetic drift rather
 than encoding a tissue-contrast artefact.
 
-\subsubsection*{Linear separability of the 5,000-CpG panel}
+\paragraph{Linear separability of the 5,000-CpG panel}
 
 The linear SVM is evaluated under a stratified 80/20 split
 ($n_{\mathrm{train}} = 202$, $n_{\mathrm{test}} = 51$).
@@ -743,31 +759,28 @@ separated around the decision threshold $f(x) = 0$.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]
-  {images/cap6/GSE225845_boundary_pca_prob_calibrated}
-\caption{GSE225845: calibrated SVM decision boundary projected
-         onto the first two principal components.}
-\label{fig:gse225845_boundary}
-\end{figure}
-
-\begin{figure}[H]
-\centering
 \begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]{images/cap6/GSE225845_ScoreDist}
-  \caption{Score distribution — 5,000 CpGs.}
+  \includegraphics[width=\textwidth]
+    {images/cap6/GSE225845_ScoreDist.pdf}
+  \caption{Distribution of SVM decision scores
+           for the 5,000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE225845_svmcheck_score_dist_50cpg}
-  \caption{Score distribution — 50-CpG compressed model.}
+    {images/cap6/GSE225845_svmcheck_score_dist_50cpg.pdf}
+  \caption{Distribution of SVM decision scores
+           for the 50-CpG constrained panel.}
 \end{subfigure}
-\caption{GSE225845: SVM decision score distributions for the
-         full and compressed panels.}
-\label{fig:gse225845_scores}
+\caption{
+Score distributions for Normal and Adjacent samples under
+the full 5,000-CpG panel and the
+compressed 50-CpG subset in GSE225845.
+}
+\label{fig:gse225845_knn}
 \end{figure}
 
-\subsubsection*{Cross-dataset transferability of the
+\paragraph{Cross-dataset transferability of the
 5,000-CpG panel}
 
 Transferability is evaluated under the train-on-GSE225845 /
@@ -787,7 +800,7 @@ collapse cannot be attributed to overfitting: internal
 test performance under feature intersection remains stable
 at AUC $\approx 0.92$.
 
-\subsubsection*{Compression to 50 CpGs}
+\paragraph{Compression to 50 CpGs}
 
 The constrained optimisation ($\mu = 0.5$,
 $w_{\mathrm{COSMIC}} = 1$) yields the metrics in
@@ -832,23 +845,40 @@ structure — rather than marginal shift alone — drives
 discrimination. Figure~\ref{fig:gse225845_compression}
 summarises the compressed panel diagnostics.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE225845_volcano_50cpg}
-  \caption{Volcano plot: SVM coefficient magnitude
-           vs.\ $\Delta M$ effect size.}
+    {images/cap6/GSE225845_boundary_pca_prob_calibrated.pdf}
+  \caption{Projection of the calibrated linear SVM decision surface
+           onto the first two principal components (PC1$-$PC2).
+           }
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE225845_knapsack_selected_contributions_stacked}
-  \caption{Stacked objective contributions for the
-           50 selected CpGs.}
+    {images/cap6/GSE225845_volcano_50cpg.pdf}
+  \caption{Relationship between SVM coefficient magnitude and
+           $\Delta M$ effect size (Adjacent $-$ Normal) for the
+           constrained 50-CpG panel.}
 \end{subfigure}
-\caption{GSE225845: compressed panel diagnostics.}
-\label{fig:gse225845_compression}
+\caption{
+Decision geometry and coefficient–effect-size relationship 
+for the constrained 50-CpG predictive model in GSE225845. 
+}  
+\label{fig:gse225845_boundary} 
+\end{figure}
+
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]
+    {images/cap6/GSE225845_knapsack_selected_contributions_stacked.pdf}
+    \caption{ Component-wise decomposition of the MILP objective for the
+selected 50-CpG panel in GSE225845.
+    }
+    \label{fig:gse225845_compression}
 \end{figure}
 
 An important observation concerns the behaviour of the
@@ -867,7 +897,7 @@ along the same methylation axis that becomes more
 pronounced in full malignant transformation, and
 their discriminative capacity scales accordingly.
 
-\subsubsection*{Gene-level coherence and functional enrichment}
+\paragraph{Gene-level coherence and functional enrichment}
 
 The 50-CpG compressed panel maps to 42 unique genes; of
 the 50 loci, 44 are associated with COSMIC breast cancer
@@ -927,7 +957,7 @@ other two datasets — a property already anticipated by the
 inter-dataset stability analysis of
 Chapter~\ref{chap:feature_selection}.
 
-\subsubsection*{Linear separability of the 5,000-CpG panel}
+\paragraph{Linear separability of the 5,000-CpG panel}
 
 The linear SVM achieves perfect separation on the internal
 test set ($n_{\mathrm{test}} = 49$: 37 Normal, 12 Adjacent).
@@ -964,7 +994,7 @@ document a genuinely large effect size, and the signal is
 structurally concentrated enough that even 50 CpGs suffice
 to encode it completely (see below).
 
-\subsubsection*{Compression to 50 CpGs}
+\paragraph{Compression to 50 CpGs}
 
 The constrained optimisation ($\mu = 1.0$,
 $w_{\mathrm{COSMIC}} = 0.7$) preserves complete
@@ -999,32 +1029,54 @@ shows the decision score distributions for both panel
 sizes; complete class separation with no density overlap
 is visible in both panels.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_ScoreDist}
-  \caption{Score distribution — 5,000 CpGs.}
+    {images/cap6/GSE287331_ScoreDist.pdf}
+  \caption{Distribution of SVM decision scores
+           for the 5,000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_svmcheck_score_dist_50cpg}
-  \caption{Score distribution — 50-CpG compressed model.}
+    {images/cap6/GSE287331_svmcheck_score_dist_50cpg.pdf}
+  \caption{Distribution of SVM decision scores
+           for the 50-CpG constrained panel.}
 \end{subfigure}
-\caption{GSE287331: SVM decision score distributions for the
-         full and compressed panels.}
-\label{fig:gse287331_scores}
+\caption{
+Score distributions for Normal and Adjacent samples under
+the full 5,000-CpG panel and the
+compressed 50-CpG subset in GSE287331.
+}
+\label{fig:gse287331_knn}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.6\textwidth]
-  {images/cap6/GSE287331_boundary_pca_prob_calibrated}
-\caption{GSE287331: calibrated SVM decision boundary projected
-         onto the first two principal components.}
-\label{fig:gse287331_boundary}
+\begin{subfigure}[b]{0.48\textwidth}
+  \includegraphics[width=\textwidth]
+    {images/cap6/GSE287331_boundary_pca_prob_calibrated.pdf}
+  \caption{Projection of the calibrated linear SVM decision surface
+           onto the first two principal components (PC1$-$PC2).
+           }
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+  \includegraphics[width=\textwidth]
+    {images/cap6/GSE287331_volcano_50cpg.pdf}
+  \caption{Relationship between SVM coefficient magnitude and
+           $\Delta M$ effect size (Adjacent $-$ Normal) for the
+           constrained 50-CpG panel.}
+\end{subfigure}
+\caption{
+Decision geometry and coefficient–effect-size relationship 
+for the constrained 50-CpG predictive model in GSE287331. 
+}  
+\label{fig:gse287331_boundary} 
 \end{figure}
+
+
 
 As with GSE225845, the compressed panel generalises
 naturally to the Normal--Tumor contrast. Evaluated on
@@ -1050,26 +1102,18 @@ of GSE69914 and GSE225845.
 Figure~\ref{fig:gse287331_compression} reports the
 compressed panel diagnostics.
 
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_volcano_50cpg}
-  \caption{Volcano plot: SVM coefficient magnitude
-           vs.\ $\Delta M$ effect size.}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_knapsack_selected_contributions_stacked}
-  \caption{Stacked objective contributions for the
-           50 selected CpGs.}
-\end{subfigure}
-\caption{GSE287331: compressed panel diagnostics.}
-\label{fig:gse287331_compression}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]
+    {images/cap6/GSE287331_knapsack_selected_contributions_stacked.pdf}
+    \caption{ Component-wise decomposition of the MILP objective for the
+selected 50-CpG panel in GSE287331.
+    }
+    \label{fig:gse287331_compression}
 \end{figure}
 
-\subsubsection*{Cross-dataset transferability}
+\paragraph{Cross-dataset transferability}
 
 Despite perfect internal classification, external
 evaluation reveals complete loss of discriminative
@@ -1090,7 +1134,7 @@ coexistence of a strong but cohort-specific methylation
 signal with a structural misalignment that prevents
 cross-cohort generalisation.
 
-\subsubsection*{Gene-level coherence and functional enrichment}
+\paragraph{Gene-level coherence and functional enrichment}
 
 The 50-CpG panel maps to 42 unique genes. Unlike
 GSE225845, GO Biological Process analysis identifies
@@ -1186,7 +1230,7 @@ juxtaposition of these two AUC values for the same axis
 quantifies the relative dominance of biological versus
 technical variance in the leading principal direction.
 
-\subsubsection*{Within-dataset biological signal}
+\paragraph{Within-dataset biological signal}
 
 PC1 discriminates Normal from Adjacent tissue with AUC = 0.703
 in GSE69914, AUC = 0.677 in GSE225845, and AUC = 1.000 in
@@ -1196,7 +1240,7 @@ strongly so in GSE287331, consistent with its intrinsically
 large Normal--Adjacent effect size documented in
 Section~\ref{sec:results_gse287331}.
 
-\subsubsection*{Between-dataset batch effect}
+\paragraph{Between-dataset batch effect}
 
 When PC1 is used to discriminate cohort identity, the AUC
 values are 0.806 (GSE69914 vs.\ GSE225845), 0.987 (GSE69914
@@ -1241,7 +1285,7 @@ of $\Delta M$ (Adjacent -- Normal) is assessed via Spearman
 correlation and sign agreement on the CpG intersection of
 the three 5,000-CpG panels.
 
-\subsubsection*{Pairwise concordance metrics}
+\paragraph{Pairwise concordance metrics}
 
 \begin{table}[H]
 \centering
@@ -1287,19 +1331,19 @@ points across quadrants.
 \centering
 \begin{subfigure}[b]{0.31\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/6x6_deltaM_scatter_GSE69914_vs_GSE225845}
+    {images/cap6/6x6_deltaM_scatter_GSE69914_vs_GSE225845.pdf}
   \caption{GSE69914 vs.\ GSE225845\\ ($\rho=0.08$, $c=0.76$).}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.31\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/6x6_deltaM_scatter_GSE69914_vs_GSE287331}
+    {images/cap6/6x6_deltaM_scatter_GSE69914_vs_GSE287331.pdf}
   \caption{GSE69914 vs.\ GSE287331\\ ($\rho=0.49$, $c=0.50$).}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.31\textwidth}
   \includegraphics[width=\textwidth]
-    {images/cap6/6x6_deltaM_scatter_GSE225845_vs_GSE287331}
+    {images/cap6/6x6_deltaM_scatter_GSE225845_vs_GSE287331.pdf}
   \caption{GSE225845 vs.\ GSE287331\\ ($\rho=0.38$, $c=0.42$).}
 \end{subfigure}
 \caption{Pairwise $\Delta M$ (Adjacent -- Normal) concordance
@@ -1309,21 +1353,11 @@ points across quadrants.
 \label{fig:deltam_scatter}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.65\textwidth]
-  {images/cap6/6x6_deltaM_direction_heatmap}
-\caption{Heatmap of signed $\Delta M$ directions across the
-         three cohorts on the shared CpG intersection,
-         highlighting the polarity inversion of GSE287331
-         relative to the other two datasets.}
-\label{fig:deltam_heatmap}
-\end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.65\textwidth]
-  {images/cap6/6x6_deltaM_violin}
+  {images/cap6/6x6_deltaM_violin.pdf}
 \caption{Distribution of $\Delta M$ (Adjacent -- Normal)
          across the three cohorts on the shared CpG
          intersection, stratified by sign-concordance group.}

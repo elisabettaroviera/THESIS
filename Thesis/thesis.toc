@@ -192,12 +192,28 @@
 \contentsline {paragraph}{Over-representation analysis}{93}{section*.163}%
 \contentsline {section}{\numberline {6.3}Intra-Dataset Results}{93}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{94}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{97}{subsection.6.3.2}%
+\contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{94}{section*.164}%
+\contentsline {paragraph}{Separation along the Tumor axis}{95}{section*.167}%
+\contentsline {paragraph}{Compression to 50 CpGs}{95}{section*.168}%
+\contentsline {paragraph}{Cross-dataset transferability}{96}{section*.172}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{96}{section*.173}%
+\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{98}{subsection.6.3.2}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{98}{section*.175}%
+\contentsline {paragraph}{Cross-dataset transferability of the 5,000-CpG panel}{99}{section*.178}%
+\contentsline {paragraph}{Compression to 50 CpGs}{99}{section*.179}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{100}{section*.183}%
 \contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{102}{subsection.6.3.3}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{103}{section*.185}%
+\contentsline {paragraph}{Compression to 50 CpGs}{103}{section*.187}%
+\contentsline {paragraph}{Cross-dataset transferability}{105}{section*.192}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{105}{section*.193}%
 \contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{107}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}PC1 as a Diagnostic Axis: Biological Signal versus Batch Structure}{107}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Directional Concordance of Methylation Shifts}{108}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Synthesis and Implications for Joint Modelling}{111}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.1}PC1 as a Diagnostic Axis: Biological Signal versus Batch Structure}{108}{subsection.6.4.1}%
+\contentsline {paragraph}{Within-dataset biological signal}{108}{section*.196}%
+\contentsline {paragraph}{Between-dataset batch effect}{108}{section*.197}%
+\contentsline {subsection}{\numberline {6.4.2}Directional Concordance of Methylation Shifts}{109}{subsection.6.4.2}%
+\contentsline {paragraph}{Pairwise concordance metrics}{109}{table.caption.200}%
+\contentsline {subsection}{\numberline {6.4.3}Synthesis and Implications for Joint Modelling}{110}{subsection.6.4.3}%
 \contentsline {section}{\numberline {6.5}Synthesis and Implications}{111}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Biological Synthesis}{112}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{112}{section.7.1}%

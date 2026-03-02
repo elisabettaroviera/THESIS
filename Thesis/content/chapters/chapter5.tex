@@ -133,7 +133,7 @@ In light of the statistical and biological considerations discussed above,
 the feature selection strategy developed in this chapter is designed to 
 satisfy four interconnected objectives.
 
-\begin{itemize}[label=-]
+\begin{itemize}[label=--]
     \item \textbf{Strict leakage control}: all selection procedures are 
     confined to training data, preventing inflation of evaluation metrics 
     through inadvertent information exposure.
@@ -1913,9 +1913,9 @@ GSE225845 — cross-dataset transfer of trained models is a
 principled and tractable objective.
 Where systematic inversion is present, as with GSE287331,
 orientation-aware or cohort-adaptive strategies are required.
-Chapter~\ref{chap:CpGPT} addresses this challenge through
-CpGPT-based representation learning, investigating whether
-higher-order methylation organisation, not captured by linear
-$\Delta\beta$ projections, supports a more generalisable encoding
-of the Normal--Adjacent epigenetic transition across cohorts with
-divergent drift orientations.
+Chapter~\ref{chap:multi_cohort_integration} addresses this challenge
+through multi-cohort pooling and biological synthesis,
+investigating whether signal consolidation across heterogeneous
+cohorts supports a more robust characterisation of the
+Normal--Adjacent epigenetic transition despite divergent
+drift orientations.

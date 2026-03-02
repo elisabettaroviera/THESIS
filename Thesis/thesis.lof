@@ -46,16 +46,28 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Three-way overlap of the final 5{,}000 CpG signatures independently selected in GSE69914, GSE225845 and GSE287331. }}{78}{figure.caption.141}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Inter-dataset effect concordance of the final 5{,}000 CpG signatures. }}{80}{figure.caption.144}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces GSE69914: KNN decision geometry and compressed-model score distributions.}}{95}{figure.caption.166}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces GSE69914: compressed panel diagnostics — discriminative weight versus effect size (left) and score decomposition by component (right).}}{96}{figure.caption.170}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces GSE225845: calibrated SVM decision boundary projected onto the first two principal components.}}{99}{figure.caption.176}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces GSE225845: SVM decision score distributions for the full and compressed panels.}}{99}{figure.caption.177}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces GSE225845: compressed panel diagnostics.}}{101}{figure.caption.181}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces GSE287331: SVM decision score distributions for the full and compressed panels.}}{104}{figure.caption.188}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces GSE287331: calibrated SVM decision boundary projected onto the first two principal components.}}{104}{figure.caption.189}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces GSE287331: compressed panel diagnostics.}}{105}{figure.caption.190}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces PC1 discriminative power for phenotype separation (Normal vs.\ Adjacent, within each dataset) and for batch separation (between datasets), reported as AUC. In all pairwise comparisons, dataset identity is at least as separable as biological class.}}{108}{figure.caption.197}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Pairwise $\Delta M$ (Adjacent -- Normal) concordance scatter plots on the shared CpG intersection. Each point is one CpG; axes show the mean $\Delta M$ computed independently in each cohort.}}{109}{figure.caption.200}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Heatmap of signed $\Delta M$ directions across the three cohorts on the shared CpG intersection, highlighting the polarity inversion of GSE287331 relative to the other two datasets.}}{110}{figure.caption.201}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts on the shared CpG intersection, stratified by sign-concordance group.}}{111}{figure.caption.202}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{104}{figure.caption.165}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{105}{figure.caption.166}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{106}{figure.caption.167}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{109}{figure.caption.168}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{110}{figure.caption.169}%
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{111}{figure.caption.170}%
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{113}{figure.caption.174}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{122}{figure.caption.204}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{123}{figure.caption.205}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{124}{figure.caption.206}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{127}{figure.caption.207}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{128}{figure.caption.208}%
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{129}{figure.caption.209}%
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{131}{figure.caption.213}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

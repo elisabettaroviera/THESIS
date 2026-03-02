@@ -4,7 +4,7 @@
 \section{Methodological Objectives}
 \label{sec:methodological_objectives}
 
-This chapter establishes the methodological foundation for all subsequent analyses by addressing the construction, organization, and preliminary characterization of the DNA methylation datasets used in this thesis. Following the biological background and problem formulation introduced in Chapters~\ref{sec:introduction} and~\ref{sec:biology_medicine}, the present chapter acts as a bridge between domain-specific knowledge and quantitative modeling, ensuring that downstream analyses are grounded on a technically sound and well-understood data representation.
+This chapter establishes the methodological foundation for all subsequent analyses by addressing the construction, organization, and preliminary characterization of the DNA methylation datasets used in this thesis. Following the biological background and problem formulation introduced in Chapters~\ref{chap:introduction} and~\ref{chap:biological_background}, the present chapter acts as a bridge between domain-specific knowledge and quantitative modeling, ensuring that downstream analyses are grounded on a technically sound and well-understood data representation.
 
 Genome-wide DNA methylation data are characterized by extremely high dimensionality, heterogeneous signal-to-noise ratios, and the coexistence of subtle biological effects with multiple sources of technical variability. In this context, premature application of statistical models or feature-selection procedures may lead to biased conclusions driven by artefacts rather than genuine biological structure. A careful examination of data quality, distributional properties, and internal consistency is therefore a necessary prerequisite for any reliable inference \cite{Yousefi2013}.
 
@@ -1036,7 +1036,7 @@ The objective of this section is not to merge the datasets—an approach that wo
 
 Across all three datasets, the intra-dataset analyses revealed three highly consistent phenomena:
 
-\begin{itemize}[label=-]
+\begin{itemize}[label=--]
     \item Normal and Adjacent tissues are globally similar, with nearly superimposed $\beta$-value distributions and
     comparable CpG-wise variance profiles.
     \item Tumour samples show increased heterogeneity and a clear bias toward hypomethylation, although the magnitude

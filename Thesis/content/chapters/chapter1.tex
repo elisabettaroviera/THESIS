@@ -1,4 +1,201 @@
-\chapter{Introduzione}
-\label{sec:introduction}
+% ============================================================
+\chapter{Introduction}
+\label{chap:introduction}
+% ============================================================
 
-INTRODUZIONE DELLA TESI
+
+% -------------------------------------------------------
+\section{Research Motivation  }
+% -------------------------------------------------------
+
+Breast cancer is the most commonly diagnosed malignancy worldwide
+and remains a leading cause of cancer-related mortality among women.
+Despite substantial advances in early detection and targeted therapy,
+the molecular mechanisms governing the earliest phases of tumour
+initiation remain incompletely understood.
+
+Carcinogenesis is not a binary transition from normal to malignant,
+but a progressive deviation from epigenetic homeostasis.
+The epigenetic hallmarks of frank tumour tissue, including
+genome-wide hypomethylation and focal hypermethylation of
+tumour-suppressor loci, have been extensively characterised
+\cite{ehrlich2002,bird2002}. The methylation signatures of
+invasive breast carcinoma are therefore well established.
+While the existence of epigenetic field defects in Normal-Adjacent
+breast tissue has been established \cite{Teschendorff2016},
+their reproducible and transferable characterisation across
+independent cohorts — under strict statistical control —
+remains an open methodological challenge.
+
+This observation forms the basis of the \textit{field cancerisation}
+hypothesis, originally proposed in oral cancer and subsequently
+extended to breast tissue through genome-wide methylation profiling
+\cite{Teschendorff2016}. The field effect posits that carcinogenesis
+does not arise from a single isolated cell but emerges within a
+broader epigenetically conditioned tissue environment —
+a molecularly altered field that remains invisible to the pathologist
+yet detectable at the epigenomic level.
+
+DNA methylation is particularly well suited for investigating
+such early alterations. Methylation marks are mitotically heritable,
+chemically stable, and measurable at single-locus resolution
+across hundreds of thousands of CpG sites using Illumina array
+platforms. Prior work has demonstrated that alterations
+accumulating in Normal-Adjacent breast tissue preferentially
+target Polycomb-regulated and bivalent chromatin loci,
+precisely the genomic regions implicated in cancer-associated
+silencing \cite{Teschendorff2016,Teschendorff2010}.
+Critically, these alterations manifest predominantly as
+increased methylation \emph{variability} rather than as large
+directional mean shifts, rendering classical differential
+methylation analyses insufficient for their detection
+\cite{Teschendorff2014}.
+
+This thesis addresses whether DNA methylation alone can
+reproducibly discriminate Normal from Normal-Adjacent breast
+tissue across independent cohorts under strict statistical control.
+
+\section{Unresolved Limitations and Open Problem}
+
+Despite the biological importance of the Normal--Adjacent state,
+four unresolved limitations motivate the present work.
+
+\paragraph{Mean-based differential methylation is insufficient.}
+
+Standard approaches identify discriminative CpGs via
+comparison of group means using linear models or t-tests.
+However, field-effect alterations are expected to manifest
+as dispersion increases rather than uniform shifts.
+Teschendorff and colleagues formalised the distinction between
+differentially methylated (DM) and differentially variable (DV)
+loci, demonstrating that DV CpGs in Normal-Adjacent tissue are
+enriched for biologically meaningful genomic features
+\cite{Teschendorff2014,Teschendorff2016}.
+A reliance on mean-based selection therefore risks missing
+a substantial component of the pre-malignant signal.
+
+\paragraph{Field defects are heterogeneous and cohort-dependent.}
+
+Epigenetic alterations associated with field cancerisation
+are not homogeneous across individuals or genomic loci.
+Moreover, as documented in the analyses developed
+in Chapters~\ref{chap:feature_selection}
+and~\ref{chap:model_training_evaluation}, the direction
+of epigenetic drift along the Normal--Adjacent axis
+is not consistent across independent cohorts.
+Such polarity heterogeneity has direct consequences for
+predictive transfer and has not been systematically
+characterised in prior work.
+
+\paragraph{High-dimensional methylation data are structurally unstable.}
+
+Illumina 450K and EPIC arrays profile up to $8.6 \times 10^5$
+CpG loci simultaneously, while available breast tissue
+cohorts typically include fewer than $n=300$ samples.
+This high-dimensional, low-sample-size (HDLSS) regime
+($p \gg n$) induces instability in marginal feature selection
+procedures \cite{Meinshausen2010}.
+Small perturbations in the training set may yield markedly
+different CpG rankings, particularly in the presence of
+strong local correlation among neighbouring probes.
+Information leakage during preprocessing or feature
+selection can further inflate performance estimates
+\cite{Ambroise2002}.
+
+\paragraph{Cross-dataset reproducibility is rarely enforced
+under polarity-aware constraints.}
+
+When methylation-based classifiers targeting the
+Normal--Adjacent distinction are evaluated across
+independent cohorts, the implicit assumption is that
+the direction of epigenetic drift is consistent across
+studies.
+This assumption is rarely tested explicitly.
+The present work demonstrates that drift orientation
+is not universally preserved: one of the three cohorts
+examined exhibits a systematically inverted drift axis
+relative to the other two, producing directed
+misclassification rather than random degradation
+in transfer settings.
+Failing to account for this structural heterogeneity
+leads to misleading conclusions about signature
+transferability.\\
+
+
+
+\noindent These four limitations define the central open problem
+addressed in this thesis.
+
+\begin{quote}
+\textit{Is it possible to construct a robust, transferable
+CpG-based signature that discriminates Normal from
+Normal-Adjacent breast tissue, while controlling for
+high-dimensional instability and enforcing strict
+cross-cohort reproducibility?}
+\end{quote}
+
+
+% -------------------------------------------------------
+\section{Central Hypothesis}
+% -------------------------------------------------------  
+ 
+The central hypothesis of this thesis is that
+Normal-Adjacent breast tissue occupies a
+quantitatively characterisable intermediate
+position along an epigenetic trajectory connecting
+histologically normal tissue to invasive tumour.
+This Normal--Adjacent--Tumour axis is not merely
+conceptual but measurable from high-dimensional
+methylation data under appropriate statistical constraints.
+This hypothesis yields four testable implications.
+First, intra-dataset discrimination of Normal from
+Normal-Adjacent tissue should be statistically feasible
+using a variance-sensitive, leakage-controlled CpG panel,
+yielding AUC substantially above chance.
+Second, cohorts exhibiting concordant drift orientation
+should support bidirectional cross-dataset transfer
+with non-trivial predictive performance.
+Third, polarity-inverted cohorts should produce
+systematic misclassification in transfer settings,
+leading to directed sub-random AUC values rather
+than random degradation.
+Fourth, a compact CpG panel derived within a single
+cohort should retain measurable discriminative power
+when transferred to an external cohort with aligned
+drift orientation. Failure of these predictions would weaken or refute
+the proposed model.
+
+% -------------------------------------------------------
+\section{Objectives and Thesis Structure}
+% -------------------------------------------------------
+
+The thesis pursues five methodological objectives,
+addressed across the following chapters.
+
+Chapter~\ref{chap:biological_background} establishes
+the biological and epigenetic background.
+
+Chapter~\ref{sec:data_preparation_exploration} introduces
+the three cohorts (GSE69914, GSE225845, GSE287331)
+and characterises their intra- and inter-dataset structure.
+
+Chapter~\ref{chap:data_preprocessing} constructs a
+leakage-controlled preprocessing pipeline enforcing
+strict separation between training and test data
+at all stages.
+
+Chapter~\ref{chap:feature_selection} develops a
+stability-aware feature selection framework integrating
+variance sensitivity, directional stability, correlation
+pruning, and biological priors, and reports
+inter-dataset concordance analyses.
+
+Chapter~\ref{chap:model_training_evaluation} evaluates
+predictive performance under intra- and cross-dataset
+designs, derives a compact 50-CpG panel, and
+characterises the consequences of drift polarity
+heterogeneity for signature transferability.
+
+Finally, Chapter~\ref{chap:multi_cohort_integration} integrates
+findings across cohorts and discusses implications
+for epigenetic biomarker discovery.

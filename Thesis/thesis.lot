@@ -5,34 +5,35 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Overview of the GSE69914 dataset after initial cohort curation.}}{17}{table.caption.7}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Overview of the GSE225845 dataset after initial cohort curation.}}{23}{table.caption.21}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Overview of the GSE287331 dataset after initial cohort curation.}}{27}{table.caption.35}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Cross-dataset comparison of Normal (N) vs Adjacent (A) contrasts using global and instability metrics.}}{33}{table.caption.50}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Overview of the GSE69914 dataset after initial cohort curation.}}{15}{table.caption.3}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Overview of the GSE225845 dataset after initial cohort curation.}}{20}{table.caption.17}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Overview of the GSE287331 dataset after initial cohort curation.}}{25}{table.caption.32}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Cross-dataset comparison of Normal (N) vs Adjacent (A) contrasts using global and instability metrics.}}{30}{table.caption.46}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces CpG filtering summary for the GSE69914 dataset.}}{45}{table.caption.70}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces CpG filtering summary for the GSE225845 dataset.}}{48}{table.caption.78}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces CpG filtering summary for the GSE287331 dataset.}}{52}{table.caption.87}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces CpG dimensionality before and after preprocessing.}}{54}{table.caption.93}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces CpG filtering summary for the GSE69914 dataset.}}{42}{table.caption.66}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces CpG filtering summary for the GSE225845 dataset.}}{44}{table.caption.74}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces CpG filtering summary for the GSE287331 dataset.}}{49}{table.caption.83}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces CpG dimensionality before and after preprocessing.}}{51}{table.caption.89}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Permutation-based enrichment of pairwise overlaps among the three final $5{,}000$-CpG panels.}}{79}{table.caption.142}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Number of CpGs retained at each step of the feature selection pipeline (training set).}}{84}{table.caption.150}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Permutation-based enrichment of pairwise overlaps among the three final $5{,}000$-CpG panels.}}{74}{table.caption.138}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Number of CpGs retained at each step of the feature selection pipeline (training set).}}{80}{table.caption.146}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics — KNN, 5,000 CpGs (GSE69914, internal test)}}{94}{table.caption.165}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics — KNN, 50 CpGs (GSE69914, internal test)}}{95}{table.caption.169}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE69914)}}{97}{table.caption.174}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE225845, internal test)}}{98}{table.caption.176}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE225845, internal test)}}{100}{table.caption.180}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE225845)}}{101}{table.caption.184}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE287331, internal test)}}{103}{table.caption.186}%
-\contentsline {table}{\numberline {6.8}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE287331, internal test)}}{104}{table.caption.188}%
-\contentsline {table}{\numberline {6.9}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE287331)}}{107}{table.caption.194}%
-\contentsline {table}{\numberline {6.10}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE287331)}}{107}{table.caption.195}%
-\contentsline {table}{\numberline {6.11}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{109}{table.caption.200}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{118}{table.caption.203}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics — KNN, 5,000 CpGs (GSE69914, internal test)}}{89}{table.caption.161}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics — KNN, 50 CpGs (GSE69914, internal test)}}{90}{table.caption.165}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE69914)}}{92}{table.caption.170}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE225845, internal test)}}{93}{table.caption.172}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE225845, internal test)}}{95}{table.caption.176}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE225845)}}{96}{table.caption.180}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE287331, internal test)}}{98}{table.caption.182}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE287331, internal test)}}{99}{table.caption.184}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.190}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.191}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{104}{table.caption.196}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{113}{table.caption.199}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Global performance of the Horvath epigenetic clock on GSE225845.}}{128}{table.caption.210}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Performance of the Horvath clock stratified by tissue group.}}{128}{table.caption.211}%

@@ -2,52 +2,35 @@
 \chapter{Filtering lists}
 \label{sec:probe-filters}
 
-\lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, const, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  sensitive=true
-}
-
-
-
 \section{Probe Filtering Resources}
 \label{app:probe_filters}
 
-This appendix documents the five external annotation resources adopted for technical probe filtering across all three datasets.
-Each
-resource targets distinct classes of measurement artefacts; together they define
-the union-based exclusion criterion applied in
-Section~\ref{subsec:step2}. Table~\ref{tab:filter_categories} summarises the
-technical categories covered by each resource.
+This appendix documents the five external annotation resources adopted for
+technical probe filtering across all three datasets. Each resource targets
+distinct classes of measurement artefacts; together they define the union-based
+exclusion criterion applied in Section~\ref{subsec:step2}.
+Table~\ref{tab:filter_categories} summarises the categories covered by each
+resource.
 
 \subsection{Naeem \textit{et al.} (2014)}
 \label{app:naeem2014}
 
 Naeem \textit{et al.}~\cite{naeem2014} proposed a structured filtering framework
-for the HumanMethylation450 array, designed to reduce false discoveries by
-sequentially discarding probes on the basis of hybridisation specificity and
-genomic integrity. The framework excludes probes
-that multi-map or cross-hybridise to additional genomic loci, probes overlapping
-repetitive elements (LINE, SINE, Alu), and probes overlapping regions harbouring insertion–deletion polymorphisms (INDELs). For SNP-affected probes, a
-distinction is drawn between variants at the interrogated CpG or single-base
-extension site---which directly compromise the methylation measurement and
-are therefore excluded---and variants located nearby but not interfering in
-bisulfite space, which are retained. The resulting exclusion set thus removes
-probes affected by cross-reactivity, structural polymorphisms, and
-measurement-critical SNPs.
+for the HumanMethylation450 array that excludes probes multi-mapping or
+cross-hybridising to additional loci, probes overlapping repetitive elements
+(LINE, SINE, Alu), and probes overlapping insertion--deletion polymorphisms.
+For SNP-affected probes, variants at the interrogated CpG or single-base
+extension site — which directly compromise the methylation measurement — are
+excluded, while nearby variants not interfering in bisulfite space are retained.
 
 \subsection{Chen \textit{et al.} (2013)}
 \label{app:chen2013}
 
-Chen \textit{et al.}~\cite{chen2013} empirically identified probes in the 450K
-array exhibiting off-target hybridisation or overlap with common SNPs. In the
-present work, only the cross-reactive probe list is used. This catalogue
-enumerates approximately 29{,}000 multi-mapping probes whose methylation signal
-cannot be unambiguously attributed to a single genomic locus, and whose inclusion
-would therefore introduce spatially unresolved signal into the feature matrix.
+Chen \textit{et al.}~\cite{chen2013} empirically identified 450K probes
+exhibiting off-target hybridisation or overlap with common SNPs. Only the
+cross-reactive probe list is used here, enumerating approximately $29{,}000$
+multi-mapping probes whose methylation signal cannot be unambiguously attributed
+to a single genomic locus.
 
 \begin{table}[t]
 \centering
@@ -64,84 +47,53 @@ would therefore introduce spatially unresolved signal into the feature matrix.
 \textbf{McCartney} \\
 \midrule
 Cross-hybridisation &
-Yes &
-Yes &
-Yes &
-\texttt{MASK\_mapping} &
-Yes \\
+Yes & Yes & Yes & \texttt{MASK\_mapping} & Yes \\
 SNP at CpG &
-Yes &
---- &
-Yes &
-\texttt{MASK\_snp5}, \texttt{MASK\_extBase} &
---- \\
+Yes & --- & Yes & \texttt{MASK\_snp5}, \texttt{MASK\_extBase} & --- \\
 Nearby SNP &
-Conditional &
---- &
---- &
---- &
---- \\
+Conditional & --- & --- & --- & --- \\
 Structural variant &
-Yes &
---- &
---- &
---- &
---- \\
+Yes & --- & --- & --- & --- \\
 Non-CpG probes &
---- &
---- &
-Yes &
-\texttt{MASK\_nonCG} &
-Yes \\
+--- & --- & Yes & \texttt{MASK\_nonCG} & Yes \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-
 \subsection{Pidsley \textit{et al.} (2016)}
 \label{app:pidsley2016}
 
-Pidsley \textit{et al.}~\cite{pidsley2016} provide a platform-level assessment
-of the EPIC array, releasing annotated probe lists that flag loci where technical
-bias arises from design- or genome-related sources. Three categories are
-relevant here. First, CpG-targeting probes with sequence homology to additional
-genomic loci, which yield non-unique hybridisation and potentially ambiguous
-$\beta$ estimates. Second, non-CpG-targeting probes affected by analogous
-off-target issues, excluded due to limited interpretability in CpG-centric
-analyses. Third, probes overlapping common genetic variation at three critical
-positions: the interrogated CpG itself (polymorphic CpG, directly affecting the
-presence of the CpG dinucleotide); the single-base extension site of Type~I
-probes (perturbing extension chemistry and dye-intensity ratios); and within the
-probe body (reducing binding affinity or altering hybridisation kinetics for
-common variants).
+Pidsley \textit{et al.}~\cite{pidsley2016} provide annotated probe lists for
+the EPIC array flagging three relevant categories: CpG-targeting probes with
+sequence homology to additional loci; non-CpG-targeting probes with analogous
+off-target issues; and probes overlapping common genetic variation at the
+interrogated CpG, the single-base extension site of Type~I probes, or within
+the probe body.
 
 \subsection{Zhou \textit{et al.} (2016)}
 \label{app:zhou2016}
 
 Zhou \textit{et al.}~\cite{zhou2017} released a unified probe annotation for
-both 450K and EPIC arrays encoding technical reliability through a set of binary
-mask columns (\texttt{MASK\_*}). The masks applied in this work flag probes with
-low or inconsistent mapping quality (\texttt{MASK\_mapping}); Type~I probes
-carrying a SNP at the extension base that induces a colour-channel switch
-(\texttt{MASK\_typeINextBaseSwitch}); probes whose extension base is inconsistent
-with the expected channel or CpG context (\texttt{MASK\_extBase}); probes with
-non-unique 30-bp 3$'$ subsequences susceptible to cross-hybridisation
-(\texttt{MASK\_sub30.copy}); probes overlapping an SNP within $\pm$5\,bp of the
-interrogated CpG (\texttt{MASK\_snp5.common}); and probes overlapping SNPs with
-global minor allele frequency above 1\% (\texttt{MASK\_snp5.GMAF1p}). The
-composite \texttt{MASK\_general} field, which integrates mapping, SNP, and
-cross-reactivity criteria, is used as the primary filter for general-purpose
-exclusion. Probes overlapping RepeatMasker regions (\texttt{MASK\_rmsk15}) are
-not excluded, consistent with standard practice.
+450K and EPIC arrays using binary mask columns. The masks applied here flag
+probes with low mapping quality (\texttt{MASK\_mapping}); Type~I probes with
+a SNP at the extension base causing a colour-channel switch
+(\texttt{MASK\_typeINextBaseSwitch}); probes with an inconsistent extension base
+(\texttt{MASK\_extBase}); probes with non-unique 30-bp 3$'$ subsequences
+(\texttt{MASK\_sub30.copy}); and probes overlapping SNPs within $\pm$5\,bp of
+the interrogated CpG (\texttt{MASK\_snp5.common}, \texttt{MASK\_snp5.GMAF1p}).
+The composite \texttt{MASK\_general} field is used as the primary filter;
+RepeatMasker probes (\texttt{MASK\_rmsk15}) are retained, consistent with
+standard practice.
 
 \subsection{McCartney \textit{et al.} (2016)}
 \label{app:mccartney2016}
 
 McCartney \textit{et al.}~\cite{mccartney2016} assessed probe design artefacts
-on the EPIC array and published supplementary tables enumerating
-cross-hybridising CpG-targeting probes and cross-hybridising non-CpG-targeting
-probes. These lists complement the Pidsley and Zhou resources by providing an
-independent empirical characterisation of off-target hybridisation on the EPIC
-platform.
+on the EPIC array, publishing lists of cross-hybridising CpG- and non-CpG-targeting
+probes that complement the Pidsley and Zhou resources with an independent
+characterisation of off-target hybridisation.\\
 
-The combined application of these resources ensures that downstream analyses operate on a probe set with maximised hybridisation specificity and minimal confounding by common genetic variation.
+
+\noindent The combined application of these resources ensures that downstream analyses
+operate on a probe set with maximised hybridisation specificity and minimal
+confounding by common genetic variation.

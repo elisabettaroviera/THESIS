@@ -2380,8 +2380,8 @@
     <bcf:citekey order="5" intorder="1">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="5" intorder="2">Teschendorff2010</bcf:citekey>
     <bcf:citekey order="6" intorder="1">Teschendorff2014</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">Teschendorff2014</bcf:citekey>
-    <bcf:citekey order="7" intorder="2">Teschendorff2016</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">Teschendorff2016</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">Teschendorff2014</bcf:citekey>
     <bcf:citekey order="8" intorder="1">Meinshausen2010</bcf:citekey>
     <bcf:citekey order="9" intorder="1">Ambroise2002</bcf:citekey>
     <bcf:citekey order="10" intorder="1">Hanahan2011</bcf:citekey>
@@ -2389,8 +2389,8 @@
     <bcf:citekey order="12" intorder="1">NCI_BRCA</bcf:citekey>
     <bcf:citekey order="13" intorder="1">Suijkerbuijk2008</bcf:citekey>
     <bcf:citekey order="13" intorder="2">Bartlett2022</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">Hanahan2000</bcf:citekey>
-    <bcf:citekey order="14" intorder="2">Hanahan2011</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">Hanahan2011</bcf:citekey>
+    <bcf:citekey order="14" intorder="2">Hanahan2000</bcf:citekey>
     <bcf:citekey order="15" intorder="1">Hanahan2011</bcf:citekey>
     <bcf:citekey order="16" intorder="1">bird2002</bcf:citekey>
     <bcf:citekey order="17" intorder="1">bird2002</bcf:citekey>
@@ -2424,16 +2424,16 @@
     <bcf:citekey order="43" intorder="1">Sokolov2024</bcf:citekey>
     <bcf:citekey order="44" intorder="1">ehrlich2002</bcf:citekey>
     <bcf:citekey order="44" intorder="2">bird2002</bcf:citekey>
-    <bcf:citekey order="44" intorder="3">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="44" intorder="3">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="45" intorder="1">brca_factsheet</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">Bartlett2022</bcf:citekey>
-    <bcf:citekey order="46" intorder="2">Suijkerbuijk2008</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">Suijkerbuijk2008</bcf:citekey>
+    <bcf:citekey order="46" intorder="2">Bartlett2022</bcf:citekey>
     <bcf:citekey order="47" intorder="1">bird2002</bcf:citekey>
     <bcf:citekey order="47" intorder="2">maksimovic2012</bcf:citekey>
     <bcf:citekey order="48" intorder="1">ehrlich2002</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="50" intorder="1">ehrlich2002</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="52" intorder="1">Teschendorff2013BMIQ</bcf:citekey>
     <bcf:citekey order="53" intorder="1">illumina_manifest_epic</bcf:citekey>
     <bcf:citekey order="54" intorder="1">zhou2017</bcf:citekey>
@@ -2449,18 +2449,18 @@
     <bcf:citekey order="61" intorder="1">Teschendorff2013BMIQ</bcf:citekey>
     <bcf:citekey order="62" intorder="1">zhou2017</bcf:citekey>
     <bcf:citekey order="62" intorder="2">pidsley2016</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="64" intorder="1">Yates2024_NormalMucosaField</bcf:citekey>
     <bcf:citekey order="65" intorder="1">Yates2024_NormalMucosaField</bcf:citekey>
     <bcf:citekey order="66" intorder="1">Zhang2024_TumorInitiationEpigenetic</bcf:citekey>
     <bcf:citekey order="67" intorder="1">Yates2024_NormalMucosaField</bcf:citekey>
     <bcf:citekey order="68" intorder="1">Zhang2024_TumorInitiationEpigenetic</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">Yates2024_NormalMucosaField</bcf:citekey>
-    <bcf:citekey order="69" intorder="2">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">Teschendorff2016</bcf:citekey>
+    <bcf:citekey order="69" intorder="2">Yates2024_NormalMucosaField</bcf:citekey>
     <bcf:citekey order="70" intorder="1">zhou2017</bcf:citekey>
     <bcf:citekey order="71" intorder="1">pidsley2016</bcf:citekey>
     <bcf:citekey order="71" intorder="2">Fortin2014_funnorm</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">teschendorff2016</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">Teschendorff2016</bcf:citekey>
     <bcf:citekey order="72" intorder="2">Timp2013_EpigeneticModel</bcf:citekey>
     <bcf:citekey order="73" intorder="1">maksimovic2012</bcf:citekey>
     <bcf:citekey order="73" intorder="2">pidsley2016</bcf:citekey>
@@ -2616,6 +2616,21 @@
     <bcf:citekey order="182" intorder="2">Bock2012</bcf:citekey>
     <bcf:citekey order="183" intorder="1">Edgar2017</bcf:citekey>
     <bcf:citekey order="184" intorder="1">Pidsley2016</bcf:citekey>
+    <bcf:citekey order="185" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="185" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="186" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="186" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="187" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="187" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="188" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="189" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="190" intorder="1">Teschendorff2010</bcf:citekey>
+    <bcf:citekey order="190" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="191" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="192" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="193" intorder="1">Teschendorff2010</bcf:citekey>
+    <bcf:citekey order="194" intorder="1">Gold2013</bcf:citekey>
+    <bcf:citekey order="195" intorder="1">Azim2012</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

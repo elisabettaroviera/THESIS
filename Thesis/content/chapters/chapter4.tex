@@ -1,58 +1,47 @@
 \chapter{Data preprocessing}
 \label{chap:data_preprocessing}
 
+
 \section{Preprocessing Rationale and Technical Constraints}
 \label{sec:preprocessing_rationale}
-DNA methylation arrays provide high-dimensional, genome-wide measurements 
-in which biological variability and platform-specific technical artefacts 
-are inevitably superimposed. The exploratory analyses of Chapter~\ref{sec:data_preparation_exploration} 
-revealed a consistent picture across all three cohorts: Normal and Adjacent 
-tissues exhibit nearly identical global methylation distributions, 
-overlapping variance profiles, and indistinguishable sample-level 
-correlation structure. Meaningful differences between tissue states emerge 
-exclusively at focal CpG loci—as quantified by locus-specific $\Delta\beta$ 
-distributions and outlier burden ratios—and remain subtle even at that 
-scale (mean $|\Delta\beta|$ ranging from 0.009 in GSE69914 to 0.031 in 
-GSE287331). This characteristic makes the Normal--Adjacent signal 
-particularly vulnerable to technical confounders, which operate at a 
-comparable or larger scale than the biological effect of interest. 
-Preprocessing must therefore be precise: aggressive enough to remove 
-technical noise, but conservative enough to preserve the subtle epigenetic 
-drift that motivates this thesis.
 
-Three main classes of technical issues must be systematically addressed 
-before any statistical modelling can proceed. First, \textbf{probe-design 
-bias} intrinsic to the Infinium platform arises from the coexistence of 
-two chemically distinct probe types (Type~I and Type~II), which produce 
-inherently different $\beta$-value distributions and can distort 
-cross-sample comparability if not corrected~\cite{Triche2013, Fortin2017}. 
-This issue is not uniform across datasets: as will be shown in 
-Section~\ref{sec:dataset_specific}, GSE69914 and GSE225845 were released 
-with normalization already applied by the original authors, whereas 
-GSE287331 shows clear diagnostic evidence of missing probe-type correction, 
-requiring an additional preprocessing decision with non-trivial consequences 
-for downstream group separation. Second, a subset of \textbf{unreliable 
-or biologically confounded probes}---including cross-reactive loci, 
-SNP-affected sites, non-CpG targets, and sex-chromosome probes---introduces 
-systematic measurement error that can generate spurious associations or 
-mask genuine methylation differences~\cite{WilhelmBenartzi2013, Xu2021}. 
-Third, the \textbf{statistical scale of $\beta$-values} poses inferential 
-challenges: the bounded $[0,1]$ support and strong mean-dependent 
-heteroscedasticity of $\beta$-values violate the assumptions of standard 
-parametric models, motivating transformation to a more statistically 
-well-behaved representation prior to modelling~\cite{Triche2013}.
+DNA methylation arrays superimpose biological variability and platform-specific
+artefacts on the same high-dimensional signal. The exploratory analyses of
+Chapter~\ref{sec:data_preparation_exploration} showed that Normal and Adjacent
+tissues exhibit nearly identical global distributions, variance profiles, and
+correlation structure across all three cohorts. Meaningful differences emerge
+exclusively at focal CpG loci — as quantified by locus-specific $\Delta\beta$
+distributions and outlier burden ratios — and remain subtle even at that scale
+(mean $|\Delta\beta|$ from 0.009 in GSE69914 to 0.031 in GSE287331). This makes
+the Normal--Adjacent signal particularly vulnerable to technical confounders
+operating at a comparable or larger scale, so preprocessing must be precise:
+aggressive enough to remove noise, yet conservative enough to preserve the
+epigenetic drift that motivates this thesis.
+Three main classes of technical issues must be addressed before any statistical
+modelling. First, \emph{probe-design bias} arises from the coexistence of
+Type~I and Type~II probes, which produce inherently different $\beta$-value
+distributions and distort cross-sample comparability if uncorrected
+\cite{Triche2013, Fortin2017}. This issue is not uniform across datasets:
+GSE69914 and GSE225845 were released with normalization already applied, whereas
+GSE287331 shows clear diagnostic evidence of missing probe-type correction,
+requiring an additional decision with non-trivial consequences for downstream
+group separation (Section~\ref{sec:dataset_specific}). Second,
+\emph{unreliable or biologically confounded probes} — including cross-reactive
+loci, SNP-affected sites, non-CpG targets, and sex-chromosome probes — introduce
+systematic measurement error that can generate spurious associations or mask
+genuine methylation differences \cite{WilhelmBenartzi2013, Xu2021}. Third, the
+\emph{statistical scale of $\beta$-values}, with their bounded $[0,1]$ support
+and mean-dependent heteroscedasticity, violates the assumptions of standard
+parametric models, motivating transformation to a more statistically
+well-behaved representation \cite{Triche2013}.
 
-This chapter addresses these three issues through a structured, 
-platform-aware preprocessing pipeline applied consistently across all 
-cohorts. Section~\ref{sec:pipeline} describes the general framework and 
-the rationale for each step. Section~\ref{sec:dataset_specific} documents 
-the dataset-specific application, focusing on the decisions that deviate 
-from the standard workflow---most notably the handling of probe-type bias 
-in GSE287331, where the tension between technical correction and 
-preservation of biological structure requires explicit justification. 
-Section~\ref{sec:inter_preprocessing} summarises the effect of 
-preprocessing on CpG dimensionality and cross-dataset overlap, providing 
-the basis for the feature selection strategy developed in Chapter~\ref{chap:feature_selection}.
+This chapter addresses these issues through a structured, platform-aware pipeline
+applied consistently across all cohorts. Section~\ref{sec:pipeline} describes
+the general framework; Section~\ref{sec:dataset_specific} documents
+dataset-specific decisions, focusing on the handling of probe-type bias in
+GSE287331; Section~\ref{sec:inter_preprocessing} summarises the effect of
+preprocessing on CpG dimensionality and cross-dataset overlap, providing the
+basis for Chapter~\ref{chap:feature_selection}.
 
 \section{General Preprocessing Framework}
 \label{sec:pipeline}
@@ -79,7 +68,6 @@ and its associated phenotype table, verifies sample identifier uniqueness,
 and confirms the absence of missing metadata fields. Only samples for which 
 both a complete methylation profile and a valid tissue label are available 
 are retained for downstream analysis.
-
 Probe-level and sample-level missingness in the $\beta$-value matrix is 
 also assessed at this stage. For two of the three datasets (GSE69914 and 
 GSE225845), the released matrices are fully observed and require no 
@@ -113,7 +101,6 @@ a broader, intermediate distribution. If uncorrected, this imbalance
 propagates into downstream statistical analyses and can generate 
 probe-type-specific artefacts in differential methylation 
 testing~\cite{Teschendorff2013BMIQ, maksimovic2012}.
-
 The canonical approach to mitigating this bias is Beta-Mixture Quantile 
 normalisation (BMIQ), introduced by Teschendorff et 
 al.~\cite{Teschendorff2013BMIQ}. BMIQ explicitly models probe-type bias 
@@ -128,7 +115,6 @@ each state a quantile-mapping step is applied to align the Type~II
 distribution to the corresponding Type~I reference distribution. Because the procedure is performed independently for each sample, BMIQ 
 does not introduce cross-sample information or global harmonisation across 
 tissue classes; it strictly corrects within-sample probe-type bias.
-
 For each dataset, a systematic diagnostic is performed prior to any 
 correction step~\cite{Teschendorff2013BMIQ, Wang2015Normalization450K}: probes are 
 stratified by design type using the official Illumina manifest, and two 
@@ -216,16 +202,12 @@ interpretable as fractional methylation, their bounded support induces
 strong mean-dependent heteroscedasticity: variance is inflated near 
 intermediate values ($\beta \approx 0.5$) and compressed near the 
 boundaries, violating the homoscedasticity assumptions underlying 
-standard linear modelling frameworks~\cite{Du2010}.
-
-The logit transformation to $M$-values,
-
+standard linear modelling frameworks~\cite{Du2010}. The logit transformation to $M$-values,
 \begin{equation}
     M = \log_2\!\left(\frac{\beta + \varepsilon}{1 - \beta + \varepsilon}\right),
     \quad \varepsilon = 10^{-6},
     \label{eq:mvalue}
 \end{equation}
-
 maps $\beta \in (0,1)$ to an unbounded real-valued scale and 
 substantially stabilises the mean--variance relationship~\cite{Du2010}. 
 As shown in their analysis, the relationship between $\beta$ and $M$-values 
@@ -242,7 +224,6 @@ biological interpretation, effect-size quantification, and visualisation,
 following the dual-representation convention recommended by Du et 
 al.~\cite{Du2010} and widely adopted in the 
 literature~\cite{Thienpont2016, Reinius2012}. 
-
 The transformation is applied to the complete post-filtering matrix for 
 each dataset. Distributional diagnostics confirming the expected 
 variance-stabilising effect are reported in 
@@ -252,7 +233,6 @@ Section~\ref{sec:dataset_specific}. This choice is consistent with the feature-s
 \label{sec:dataset_specific}
 
 This section documents the dataset-specific application of the preprocessing pipeline described in Section~\ref{sec:pipeline}. For each cohort, the outcome of structural verification, probe-type bias diagnostics, technical probe filtering, and $\beta$-to-$M$ transformation is reported in detail. Although the general framework is applied consistently across all datasets, certain steps—most notably probe-type bias correction and handling of missing values—require cohort-specific decisions. These are explicitly justified within each subsection.
-
 The results are presented separately for GSE69914 (Section~\ref{subsec:gse69914_preproc}), GSE225845 (Section~\ref{subsec:gse225845_preproc}), and GSE287331 (Section~\ref{subsec:gse287331_data_prep}).
 
 
@@ -288,7 +268,6 @@ Alignment between the phenotype annotation and the $\beta$-value matrix is exact
 \label{par:gse69914_typebias}
 
 Raw intensity data were reported to have been processed by the original authors using the \texttt{minfi} pipeline with BMIQ normalization~\cite{GSE69914}. Diagnostic evaluation confirms that probe-type bias is effectively mitigated in the released matrix.
-
 The $\beta$-value density distributions of Type~I and Type~II probes exhibit substantial overlap, with no evidence of the characteristic multi-modal distortion observed in uncorrected data (Figure~\ref{fig:type_bias_density}). Quantile--quantile analysis further supports this result: the Type~II versus Type~I quantiles align closely to the identity line, with median absolute deviation $\mathrm{median}|\Delta| = 0.162$, indicating balanced probe-type scaling (Figure~\ref{fig:type_bias_qq}).
 Together, these diagnostics are consistent with effective BMIQ correction, in agreement with the normalization behaviour described in~\cite{Teschendorff2013BMIQ, maksimovic2012, Wang2015Normalization450K}.
 
@@ -352,9 +331,7 @@ Final CpGs \\
 
 Intersection with external technical filtering resources resulted in substantial probe removal, as summarised in Table~\ref{tab:gse69914_cpg_filtering}. The largest individual contributions derive from the Naeem and Zhou annotations, while the remaining resources flag smaller but non-negligible subsets. The redundancy structure across lists is shown in Figure~\ref{fig:gse69914_tech_redundancy}.
 Because these catalogues target partially distinct classes of technical artefacts—such as cross-reactivity, SNP interference, and repeat-associated probes—limited overlap across lists is expected. Most excluded CpGs are supported by a single resource, with progressively fewer loci flagged by multiple independent annotations. This pattern reflects complementary rather than redundant filtering criteria, while the subset of probes flagged by several lists indicates concordance for loci exhibiting multiple technical vulnerabilities.
-
 Annotation-based validation using the HumanMethylation450 v1.2 manifest~\cite{Illumina450kManifest} further excluded non-CpG probes and loci lacking reliable genomic annotation. Subsequent removal of sex-chromosome probes (X/Y), consistent with established  preprocessing recommendations in mixed-sex cohorts~\cite{maksimovic2012, Wang2022InterpolatedXY}, ensured a strictly autosomal working set.
-
 A detailed per-probe exclusion summary is available in the project repository at  
 \href{https://github.com/elisabettaroviera/THESIS/blob/main/05%20-%20CpG%20list/Removed%20CpGs%20per%20Dataset/removed_cpgs_all_filters_summary_gse69914.csv}
 {\texttt{removed\_cpgs\_all\_filters\_summary\_gse69914.csv}}.
@@ -413,7 +390,6 @@ A detailed per-probe exclusion summary is available in the project repository at
 
 Following transformation, the empirical distributions confirm the expected variance-stabilising behaviour of $M$-values (Figure~\ref{fig:hist_msd_beta_m}). In $\beta$-space, both Normal and Adjacent tissues exhibit the characteristic bounded, U-shaped distribution with accumulation near 0 and 1. After logit transformation, the corresponding $M$-value distributions become substantially more symmetric and centered, while preserving the relative structure between tissue groups.
 The mean–SD relationships further illustrate the scale effect. In $\beta$-space, variance is strongly mean-dependent and inflates near intermediate methylation levels, producing a pronounced curvature in the mean–SD plots. In contrast, $M$-values display markedly flatter dispersion profiles across the full range, indicating substantial reduction of heteroscedasticity. 
-
 This behaviour is fully consistent with the theoretical and empirical findings of Du et al.~\cite{Du2010}, which motivate the use of $M$-values for inferential modelling.
 
 
@@ -428,7 +404,6 @@ This behaviour is fully consistent with the theoretical and empirical findings o
 
 The dataset comprised 477 samples and 750{,}426 CpGs at load time, consistent with the dimensionality of the Illumina EPIC platform.  
 The phenotype table contained 477 entries, and alignment between phenotype annotation and the $\beta$-value matrix was exact. No duplicated entries were detected, and all required metadata fields were present.
-
 Probe-level and sample-level missingness assessment confirmed that the methylation matrix was fully observed.  
 No missing CpG values and no incomplete samples were detected. Consequently, no imputation or early NaN filtering was required prior to probe-type bias diagnostics and technical filtering.
 
@@ -458,7 +433,6 @@ Stratification by probe design yielded 119{,}760 Type~I and 627{,}842 Type~II pr
 Raw intensity data were reported by the original authors to have been processed using the \texttt{minfi} pipeline with BMIQ normalization (v1.4)~\cite{GSE225845}.
 The $\beta$-value density distributions (Figure~\ref{fig:GSE225845_type_bias_density}) show substantial overlap between probe families. Type~I probes retain the characteristic concentration near the unmethylated and fully methylated boundaries, while Type~II probes display a broader distribution; however, no pronounced multimodal distortion or systematic separation is observed.
 Quantile--quantile analysis (Figure~\ref{fig:GSE225845_type_bias_qq}) further supports this interpretation. Although minor deviations from the identity line ($y = x$) are visible, the overall alignment indicates largely balanced probe-type scaling. The median absolute deviation $\mathrm{median}|\Delta| = 0.293$ suggests that probe-type differences are attenuated but not entirely eliminated, consistent with residual variation commonly observed after BMIQ normalization~\cite{Teschendorff2013BMIQ, maksimovic2012, Wang2015Normalization450K}.
-
 Overall, the diagnostic patterns are compatible with prior application of probe-type bias correction.
 
 \paragraph{Technical Probe Filtering}
@@ -574,7 +548,6 @@ tissues in GSE225845.}
 
 All filtered $\beta$-values were transformed to $M$-values using the logit relation defined in Equation~\eqref{eq:mvalue}. 
 The empirical distributions (Figure~\ref{fig:gse225845_beta_m_combined}) show the characteristic bounded, U-shaped profile in $\beta$-space for both Normal and Adjacent tissues. After transformation, the corresponding $M$-value distributions become substantially more symmetric and centered, while maintaining the relative structure between tissue classes.
-
 The mean--SD relationships further illustrate the scale effect. In $\beta$-space, variance exhibits pronounced mean dependence, with inflation at intermediate methylation levels and compression near the boundaries. In contrast, $M$-values display markedly flatter dispersion profiles across the full range, indicating substantial reduction of heteroscedasticity. 
 
 
@@ -593,7 +566,6 @@ The dataset was imported from its Parquet representation, yielding an initial
 $\beta$-value matrix of 446 samples and 866{,}552 CpGs. The phenotype table
 contained the same number of entries, with all required metadata fields present
 and alignment between phenotype annotation and the $\beta$-value matrix exact.
-
 Unlike GSE69914 and GSE225845, the methylation matrix was not fully observed.
 Probe-wise missingness is a well-known source of unreliability in Illumina
 methylation arrays: Islam \textit{et al.}~\cite{islam2019_pediatric_dnamm}
@@ -697,7 +669,6 @@ display a single broad peak, GSE287331 shows a narrower, right-shifted
 distribution characterised by two distinct modes in the high-$\beta$ range---a
 pattern largely absent in the other cohorts and strongly indicative of uncorrected
 Type~I/II probe-design bias.
-
 Stratification of probes by design type confirmed this hypothesis. The
 $\beta$-value distributions of the two chemistries showed a marked mismatch
 (Figure~\ref{fig:gse287331_typeI_II_pre}), with Type~II probes displaying a
@@ -715,7 +686,6 @@ mixture distribution within each sample, and Type~II probes are rescaled
 accordingly, with no cross-sample or cross-group information introduced at any
 stage. Samples with insufficient numbers of probes per design type were left
 uncorrected to avoid unstable mixture estimation.
-
 Post-correction diagnostics showed only a modest reduction in probe-type mismatch
 ($|\Delta| : 0.380 \rightarrow 0.370$), with the overall distributional discrepancy
 remaining substantial and the bimodality of per-sample mean $\beta$ distributions
@@ -725,7 +695,6 @@ with documented caveats of quantile-based normalisation on EPIC arrays, which ca
 artificially reduce biological variability, remove genuine group-level signal, or
 yield distorted distributions when differences are expressed as broad distributional
 shifts~\cite{Welsh2023EPICnorm, Yousefi2013Normalization, Liu2016Processing}.
-
 The impact on biological structure was assessed quantitatively via silhouette
 analysis: the average silhouette coefficient declined from
 $\mathrm{sil}_{\text{pre}} = 0.2876 \text{ to } \mathrm{sil}_{\text{post}} = 0.2537$
@@ -764,11 +733,9 @@ Intersection with external technical filtering resources resulted in substantial
 Importantly, in the unfiltered EPIC matrix the Zhou annotation alone would have excluded 192{,}856 CpGs. This number substantially exceeds the net contribution observed at this stage, indicating that a considerable fraction of Zhou-flagged probes had already been removed during the earlier missingness-cleaning step.
 The missingness filter and the Zhou reliability masks therefore exhibit non-trivial overlap. 
 This concordance supports the robustness of the preprocessing strategy: probes excluded due to empirical data sparsity largely coincide with loci independently annotated as technically unreliable, suggesting that early NaN-based exclusion was not arbitrary but aligned with established probe-quality criteria.
-
 The redundancy structure across lists (Figure~\ref{fig:gse287331_tech_redundancy}) further indicates that most excluded CpGs are supported by a single resource, with progressively fewer loci flagged by multiple independent annotations.
 Annotation-based validation using the MethylationEPIC v1.0 manifest~\cite{IlluminaEPIC} further excluded non-CpG probes and loci lacking reliable genomic annotation. 
 Across all filters, the dimensionality reduction is detailed in Table~\ref{tab:gse287331_cpg_filtering}.
-
 A probe-level exclusion summary is available in the project repository at  
 \href{https://github.com/elisabettaroviera/THESIS/blob/main/05%20-%20CpG%20list/Removed%20CpGs%20per%20Dataset/removed_cpgs_all_filters_summary_gse287331.csv}
 {\texttt{removed\_cpgs\_all\_filters\_summary\_gse287331.csv}}.
@@ -858,7 +825,6 @@ Following technical filtering, the $\beta$-value matrix was transformed into
 $M$-values using the logit relation defined in Equation~\eqref{eq:mvalue},
 in accordance with established recommendations for variance stabilisation
 \cite{Du2010, Triche2013, Fortin2017}.
-
 The empirical distributions (Figure~\ref{fig:gse287331_beta_m_combined})
 retain the characteristic bounded structure of $\beta$-values; however,
 in contrast to GSE69914 and GSE225845, the profiles appear less sharply
@@ -866,7 +832,6 @@ bimodal and more broadly dispersed. Both Normal and Adjacent tissues exhibit
 reduced concentration at the methylation extremes and a wider intermediate
 range, consistent with the greater technical heterogeneity observed in this
 cohort.
-
 After transformation, the corresponding $M$-value distributions become more
 symmetric, as expected under the logit mapping, yet remain visibly broader
 than in the other datasets. The mean--SD relationships confirm that while
@@ -877,39 +842,6 @@ intrinsic variability of the released matrix.
 
 
 % ============================================================
-
-\section{Inter-Dataset Consistency After Preprocessing}
-\label{sec:inter_preprocessing}
-
-After completing the intra-dataset preprocessing for each cohort, a concise
-inter-dataset analysis is performed to summarise the effects of the pipeline
-and to motivate the subsequent feature selection step.
-
-\paragraph{Consistency of the Preprocessing Framework}
-All three datasets underwent a harmonised preprocessing workflow, including
-initial integrity checks, literature-based technical filtering, manifest-driven
-probe validation, removal of sex-chromosome loci, and transformation from
-$\beta$-values to M-values. While specific implementation details differ slightly
-depending on platform characteristics and data quality, the conceptual structure
-of the pipeline is consistent across datasets.
-
-Table~\ref{tab:preprocessing-summary} reports, for each dataset, the
-dimensionality of the methylation matrix before and after preprocessing. Despite
-substantial differences in initial platform coverage (450K vs.\ EPIC), technical
-filtering consistently removes a large fraction of probes, yielding cleaner and
-more reliable feature spaces.
-
-\paragraph{CpG overlap across datasets}
-CpG overlap was evaluated both before and after preprocessing to characterise
-the relationship between cohorts. Prior to filtering
-(Figure~\ref{fig:venn-pre}), the intersection is dominated by probes shared
-between the two EPIC datasets, with a smaller but substantial core common to
-all three cohorts, reflecting platform design constraints and baseline
-annotation differences. After the complete preprocessing pipeline
-(Figure~\ref{fig:venn-post}), the total number of CpGs is markedly reduced,
-yet a large shared core is preserved: the three-way intersection comprises
-215{,}919 CpGs, representing a stable autosomal backbone consistently
-retained across platforms after technical filtering.
 
 \begin{figure}[t]
 \centering
@@ -929,6 +861,39 @@ retained across platforms after technical filtering.
 \caption{CpG overlap across datasets before and after preprocessing.}
 \label{fig:venn-comparison}
 \end{figure}
+
+\section{Inter-Dataset Consistency After Preprocessing}
+\label{sec:inter_preprocessing}
+
+After completing the intra-dataset preprocessing for each cohort, a concise
+inter-dataset analysis is performed to summarise the effects of the pipeline
+and to motivate the subsequent feature selection step.
+
+\paragraph{Consistency of the Preprocessing Framework}
+All three datasets underwent a harmonised preprocessing workflow, including
+initial integrity checks, literature-based technical filtering, manifest-driven
+probe validation, removal of sex-chromosome loci, and transformation from
+$\beta$-values to M-values. While specific implementation details differ slightly
+depending on platform characteristics and data quality, the conceptual structure
+of the pipeline is consistent across datasets.
+Table~\ref{tab:preprocessing-summary} reports, for each dataset, the
+dimensionality of the methylation matrix before and after preprocessing. Despite
+substantial differences in initial platform coverage (450K vs.\ EPIC), technical
+filtering consistently removes a large fraction of probes, yielding cleaner and
+more reliable feature spaces.
+
+\paragraph{CpG overlap across datasets}
+CpG overlap was evaluated both before and after preprocessing to characterise
+the relationship between cohorts. Prior to filtering
+(Figure~\ref{fig:venn-pre}), the intersection is dominated by probes shared
+between the two EPIC datasets, with a smaller but substantial core common to
+all three cohorts, reflecting platform design constraints and baseline
+annotation differences. After the complete preprocessing pipeline
+(Figure~\ref{fig:venn-post}), the total number of CpGs is markedly reduced,
+yet a large shared core is preserved: the three-way intersection comprises
+215{,}919 CpGs, representing a stable autosomal backbone consistently
+retained across platforms after technical filtering.
+
 
 \begin{table}[t]
 \centering
@@ -959,7 +924,6 @@ Across all three cohorts, the three-way CpG intersection comprises
 215{,}919 autosomal loci retained after platform-aware filtering,
 constituting a stable and harmonised feature backbone for cross-dataset
 analyses.
-
 Yet the preprocessing outcome also sharpens the central analytical
 challenge. The post-processed datasets remain extremely high-dimensional
 --- 251{,}483 CpGs in GSE69914, 530{,}683 in GSE225845, and 486{,}725
@@ -971,7 +935,6 @@ regime, the overwhelming majority of retained CpGs carry no
 discriminative information for the contrast of interest: including them
 in downstream modelling would dilute the signal, inflate variance
 estimates, and compromise both interpretability and generalisation.
-
 The limiting factor is therefore no longer data quality but
 \emph{signal localisation}: identifying the restricted subset of CpG
 loci that capture biologically meaningful Normal--Adjacent variation,

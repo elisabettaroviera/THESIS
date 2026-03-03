@@ -2,19 +2,6 @@
 \label{chap:feature_selection}
 
 
-
-%REPORT 03
-
-%Capire come strutturare il capitolo:
-%- Introduzione con motivazioni che riprendono dal cap4
-%- Descrizione tecnica degli step
-%- Intra dataset results -> da rirunnare i plot in maniera più soddisfacente
-%- Inert dataset results -> da generare
-%- Conclusione e motivazione per passare al cap6
-
-%NB Manca tutta la bibliografia
-
-
 \section{Statistical Challenges of High-Dimensional DNA Methylation Data}
 \label{sec:fs_hdlss}
 
@@ -27,7 +14,6 @@ objective is to characterise epigenetic differences along the
 Normal~$\to$~Adjacent~$\to$~Tumour axis in breast cancer — a setting in which 
 biologically meaningful signal is expected to be subtle, spatially structured, 
 and embedded in a feature space of several hundred thousand CpG loci.
-
 High-throughput methylation arrays, such as the Illumina EPIC platform, 
 interrogate approximately 850\,000 CpG sites per sample~\cite{Pidsley2016}, 
 while the number of available subjects in any given cohort remains 
@@ -39,7 +25,6 @@ unstable, and classifiers overfit to noise~\cite{Hall2005, Donoho2000}. In
 genomics specifically, the consequences are well documented — unconstrained 
 feature spaces yield inflated classification accuracy that fails to replicate 
 in independent cohorts~\cite{Ambroise2002, Smialowski2010}.
-
 Feature selection is therefore not a cosmetic reduction step but a structural 
 necessity for any learning procedure applied to molecular profiling data.
 
@@ -125,45 +110,36 @@ in-silico classification accuracy does not automatically imply
 clinical utility~\cite{Poste2011}, and the biological coherence of 
 the selected feature set is therefore a criterion in its own right.
 
+
 %-----------------------------------------------------------------------
-\subsection{Objectives of the Present Framework}
+\subsection{Design Objectives of the Selection Framework}
 %-----------------------------------------------------------------------
 \label{sec:fs_stability}
-In light of the statistical and biological considerations discussed above, 
-the feature selection strategy developed in this chapter is designed to 
-satisfy four interconnected objectives.
 
-\begin{itemize}[label=--]
-    \item \textbf{Strict leakage control}: all selection procedures are 
-    confined to training data, preventing inflation of evaluation metrics 
-    through inadvertent information exposure.
+In light of the statistical and biological considerations discussed above,
+the feature selection strategy developed in this chapter is designed to
+satisfy four interconnected objectives. First, strict leakage control
+ensures that all selection procedures are confined to training data,
+preventing inflation of evaluation metrics through inadvertent information
+exposure. Second, stability enforcement guarantees that CpGs are retained
+only if they demonstrate reproducible discriminative behaviour across
+repeated stratified resampling, ensuring robustness to training-set
+perturbations. Third, redundancy reduction through correlation-based
+pruning limits the over-representation of co-methylated genomic blocks
+and promotes independent signal components. Fourth, genomic diversification
+imposes structural constraints to prevent excessive concentration of
+selected features within specific chromosomes or regulatory contexts.
+The hyperparameters governing each stage of the pipeline — including
+variability thresholds, stability cutoffs, correlation bounds, and
+diversification budgets — were fixed based on domain knowledge and
+methodological precedent rather than systematic optimisation. A formal
+sensitivity analysis lies outside the scope of the present work and is
+identified as a direction for future investigation in
+Chapter~\ref{chap:conclusion_future_work}.
 
-    \item \textbf{Stability enforcement}: CpGs are retained only if they 
-    demonstrate reproducible discriminative behaviour across repeated 
-    stratified resampling, ensuring robustness to training-set perturbations.
-
-    \item \textbf{Redundancy reduction}: correlation-based pruning limits 
-    the over-representation of co-methylated genomic blocks and promotes 
-    independent signal components.
-
-    \item \textbf{Genomic diversification}: structural constraints prevent 
-    excessive concentration of selected features within specific chromosomes 
-    or regulatory contexts.
-\end{itemize}
-
-The hyperparameters governing each stage of the pipeline 
-— including variability thresholds, stability cutoffs, 
-correlation bounds, and diversification budgets — were 
-fixed based on domain knowledge and methodological 
-precedent rather than systematic optimisation. 
-A formal sensitivity analysis of these parameters 
-lies outside the scope of the present work and 
-is identified as a direction for future investigation 
-in Chapter~\ref{chap:conclusion_future_work}.
-
-The objective is therefore not merely dimensionality reduction, but the 
-identification of a stable, biologically coherent, and generalisable CpG 
-subset capable of characterising the Normal–Adjacent epigenetic transition 
+The objective is therefore not merely dimensionality reduction, but the
+identification of a stable, biologically coherent, and generalisable CpG
+subset capable of characterising the Normal--Adjacent epigenetic transition
 and supporting cross-dataset validation.
 
 %-----------------------------------------------------------------------
@@ -258,11 +234,10 @@ population-level dispersion unconditional on class membership:
 it quantifies whether a CpG is variable across individuals 
 at all, not whether it discriminates between tissue types.
 A CpG is retained if and only if:
-\begin{equation}
+$
     r_{\beta,j} \geq \tau, 
-    \qquad \tau = 0.05,
-    \label{eq:edgar_threshold}
-\end{equation}
+    \; \tau = 0.05,
+$
 yielding the retained index set
 $    \mathcal{J}_{\mathrm{Edgar}} 
     = 
@@ -356,7 +331,6 @@ information leakage. The quantile threshold is estimated solely on
 $\mathcal{D}_{\mathrm{train}}$; the resulting binary mask is then applied
 unchanged to $\mathcal{D}_{\mathrm{test}}$, maintaining complete statistical
 independence of the evaluation set.
-
 The resulting set $\mathcal{J}_{\mathrm{var}}$ constitutes the final candidate
 feature space entering the supervised discriminative ranking stage described
 in Section~\ref{subsec:fs_stability}.
@@ -389,7 +363,7 @@ Repeated stratified resampling reduces the variance of
 estimated feature importance and mitigates selection 
 instability arising from dependence on a single 
 partition~\cite{Ambroise2002, Smialowski2010}.
-For each split $s = 1,\dots,S$ and each CpG $j$, three quantities are computed exclusively on the training fold:
+For each split $s = 1,\dots,S$ and each CpG $j$, three quantities are computed exclusively on the training fold.
 \begin{enumerate}
 \item The signed mean difference
 \(
@@ -397,32 +371,31 @@ For each split $s = 1,\dots,S$ and each CpG $j$, three quantities are computed e
 \)
 is computed for all CpGs as an effect-size measure.
 
-\item To reduce computational burden in the HDLSS regime, 
-Mann--Whitney $U$ $p$-values are evaluated only for the top 
-$50{,}000$ CpGs ranked by 
-$|\Delta M_{j}^{(s)}|$ within the training fold. 
-CpGs outside this prefiltered subset are assigned 
-$p_{j}^{(s)} = 1$, corresponding to the least favourable rank.
-This two-stage procedure introduces a structural dependency 
-between the prescreening criterion and the subsequent rank 
-aggregation, since excluded CpGs receive a conservative rank 
-by construction rather than by statistical evidence. 
-The approximation is justified by the width of the prefilter: 
-retaining the top $50{,}000$ candidates corresponds to 
-approximately $6\%$ of the full feature space and 
-substantially exceeds the final selection target of 
-$5{,}000$ CpGs, thereby limiting the probability of 
-excluding genuinely discriminative loci from downstream 
-evaluation.
-The Mann--Whitney test is adopted as a rank-based nonparametric procedure to avoid distributional assumptions and ensure robustness to residual deviations from normality in $M$-space~\cite{MannWhitney1947}.
-
+\item To reduce computational burden in the HDLSS regime,
+Mann--Whitney $U$ $p$-values are evaluated only for the top
+$50{,}000$ CpGs ranked by $|\Delta M_{j}^{(s)}|$ within the
+training fold; CpGs outside this subset are assigned
+$p_{j}^{(s)} = 1$.
+This two-stage procedure introduces a structural dependency
+between prescreening and rank aggregation, since excluded CpGs
+receive a conservative rank by construction rather than by
+statistical evidence. The approximation is justified by the
+width of the prefilter: retaining $50{,}000$ candidates
+corresponds to approximately $6\%$ of the full feature space,
+substantially exceeding the final selection target of $5{,}000$
+CpGs and limiting the probability of excluding genuinely
+discriminative loci.
+The Mann--Whitney test is adopted as a rank-based nonparametric
+procedure to avoid distributional assumptions and ensure
+robustness to residual deviations from normality in
+$M$-space~\cite{MannWhitney1947}.
 \item The same signed difference is computed independently on the validation fold to assess directional reproducibility across the partition.
 \end{enumerate}
 
-Two rank statistics are then derived per split,
+\noindent Two rank statistics are then derived per split,
 \(
-r_{p,j}^{(s)} \quad \text{(ascending rank of } p_{j}^{(s)}),\)
-\(r_{|\Delta M|,j}^{(s)} \quad 
+r_{p,j}^{(s)} \; \text{(ascending rank of } p_{j}^{(s)}),\)
+\(r_{|\Delta M|,j}^{(s)} \\ 
 \text{(descending rank of } |\Delta M_{j}^{(s)}|),
 \)
 and averaged across splits:
@@ -775,22 +748,21 @@ described in Section~\ref{subsec:fs_diversification}.
 \label{subsec:fs_diversification}
 %-----------------------------------------------------------------------
 
-After correlation-based redundancy pruning 
-(Section~\ref{subsec:fs_corr_pruning}), the feature set 
-$\mathcal{R}$ remains enriched for highly ranked CpGs but 
-may still exhibit structural imbalance. Genome-wide 
-methylation arrays are inherently non-uniform — CpG density 
-varies substantially across chromosomes, islands, shores, 
-shelves, and open sea regions — so unconstrained greedy 
-ranking by statistical score tends to over-concentrate 
-features in CpG-dense promoter islands, chromosomes with 
-strong signal, and local genomic windows of coordinated 
-drift. Such concentration artificially reduces effective 
-genomic coverage and increases the risk that downstream 
-models capture locus-specific rather than system-level 
-epigenetic patterns, reducing structural generalisability 
-across cohorts. We therefore introduce a diversification 
-step formulated as a constrained subset selection problem.
+After correlation-based redundancy pruning
+(Section~\ref{subsec:fs_corr_pruning}), the feature set
+$\mathcal{R}$ remains enriched for highly ranked CpGs but
+may still exhibit structural imbalance. Genome-wide methylation
+arrays are inherently non-uniform — CpG density varies
+substantially across chromosomes, islands, shores, shelves, and
+open sea regions — so unconstrained greedy ranking tends to
+over-concentrate features in CpG-dense promoter islands,
+high-signal chromosomes, and local windows of coordinated drift.
+Such concentration reduces effective genomic coverage and
+increases the risk that downstream models capture locus-specific
+rather than system-level epigenetic patterns, undermining
+structural generalisability across cohorts. A diversification
+step is therefore introduced as a constrained subset selection
+problem.
 
 \paragraph{Problem Formulation}
 
@@ -924,9 +896,7 @@ strategy: CpGs are processed in order of increasing
 $\mathrm{score}_j$, ties are resolved deterministically by stable ordering, and each candidate is added to 
 $\mathcal{S}$ if and only if all active constraints are 
 simultaneously satisfied, until $|\mathcal{S}| = K$.
-
 If the strict constraint regime fails to reach $K$, constraints are relaxed by staged deactivation (rather than by increasing thresholds), first removing the spatial window constraint, then the genomic context constraint, and finally the chromosome balance constraint.
-
 At each stage, the specified constraint is fully deactivated while 
 previously relaxed constraints remain inactive.
 Spatial over-concentration is relaxed first because 
@@ -1526,7 +1496,6 @@ post-preprocessing pairwise intersection $\mathcal{U}_{AB} =
 \mathcal{C}_A \cap \mathcal{C}_B$, where $\mathcal{C}_A$ and
 $\mathcal{C}_B$ denote the full sets of CpGs retained after
 preprocessing in datasets $A$ and $B$, respectively.
-
 Under this null, $10{,}000$ independent replications were generated
 by drawing two sets of $K = 5{,}000$ CpGs uniformly at random from
 $\mathcal{U}_{AB}$, without replacement, and recording their
@@ -1539,7 +1508,6 @@ restricted universe $\mathcal{U}_{AB}$ raises the baseline expected
 overlap; significance under this test therefore provides a more
 stringent criterion for enrichment.
 Results are reported in Table~\ref{tab:interfs_overlap}.
-
 All three pairwise overlaps exceed the permutation null at nominal
 significance.
 The most pronounced enrichment is observed for the EPIC--EPIC pair
@@ -1716,7 +1684,6 @@ A more stringent criterion for cross-cohort replicability is
 \emph{functional transferability}: whether the differential methylation
 signal inferred in one cohort retains discriminative power when applied
 to an independent dataset, without any retraining or adaptation.
-
 Formally, for each ordered pair of datasets $(A, B)$, a linear scoring
 function $f^{(A)}: \mathbb{R}^{|S_{AB}|} \to \mathbb{R}$ was defined on
 the intersection $S_{AB}$ of the respective $5{,}000$-CpG panels, using
@@ -1743,7 +1710,7 @@ evaluated by training a univariate $\Delta\beta$ ranking rule in one
 dataset and applying it directly to the other. 
 Specifically, given an effect-size vector $\Delta\beta$ estimated 
 in the source cohort, each sample $x$ in the target cohort was 
-assigned the discriminative score
+assigned the discriminative score:
 \begin{equation}
 s(x) = \sum_{j \in \mathcal{S}} \Delta\beta_j \, x_j ,
 \end{equation}
@@ -1849,73 +1816,44 @@ After constrained diversification  & 5{,}000   & 5{,}000   & 5{,}000   \\
 % ============================================================
 
 The feature selection framework developed in this chapter addresses
-the core statistical challenge posed by genome-wide DNA methylation
-data in the HDLSS regime: identifying a compact, stable, and
-biologically coherent CpG panel capable of characterising the
-Normal--Adjacent epigenetic transition across independent cohorts.
-
-The pipeline operates as a sequence of strictly train-only
-dimensionality reduction stages, each targeting a distinct source
-of noise or redundancy in the methylation feature space.
+the core challenge posed by genome-wide DNA methylation data in the
+HDLSS regime: identifying a compact, stable, and biologically coherent
+CpG panel capable of characterising the Normal--Adjacent transition
+across independent cohorts.
+The pipeline applies strictly train-only dimensionality reduction
+stages, each targeting a distinct source of noise or redundancy.
 Table~\ref{tab:fs_reduction_steps_all} summarises the progressive
-reduction from the post-preprocessing spaces — ranging from
-$251{,}483$ to $530{,}683$ CpGs depending on platform — to the
-final panels of $K = 5{,}000$ loci retained after variability
-filtering, stability-based ranking, correlation pruning, and
-constrained genomic diversification.
-The resulting panels exhibit several desirable structural properties.
-Directional stability scores are concentrated near unity across all
-three cohorts, indicating that the selected CpGs express
-reproducible Adjacent--Normal polarity across resampling splits.
-Correlation-based redundancy pruning eliminates co-methylated
-blocks, yielding non-redundant representatives of independent
-epigenetic signals.
-Genomic diversification enforces broad chromosomal and
-regulatory-context coverage, reducing the risk that downstream
-models capture locus-specific artefacts rather than system-level
-drift patterns.
-
-
+reduction from post-preprocessing spaces of $251{,}483$--$530{,}683$
+CpGs to final panels of $K = 5{,}000$ loci. The resulting panels
+exhibit directional stability scores concentrated near unity,
+indicating reproducible Adjacent--Normal polarity across resampling
+splits; correlation pruning eliminates co-methylated blocks; and
+genomic diversification enforces broad chromosomal and
+regulatory-context coverage.
 The inter-dataset evaluation of Section~\ref{sec:inter_dataset_fs}
-reveals that cross-cohort replicability is partial and asymmetric.
-GSE69914 and GSE225845 satisfy all criteria for the \emph{shared
-drift structure} regime: their panels are mutually enriched beyond
-random expectation, exhibit near-complete directional concordance
-($c = 0.980$), and support bidirectional zero-shot transfer
-(AUC $= 0.776$ and $0.794$).
+reveals partial and asymmetric cross-cohort replicability.
+GSE69914 and GSE225845 satisfy the \emph{shared drift structure}
+regime: their panels are mutually enriched beyond chance, exhibit
+near-complete directional concordance ($c = 0.980$), and support
+bidirectional zero-shot transfer (AUC $= 0.776$ and $0.794$).
 GSE287331, by contrast, occupies the \emph{directional inversion}
 regime: its panel captures a robust but systematically inverted
 drift axis, yielding sub-random transfer performance
 (AUC $\in [0.017,\, 0.226]$) against both partner cohorts.
-This asymmetry has a direct methodological consequence.
-Linear $\Delta\beta$ signatures, however stable within a cohort,
-do not constitute a universally portable representation of the
-Normal--Adjacent transition: their discriminative orientation
-is modulated by platform architecture, sampling design, and
-residual batch structure in ways that naive cross-cohort transfer
-cannot accommodate.
+This asymmetry implies that linear $\Delta\beta$ signatures,
+however stable within a cohort, do not constitute a universally
+portable representation of the Normal--Adjacent transition.
 
-The structural properties and cross-cohort limitations of the
-final CpG panels jointly define the design space for the
-downstream modelling strategy.
-Within each cohort, the selected panels provide a low-dimensional,
-stability-filtered, and biologically grounded input representation
-for supervised classification of Normal versus Adjacent tissue.
-Chapter~\ref{chap:model_training_evaluation} develops and evaluates a suite of
-classifiers — ranging from regularised linear models to
-ensemble methods — applied independently within each dataset,
-assessing the degree to which the selected CpG signatures support
-within-cohort discriminability.
-The cross-cohort asymmetries documented here, however, motivate
-an analysis that goes beyond standard intra-dataset evaluation.
-Where drift orientation is preserved — as between GSE69914 and
-GSE225845 — cross-dataset transfer of trained models is a
-principled and tractable objective.
-Where systematic inversion is present, as with GSE287331,
-orientation-aware or cohort-adaptive strategies are required.
-Chapter~\ref{chap:multi_cohort_integration} addresses this challenge
-through multi-cohort pooling and biological synthesis,
-investigating whether signal consolidation across heterogeneous
-cohorts supports a more robust characterisation of the
-Normal--Adjacent epigenetic transition despite divergent
-drift orientations.
+These structural properties and cross-cohort limitations jointly
+define the downstream modelling strategy. Within each cohort, the
+selected panels provide a stability-filtered input for supervised
+Normal--Adjacent classification, evaluated in
+Chapter~\ref{chap:model_training_evaluation}. Where drift
+orientation is preserved — as between GSE69914 and GSE225845 —
+cross-dataset transfer is a principled objective; where systematic
+inversion is present, orientation-aware strategies are required.
+Chapter~\ref{chap:multi_cohort_integration} addresses this through
+multi-cohort pooling and biological synthesis, investigating whether
+signal consolidation across heterogeneous cohorts supports a more
+robust characterisation of the Normal--Adjacent transition despite
+divergent drift orientations.

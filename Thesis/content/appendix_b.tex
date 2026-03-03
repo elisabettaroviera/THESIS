@@ -78,7 +78,7 @@ $\mathcal{N}_{\mathrm{core}}'(\tau) \subseteq
 \mathcal{N}_{\mathrm{core}}(\tau)$.
 The validation of any extension requires verifying three 
 properties before the updated core can be considered 
-methodologically sound:
+methodologically sound.
 \begin{enumerate}
     \item \textbf{Selection stability}: the non-variable set 
     $\mathcal{N}_{k+1}(\tau)$ must be robust to dataset 
@@ -106,7 +106,15 @@ Breast tissue was introduced alongside the three original
 reference tissues of \cite{Edgar2017}. Figure~\ref{fig:point0_global_structure} 
 reports the overlap structure of tissue-specific non-variable 
 CpG sets across all four tissues.
-
+The four-way invariant core $\mathcal{N}_{\mathrm{core}}'(0.05)$ 
+comprises 29,989 CpGs — a substantial shared subset whose 
+persistence despite the inclusion of a cancer-relevant tissue 
+suggests that at least a component of CpG non-variability reflects stable, context-independent properties of the methylation 
+landscape rather than purely tissue-specific regulatory 
+programmes. The breast-exclusive non-variable set (5,023 CpGs) 
+is the smallest tissue-specific component, consistent with the 
+expectation that breast tissue introduces additional 
+heterogeneity relative to the original healthy tissue panel.
 \begin{figure}[t]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
@@ -126,15 +134,7 @@ blood, buccal epithelial cells, placenta, and breast tissue.
 }
 \label{fig:point0_global_structure}
 \end{figure}
-The four-way invariant core $\mathcal{N}_{\mathrm{core}}'(0.05)$ 
-comprises 29,989 CpGs — a substantial shared subset whose 
-persistence despite the inclusion of a cancer-relevant tissue 
-suggests that at least a component of CpG non-variability reflects stable, context-independent properties of the methylation 
-landscape rather than purely tissue-specific regulatory 
-programmes. The breast-exclusive non-variable set (5,023 CpGs) 
-is the smallest tissue-specific component, consistent with the 
-expectation that breast tissue introduces additional 
-heterogeneity relative to the original healthy tissue panel.
+
 
 %-----------------------------------------------------------------------
 \subsection{Step A: Stability of Non-Variable CpG Selection}
@@ -357,7 +357,6 @@ whereas the canonical $\tau = 0.05$ eliminates a sizeable but controlled
 proportion — 77,687 CpGs in GSE69914, 103,622 in GSE225845, and 
 168,663 in GSE287331 — consistent with the dimensionality reduction 
 reported in the pooled analysis.
-
 A biologically informative pattern emerges from the comparison between 
 the two phenotypic configurations. Under N+T, the Edgar filter removes 
 fewer CpGs than under N+A: the greater methylation contrast between 
@@ -426,7 +425,6 @@ Each probe was mapped to its corresponding gene-feature category
 (e.g., TSS200, TSS1500, 5'UTR, 1stExon, Body, 3'UTR, Intergenic), 
 and enrichment was quantified as fold-change relative to the full 
 set of interrogated CpGs within the dataset.
-
 Let $\mathcal{U}$ denote the universe of CpGs and 
 $\mathcal{N}_{\mathrm{breast}}(0.05)$ the invariant subset 
 identified in the N+A configuration. For each annotation category 
@@ -445,7 +443,6 @@ $g$, enrichment was computed as:
 
 Figure~\ref{fig:app_enrichment_all} reports the fold-change 
 profile for the dominant gene-feature categories.
-
 Across datasets, invariant CpGs show consistent enrichment in 
 proximal promoter regions (particularly TSS200 and 1stExon) and 
 relative depletion in gene bodies and distal regions. The baseline 
@@ -453,7 +450,6 @@ reference (fold-change = 1) indicates the expected frequency under
 random sampling from the array; deviations above this threshold 
 reflect preferential localisation of low-variability CpGs within 
 regulatory domains.
-
 This pattern is coherent with the bimodal methylation behaviour 
 described in Section~\ref{app:sec:stepC}, where invariant CpGs were 
 shown to concentrate at constitutive hypo- or hypermethylated states. 
@@ -512,7 +508,6 @@ the aggregate variability spectrum is qualitatively preserved when
 tumor samples are incorporated. The present section quantifies this 
 concordance at the level of individual CpG sites by directly comparing 
 $r_{\beta}$ values computed under the N+A and N+T configurations.
-
 For each CpG $j$, the pair 
 $\left(r_{\beta,j}^{(NA)}, r_{\beta,j}^{(NT)}\right)$ 
 was examined and rank concordance was quantified via the Spearman 
@@ -524,7 +519,6 @@ $\rho \approx 0.881$ (GSE225845), and
 $\rho \approx 0.933$ (GSE287331), 
 indicating strong to very strong rank preservation of CpG-level 
 variability across phenotypic configurations.
-
 Several structural features emerge from the scatter plots. The bulk of 
 CpG loci cluster tightly around the identity line, confirming that 
 relative variability ordering is largely maintained when tumor samples 
@@ -536,7 +530,6 @@ expectation that malignant transformation introduces epigenetic
 heterogeneity rather than convergence, and corroborates the finding in 
 Section~\ref{app:sec:empirical_variability_spectrum} that tumor 
 inclusion primarily affects loci in the intermediate variability range.
-
 The high rank concordance implies that the non-variability criterion is 
 largely phenotype-robust: CpGs classified as low-variability under the 
 N+A configuration remain predominantly low-variability when tumor 
@@ -594,7 +587,6 @@ phenotypic configurations. The present section integrates the
 breast-tissue invariance structure with the reference framework 
 of~\cite{Edgar2017} by performing a set-theoretic decomposition 
 that explicitly accounts for the effect of tumor inclusion.
-
 Let 
 \(
 \mathcal{B}
@@ -610,7 +602,7 @@ tissues of~\cite{Edgar2017}. The breast-tissue non-variable sets
 $\mathcal{N}_{\mathrm{breast}}(0.05)$ were estimated separately 
 under the N+A and N+T configurations for each cohort. The 
 intersection of $\mathcal{B}$ with these two sets defines three 
-biologically interpretable invariant classes:
+biologically interpretable invariant classes.
 
 \paragraph{Core invariants
 \(
@@ -671,7 +663,6 @@ class is the largest component in datasets with denser sampling
 (GSE69914: 138{,}256; GSE225845: 76{,}223; GSE287331: 46{,}788), reflecting the greater 
 CpG coverage of the corresponding platforms and the broader set 
 of tissue-contextual constraints captured at higher array density.
-
 Several biological observations emerge from this decomposition. 
 First, the invariant core is not globally eroded by cancer: 
 tumor-associated variability acts locally on a bounded subset of 
@@ -699,45 +690,6 @@ dimensionality reduction tool whose behaviour in breast tissue
 is consistent, interpretable, and robust to the heterogeneity 
 introduced by malignant transformation.
 
-
-\begin{figure}[p]
-    \centering
-
-    % -------- (a) GSE69914 --------
-    \begin{subfigure}{0.8\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{images/appendix/GSE69914_venn_universal_vs_NA_vs_NT}
-        \caption{GSE69914}
-        \label{fig:app_venn_69914}
-    \end{subfigure}
-
-    \vspace{0.5cm}
-
-    % -------- (b) GSE225845 --------
-    \begin{subfigure}{0.8\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{images/appendix/GSE225845_venn_universal_vs_NA_vs_NT}
-        \caption{GSE225845}
-        \label{fig:app_venn_225845}
-    \end{subfigure}
-
-    \vspace{0.5cm}
-
-    % -------- (c) GSE287331 --------
-    \begin{subfigure}{0.8\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{images/appendix/GSE287331_venn_universal_vs_NA_vs_NT}
-        \caption{GSE287331}
-        \label{fig:app_venn_287331}
-    \end{subfigure}
-
-    \caption{
-    Overlap between universal invariants and 
-    breast-specific invariant sets derived from the 
-    Normal+Adjacent and Normal+Tumor contrasts in each dataset.
-    }
-    \label{fig:app_venn_universal_vs_breast}
-\end{figure}
 
 %-----------------------------------------------------------------------
 \section{Positioning Within the Thesis and Generalisability}
@@ -797,3 +749,42 @@ incorporating new tissues into the reference
 framework — a property of direct relevance for 
 future studies seeking to apply variability-based 
 filtering beyond the tissue panel considered here.
+
+\begin{figure}[t]
+    \centering
+
+    % -------- (a) GSE69914 --------
+    \begin{subfigure}{0.8\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/appendix/GSE69914_venn_universal_vs_NA_vs_NT}
+        \caption{GSE69914}
+        \label{fig:app_venn_69914}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    % -------- (b) GSE225845 --------
+    \begin{subfigure}{0.8\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/appendix/GSE225845_venn_universal_vs_NA_vs_NT}
+        \caption{GSE225845}
+        \label{fig:app_venn_225845}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    % -------- (c) GSE287331 --------
+    \begin{subfigure}{0.8\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/appendix/GSE287331_venn_universal_vs_NA_vs_NT}
+        \caption{GSE287331}
+        \label{fig:app_venn_287331}
+    \end{subfigure}
+
+    \caption{
+    Overlap between universal invariants and 
+    breast-specific invariant sets derived from the 
+    Normal+Adjacent and Normal+Tumor contrasts in each dataset.
+    }
+    \label{fig:app_venn_universal_vs_breast}
+\end{figure}

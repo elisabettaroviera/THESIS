@@ -10,7 +10,6 @@ represents a major public health burden across both high- and low-income countri
 \cite{Hanahan2011}. Its clinical and biological heterogeneity is one of the most
 distinctive features of the disease: not all breast cancers behave alike, progress
 at the same rate, or respond to the same treatments.
-
 At the histological level, the vast majority of breast malignancies originate from
 the epithelial compartment of the mammary gland, most commonly from the luminal
 cells lining the ductal and lobular structures. The classical progression model
@@ -29,7 +28,6 @@ distinct subtypes — luminal A, luminal B, HER2-enriched, and triple-negative �
 different prognostic and therapeutic implications. This molecular classification
 reflects underlying differences in the cell of origin, epigenetic landscape, and
 selective pressures operative during tumor evolution.
-
 A subset of breast cancers arises on an inherited background of germline susceptibility.
 Pathogenic variants in \textit{BRCA1} and \textit{BRCA2}, genes encoding key
 components of the homologous recombination DNA repair machinery, substantially
@@ -37,7 +35,7 @@ increase lifetime risk \cite{NCI_BRCA}. BRCA-associated tumors tend to be
 triple-negative and exhibit distinct baseline epigenetic profiles that differ
 fundamentally from sporadic disease \cite{Suijkerbuijk2008,Bartlett2022}.
 For this reason, BRCA mutation carriers require separate analytical treatment in
-any study of epigenetic field effects, as discussed in Chapter~\ref{chap:data}.
+any study of epigenetic field effects, as discussed in Chapter~\ref{sec:data_preparation_exploration}.
 
 % -------------------------------------------------------
 \section{The Hallmarks Framework and Epigenetic Reprogramming}
@@ -45,11 +43,10 @@ any study of epigenetic field effects, as discussed in Chapter~\ref{chap:data}.
 
 The conceptual framework of cancer biology has been progressively organized
 around the notion of ``hallmarks'': a set of functional capabilities that normal
-cells must acquire to become malignant \cite{Hanahan2000,Hanahan2011}. These
+cells must acquire to become malignant \cite{Hanahan2011, Hanahan2000}. These
 include sustained proliferative signaling, resistance to growth suppression, evasion
 of apoptosis, unlimited replicative potential, induction of angiogenesis, and the
 activation of invasion and metastasis.
-
 Importantly, the updated hallmarks framework explicitly recognizes epigenetic
 reprogramming as a core enabling mechanism \cite{Hanahan2011}. Tumor cells do not
 merely accumulate genetic mutations; they undergo widespread reorganization of
@@ -82,8 +79,7 @@ unmethylated by active mechanisms, preserving transcriptional access.
 The regulatory significance of DNA methylation varies substantially depending
 on where in the genome a CpG locus resides. A widely adopted classification,
 used in Illumina array annotation, distinguishes four positional contexts
-relative to CpG islands \cite{Irizarry2009}:
-
+relative to CpG islands \cite{Irizarry2009}.
 \begin{itemize}[label=--]
     \item \textbf{CpG Islands}: regions with high CpG density and high
     GC content, operationally defined as stretches of $\geq 200$ bp with
@@ -133,7 +129,6 @@ to reflect the need to suppress spurious transcription initiation within highly
 transcribed genes. The functional interpretation of a methylation change therefore
 depends critically on whether the affected locus falls in a promoter or an
 intragenic context.
-
 In genome-wide methylation profiling studies, the Illumina array annotation
 provides positional information (TSS200, TSS1500, 5'UTR, 1stExon, Body, 3'UTR)
 that, combined with the island/shore/shelf classification, allows a nuanced
@@ -146,31 +141,25 @@ the most informative for studies of transcriptional silencing in cancer.
 % -------------------------------------------------------
 
 Cancer genomes are characterized by a paradoxical co-occurrence of global
-hypomethylation and focal hypermethylation \cite{ehrlich2002}. This duality was
-first described in the early 1980s and has since been confirmed across virtually
-all tumor types, including breast cancer.
-
-\textbf{Global hypomethylation} affects repetitive sequences (satellite DNA,
-LINE-1 elements) and is thought to promote genomic instability through aberrant
-activation of transposable elements and loss of imprinting. It also results in
-transcriptional derepression at genes that are normally silenced \cite{ehrlich2002}.
-
-\textbf{Focal hypermethylation}, by contrast, targets CpG islands at the promoters
+hypomethylation and focal hypermethylation \cite{ehrlich2002}, a duality
+confirmed across virtually all tumor types, including breast cancer.
+\emph{Global hypomethylation} affects repetitive sequences (satellite DNA,
+LINE-1 elements) and promotes genomic instability through aberrant activation
+of transposable elements and loss of imprinting, resulting in transcriptional
+derepression at normally silenced genes \cite{ehrlich2002}.
+\emph{Focal hypermethylation}, by contrast, targets CpG islands at the promoters
 of specific genes, leading to heritable transcriptional silencing. Affected genes
 frequently include classical tumor suppressors (e.g., \textit{CDKN2A},
 \textit{BRCA1}, \textit{MLH1}), as well as genes involved in apoptosis, cell
 adhesion, and developmental signaling. This epigenetic silencing is functionally
-equivalent to mutation but is potentially reversible, making it an attractive
+equivalent to mutation but potentially reversible, making it an attractive
 therapeutic target.
-
-Critically, neither of these phenomena is random. Genes susceptible to
-hypermethylation in cancer are systematically enriched for targets of the Polycomb
-Repressive Complex 2 (PRC2) and display bivalent chromatin states in embryonic
-stem cells — a configuration that marks developmental genes as both transcriptionally
-poised and repressed \cite{Teschendorff2010_stemcell}. This connection between
-developmental regulation and cancer-associated silencing suggests that
-epigenetic alterations in malignancy partially recapitulate stem cell programs.
-
+Critically, neither phenomenon is random. Genes susceptible to hypermethylation
+in cancer are systematically enriched for targets of the Polycomb Repressive
+Complex 2 (PRC2) and display bivalent chromatin states in embryonic stem cells ---
+a configuration marking developmental genes as both transcriptionally poised and
+repressed \cite{Teschendorff2010_stemcell}, suggesting that epigenetic alterations
+in malignancy partially recapitulate stem cell programs.
 % -------------------------------------------------------
 \section{Epigenetic Drift, Aging, and Cancer Risk}
 % -------------------------------------------------------
@@ -178,7 +167,6 @@ epigenetic alterations in malignancy partially recapitulate stem cell programs.
 Aging is the single strongest risk factor for breast cancer. The incidence of most
 breast malignancies rises sharply with age, and this epidemiological observation
 has a direct molecular correlate in the epigenome.
-
 Over the course of a lifetime, DNA methylation patterns undergo progressive and
 partially stochastic changes collectively referred to as \textit{epigenetic drift}
 \cite{Horvath2013}. This phenomenon is characterized by gradual increases in
@@ -186,7 +174,6 @@ methylation variability across both CpG loci and individuals. The drift is not
 uniform: it preferentially affects genes associated with Polycomb repression and
 bivalent chromatin — precisely the same loci that tend to become hypermethylated
 in cancer \cite{Teschendorff2010,Teschendorff2010_stemcell}.
-
 Horvath's landmark study demonstrated that DNA methylation patterns can be
 exploited to construct a highly accurate molecular clock: the ``epigenetic age''
 of a tissue, estimated from a weighted combination of CpG methylation values,
@@ -195,79 +182,68 @@ correlates strongly with chronological age across more than 50 tissue types
 molecular and chronological age — has been associated with cancer risk, suggesting
 that the pace of epigenetic drift itself may be a biological marker of malignant
 susceptibility.
-
 From a mathematical perspective, aging-associated drift can be modeled as a
 diffusion-like process in epigenetic state space: methylation levels at susceptible
 loci undergo a gradual increase in inter-individual variance over time. This growing
 dispersion may create a permissive landscape for malignant transformation by
 producing a fraction of cells with aberrant epigenetic configurations from which
 selection can act.
-
 An important study by Teschendorff et al.\ in breast tissue documented precisely
 this mechanism: aging-related DNA methylation changes in normal breast tissue
 were found to target the same genomic regions altered in cancer, establishing a
 quantitative link between physiological aging and pre-malignant epigenetic
 reprogramming \cite{Teschendorff2019}.
 
+
 % -------------------------------------------------------
 \section{Field Cancerization: The Concept and Its Epigenetic Basis}
 % -------------------------------------------------------
 
 A central concept motivating the present thesis is that of \textit{field
-cancerization}. Originally proposed by Slaughter in 1953 on the basis of
-histopathological observations in oral cancer, the field effect hypothesis
-posits that carcinogenesis does not occur in isolation but rather within
-a ``conditioned'' tissue field that has been broadly reprogrammed by molecular
-alterations preceding frank malignancy.
-
+cancerization}. Originally proposed by Slaughter in 1953 from histopathological
+observations in oral cancer, the field effect hypothesis posits that
+carcinogenesis does not occur in isolation but within a ``conditioned'' tissue
+field broadly reprogrammed by molecular alterations preceding frank malignancy.
 In breast cancer, epigenetic field defects have been systematically characterized
-using genome-wide methylation profiling. A foundational contribution by
-Teschendorff et al.\ demonstrated that histologically normal breast tissue adjacent
-to tumors harbors a specific pattern of methylation alterations distinct from both
-distant normal tissue and from tumor tissue itself \cite{Teschendorff2016}. These
-alterations are not random: they are enriched at PRC2 target genes, CTCF-binding
-regions, and loci involved in developmental pathways including WNT and FGF
-signaling — precisely the categories implicated in the aging-cancer methylation axis
-described above.
-
-Crucially, the field defect signature identified by Teschendorff et al.\ was
-detectable not through classical differential mean analysis, but through
-\textit{differential variability} — a statistically distinct framework that
-quantifies the increase in methylation dispersion across samples rather than
-directional shifts in average levels \cite{Teschendorff2016,Teschendorff2014}.
-This distinction has important methodological implications. Under a classical
-framework, loci with increased variance but small mean differences are invisible
-to standard hypothesis tests. Detecting them requires variance-sensitive statistics,
-such as the Levene test or its robust variants. The biological interpretation is
-that field defects reflect a partial and heterogeneous epigenetic reprogramming:
-not all cells in the adjacent tissue are affected equally, and the stochastic
-nature of the alteration is reflected as increased dispersion across individuals
-rather than as a uniform shift.
-
-The progressive nature of epigenetic field formation is further supported by
-the observation that hypervariable loci in adjacent tissue tend to become
-hypermethylated in the matched invasive tumor, suggesting a deterministic
-convergence from a heterogeneous pre-malignant landscape to a consolidated
-malignant epigenetic state \cite{Teschendorff2016}:
+using genome-wide methylation profiling. Teschendorff et al.\ demonstrated that
+histologically normal breast tissue adjacent to tumors harbors a specific pattern
+of methylation alterations distinct from both distant normal tissue and tumor
+tissue \cite{Teschendorff2016}, enriched at PRC2 target genes, CTCF-binding
+regions, and loci involved in WNT and FGF developmental pathways — precisely
+the categories implicated in the aging-cancer methylation axis described above.
+Crucially, this field defect signature was detectable not through classical
+differential mean analysis but through \textit{differential variability}, a
+framework quantifying the increase in methylation dispersion across samples
+rather than directional shifts in average levels \cite{Teschendorff2016,Teschendorff2014}.
+Under a classical framework, loci with increased variance but small mean
+differences are invisible to standard hypothesis tests and require
+variance-sensitive statistics such as the Levene test or its robust variants.
+The biological interpretation is that field defects reflect a partial and
+heterogeneous epigenetic reprogramming, where the stochastic nature of the
+alteration manifests as increased dispersion across individuals rather than
+a uniform shift.
+The progressive nature of this process is further supported by the observation
+that hypervariable loci in adjacent tissue tend to become hypermethylated in
+the matched invasive tumor, suggesting a deterministic convergence from a
+heterogeneous pre-malignant landscape to a consolidated malignant state
+\cite{Teschendorff2016}:
 \[
 \text{Normal} \rightarrow
 \text{Epigenetically reprogrammed adjacent tissue} \rightarrow
 \text{Invasive carcinoma}.
 \]
-This progressive model implies that the adjacent tissue is not merely
-``contaminated'' by the adjacent tumor but rather represents an earlier stage
-on the same carcinogenic trajectory. Detecting this intermediate stage — and
-characterizing its methylation signature — is therefore of both biological
-and clinical significance.
+This model implies that adjacent tissue represents an earlier stage on the
+same carcinogenic trajectory rather than mere contamination from the nearby
+tumor, making the detection and characterization of its methylation signature
+both biologically and clinically significant.
 
 % -------------------------------------------------------
-\section{Differential Variability as a Statistical Paradigm}
+\section{Differential Variability in Cancer}
 % -------------------------------------------------------
 
 The discovery that field defects are better captured by differential variability
 than by differential means represents a genuine shift in the analytical paradigm
 for epigenetic cancer studies \cite{Teschendorff2014}.
-
 Formally, let $X_j$ denote the methylation level at locus $j$ across a cohort
 of samples. Classical differential methylation analysis focuses on the comparison
 of group means:
@@ -283,7 +259,6 @@ A locus is said to be \textit{differentially variable} (DV) if $\delta\sigma^2_j
 is significantly non-zero. Under a pre-malignant model, one expects $\delta\sigma^2_j > 0$
 in normal-adjacent tissue relative to distant normal tissue, reflecting increased
 epigenetic disorder in the field-affected region.
-
 Teschendorff et al.\ formalized this framework and developed statistical tools
 for its application to genome-wide methylation data \cite{Teschendorff2014}.
 Their analysis demonstrated that DV CpGs in normal-adjacent breast tissue are
@@ -291,7 +266,6 @@ substantially enriched for biologically meaningful genomic features (PRC2 target
 bivalent domains) and display stronger associations with cancer risk markers —
 including tumor proliferation as measured by KI67 — than differentially methylated
 CpGs identified by mean-based tests alone \cite{Teschendorff2016}.
-
 The implication for any analytical framework aimed at characterizing early
 epigenetic alterations is direct: a reliance on mean-based feature selection alone
 will systematically miss a biologically relevant component of the pre-malignant
@@ -304,34 +278,29 @@ of this thesis.
 
 Breast carcinogenesis is not a sudden event but a progressive deviation from
 epigenetic homeostasis, driven by the interplay of aging, stochastic drift, and
-selective pressures operating across a population of cells. The biological evidence
-reviewed in this chapter converges on a model in which this progression is both
-measurable and partially predictable from methylation data alone.
-
-Normal breast tissue accumulates methylation variability with age at a specific
-set of loci — those associated with Polycomb regulation and bivalent chromatin.
-This drift creates a heterogeneous epigenetic landscape from which pre-malignant
-field defects emerge. Adjacent tissue, histologically indistinguishable from normal,
-harbors a measurable epigenetic signature of this reprogramming — detectable
-predominantly as increased variability rather than as a directional shift in mean
-methylation. As carcinogenesis proceeds, this heterogeneous pre-malignant state
-converges toward a more consolidated malignant configuration characterized by
-focal hypermethylation at tumor-suppressive loci and global hypomethylation
-elsewhere.
-
+selective pressures across a population of cells. The biological evidence reviewed
+in this chapter converges on a model in which this progression is both measurable
+and partially predictable from methylation data alone.
+Normal breast tissue accumulates methylation variability with age at loci
+associated with Polycomb regulation and bivalent chromatin, creating a
+heterogeneous epigenetic landscape from which pre-malignant field defects emerge.
+Adjacent tissue, histologically indistinguishable from normal, harbors a
+measurable epigenetic signature of this reprogramming — detectable predominantly
+as increased variability rather than a directional mean shift. As carcinogenesis
+proceeds, this heterogeneous pre-malignant state converges toward a consolidated
+malignant configuration characterized by focal hypermethylation at
+tumor-suppressive loci and global hypomethylation elsewhere.
 This progressive model has three direct consequences for the quantitative analyses
 developed in this thesis. First, the Normal--Adjacent--Tumor axis should be treated
-as a continuous biological spectrum rather than a set of discrete categories: the
-adjacent tissue occupies a genuinely intermediate epigenetic state, distinct from
-both normal and tumor, and warrants explicit characterization rather than
-collapsing into either extreme. Second, any feature selection strategy operating
-on this axis must be sensitive to variance differences and not only to mean shifts:
-field defects are by definition heterogeneous signals that may not survive
-standard mean-based filtering. Third, cross-cohort reproducibility is a necessary
-validation criterion: signatures that replicate across independent datasets are
-more likely to reflect genuine biological structure than cohort-specific noise.
-
+as a continuous biological spectrum: adjacent tissue occupies a genuinely
+intermediate epigenetic state, distinct from both normal and tumor, and warrants
+explicit characterization rather than collapsing into either extreme. Second,
+feature selection must be sensitive to variance differences and not only to mean
+shifts, as field defects are heterogeneous signals that may not survive standard
+mean-based filtering. Third, cross-cohort reproducibility is a necessary
+validation criterion: signatures replicating across independent datasets are more
+likely to reflect genuine biological structure than cohort-specific noise.
 These three principles — spectrum-aware design, variance sensitivity, and
 cross-cohort validation — directly motivate the construction, preprocessing, and
-comparative characterization of the three independent breast tissue methylation
-cohorts introduced in Chapter~\ref{sec:data_preparation_exploration}.
+comparative characterization of the three cohorts introduced in
+Chapter~\ref{sec:data_preparation_exploration}.

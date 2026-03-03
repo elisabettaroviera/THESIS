@@ -20,7 +20,7 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics — KNN, 5,000 CpGs (GSE69914, internal test)}}{89}{table.caption.161}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics — KNN, 50 CpGs (GSE69914, internal test)}}{90}{table.caption.165}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE69914)}}{92}{table.caption.170}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE69914)}}{91}{table.caption.170}%
 \contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE225845, internal test)}}{93}{table.caption.172}%
 \contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE225845, internal test)}}{95}{table.caption.176}%
 \contentsline {table}{\numberline {6.6}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE225845)}}{96}{table.caption.180}%

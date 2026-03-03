@@ -169,31 +169,31 @@
 \contentsline {chapter}{\numberline {6}Predictive Modelling, Constrained Optimisation and Biological Interpretation}{81}{chapter.6}%
 \contentsline {section}{\numberline {6.1}From Robust Feature Selection to Predictive Modelling}{81}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Supervised Learning Framework}{82}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Intra-Dataset Supervised Modelling}{83}{subsection.6.2.1}%
-\contentsline {paragraph}{Data partitioning and leakage control}{83}{section*.147}%
-\contentsline {paragraph}{Linear Support Vector Machine}{83}{section*.148}%
+\contentsline {subsection}{\numberline {6.2.1}Intra-Dataset Supervised Modelling}{82}{subsection.6.2.1}%
+\contentsline {paragraph}{Data partitioning and leakage control}{82}{section*.147}%
+\contentsline {paragraph}{Linear Support Vector Machine}{82}{section*.148}%
 \contentsline {paragraph}{$k$-Nearest Neighbours (GSE69914 only)}{83}{section*.149}%
-\contentsline {paragraph}{Performance metrics}{84}{section*.150}%
+\contentsline {paragraph}{Performance metrics}{83}{section*.150}%
 \contentsline {subsection}{\numberline {6.2.2}Cross-Dataset Generalisation Protocol}{84}{subsection.6.2.2}%
 \contentsline {paragraph}{Feature space alignment}{84}{section*.151}%
 \contentsline {paragraph}{Train-on-$A$ / Test-on-$B$ design}{84}{section*.152}%
-\contentsline {paragraph}{Evaluation criteria}{85}{section*.153}%
+\contentsline {paragraph}{Evaluation criteria}{84}{section*.153}%
 \contentsline {subsection}{\numberline {6.2.3}Constrained Subset Optimisation via Knapsack Formulation}{85}{subsection.6.2.3}%
 \contentsline {paragraph}{Decision variables and composite score}{85}{section*.154}%
-\contentsline {paragraph}{Complete MILP formulation}{86}{section*.155}%
-\contentsline {paragraph}{Optimisation strategy and parameter selection}{87}{section*.156}%
+\contentsline {paragraph}{Complete MILP formulation}{85}{section*.155}%
+\contentsline {paragraph}{Optimisation strategy and parameter selection}{86}{section*.156}%
 \contentsline {subsection}{\numberline {6.2.4}Functional and Gene-Level Interpretation}{87}{subsection.6.2.4}%
 \contentsline {paragraph}{CpG-to-gene mapping and methylation directionality}{87}{section*.157}%
-\contentsline {paragraph}{COSMIC cross-reference}{88}{section*.158}%
-\contentsline {paragraph}{Over-representation analysis}{88}{section*.159}%
+\contentsline {paragraph}{COSMIC cross-reference}{87}{section*.158}%
+\contentsline {paragraph}{Over-representation analysis}{87}{section*.159}%
 \contentsline {section}{\numberline {6.3}Intra-Dataset Results}{88}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{89}{subsection.6.3.1}%
-\contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{89}{section*.160}%
+\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{88}{subsection.6.3.1}%
+\contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{88}{section*.160}%
 \contentsline {paragraph}{Separation along the Tumor axis}{90}{section*.163}%
 \contentsline {paragraph}{Compression to 50 CpGs}{90}{section*.164}%
-\contentsline {paragraph}{Cross-dataset transferability}{91}{section*.168}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{91}{section*.169}%
-\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{93}{subsection.6.3.2}%
+\contentsline {paragraph}{Cross-dataset transferability}{90}{section*.168}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{90}{section*.169}%
+\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{92}{subsection.6.3.2}%
 \contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{section*.171}%
 \contentsline {paragraph}{Cross-dataset transferability of the 5,000-CpG panel}{94}{section*.174}%
 \contentsline {paragraph}{Compression to 50 CpGs}{94}{section*.175}%

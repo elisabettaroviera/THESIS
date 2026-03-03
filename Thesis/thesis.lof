@@ -46,7 +46,7 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Three-way overlap of the final 5{,}000 CpG signatures independently selected in GSE69914, GSE225845 and GSE287331. }}{73}{figure.caption.137}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Inter-dataset effect concordance of the final 5{,}000 CpG signatures. }}{76}{figure.caption.140}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE69914. }}{90}{figure.caption.162}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE69914. }}{89}{figure.caption.162}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE69914. }}{91}{figure.caption.166}%
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE69914. }}{92}{figure.caption.167}%
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE225845. }}{94}{figure.caption.173}%
@@ -70,5 +70,5 @@
 \contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{123}{figure.caption.205}%
 \contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{126}{figure.caption.209}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces \textbf {Age-related methylation structure (GSE225845).} Age distributions and PCA before/after age regression show that age accounts for structured methylation variance, removed by residualisation and controlled in ComBat.}}{129}{figure.caption.212}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces \textbf {Epigenetic age-bin distribution.} Sample counts by age group (young, peri-, post-menopausal, elderly). }}{130}{figure.caption.213}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{129}{figure.caption.212}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{130}{figure.caption.213}%

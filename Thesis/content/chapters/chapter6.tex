@@ -9,77 +9,48 @@
 
 Chapter~\ref{chap:feature_selection} established a statistically stable and 
 structurally diversified CpG panel of fixed cardinality ($K = 5{,}000$) for 
-each dataset. The proposed pipeline integrated empirical variability screening, 
-biologically weighted stability selection, correlation-based redundancy pruning, 
-and genomic diversification, ensuring that the resulting signatures are 
-reproducible within each cohort and structurally constrained by design. 
-The inter-dataset evaluation of Section~5.4 further revealed that cross-cohort 
-replicability is partial and asymmetric: GSE69914 and GSE225845 share a 
-concordant drift orientation and support bidirectional zero-shot transfer, 
-whereas GSE287331 exhibits a systematically inverted drift axis, yielding 
-sub-random transfer performance against both partner cohorts.
-
-These structural properties define the design space for the analyses developed 
-in the present chapter. The selected CpG panels are characterised by statistical 
-robustness and biological diversification, but their capacity to discriminate 
-Normal from Adjacent tissue under supervised modelling has not yet been 
-assessed. Leakage-controlled feature selection guarantees that the chosen loci 
-are statistically stable and non-redundant; it does not, by itself, imply that 
-they encode sufficient discriminative information for a classifier to operate 
-reliably on held-out data.
-
+each dataset, integrating variability screening, biologically weighted stability 
+selection, redundancy pruning, and genomic diversification. The inter-dataset 
+evaluation of Section~\ref{sec:inter_dataset_fs} further revealed that cross-cohort replicability is 
+partial and asymmetric: GSE69914 and GSE225845 share a concordant drift 
+orientation and support bidirectional zero-shot transfer, whereas GSE287331 
+exhibits a systematically inverted drift axis, yielding sub-random transfer 
+performance against both partner cohorts.
 The objectives of this chapter are threefold. First, intra-dataset 
-classification performance is quantified to verify whether the selected CpG 
-panels support accurate discrimination of Normal and Adjacent tissue within 
-each cohort. A linear Support Vector Machine is adopted as the primary 
-classifier for GSE225845 and GSE287331, a $k$-Nearest Neighbours introduced for 
-GSE69914 to assess the degree of linear separability. Second, cross-dataset 
-transferability is examined by training on one cohort and evaluating directly 
-on another, with no information from the target dataset entering the training 
-procedure. This zero-leakage design quantifies the extent to which the inferred 
-epigenetic drift axis generalises across independent cohorts, and whether 
-performance degradation is systematically associated with the directional 
-concordance structure documented in Chapter~\ref{chap:feature_selection}. 
-Third, a constrained combinatorial compression step is introduced to derive a 
-compact 50-CpG subset through a mixed-integer linear programming formulation 
-inspired by the classical 0--1 knapsack paradigm. This step investigates 
-whether predictive structure and biological diversity can be jointly preserved 
-under severe dimensional reduction, subject to explicit constraints on 
-cardinality, chromosomal distribution, correlation structure, and 
-methylation directionality.
-
-Finally, the biological coherence of the compressed panels is evaluated through 
-CpG-to-gene mapping, cross-referenced against the COSMIC Cancer Gene Census (CGC, version 103, GRCh38)~\cite{sondka2018cosmic,cosmic_cgc_v103}, 
-and pathway-level enrichment analysis. This interpretive step closes the loop 
-between statistical discrimination and functional relevance, assessing whether 
-the loci selected by a purely data-driven optimisation converge on genomic 
-regions with established roles in cancer-related epigenetic deregulation.
-
-Together, these analyses progress from statistically robust feature selection 
-to supervised evaluation, external validation, and structured biological 
-interpretation. The limitations that emerge — in particular the failure of 
-linear $\Delta\beta$ signatures to generalise across cohorts with divergent 
-drift orientations — directly motivate the representation-learning approach 
-developed in Chapter~\ref{chap:multi_cohort_integration}.
-
+classification performance is quantified to verify whether the selected panels 
+support accurate Normal--Adjacent discrimination within each cohort; a linear 
+Support Vector Machine is adopted for GSE225845 and GSE287331, and a 
+$k$-Nearest Neighbours classifier for GSE69914 to probe the degree of linear 
+separability. Second, cross-dataset transferability is examined under a 
+zero-leakage design — training on one cohort and evaluating directly on another 
+— to quantify how well the inferred epigenetic drift axis generalises across 
+independent cohorts, and whether performance degradation is systematically 
+associated with the directional concordance structure of 
+Chapter~\ref{chap:feature_selection}. Third, a constrained combinatorial 
+compression step derives a compact 50-CpG subset via mixed-integer linear 
+programming, investigating whether predictive structure and biological diversity 
+can be jointly preserved under severe dimensional reduction.
+The biological coherence of the compressed panels is then evaluated through 
+CpG-to-gene mapping, cross-referenced against the COSMIC Cancer Gene Census 
+(CGC, version 103, GRCh38)~\cite{sondka2018cosmic,cosmic_cgc_v103}, and 
+pathway-level enrichment analysis — closing the loop between statistical 
+discrimination and functional relevance. The limitations that emerge, in 
+particular the failure of linear $\Delta\beta$ signatures to generalise across 
+cohorts with divergent drift orientations, directly motivate the 
+representation-learning approach of Chapter~\ref{chap:multi_cohort_integration}.
 
 %-----------------------------------------------------------
 \section{Supervised Learning Framework}
 %-----------------------------------------------------------
 
-Following feature selection, each dataset is restricted to the
-corresponding panel of $K = 5{,}000$ CpGs identified in
-Chapter~\ref{chap:feature_selection}. Supervised baseline
-classifiers are applied independently within each cohort to
-assess whether the structurally stable and biologically
-diversified signatures encode sufficient discriminative
-information to separate Normal from Adjacent tissue. The
-choice of classifiers and evaluation protocol is deliberately
-conservative: the primary aim at this stage is not to maximise
-predictive performance but to quantify the discriminative
-content already encoded in the selected panels, and to
-characterise the extent to which this content generalises
-across cohorts.
+Each dataset is restricted to its corresponding $K = 5{,}000$
+CpG panel and two baseline classifiers are evaluated
+independently within each cohort: a linear Support Vector
+Machine for GSE225845 and GSE287331, and a $k$-Nearest
+Neighbours for GSE69914 to probe linear separability.
+The primary aim is not to maximise predictive performance
+but to quantify the discriminative content encoded in the
+selected panels.
 
 
 %-----------------------------------------------------------
@@ -564,7 +535,7 @@ strong tumour-driven methylation signal; the field-defect
 component separating Normal from Adjacent tissue is
 comparatively subtle, consistent with the biological
 model of progressive epigenetic drift discussed in
-Chapter~\ref{chap:background}.
+Chapter~\ref{chap:biological_background}.
 
 \paragraph{Compression to 50 CpGs}
 
@@ -777,7 +748,7 @@ Score distributions for Normal and Adjacent samples under
 the full 5,000-CpG panel and the
 compressed 50-CpG subset in GSE225845.
 }
-\label{fig:gse225845_knn}
+\label{fig:gse225845_scores}
 \end{figure}
 
 \paragraph{Cross-dataset transferability of the
@@ -1049,7 +1020,7 @@ Score distributions for Normal and Adjacent samples under
 the full 5,000-CpG panel and the
 compressed 50-CpG subset in GSE287331.
 }
-\label{fig:gse287331_knn}
+\label{fig:gse287331_scores}
 \end{figure}
 
 \begin{figure}[t]

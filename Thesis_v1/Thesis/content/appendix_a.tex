@@ -1,0 +1,99 @@
+% appendix
+\chapter{Filtering lists}
+\label{sec:probe-filters}
+
+\section{Probe Filtering Resources}
+\label{app:probe_filters}
+
+This appendix documents the five external annotation resources adopted for
+technical probe filtering across all three datasets. Each resource targets
+distinct classes of measurement artefacts; together they define the union-based
+exclusion criterion applied in Section~\ref{subsec:step2}.
+Table~\ref{tab:filter_categories} summarises the categories covered by each
+resource.
+
+\subsection{Naeem \textit{et al.} (2014)}
+\label{app:naeem2014}
+
+Naeem \textit{et al.}~\cite{naeem2014} proposed a structured filtering framework
+for the HumanMethylation450 array that excludes probes multi-mapping or
+cross-hybridising to additional loci, probes overlapping repetitive elements
+(LINE, SINE, Alu), and probes overlapping insertion--deletion polymorphisms.
+For SNP-affected probes, variants at the interrogated CpG or single-base
+extension site — which directly compromise the methylation measurement — are
+excluded, while nearby variants not interfering in bisulfite space are retained.
+
+\subsection{Chen \textit{et al.} (2013)}
+\label{app:chen2013}
+
+Chen \textit{et al.}~\cite{chen2013} empirically identified 450K probes
+exhibiting off-target hybridisation or overlap with common SNPs. Only the
+cross-reactive probe list is used here, enumerating approximately $29{,}000$
+multi-mapping probes whose methylation signal cannot be unambiguously attributed
+to a single genomic locus.
+
+\begin{table}[t]
+\centering
+\caption{Technical artefact categories covered by each filtering resource.}
+\label{tab:filter_categories}
+\scriptsize
+\begin{tabular}{l c c c c c}
+\toprule
+\textbf{Category} &
+\textbf{Naeem} &
+\textbf{Chen} &
+\textbf{Pidsley} &
+\textbf{Zhou} &
+\textbf{McCartney} \\
+\midrule
+Cross-hybridisation &
+Yes & Yes & Yes & \texttt{MASK\_mapping} & Yes \\
+SNP at CpG &
+Yes & --- & Yes & \texttt{MASK\_snp5}, \texttt{MASK\_extBase} & --- \\
+Nearby SNP &
+Conditional & --- & --- & --- & --- \\
+Structural variant &
+Yes & --- & --- & --- & --- \\
+Non-CpG probes &
+--- & --- & Yes & \texttt{MASK\_nonCG} & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Pidsley \textit{et al.} (2016)}
+\label{app:pidsley2016}
+
+Pidsley \textit{et al.}~\cite{pidsley2016} provide annotated probe lists for
+the EPIC array flagging three relevant categories: CpG-targeting probes with
+sequence homology to additional loci; non-CpG-targeting probes with analogous
+off-target issues; and probes overlapping common genetic variation at the
+interrogated CpG, the single-base extension site of Type~I probes, or within
+the probe body.
+
+\subsection{Zhou \textit{et al.} (2016)}
+\label{app:zhou2016}
+
+Zhou \textit{et al.}~\cite{zhou2017} released a unified probe annotation for
+450K and EPIC arrays using binary mask columns. The masks applied here flag
+probes with low mapping quality (\texttt{MASK\_mapping}); Type~I probes with
+a SNP at the extension base causing a colour-channel switch
+(\texttt{MASK\_typeINextBaseSwitch}); probes with an inconsistent extension base
+(\texttt{MASK\_extBase}); probes with non-unique 30-bp 3$'$ subsequences
+(\texttt{MASK\_sub30.copy}); and probes overlapping SNPs within $\pm$5\,bp of
+the interrogated CpG (\texttt{MASK\_snp5.common}, \texttt{MASK\_snp5.GMAF1p}).
+The composite \texttt{MASK\_general} field is used as the primary filter;
+RepeatMasker probes (\texttt{MASK\_rmsk15}) are retained, consistent with
+standard practice.
+
+\subsection{McCartney \textit{et al.} (2016)}
+\label{app:mccartney2016}
+
+McCartney \textit{et al.}~\cite{mccartney2016} assessed probe design artefacts
+on the EPIC array, publishing lists of cross-hybridising CpG- and non-CpG-targeting
+probes that complement the Pidsley and Zhou resources with an independent
+characterisation of off-target hybridisation.\\
+
+
+\noindent The combined application of these resources ensures that downstream analyses
+operate on a probe set with maximised hybridisation specificity and minimal
+confounding by common genetic variation.

@@ -1,0 +1,197 @@
+% ============================================================
+\chapter{Multi-Cohort Integration and Biological Synthesis}
+\label{chap:multi_cohort_integration}
+% ============================================================
+
+% ------------------------------------------------------------
+\section{Rationale for Multi-Cohort Integration}
+% ------------------------------------------------------------
+
+The identification of early epigenetic alterations associated with the
+Normal $\rightarrow$ Adjacent axis requires robustness across
+independent studies. Rather than analysing each dataset in isolation,
+the present chapter integrates GSE69914, GSE225845, and GSE287331
+within a unified modelling framework.
+
+The objective is not external validation between cohorts,
+but the assessment of signal stability under controlled
+multi-cohort pooling, where biological heterogeneity and
+platform variability coexist within a single analytical setting.
+
+% ------------------------------------------------------------
+\section{Technical Challenges of Cohort Pooling}
+% ------------------------------------------------------------
+
+\subsection{Platform Heterogeneity}
+
+The datasets originate from different Illumina platforms
+(HumanMethylation450K and MethylationEPIC).
+Differences in probe composition and genomic coverage
+necessitate construction of a common CpG space prior to integration.
+
+\subsection{Feature-Space Alignment}
+
+A probe intersection strategy was applied to define a shared feature
+space across cohorts.
+All downstream modelling operates exclusively within this aligned set,
+ensuring comparability across samples.
+
+\subsection{Residual Cohort Effects}
+
+Even after preprocessing standardisation,
+cohort-specific variance structure,
+clinical composition,
+and sampling differences may induce latent effects.
+The pooled modelling strategy therefore evaluates robustness
+under heterogeneous but harmonised conditions.
+
+% ------------------------------------------------------------
+\section{Unified Preprocessing and Feature Selection}
+% ------------------------------------------------------------
+
+\subsection{Preprocessing Standardisation}
+
+All datasets were processed using the identical pipeline
+described in Chapter~\ref{chap:data_preprocessing},
+including:
+
+\begin{itemize}
+\item technical probe filtering,
+\item manifest-based annotation validation,
+\item sex-chromosome exclusion,
+\item $\beta \rightarrow M$ transformation.
+\end{itemize}
+
+This guarantees methodological uniformity prior to integration.
+
+\subsection{Application of the Robust Feature Selection Framework}
+
+The stability-driven feature selection procedure
+introduced in Chapter~\ref{chap:feature_selection}
+was applied within the pooled setting.
+The framework incorporates:
+
+\begin{itemize}
+\item train-only variability filtering,
+\item repeated stratified stability ranking,
+\item effect-size prioritisation,
+\item correlation-based redundancy pruning,
+\item genomic diversification constraints.
+\end{itemize}
+
+The resulting CpG panel reflects loci that remain
+statistically stable and directionally coherent
+within a heterogeneous multi-cohort environment.
+
+% ------------------------------------------------------------
+\section{Pooled Multi-Cohort Modelling}
+% ------------------------------------------------------------
+
+\subsection{Joint Training Strategy}
+
+Samples from all three cohorts were combined,
+followed by stratified train–test splitting
+performed on the aggregated dataset.
+Model training was conducted on the pooled training set,
+while evaluation was performed on the pooled test set.
+
+This strategy does not constitute external validation,
+but rather evaluates model robustness
+under cohort heterogeneity.
+
+\subsection{Performance Evaluation}
+
+Model performance was assessed using:
+
+\begin{itemize}
+\item ROC–AUC,
+\item balanced accuracy,
+\item precision–recall metrics,
+\item confusion matrix analysis.
+\end{itemize}
+
+Performance therefore reflects the capacity to capture
+stable epigenetic drift patterns
+shared across studies.
+
+\subsection{Robustness Under Heterogeneity}
+
+The pooled evaluation framework implicitly tests whether
+the selected CpG panel encodes cohort-invariant
+Normal–Adjacent differences,
+rather than dataset-specific artefacts.
+
+% ------------------------------------------------------------
+\section{Gene-Level Aggregation and Functional Integration}
+% ------------------------------------------------------------
+
+\subsection{CpG-to-Gene Mapping}
+
+Selected CpGs were mapped to gene symbols
+using the Illumina manifest annotation.
+Gene-level aggregation enables higher-order
+biological interpretation.
+
+\subsection{Gene Overlap and Functional Enrichment}
+
+Over-representation analysis (ORA) was performed
+to identify pathways enriched among the selected genes.
+The background universe corresponds to the aligned CpG space.
+False discovery rate correction was applied
+to control multiple testing.
+
+\subsection{Biological Coherence Across Cohorts}
+
+Functional categories consistently enriched
+in the pooled setting
+indicate biological processes that remain stable
+despite cohort heterogeneity.
+
+% ------------------------------------------------------------
+\section{Integrated Model of Early Epigenetic Drift}
+% ------------------------------------------------------------
+
+The combined evidence supports a model in which:
+
+\begin{itemize}
+\item early methylation alterations are focal rather than global,
+\item directional effects persist across heterogeneous cohorts,
+\item tumor samples display consolidation and increased variability,
+\item adjacent tissue occupies an intermediate and unstable state.
+\end{itemize}
+
+Pooling cohorts strengthens statistical power
+while revealing signals robust to study-specific variability.
+
+% ------------------------------------------------------------
+\section{Methodological Considerations}
+% ------------------------------------------------------------
+
+It is important to clarify that pooled evaluation:
+
+\begin{itemize}
+\item does not measure external transferability,
+\item may partially absorb residual cohort effects,
+\item reflects robustness within a harmonised multi-study framework.
+\end{itemize}
+
+Nevertheless, the stability-driven feature selection
+and strict train-only procedures
+mitigate information leakage
+and enhance interpretability in HDLSS settings.
+
+% ------------------------------------------------------------
+\section{Synthesis of Multi-Cohort Evidence}
+% ------------------------------------------------------------
+
+In summary,
+joint multi-cohort modelling confirms that
+early epigenetic drift is subtle but detectable,
+and that selected CpG panels retain discriminative ability
+within a heterogeneous integrated framework.
+
+This chapter consolidates the exploratory analyses,
+preprocessing rationale,
+and stability-based feature selection strategy,
+providing a coherent biological synthesis
+of early methylation alterations in breast tissue.

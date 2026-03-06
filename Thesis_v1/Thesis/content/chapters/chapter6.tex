@@ -224,8 +224,6 @@ a distinction that carries direct methodological implications
 for the multi-cohort strategy developed in
 Chapter~\ref{chap:multi_cohort_integration}.
 
-
-
 %-----------------------------------------------------------
 \subsection{Constrained Subset Optimisation via Knapsack Formulation}
 \label{sec:knapsack}
@@ -242,9 +240,10 @@ The selection problem is cast as a multi-constraint mixed-integer linear program
 and extended to incorporate structural and biological requirements analogous to
 those employed in marker panel design~\cite{wu2016snp,nishiyama2022ilp}. Unlike
 the classical single-capacity formulation, the present model couples a composite
-statistical objective with six hard constraints that jointly enforce cardinality,
-chromosomal balance, correlation independence, genomic-context coverage,
-gene-level diversity, and methylation directionality.
+statistical objective with eight hard constraints that jointly enforce cardinality,
+correlation independence, chromosomal balance, biological-region anchoring,
+gene-level linking, per-gene diversity, gene-count diversity,
+and methylation directionality.
 
 \paragraph{Decision variables and composite score}
 
@@ -252,79 +251,93 @@ Let $\mathcal{J}$ denote the index set of $|\mathcal{J}| = 5{,}000$ candidate
 CpGs retained after feature selection. For each $j \in \mathcal{J}$, a binary
 decision variable $x_j \in \{0,1\}$ encodes inclusion in the compressed panel.
 Gene-level linking variables $y_g \in \{0,1\}$ indicate whether at least one
-CpG annotated to gene $g$ is selected, and are used both in the objective and
-in constraint~\eqref{eq:c5}.
+CpG annotated to gene $g$ is selected, and enter both the diversification
+objective~\eqref{eq:phi} and constraint~\eqref{eq:c5}.
 The statistical utility of each locus is summarised by a composite score:
 \begin{equation}
 \label{eq:score}
   v_j \;=\;
   w_{\mathrm{coef}}\,\tilde{c}_j
   + w_{\Delta M}\,\tilde{d}_j
-  + w_{\mathrm{score}}\,\tilde{s}_j
+  + w_{\sigma}\,\tilde{s}_j
   + w_{\mathrm{COSMIC}}\,\mathbf{1}_{\{j \in \mathrm{CGC}\}},
 \end{equation}
 where $\tilde{c}_j$, $\tilde{d}_j$, and $\tilde{s}_j$ are rank-normalised
 components corresponding, respectively, to the SVM coefficient magnitude,
-the absolute $\Delta M$ effect size, and the stability score from the feature
-selection stage; the indicator $\mathbf{1}_{\{j \in \mathrm{CGC}\}}$ confers
-an additional reward to loci annotated in the COSMIC Cancer Gene
+the absolute $\Delta M$ effect size, and the inverse cross-sample standard deviation of M-values on the training set,
+such that loci with low baseline variability in Normal tissue receive higher utility; the indicator $\mathbf{1}_{\{j \in \mathrm{CGC}\}}$
+confers an additional reward to loci annotated in the COSMIC Cancer Gene
 Census~\cite{sondka2018cosmic}.
-To promote genomic diversity beyond the statistical score, a diversification
-functional is defined as:
+The normalised diversification functional is defined as:
 \begin{equation}
 \label{eq:phi}
-  \Phi(x) \;=\;
-  \sum_{j:\,\mathrm{prom}(j)} x_j
-  +\sum_{j:\,\mathrm{isl}(j)} x_j
-  + \eta \sum_{g} y_g,
+\hat{\Phi}(x,y) \;=\;
+\frac{1}{K(2+\eta)}\left(
+\sum_{j:\,\mathrm{prom}(j)} x_j
++ \sum_{j:\,\mathrm{isl}(j)} x_j
++ \eta \sum_{g} y_g
+\right),
 \end{equation}
-which rewards the inclusion of promoter-proximal and CpG-island loci, and
-penalises panels that concentrate their gene-level coverage in few loci
-neighbourhoods.
+where $\mathrm{prom}(j)$ indicates that locus $j$ is promoter-proximal
+(TSS200, TSS1500, 1stExon, or 5'UTR), $\mathrm{isl}(j)$ indicates membership
+in a CpG island, and $\eta > 0$ weights gene-level richness relative to regional
+coverage. The denominator $K(2+\eta)$ normalises $\hat{\Phi}$ to the unit
+interval, so that $\mu$ is directly interpretable as the maximum fractional
+penalty on the statistical objective.
 
 \paragraph{Complete MILP formulation}
 
-Combining the statistical objective~\eqref{eq:score} with the diversification
-functional~\eqref{eq:phi}, the full optimisation problem reads:
+Combining~\eqref{eq:score} with~\eqref{eq:phi}, the full optimisation problem
+reads:
 \begin{align}
 &\underset{x}{\text{max}} \quad
   \sum_{j \in \mathcal{J}} v_j\,x_j + \mu\,\hat{\Phi}(x,y) \notag \\[8pt]
 &\text{s.t.} \notag \\[4pt]
 &\quad \sum_{j \in \mathcal{J}} x_j = K
-   \tag{C1}\label{eq:c1}\\[3pt]
+   \label{eq:c1}\\[3pt]
 &\quad x_i + x_j \le 1
    \qquad \forall\,(i,j):\,|r_{ij}| \ge 0.85
-   \tag{C2}\label{eq:c2}\\[3pt]
-&\quad \sum_{j \in \mathcal{J}_c} x_j \le \alpha_{\mathrm{chr}}\,K
+   \label{eq:c2}\\[3pt]
+&\quad \sum_{j \in \mathcal{J}_c} x_j \le \delta_{\mathrm{chr}}
    \qquad \forall\, c
-   \tag{C3}\label{eq:c3}\\[3pt]
-&\quad \sum_{j \in \mathcal{J}_\ell} x_j \le \alpha_\ell\,K
-   \qquad \forall\,\ell \in \mathcal{L}
-   \tag{C4}\label{eq:c4}\\[3pt]
-&\quad \sum_{j:\,g(j)=g} x_j \le \delta_{\max}\,y_g
+   \label{eq:c3}\\[3pt]
+&\quad \sum_{j \in \mathcal{J}_A} x_j \ge K_A
+   \qquad \text{if } \mathcal{J}_A \neq \emptyset
+   \label{eq:c4}\\[3pt]
+&\quad x_j \le y_{g(j)}
+   \qquad \forall\, j:\, g(j) \neq \emptyset
+   \label{eq:c5}\\[3pt]
+&\quad \sum_{j:\,g(j)=g} x_j \le \delta_{\max}
    \qquad \forall\, g
-   \tag{C5}\label{eq:c5}\\[3pt]
+   \label{eq:c6}\\[3pt]
+&\quad \sum_{g} y_g \ge G_{\min}
+   \label{eq:c7}\\[3pt]
 &\quad \sum_{j:\,\Delta M_j > 0} x_j \ge h_{\min}
-   \tag{C6}\label{eq:c6}\\[3pt]
+   \label{eq:c8}\\[3pt]
 &\quad x_j \in \{0,1\},\quad y_g \in \{0,1\}. \notag
 \end{align}
-Each constraint encodes a distinct biological or structural requirement.
+
+\noindent Each constraint encodes a distinct biological or structural requirement.
 Constraint~\eqref{eq:c1} fixes the panel cardinality exactly at $K = 50$.
-Constraint~\eqref{eq:c2} prevents the simultaneous selection of locus pairs
-whose Spearman correlation satisfies $|r_{ij}| \ge 0.85$, extending the
-redundancy-pruning principle established in
-Chapter~\ref{chap:feature_selection} to the compressed regime.
-Constraint~\eqref{eq:c3} imposes a per-chromosome ceiling $\alpha_{\mathrm{chr}}$,
-while constraint~\eqref{eq:c4} upper-bounds the proportion of selected loci
-belonging to each genomic context $\ell \in \mathcal{L}$ (OpenSea, Island,
-Shore, Shelf); together, these two constraints prevent the panel from becoming
-genomically concentrated in a limited number of chromosomal or regulatory
-regions. Constraint~\eqref{eq:c5} links the CpG selection variables to the
-gene-level indicators through the parameter $\delta_{\max}$, which caps the
-number of selected loci per gene and ensures that no single locus neighbourhood
-dominates the panel. Finally, constraint~\eqref{eq:c6} enforces a lower bound
-$h_{\min}$ on the count of hypermethylated loci, preventing polarity collapse
-towards a purely hypomethylated solution.
+Constraint~\eqref{eq:c2} prevents the simultaneous selection of locus pairs whose
+Spearman correlation satisfies $|r_{ij}| \ge 0.85$, extending the
+redundancy-pruning principle of Chapter~\ref{chap:feature_selection} to the
+compressed regime. Constraint~\eqref{eq:c3} imposes an absolute ceiling
+$\delta_{\mathrm{chr}} = 10$ on the number of loci selected from any single
+chromosome, preventing genomic concentration. Constraint~\eqref{eq:c4} enforces
+a lower bound $K_A$ on the number of loci drawn from Pool~A --- the biologically
+anchored subset of CpG-island-proximal sites identified during feature selection
+--- and is active only when $\mathcal{J}_A \neq \emptyset$.
+Constraints~\eqref{eq:c5} and~\eqref{eq:c6} jointly govern gene-level diversity:
+\eqref{eq:c5} activates the linking variable $y_{g(j)}$ whenever CpG $j$ is
+selected, while \eqref{eq:c6} independently caps the number of selected loci per
+gene at $\delta_{\max} = 2$, preventing any single locus neighbourhood from
+dominating the panel. Constraint~\eqref{eq:c7} imposes a lower bound $G_{\min}$
+on the number of distinct genes represented, promoting broad regulatory coverage.
+Finally, constraint~\eqref{eq:c8} enforces a minimum count $h_{\min}$ of loci
+with positive SVM coefficient, i.e.\ hypermethylated in Adjacent relative to
+Normal tissue, preventing polarity collapse towards a purely hypomethylated
+solution.
 
 \paragraph{Optimisation strategy and parameter selection}
 
@@ -332,18 +345,23 @@ The scalar $\mu \ge 0$ governs the trade-off between statistical score and
 structural diversification. At $\mu = 0$ the problem reduces to a pure
 score-maximising knapsack; as $\mu$ increases, the objective increasingly
 rewards genomic balance at the expense of discriminative utility. To identify
-a stable operating point, $\mu$ is swept over a discrete grid and the
-resulting Pareto frontier between the two objectives is examined. The final
-value is selected at the empirical knee of this curve, defined as the point
-beyond which marginal gains in diversification no longer compensate for losses
-in statistical score.
-Given the moderate input dimensionality ($|\mathcal{J}| = 5{,}000$), the MILP
-is solved to certified global optimality using the CBC solver via PuLP.
+a stable operating point, $\mu$ is swept over the discrete grid
+$\{0,\, 0.05,\, 0.1,\, 0.25,\, 0.5,\, 1.0,\, 2.0\}$ and the resulting
+Pareto frontier between $f_1 = \sum_j v_j x_j$ and $f_2 = \hat{\Phi}(x,y)$
+is examined. The final value is selected at the empirical knee of this curve,
+defined as the point of maximum perpendicular distance from the line connecting
+the two frontier endpoints, beyond which marginal gains in diversification no
+longer compensate for losses in statistical score. An independent sweep over
+$w_{\mathrm{COSMIC}} \in \{0,\, 0.1,\, 0.2,\, 0.3,\, 0.5,\, 0.7,\, 1.0\}$
+is subsequently performed at the knee $\mu$, and the value maximising COSMIC
+enrichment subject to a tolerance of $0.1\%$ on $f_1$ is retained.
 Solution stability across $\mu$ values is assessed by computing the Jaccard
-similarity between each solution and the knee-point panel, confirming that
-the selected subset is not sensitive to small perturbations of the
-diversification weight.
-
+similarity between each solution and the knee-point panel, confirming that the
+selected subset is not sensitive to small perturbations of the diversification
+weight. Given the moderate input dimensionality ($|\mathcal{J}| = 5{,}000$),
+the MILP is solved to certified global optimality using the COIN-OR
+Branch-and-Cut (CBC) solver interfaced via the PuLP modelling library, with a
+wall-clock time limit of 120 seconds per instance.
 
 %-----------------------------------------------------------
 \subsection{Functional and Gene-Level Interpretation}

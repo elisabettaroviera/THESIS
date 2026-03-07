@@ -1672,6 +1672,7 @@
       \strng{authornamehash}{f94399510b1be6d7fab7d889d00b68d8}
       \strng{authorfullhash}{f94399510b1be6d7fab7d889d00b68d8}
       \strng{authorfullhashraw}{f94399510b1be6d7fab7d889d00b68d8}
+      \field{extraname}{1}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -5354,6 +5355,108 @@
       \verb 10.1038/ncb1530
       \endverb
     \endentry
+    \entry{ibrahim2024fbln2}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=b0886a1df030612880243c743aacb1d6}{%
+           family={Ibrahim},
+           familyi={I\bibinitperiod},
+           given={Ayman\bibnamedelima M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a96aab32c2d3c44c4cea5e1554ce9c92}{%
+           family={Anis},
+           familyi={A\bibinitperiod},
+           given={Shady\bibnamedelima E.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=ed1637d130e7d3d8746c446a99a1b563}{%
+           family={Bilsland},
+           familyi={B\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9c7d5b5041bef06eaf70fb59417481f3}{%
+           family={Rickelt},
+           familyi={R\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=232cbb7110aec65071606a85f25acf4a}{%
+           family={Morris},
+           familyi={M\bibinitperiod},
+           given={Joanna\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=7aea749bd54c2a8c209af9621147c0b1}{%
+           family={Stein},
+           familyi={S\bibinitperiod},
+           given={Torsten},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{fullhash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{fullhashraw}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{bibnamehash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{authorbibnamehash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{authornamehash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{authorfullhash}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \strng{authorfullhashraw}{c8ef6b9fcc3714f3ad3e35caa876bdb5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Breast Cancer Research and Treatment}
+      \field{title}{{FBLN2} is associated with basal cell markers {Krt14} and {ITGB1} in mouse mammary epithelial cells and has a preferential expression in molecular subtypes of human breast cancer}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1007/s10549-024-07447-y
+      \endverb
+    \endentry
+    \entry{naba2014mammary}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=80dc423f8277815479cc0b984a2b0cf7}{%
+           family={Naba},
+           familyi={N\bibinitperiod},
+           given={Alexandra},
+           giveni={A\bibinitperiod}}}%
+        {{hash=af3546674a38f3628993c67d2dd927bf}{%
+           family={Clauser},
+           familyi={C\bibinitperiod},
+           given={Karl\bibnamedelima R.},
+           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=2d95aa53ee9738bd321867d852f5c1e9}{%
+           family={Lamar},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=eda58b1bac28e8d94a1a5dafc9469739}{%
+           family={Carr},
+           familyi={C\bibinitperiod},
+           given={Steven\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=cbd9dc69d5c8715febc22989ec1c2073}{%
+           family={Hynes},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima O.},
+           giveni={R\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{fullhash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{fullhashraw}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{bibnamehash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{authorbibnamehash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{authornamehash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{authorfullhash}{6abe5a6ef96824d9c58c446ea963726a}
+      \strng{authorfullhashraw}{6abe5a6ef96824d9c58c446ea963726a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{eLife}
+      \field{title}{Extracellular matrix signatures of human mammary carcinoma identify novel metastasis promoters}
+      \field{volume}{3}
+      \field{year}{2014}
+      \field{pages}{e01308}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.7554/eLife.01308
+      \endverb
+    \endentry
     \entry{DecodingDepression2024}{article}{}{}
       \name{author}{2}{}{%
         {{hash=8d61a7eae5b546c864191996ba248423}{%
@@ -5395,6 +5498,38 @@
       \endverb
       \verb{url}
       \verb https://www.nature.com/articles/s41398-024-02992-y
+      \endverb
+    \endentry
+    \entry{wang2021combatmet}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6890b338f2203d3c99cfea9f9316852}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Junmin},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{fullhash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{fullhashraw}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{bibnamehash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{authorbibnamehash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{authornamehash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{authorfullhash}{b6890b338f2203d3c99cfea9f9316852}
+      \strng{authorfullhashraw}{b6890b338f2203d3c99cfea9f9316852}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NAR Genomics and Bioinformatics}
+      \field{number}{3}
+      \field{title}{{ComBat}-met: adjusting batch effects in {DNA} methylation data}
+      \field{volume}{3}
+      \field{year}{2021}
+      \field{pages}{lqab061}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/nargab/lqab061
       \endverb
     \endentry
     \entry{Zhang2019}{article}{}{}

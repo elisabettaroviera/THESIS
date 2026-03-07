@@ -190,8 +190,8 @@
 \contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{88}{subsection.6.3.1}%
 \contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{89}{section*.160}%
 \contentsline {paragraph}{Compression to 50 CpGs via MILP}{89}{figure.caption.165}%
-\contentsline {paragraph}{Separation along the Tumor axis}{90}{section*.167}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{90}{figure.caption.169}%
+\contentsline {paragraph}{Separation along the Tumor axis}{91}{section*.167}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{91}{figure.caption.169}%
 \contentsline {paragraph}{Cross-dataset transferability}{93}{section*.170}%
 \contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{93}{subsection.6.3.2}%
 \contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{table.caption.172}%
@@ -201,13 +201,13 @@
 \contentsline {paragraph}{Cross-dataset transferability}{97}{section*.181}%
 \contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{97}{subsection.6.3.3}%
 \contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{97}{table.caption.183}%
-\contentsline {paragraph}{Compression to 50 CpGs via MILP}{98}{figure.caption.187}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{97}{figure.caption.187}%
 \contentsline {paragraph}{Separation along the Tumor axis}{98}{section*.189}%
 \contentsline {paragraph}{Gene-level coherence and functional enrichment}{98}{section*.190}%
 \contentsline {paragraph}{Cross-dataset transferability}{101}{section*.192}%
 \contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{101}{section.6.4}%
 \contentsline {paragraph}{PC1 as a Diagnostic Axis}{101}{section*.193}%
-\contentsline {paragraph}{Directional Concordance of Methylation Shifts}{101}{section*.195}%
+\contentsline {paragraph}{Directional Concordance of Methylation Shifts}{101}{section*.196}%
 \contentsline {section}{\numberline {6.5}Synthesis and Implications}{102}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Biological Synthesis}{104}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{104}{section.7.1}%

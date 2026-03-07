@@ -21,10 +21,10 @@
 \contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}}{89}{table.caption.161}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics --- KNN, 50 CpGs (GSE69914, internal test).}}{90}{table.caption.164}%
 \contentsline {table}{\numberline {6.3}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE225845, internal test).}}{93}{table.caption.172}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE225845, internal test).}}{94}{table.caption.175}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE225845, internal test).}}{94}{table.caption.174}%
 \contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE287331, internal test).}}{97}{table.caption.183}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE287331, internal test).}}{98}{table.caption.186}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{102}{table.caption.196}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE287331, internal test).}}{98}{table.caption.185}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{102}{table.caption.194}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

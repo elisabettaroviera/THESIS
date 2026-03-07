@@ -1312,6 +1312,7 @@
       \strng{authornamehash}{9c9d24c17011be8024fc2eef6a81fd3c}
       \strng{authorfullhash}{9c9d24c17011be8024fc2eef6a81fd3c}
       \strng{authorfullhashraw}{9c9d24c17011be8024fc2eef6a81fd3c}
+      \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -4641,6 +4642,761 @@
       \verb 10.1093/nar/gkw377
       \endverb
     \endentry
+    \entry{kalachand2024brca}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=b7a0f23a5e320cd775412ca31ded6771}{%
+           family={Kalachand},
+           familyi={K\bibinitperiod},
+           given={Roshni\bibnamedelima D},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{fullhash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{fullhashraw}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{bibnamehash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{authorbibnamehash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{authornamehash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{authorfullhash}{1d6829fae68bb9404a838cd768143dd2}
+      \strng{authorfullhashraw}{1d6829fae68bb9404a838cd768143dd2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Clinical Epigenetics}
+      \field{number}{1}
+      \field{title}{{BRCA1} \& {BRCA2} methylation as a prognostic and predictive biomarker in cancer: implementation in liquid biopsy in the era of precision medicine}
+      \field{volume}{16}
+      \field{year}{2024}
+      \field{pages}{174}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s13148-024-01787-8
+      \endverb
+    \endentry
+    \entry{graffeo2022bard1}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=06d6d84782d258ca0173213818b01c27}{%
+           family={Graffeo},
+           familyi={G\bibinitperiod},
+           given={Rossella},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4eae76672c33dab217f728de615a73ac}{%
+           family={Rana},
+           familyi={R\bibinitperiod},
+           given={Huma\bibnamedelima Q},
+           giveni={H\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=9e11e684b9f96212d1c117ace5416f1e}{%
+           family={Conforti},
+           familyi={C\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{fullhash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{fullhashraw}{237e63acc06e4102b4cc23ba34314868}
+      \strng{bibnamehash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{authorbibnamehash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{authornamehash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{authorfullhash}{237e63acc06e4102b4cc23ba34314868}
+      \strng{authorfullhashraw}{237e63acc06e4102b4cc23ba34314868}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Breast}
+      \field{title}{Moderate penetrance genes complicate genetic testing for breast cancer diagnosis: {ATM}, {CHEK2}, {BARD1} and {RAD51D}}
+      \field{volume}{65}
+      \field{year}{2022}
+      \field{pages}{32\bibrangedash 40}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.breast.2022.06.003
+      \endverb
+    \endentry
+    \entry{su1998mkk4}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=a6f2e00d94efcd71a9ea49f863703e67}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Grace\bibnamedelima H},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=4685acca87bfb5ac322baab8292b6d40}{%
+           family={Hilgers},
+           familyi={H\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=0b24b1ca09e24a7add882a4c0f18e110}{%
+           family={Shekher},
+           familyi={S\bibinitperiod},
+           given={Meenal\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{fullhash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{fullhashraw}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{bibnamehash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{authorbibnamehash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{authornamehash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{authorfullhash}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \strng{authorfullhashraw}{a28de13cbdce87e8b91fd0a28dc4d1e5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cancer Research}
+      \field{number}{11}
+      \field{title}{Alterations in pancreatic, biliary, and breast carcinomas support {MKK4} as a genetically targeted tumor suppressor gene}
+      \field{volume}{58}
+      \field{year}{1998}
+      \field{pages}{2339\bibrangedash 2342}
+      \range{pages}{4}
+    \endentry
+    \entry{liu2019map2k4}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=71a0fe4c49a825f2c7caf4d51d2b8603}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Shu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=75b521e4b1c72bad58a58b0d90136cf6}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e1c13887c8deae064463d633682aa3bf}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yewei},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{fullhash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{fullhashraw}{333224c1a96fd60e51369a5a7e494631}
+      \strng{bibnamehash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{authorbibnamehash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{authornamehash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{authorfullhash}{333224c1a96fd60e51369a5a7e494631}
+      \strng{authorfullhashraw}{333224c1a96fd60e51369a5a7e494631}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Aging}
+      \field{number}{24}
+      \field{title}{{MAP2K4} interacts with {Vimentin} to activate the {PI3K/AKT} pathway and promotes breast cancer pathogenesis}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{pages}{12552\bibrangedash 12569}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.18632/aging.102485
+      \endverb
+    \endentry
+    \entry{moasser2007her2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=58f910a599952e8b43d921f5a42ed7ef}{%
+           family={Moasser},
+           familyi={M\bibinitperiod},
+           given={Mark\bibnamedelima M.},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{fullhash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{fullhashraw}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{bibnamehash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{authorbibnamehash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{authornamehash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{authorfullhash}{58f910a599952e8b43d921f5a42ed7ef}
+      \strng{authorfullhashraw}{58f910a599952e8b43d921f5a42ed7ef}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Oncogene}
+      \field{number}{45}
+      \field{title}{The oncogene {HER2}: its signaling and transforming functions and its role in human cancer pathogenesis}
+      \field{volume}{26}
+      \field{year}{2007}
+      \field{pages}{6469\bibrangedash 6487}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1038/sj.onc.1210477
+      \endverb
+    \endentry
+    \entry{tang2019aspm}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=65beaa5ec347482a3fa9d9ede2847edd}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jianing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7f984c6df80da4d3cce67aea80e4b858}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Mengxin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1cf6e86d32acd045ba905b9d0c4e5890}{%
+           family={Cui},
+           familyi={C\bibinitperiod},
+           given={Qiuxia},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=8d3346030389bb4358dd53ef845ff0b1}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ac3483fc1896df65d9df44d45e7ebe07}{%
+           family={Kong},
+           familyi={K\bibinitperiod},
+           given={Deguang},
+           giveni={D\bibinitperiod}}}%
+        {{hash=033eba29ac86ee3ddbf763ef0664ed48}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Xing},
+           giveni={X\bibinitperiod}}}%
+        {{hash=182c68d8d60029d18914b0fc2aae1438}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Jiangbo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4cd779979096a0e7f0039c4ff0e9928d}{%
+           family={Gong},
+           familyi={G\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=33d5d43298fe324ff95899ba30f57c13}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Gaosong},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{fullhash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{fullhashraw}{c55025251e8d605765fc970f6ba37fca}
+      \strng{bibnamehash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{authorbibnamehash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{authornamehash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{authorfullhash}{c55025251e8d605765fc970f6ba37fca}
+      \strng{authorfullhashraw}{c55025251e8d605765fc970f6ba37fca}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Oncology}
+      \field{title}{Overexpression of {ASPM}, {CDC20}, and {TTK} Confer a Poorer Prognosis in Breast Cancer Identified by Gene Co-expression Network Analysis}
+      \field{volume}{9}
+      \field{year}{2019}
+      \field{pages}{310}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fonc.2019.00310
+      \endverb
+    \endentry
+    \entry{tognon2002etv6}{article}{}{}
+      \name{author}{11}{}{%
+        {{hash=35f7908c1b5d6a804095d1f1a2b57bcd}{%
+           family={Tognon},
+           familyi={T\bibinitperiod},
+           given={Cristina},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cdcb0c467b1e1e4a9997c76a1d419bf1}{%
+           family={Knezevich},
+           familyi={K\bibinitperiod},
+           given={Stevan\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=0723c0208f0b9fb303cc18563e5b67ba}{%
+           family={Huntsman},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=27f6b69c46b2cb8c9957a06d4f5962a1}{%
+           family={Roskelley},
+           familyi={R\bibinitperiod},
+           given={Calvin\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=37845d58f083bc3162502d9823b11173}{%
+           family={Melnyk},
+           familyi={M\bibinitperiod},
+           given={Nadia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=feb7a50c040f3adcc5d574a96272011d}{%
+           family={Mathers},
+           familyi={M\bibinitperiod},
+           given={Jacqueline\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=00968730fdc72ca6f31d5df85be0fa75}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Lance},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d94741eadc498f6d86c3d3882b1b7c90}{%
+           family={Carneiro},
+           familyi={C\bibinitperiod},
+           given={Fatima},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9fa2e6950311bed252634d9cd6c6efca}{%
+           family={MacPherson},
+           familyi={M\bibinitperiod},
+           given={Niall},
+           giveni={N\bibinitperiod}}}%
+        {{hash=72c1933668593af782cd19d90478599a}{%
+           family={Horsman},
+           familyi={H\bibinitperiod},
+           given={Douglas},
+           giveni={D\bibinitperiod}}}%
+        {{hash=da84fd01026217ab79525b50cd910c7a}{%
+           family={Sorensen},
+           familyi={S\bibinitperiod},
+           given={Poul\bibnamedelima H.B.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{fullhash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{fullhashraw}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{bibnamehash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{authorbibnamehash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{authornamehash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{authorfullhash}{bf3c0d48da54211eb7e10605e67d493c}
+      \strng{authorfullhashraw}{bf3c0d48da54211eb7e10605e67d493c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cancer Cell}
+      \field{number}{5}
+      \field{title}{Expression of the {ETV6--NTRK3} gene fusion as a primary event in human secretory breast carcinoma}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{pages}{367\bibrangedash 376}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/S1535-6108(02)00180-0
+      \endverb
+    \endentry
+    \entry{liu2010casp8}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=43b5ea53be0ff7f69842d43a06056757}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jing-xuan},
+           giveni={J\bibinithyphendelim x\bibinitperiod}}}%
+        {{hash=ac696aa3d4b6ac91f76d77e438aadcbf}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cbbf459f12421fc4b0339813fa570a52}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Xiang-hong},
+           giveni={X\bibinithyphendelim h\bibinitperiod}}}%
+      }
+      \strng{namehash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{fullhash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{fullhashraw}{b61c88fcdb6bf4b02348892983114923}
+      \strng{bibnamehash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{authorbibnamehash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{authornamehash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{authorfullhash}{b61c88fcdb6bf4b02348892983114923}
+      \strng{authorfullhashraw}{b61c88fcdb6bf4b02348892983114923}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Cancer}
+      \field{title}{Caspase 8 and maspin are downregulated in breast cancer cells due to {CpG} site promoter methylation}
+      \field{volume}{10}
+      \field{year}{2010}
+      \field{pages}{32}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2407-10-32
+      \endverb
+    \endentry
+    \entry{han2016map3k13}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=b1c69d263de3ce3a5eca73b3f40bf22d}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Huabing},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ef3ee11de403b6effce4ebe8822d1c58}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yongfei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=32165ed8ffb4fd6b671241e6ec264826}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ca57798c23e94b26d9299fece4fb90f7}{%
+           family={Prochownik},
+           familyi={P\bibinitperiod},
+           given={Edward\bibnamedelima V.},
+           giveni={E\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=88ccab01a37c6730e99a5fb9d10f967f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yudan},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{fullhash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{fullhashraw}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{bibnamehash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{authorbibnamehash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{authornamehash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{authorfullhash}{e5e1ebf9095a687e909401888319b9b9}
+      \strng{authorfullhashraw}{e5e1ebf9095a687e909401888319b9b9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Oncotarget}
+      \field{number}{13}
+      \field{title}{micro{RNA}-206 impairs c-{Myc}-driven cancer in a synthetic lethal manner by directly inhibiting {MAP3K13}}
+      \field{volume}{7}
+      \field{year}{2016}
+      \field{pages}{16409\bibrangedash 16419}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.18632/oncotarget.7653
+      \endverb
+    \endentry
+    \entry{ormandy2003ccnd1}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=d50cf4dcdf7fef9b16693d3b18ab7490}{%
+           family={Ormandy},
+           familyi={O\bibinitperiod},
+           given={Christopher\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=aa39a8c217f6bec6d3e558cf879b6b65}{%
+           family={Musgrove},
+           familyi={M\bibinitperiod},
+           given={Elizabeth\bibnamedelima A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6c8d07c6238b57a8356a218c62028d79}{%
+           family={Hui},
+           familyi={H\bibinitperiod},
+           given={Rik},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d7b5c2cb0c6f555d5751aa9c6140ad6b}{%
+           family={Daly},
+           familyi={D\bibinitperiod},
+           given={Roger\bibnamedelima J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=73e505bca43cbfffbc5f04c468421921}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{fullhash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{fullhashraw}{c1e56d2a18496ba89c01b13003255587}
+      \strng{bibnamehash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{authorbibnamehash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{authornamehash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{authorfullhash}{c1e56d2a18496ba89c01b13003255587}
+      \strng{authorfullhashraw}{c1e56d2a18496ba89c01b13003255587}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Breast Cancer Research and Treatment}
+      \field{number}{3}
+      \field{title}{Cyclin {D1}, {EMS1} and {11q13} amplification in breast cancer}
+      \field{volume}{78}
+      \field{year}{2003}
+      \field{pages}{323\bibrangedash 335}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1023/A:1023033708204
+      \endverb
+    \endentry
+    \entry{fu2022map3k1}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=8f695f2cae7d00813b623da1a1e25c4d}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=e171c63652ef5d90507cbbcc479aa99a}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e0fb89689172cce98608c2e76b64f3d1}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Ye},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=875b7bb8e78a4404d2d444dfae696c7d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Tingting},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0672466dc7c3a8cec050e5ac091fd0ac}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{fullhash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{fullhashraw}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{bibnamehash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{authorbibnamehash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{authornamehash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{authorfullhash}{4027bc0cbc6545b75c86c4421070159a}
+      \strng{authorfullhashraw}{4027bc0cbc6545b75c86c4421070159a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Oncology}
+      \field{title}{Spectrum of {MAP3K1} mutations in breast cancer is luminal subtype-predominant and related to prognosis}
+      \field{volume}{11}
+      \field{year}{2022}
+      \field{pages}{785246}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fonc.2021.785246
+      \endverb
+    \endentry
+    \entry{cancer2012comprehensive}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8d2025baba1908b56a76f17ec3880d25}{%
+           family={{Cancer Genome Atlas Network}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{fullhash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{fullhashraw}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{bibnamehash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{authorbibnamehash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{authornamehash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{authorfullhash}{8d2025baba1908b56a76f17ec3880d25}
+      \strng{authorfullhashraw}{8d2025baba1908b56a76f17ec3880d25}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7418}
+      \field{title}{Comprehensive molecular portraits of human breast tumours}
+      \field{volume}{490}
+      \field{year}{2012}
+      \field{pages}{61\bibrangedash 70}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1038/nature11412
+      \endverb
+    \endentry
+    \entry{fillmore2010tbx3}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=07e3ac258bc5b07b9c7bf4a42fc2ce66}{%
+           family={Fillmore},
+           familyi={F\bibinitperiod},
+           given={Christine\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=38ba28bc3928e5b8aa74fe1b96fe50a8}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Piyush\bibnamedelima B.},
+           giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=751a78060c692019a7766ef04ec5835d}{%
+           family={Rudnick},
+           familyi={R\bibinitperiod},
+           given={Joshua\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=cef6bebd6d32b0af6038588785ac40d4}{%
+           family={Caballero},
+           familyi={C\bibinitperiod},
+           given={Sylvia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=802b594939db57c4cc2967fd7592001f}{%
+           family={Bhatt},
+           familyi={B\bibinitperiod},
+           given={Dev\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=210950b656205c0ffb9448f44441751d}{%
+           family={Weinberg},
+           familyi={W\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=26dbdf4d628f63695f2b2dcb7c74aa57}{%
+           family={Kuperwasser},
+           familyi={K\bibinitperiod},
+           given={Charlotte},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{fullhash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{fullhashraw}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{bibnamehash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{authorbibnamehash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{authornamehash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{authorfullhash}{9cb9868bc229d8d6abba885b36515e97}
+      \strng{authorfullhashraw}{9cb9868bc229d8d6abba885b36515e97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{50}
+      \field{title}{Estrogen expands breast cancer stem-like cells through paracrine {FGF/Tbx3} signalling}
+      \field{volume}{107}
+      \field{year}{2010}
+      \field{pages}{21737\bibrangedash 21742}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1073/pnas.1007863107
+      \endverb
+    \endentry
+    \entry{asselin2007gata3}{article}{}{}
+      \name{author}{12}{}{%
+        {{hash=402afb0f81c81b8e7c85ef7fc602826b}{%
+           family={Asselin-Labat},
+           familyi={A\bibinithyphendelim L\bibinitperiod},
+           given={Marie-Liesse},
+           giveni={M\bibinithyphendelim L\bibinitperiod}}}%
+        {{hash=303b4225c8ffa008620b8db58c3cf3a9}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Kate\bibnamedelima D.},
+           giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=369a879e14e92e402c6548394b84c3aa}{%
+           family={Barker},
+           familyi={B\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fbfc6a1dcb7e32fa21a3198269c34bf4}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Renee},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e52a200afdae7c52e8f01fa7adf55472}{%
+           family={Shackleton},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=976f88db1689e02a8205a9ff3f72a196}{%
+           family={Forrest},
+           familyi={F\bibinitperiod},
+           given={Natasha\bibnamedelima C.},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4cf936b3a2196bd2fabd49ceda0d1068}{%
+           family={Hartley},
+           familyi={H\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+        {{hash=171f863457dd686e30686b2afa29efbf}{%
+           family={Robb},
+           familyi={R\bibinitperiod},
+           given={Lorraine},
+           giveni={L\bibinitperiod}}}%
+        {{hash=4999cb443a0290b2e4670598dfe3a8cf}{%
+           family={Grosveld},
+           familyi={G\bibinitperiod},
+           given={Frank\bibnamedelima G.},
+           giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=e3ec2e2a18939f96aa2ca86b803233d7}{%
+           family={Wees},
+           familyi={W\bibinitperiod},
+           given={Jacqueline},
+           giveni={J\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=0e1f5855b8188573bbb78682cff1adbc}{%
+           family={Lindeman},
+           familyi={L\bibinitperiod},
+           given={Geoffrey\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=9651e71dc1680addbc793cb7c0f414a8}{%
+           family={Visvader},
+           familyi={V\bibinitperiod},
+           given={Jane\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{fullhash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{fullhashraw}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{bibnamehash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{authorbibnamehash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{authornamehash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{authorfullhash}{435f0d5c2377b84adae8e94e53d93db5}
+      \strng{authorfullhashraw}{435f0d5c2377b84adae8e94e53d93db5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Cell Biology}
+      \field{number}{2}
+      \field{title}{Gata-3 is an essential regulator of mammary-gland morphogenesis and luminal-cell differentiation}
+      \field{volume}{9}
+      \field{year}{2007}
+      \field{pages}{201\bibrangedash 209}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/ncb1530
+      \endverb
+    \endentry
+    \entry{DecodingDepression2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8d61a7eae5b546c864191996ba248423}{%
+           family={Sokolov},
+           familyi={S\bibinitperiod},
+           given={Aleksandr\bibnamedelima V.},
+           giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=27cc1095d50fb84e323ef216feb34ee1}{%
+           family={Schiöth},
+           familyi={S\bibinitperiod},
+           given={Helgi\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{fullhash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{fullhashraw}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{bibnamehash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{authorbibnamehash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{authornamehash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{authorfullhash}{0beb519dfe171cc1b3f1e453d3350621}
+      \strng{authorfullhashraw}{0beb519dfe171cc1b3f1e453d3350621}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Translational Psychiatry}
+      \field{number}{1}
+      \field{title}{Decoding depression: a comprehensive multi-cohort exploration of blood DNA methylation using machine learning and deep learning approaches}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{pages}{326}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41398-024-02992-y
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41398-024-02992-y
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41398-024-02992-y
+      \endverb
+    \endentry
     \entry{Zhang2019}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -4667,8 +5423,8 @@
       \strng{authornamehash}{656a9c621d0379a95118f9fdeaf6a509}
       \strng{authorfullhash}{656a9c621d0379a95118f9fdeaf6a509}
       \strng{authorfullhashraw}{656a9c621d0379a95118f9fdeaf6a509}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Genome Biology}
@@ -4738,8 +5494,8 @@
       \strng{authornamehash}{82d86ac7a1b34dc817d00c11d6a2f74f}
       \strng{authorfullhash}{82d86ac7a1b34dc817d00c11d6a2f74f}
       \strng{authorfullhashraw}{82d86ac7a1b34dc817d00c11d6a2f74f}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Vaccine}
@@ -4809,8 +5565,8 @@
       \strng{authornamehash}{19a4435de180accb9896e16b7633ab4d}
       \strng{authorfullhash}{19a4435de180accb9896e16b7633ab4d}
       \strng{authorfullhashraw}{19a4435de180accb9896e16b7633ab4d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Current Opinion in Oncology}

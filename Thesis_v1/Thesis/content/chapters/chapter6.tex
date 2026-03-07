@@ -464,7 +464,7 @@ performance is reported in Table~\ref{tab:gse69914_5k}.
 \scriptsize
 \caption{Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}
 \label{tab:gse69914_5k}
-\begin{tabular}{c c c c c c c c}
+\begin{tabular}{c c c c c c}
 \toprule
 AUC & BAcc & Precision & Recall & F1 & MCC \\
 \midrule
@@ -487,9 +487,7 @@ clusters observed in the other cohorts.
     \centering
     \includegraphics[width=0.5\linewidth]{images/cap6/GSE69914_knn_boundary.pdf}
     \caption{Projection of the KNN decision surface onto PC1--PC2
-           (explaining 30.8\% and 14.8\% of variance, respectively).
-           Train and test samples from both classes overlap extensively,
-           with no geometrically separable structure.}
+           (explaining 30.8\% and 14.8\% of variance, respectively).}
     \label{fig:gse69914_boundary}
 \end{figure}
 
@@ -536,18 +534,14 @@ dimensionality. The AUC reduction ($0.78 \to 0.65$) reflects the loss of loci
 with marginal discriminative weight that contributed to the ranking surface but
 not to the operating threshold. The score distributions
 (Figure~\ref{fig:gse69914_scores}) confirm that neither panel version achieves
-confident class separation, while the decision boundary and importance--effect
-analysis (Figure~\ref{fig:gse69914_boundary}) show a weak Spearman correlation
-($\rho = -0.22$) between classifier importance and $|\Delta M|$, indicating
-that discriminative and biologically drifted loci are not well aligned in this
-cohort.
+confident class separation.
 
 \begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE69914_ScoreDist.pdf}
-  \caption{Predicted probability distribution for the 50000-CpG panel.}
+  \caption{Predicted probability distribution for the 5{,}000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
@@ -558,6 +552,7 @@ cohort.
 \caption{Score distributions for Normal and Adjacent samples in GSE69914.}
 \label{fig:gse69914_scores}
 \end{figure}
+
 
 \paragraph{Separation along the Tumor axis}
 
@@ -577,13 +572,27 @@ discussed in Chapter~\ref{chap:biological_background}.
 
 \paragraph{Gene-level coherence and functional enrichment}
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/cap6/GSE69914_volcano_50cpg.pdf}
+    \caption{KNN permutation importance (signed by $\Delta\beta$) versus
+             $\Delta\beta$ (Adjacent $-$ Normal) for the 50 selected loci.
+             COSMIC breast cancer genes (squares) are annotated by gene name.
+             Spearman $\rho = -0.22$ in GSE69914.}
+    \label{fig:gse69914_volcano}
+\end{figure}
+
 The 50-CpG panel maps to 40 unique genes. The component-wise decomposition
 of the MILP objective (Figure~\ref{fig:gse69914_compression}) shows that most
 selected loci carry contributions from all three statistical components
 ($w_{\mathrm{coef}}\tilde{c}$, $w_{\Delta M}\tilde{d}$,
 $w_{\sigma}\tilde{s}$), with a subset receiving additional weight from the
-COSMIC indicator. Among the COSMIC-annotated loci, four genes warrant
-biological commentary.
+COSMIC indicator. The relationship between classifier importance and biological
+effect size is visualised in Figure~\ref{fig:gse69914_volcano}: COSMIC-annotated
+loci (squares) span a wide range of $\Delta\beta$ values and are not
+systematically co-localised with the highest-importance region, consistent with
+the weak Spearman correlation ($\rho = -0.22$) across the full panel.
+Among the COSMIC-annotated loci, six genes warrant biological commentary.
 
 \textbf{BRCA2} (cg26458617, hypomethylated in Adjacent): a tumour suppressor
 central to homologous recombination repair of double-strand DNA breaks;
@@ -595,28 +604,36 @@ PARP inhibitor therapy~\cite{kalachand2024brca}.
 \textbf{BARD1} (cg08563601, hypermethylated in Adjacent): the obligate
 heterodimeric partner of BRCA1 in the RING-domain complex involved in DNA
 repair and apoptosis; loss-of-function variants in \textit{BARD1} confer a
-moderate penetrance risk for breast cancer (OR $\approx$ 2.90), with
-particularly elevated risk in triple-negative breast cancer~\cite{graffeo2022bard1}.
+moderate-penetrance risk for breast cancer (OR~$\approx 2.90$), with
+particularly elevated risk in triple-negative breast
+cancer~\cite{graffeo2022bard1}.
 
 \textbf{MAP2K4} (cg02746232, hypermethylated in Adjacent): a MAPKK-family
 kinase that activates both the JNK and p38 stress-response axes; its role in
-breast cancer is context-dependent, with homozygous deletions and loss-of-function
-mutations identified in breast carcinomas supporting a tumour-suppressive function,
-while overexpression has also been reported to promote invasion via PI3K/AKT
+breast cancer is context-dependent, with homozygous deletions and
+loss-of-function mutations supporting a tumour-suppressive function, while
+overexpression has also been reported to promote invasion via PI3K/AKT
 activation~\cite{su1998mkk4,liu2019map2k4}.
 
-\textbf{RBPJ} (cg22002629, hypermethylated in Adjacent): the canonical
-transcriptional effector of the Notch signalling pathway, acting as a
-context-dependent repressor or activator of target gene expression; Notch--RBPJ
-dysregulation contributes to breast cancer progression, cancer stem cell
-maintenance, and resistance to therapy~\cite{stylianou2021notch}.
+\textbf{ERBB2} (cg26041593, hypermethylated in Adjacent): the \textit{ERBB2}
+proto oncogene encodes the HER2 receptor tyrosine kinase at chromosome 17q12;
+amplification and overexpression are among the most established oncogenic
+drivers in breast cancer, conferring aggressive tumour behaviour and
+therapeutic susceptibility to targeted anti-HER2
+agents~\cite{moasser2007her2}.
 
+\textbf{ASPM} (cg03750742, hypermethylated in Adjacent): a centrosomal
+spindle-assembly protein whose elevated expression in breast cancer is
+associated with advanced tumour grade, poor prognosis, and reduced
+relapse-free and overall survival~\cite{tang2019aspm}.
 
-GO Biological Process analysis identifies focussed enrichment in DNA damage
-surveillance and chromatin ubiquitination (Table~\ref{tab:gse69914_go}),
-consistent with the BRCA2--BARD1 axis present in the panel.
+\textbf{ETV6} (cg11375112, hypomethylated in Adjacent): a transcriptional
+repressor of the ETS family; in breast cancer, \textit{ETV6} is rearranged in
+secretory carcinoma through the \textit{ETV6--NTRK3} fusion, and
+loss-of-function alterations have been implicated in tumour progression across
+multiple tissue types~\cite{tognon2002etv6}.
+
 \paragraph{Cross-dataset transferability}
-
 External evaluation yields near-random discrimination on both target cohorts:
 AUC = 0.517 on GSE225845 and AUC = 0.498 on GSE287331, with balanced
 accuracy collapsing to 0.5 and zero recall for the Adjacent class in both
@@ -626,521 +643,369 @@ discriminative direction identified in GSE69914 does not project onto a
 shared epigenetic axis --- a finding consistent with the low pairwise
 $\Delta\beta$ concordance documented in Chapter~\ref{chap:feature_selection}.
 
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/cap6/GSE69914_volcano_50cpg.pdf}
-    \caption{KNN permutation importance versus $\Delta M$ effect size
-           (Adjacent $-$ Normal) for each of the 50 selected loci.
-           COSMIC breast cancer genes are highlighted in green.
-           The weak negative Spearman correlation ($\rho = -0.22$)
-           indicates limited alignment between discriminative weight
-           and biological effect size.}
-    \label{ffig:gse69914_volcano}
-\end{figure}
-
-
 %-----------------------------------------------------------
 \subsection{Dataset GSE225845}
 \label{sec:results_gse225845}
 %-----------------------------------------------------------
 
-GSE225845 presents the clearest example of linear
-separability in this study. The 5,000-CpG panel supports a
-well-defined decision boundary with high AUC and balanced
-class discrimination, and the 50-CpG compressed panel largely
-preserves this structure. The cohort also provides an
-informative reference point for the relationship between
-field-cancerization and full tumour transformation: the same
-compressed panel that discriminates Normal from Adjacent
-tissue achieves even stronger separation against Tumor
-samples, suggesting that the selected loci lie on the
-biological continuum of progressive epigenetic drift rather
-than encoding a tissue-contrast artefact.
+GSE225845 presents strong intra-cohort linear separability, with the
+5,000-CpG panel achieving high AUC and balanced class discrimination.
+The 50-CpG compressed panel largely preserves this structure, and the
+cohort yields informative cross-dataset transferability results given
+its intermediate position along the field-cancerization signal axis.
 
 \paragraph{Linear separability of the 5,000-CpG panel}
 
-The linear SVM is evaluated under a stratified 80/20 split
-($n_{\mathrm{train}} = 202$, $n_{\mathrm{test}} = 51$).
-Performance is summarised in Table~\ref{tab:gse225845_5k}.
-
-\begin{table}[H]
+\begin{table}[t]
 \centering
-\caption{Performance metrics — Linear SVM, 5,000 CpGs
-         (GSE225845, internal test)}
+\scriptsize
+\caption{Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE225845, internal test).}
 \label{tab:gse225845_5k}
-\begin{tabular}{lc}
+\begin{tabular}{c c c c c c}
 \toprule
-Metric & Value \\
+AUC & BAcc & Precision & Recall & F1 & MCC \\
 \midrule
-AUC               & 0.9565 \\
-PR-AUC            & 0.9623 \\
-Balanced Accuracy & 0.9030 \\
-Precision         & 0.9259 \\
-Recall            & 0.8929 \\
-F1-score          & 0.9091 \\
-Specificity       & 0.9130 \\
-MCC               & 0.8034 \\
+0.9565 & 0.9030 & 0.9259 & 0.8929 & 0.9091 & 0.8034 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+A linear SVM is applied to the full 5,000-CpG panel under the stratified
+80/20 split.
+Test-set performance is reported in Table~\ref{tab:gse225845_5k}.
 The confusion matrix
 $\bigl[\begin{smallmatrix}21&2\\3&25\end{smallmatrix}\bigr]$
-confirms balanced discrimination across classes. The high
-MCC (0.80) rules out class-imbalance artefacts as a driver
-of AUC inflation and indicates that the structurally
-constrained 5,000-CpG panel retains substantial discriminative
-signal within this cohort.
+confirms balanced discrimination across both classes; the high MCC (0.80)
+rules out class-imbalance artefacts. The PCA projection
+(Figure~\ref{fig:gse225845_boundary}) and silhouette coefficient of 0.09
+show a well-separated class geometry, in sharp contrast to the overlapping
+structure observed in GSE69914.
 
-Figure~\ref{fig:gse225845_boundary} shows the calibrated
-decision boundary projected onto the first two principal
-components (PC1 = 29.6\%, PC2 = 10.9\% variance explained):
-a clear inter-class separation is visible, with residual
-overlap confined to the margin region.
-Figure~\ref{fig:gse225845_scores} reports the SVM decision
-score distributions for the 5,000-CpG and 50-CpG models
-side by side; in both cases the class densities are well
-separated around the decision threshold $f(x) = 0$.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]
+        {images/cap6/GSE225845_boundary_pca_prob_calibrated.pdf}
+    \caption{Projection of the calibrated SVM decision surface onto PC1--PC2
+             (29.6\% and 10.9\% variance explained).}
+    \label{fig:gse225845_boundary}
+\end{figure}
 
-\begin{figure}[H]
+\paragraph{Compression to 50 CpGs via MILP}
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Performance metrics --- Linear SVM, 50 CpGs (GSE225845, internal test).}
+\label{tab:gse225845_50}
+\begin{tabular}{c c c c c c}
+\toprule
+AUC & BAcc & Precision & Recall & F1-score & MCC \\
+\midrule
+0.9363 & 0.8851 & 0.9231 & 0.8571 & 0.8889 & 0.7666 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]
+  {images/cap6/GSE225845_knapsack_selected_contributions_stacked.pdf}
+\caption{Component-wise decomposition of the MILP objective for the 50-CpG
+panel in GSE225845. Each bar is one selected locus, sorted by total utility;
+stacked segments show contributions from
+$w_{\mathrm{coef}}\tilde{c}$,
+$w_{\Delta M}\tilde{d}$,
+$w_{\sigma}\tilde{s}$, and
+$w_{\mathrm{COSMIC}} \cdot \mathbf{1}_{\mathrm{cosmic}}$.}
+\label{fig:gse225845_compression}
+\end{figure}
+
+Following the intra-dataset SVM training, the learned coefficient magnitudes
+--- alongside the absolute $\Delta M$ effect sizes and the inverse baseline
+variability scores --- are fed as input to the MILP formulation of
+Section~\ref{sec:knapsack}. The resulting 50-CpG panel, selected under
+$\mu = 0.5$ and $w_{\mathrm{COSMIC}} = 1$, is shown in
+Figure~\ref{fig:gse225845_compression} with its component-wise utility
+decomposition. A linear SVM retrained exclusively on these 50 loci yields
+the metrics in Table~\ref{tab:gse225845_50}.
+The AUC decreases modestly ($0.9565 \to 0.9363$) while MCC remains high
+(0.77), with the confusion matrix
+$\bigl[\begin{smallmatrix}21&2\\4&24\end{smallmatrix}\bigr]$
+showing only one additional false negative. Unlike GSE69914, the stacked
+decomposition reveals that the COSMIC component dominates the objective
+for the majority of loci, with statistical components providing secondary
+contributions. The score distributions (Figure~\ref{fig:gse225845_scores})
+confirm that both panel versions achieve confident class separation around
+$f(x) = 0$.
+
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE225845_ScoreDist.pdf}
-  \caption{Distribution of SVM decision scores
-           for the 5,000-CpG panel.}
+  \caption{SVM decision score distribution for the 5,000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE225845_svmcheck_score_dist_50cpg.pdf}
-  \caption{Distribution of SVM decision scores
-           for the 50-CpG constrained panel.}
+  \caption{SVM decision score distribution for the 50-CpG panel.}
 \end{subfigure}
-\caption{
-Score distributions for Normal and Adjacent samples under
-the full 5,000-CpG panel and the
-compressed 50-CpG subset in GSE225845.
-}
+\caption{Score distributions for Normal and Adjacent samples in GSE225845.}
 \label{fig:gse225845_scores}
 \end{figure}
 
-\paragraph{Cross-dataset transferability of the
-5,000-CpG panel}
+\paragraph{Separation along the Tumor axis}
 
-Transferability is evaluated under the train-on-GSE225845 /
-test-on-external paradigm of
-Section~\ref{sec:cross_dataset}, restricting features to the
-CpG intersection with each target cohort. On GSE69914
-(2,893 intersecting CpGs), external performance degrades to
-AUC = 0.578, with balanced accuracy = 0.5 and zero positive
-predictions. On GSE287331 (3,970 intersecting CpGs),
-performance collapses to AUC = 0.029, again with balanced
-accuracy = 0.5 and no positive classifications. The
-systematic failure across both targets, despite strong
-internal discrimination, points to structural misalignment
-of the inferred separating hyperplane with the epigenetic
-drift orientation of the external cohorts. Crucially, the
-collapse cannot be attributed to overfitting: internal
-test performance under feature intersection remains stable
-at AUC $\approx 0.92$.
-
-\paragraph{Compression to 50 CpGs}
-
-The constrained optimisation ($\mu = 0.5$,
-$w_{\mathrm{COSMIC}} = 1$) yields the metrics in
-Table~\ref{tab:gse225845_50}.
-
-\begin{table}[H]
-\centering
-\caption{Performance metrics — Linear SVM, 50 CpGs
-         (GSE225845, internal test)}
-\label{tab:gse225845_50}
-\begin{tabular}{lc}
-\toprule
-Metric & Value \\
-\midrule
-AUC               & 0.9363 \\
-PR-AUC            & 0.8786 \\
-Balanced Accuracy & 0.8851 \\
-Precision         & 0.9231 \\
-Recall            & 0.8571 \\
-F1-score          & 0.8889 \\
-Specificity       & 0.9130 \\
-MCC               & 0.7666 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The AUC decreases modestly ($0.9565 \to 0.9363$) while MCC
-remains high (0.77). The confusion matrix
-$\bigl[\begin{smallmatrix}21&2\\4&24\end{smallmatrix}\bigr]$
-shows only one additional false negative relative to the
-5,000-CpG model, confirming that a substantial fraction of
-the discriminative structure is concentrated in a compact
-subset of loci.
-
-A positive Spearman correlation between signed SVM
-coefficients and $\Delta\beta$ (Adjacent -- Normal,
-$\rho = 0.38$) indicates partial concordance between
-univariate effect size and multivariate discriminative
-weight. Several loci display large coefficients despite
-moderate $\Delta\beta$, suggesting that covariance
-structure — rather than marginal shift alone — drives
-discrimination. Figure~\ref{fig:gse225845_compression}
-summarises the compressed panel diagnostics.
-
-\begin{figure}[t]
-\centering
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE225845_boundary_pca_prob_calibrated.pdf}
-  \caption{Projection of the calibrated linear SVM decision surface
-           onto the first two principal components (PC1$-$PC2).
-           }
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE225845_volcano_50cpg.pdf}
-  \caption{Relationship between SVM coefficient magnitude and
-           $\Delta M$ effect size (Adjacent $-$ Normal) for the
-           constrained 50-CpG panel.}
-\end{subfigure}
-\caption{
-Decision geometry and coefficient–effect-size relationship 
-for the constrained 50-CpG predictive model in GSE225845. 
-}  
-\label{fig:gse225845_boundary} 
-\end{figure}
-
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.75\textwidth]
-    {images/cap6/GSE225845_knapsack_selected_contributions_stacked.pdf}
-    \caption{ Component-wise decomposition of the MILP objective for the
-selected 50-CpG panel in GSE225845.
-    }
-    \label{fig:gse225845_compression}
-\end{figure}
-
-An important observation concerns the behaviour of the
-compressed panel beyond the Normal--Adjacent contrast for
-which it was optimised. Evaluated on the Normal--Tumor
-axis within the same cohort, the 50-CpG model achieves
-AUC = $0.9118 \pm 0.0630$ (five-fold CV) with mean
-$|\Delta M| = 0.955$, compared to AUC = $0.8170 \pm 0.0605$
-and mean $|\Delta M| = 0.690$ on the Normal--Adjacent
-task. The silhouette coefficient rises from 0.09 to 0.13.
-Rather than reflecting a conflation of the two contrasts,
-this gradient is consistent with the biological model of
-progressive epigenetic drift: the loci selected to
-discriminate the subtle Normal--Adjacent transition lie
-along the same methylation axis that becomes more
-pronounced in full malignant transformation, and
-their discriminative capacity scales accordingly.
+The same 50-CpG SVM is evaluated on a Normal~(test split) versus
+Tumor~(all available samples) comparison without retraining, yielding
+AUC = $0.9781$ (five-fold CV). The silhouette coefficient rises from 0.09 to
+0.13. This gradient confirms that the selected loci lie on the biological
+continuum of progressive epigenetic drift, with discriminative capacity
+scaling toward full malignant transformation.
 
 \paragraph{Gene-level coherence and functional enrichment}
 
-The 50-CpG compressed panel maps to 42 unique genes; of
-the 50 loci, 44 are associated with COSMIC breast cancer
-genes. No significant GO Biological Process terms are
-identified at FDR $< 0.05$. KEGG analysis reveals
-significant enrichment for canonical oncogenic pathways
-(Table~\ref{tab:gse225845_kegg}).
+The 50-CpG panel maps to 42 unique genes. The component-wise decomposition
+(Figure~\ref{fig:gse225845_compression}) shows the COSMIC indicator
+dominating the objective for most loci. The relationship between classifier
+importance and biological effect size is visualised in
+Figure~\ref{fig:gse225845_volcano}: a positive Spearman correlation
+($\rho = 0.38$) indicates partial concordance between univariate effect
+size and multivariate discriminative weight, in contrast to the
+misalignment observed in GSE69914. Among the COSMIC-annotated loci, four
+genes warrant biological commentary.
 
-\begin{table}[H]
-\centering
-\caption{KEGG enrichment — 50-CpG panel (GSE225845)}
-\label{tab:gse225845_kegg}
-\begin{tabular}{lcc}
-\toprule
-Pathway & Overlap & Adj.\ $p$ \\
-\midrule
-Thyroid hormone signaling pathway & 4/121 & 0.0165 \\
-Hepatocellular carcinoma          & 4/168 & 0.0289 \\
-Pathways in cancer                & 6/531 & 0.0365 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]
+        {images/cap6/GSE225845_volcano_50cpg.pdf}
+    \caption{SVM coefficient (signed) versus $\Delta\beta$ (Adjacent $-$
+             Normal) for the 50 selected loci. COSMIC breast cancer genes
+             (squares) are annotated by gene name. Spearman $\rho = 0.38$ in GSE225845.}
+    \label{fig:gse225845_volcano}
+\end{figure}
 
-The enrichment is driven by \textit{NCOR1}, \textit{NOTCH1},
-\textit{PIK3CA}, \textit{CCND1}, \textit{KEAP1},
-\textit{ARID1A}, \textit{CASP8}, and \textit{VHL} — a set
-that spans PI3K/AKT signalling, cell-cycle control, chromatin
-remodelling, and apoptosis regulation, all recurrently
-implicated in breast tumorigenesis. MSigDB Hallmark analysis
-further identifies \textit{Notch Signaling} (2/32 genes,
-FDR = 0.033), driven by \textit{NOTCH1} and \textit{CCND1}.
-The convergence of two independent pathway collections on
-Notch and canonical oncogenic modules strengthens the
-evidence for biological coherence of the compressed panel.
-Taken together, GSE225845 exhibits strong intra-cohort linear
-separability, robust signal retention under compression, and
-convergence of the optimised panel toward established cancer
-signalling networks. The failure of cross-dataset transfer,
-however, confirms that the learned separating axis is
-cohort-specific and does not generalise across independent
-methylation landscapes.
+\textbf{CASP8} (cg25095814, hypomethylated in Adjacent): an initiator
+caspase and critical effector of the extrinsic apoptosis pathway; promoter
+methylation of \textit{CASP8} silences its expression in breast cancer,
+and demethylating agents restore apoptotic sensitivity~\cite{liu2010casp8}.
+
+\textbf{MAP3K13} (cg17420463 hypomethylated, cg20497956 hypermethylated):
+a leucine-zipper kinase activating NF-$\kappa$B and JNK signalling; in
+breast cancer, \textit{MAP3K13} overexpression stabilises Myc transcriptional
+activity, with high expression correlating with poor survival in ER-negative,
+Myc-high tumours~\cite{han2016map3k13}.
+
+\textbf{CCND1} (cg13271751 hypermethylated, cg19209049 hypomethylated):
+the gene encoding Cyclin D1, core regulator of the G1/S cell-cycle
+transition; amplified at 11q13 in approximately 15--20\% of breast cancers
+and among the most recurrently altered oncogenes in luminal
+subtypes~\cite{ormandy2003ccnd1}.
+
+\textbf{MAP3K1} (cg22571926, hypermethylated): a MAPKKK-family kinase whose
+loss-of-function mutations are among the most frequent somatic alterations
+in luminal A breast cancer, associated with improved overall survival in
+hormone-receptor-positive disease~\cite{fu2022map3k1}.
+
+The remaining COSMIC-annotated loci --- \textit{NOTCH1} (cg21181474, hyper),
+\textit{FOXA1} (cg00899076, hypo), \textit{NCOR1} (cg04689697 hypo,
+cg24443925 hyper), \textit{KEAP1} (cg25801292, hypo), \textit{PIK3CA}
+(cg01753796, hyper), \textit{ARID1A} (cg09214447, hypo), and \textit{SALL4}
+(cg13246583, hyper) --- are established breast cancer genes whose roles are
+well characterised in the literature~\cite{cancer2012comprehensive}.
+
+
+\paragraph{Cross-dataset transferability}
+
+External evaluation yields near-random or inverted discrimination on both
+target cohorts: AUC = 0.578 on GSE69914 and AUC = 0.029 on GSE287331, with
+balanced accuracy collapsing to 0.5 and zero positive predictions in both
+cases. The collapse on GSE287331 to AUC $\approx 0$ suggests systematic
+score inversion rather than mere signal attenuation. 
+
 
 %-----------------------------------------------------------
 \subsection{Dataset GSE287331}
 \label{sec:results_gse287331}
 %-----------------------------------------------------------
 
-GSE287331 occupies the opposite end of the separability
-spectrum relative to GSE69914. The Normal--Adjacent contrast
-is characterised by a large mean $|\Delta M|$ and a high
-silhouette coefficient, yielding perfect internal
-classification at both 5,000 and 50 CpGs. At the same time,
-cross-dataset transfer fails completely, confirming that the
-discriminative axis learned in this cohort is structurally
-inverted relative to the shared drift orientation of the
-other two datasets — a property already anticipated by the
-inter-dataset stability analysis of
-Chapter~\ref{chap:feature_selection}.
+GSE287331 occupies the opposite end of the separability spectrum relative
+to GSE69914. The Normal--Adjacent contrast is characterised by a large mean
+$|\Delta M|$ and a high silhouette coefficient, yielding perfect internal
+classification at both 5,000 and 50 CpGs. Cross-dataset transfer fails
+completely, confirming that the discriminative axis learned in this cohort
+is structurally inverted relative to the shared drift orientation of the
+other two datasets.
 
 \paragraph{Linear separability of the 5,000-CpG panel}
 
-The linear SVM achieves perfect separation on the internal
-test set ($n_{\mathrm{test}} = 49$: 37 Normal, 12 Adjacent).
-Performance metrics are reported in
-Table~\ref{tab:gse287331_5k}.
-
-\begin{table}[H]
+\begin{table}[t]
 \centering
-\caption{Performance metrics — Linear SVM, 5,000 CpGs
-         (GSE287331, internal test)}
+\scriptsize
+\caption{Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE287331, internal test).}
 \label{tab:gse287331_5k}
-\begin{tabular}{lc}
+\begin{tabular}{c c c c c c}
 \toprule
-Metric & Value \\
+AUC & BAcc & Precision & Recall & F1 & MCC \\
 \midrule
-AUC               & 1.0000 \\
-Balanced Accuracy & 1.0000 \\
-Precision         & 1.0000 \\
-Recall            & 1.0000 \\
-F1-score          & 1.0000 \\
-Specificity       & 1.0000 \\
-MCC               & 1.0000 \\
+1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The confusion matrix shows zero misclassifications across
-both classes. The PCA projection confirms a two-cluster
-geometry with a wide, uncontested margin and no borderline
-samples. Perfect internal performance in this context is
-not indicative of overfitting: the silhouette coefficient
-of 0.40 and mean $|\Delta M| = 2.40$ on the test set
-document a genuinely large effect size, and the signal is
-structurally concentrated enough that even 50 CpGs suffice
-to encode it completely (see below).
+A linear SVM is applied to the full 5,000-CpG panel under the stratified
+80/20 split.
+Test-set performance is reported in Table~\ref{tab:gse287331_5k}. The confusion matrix shows zero misclassifications across both classes.
+Perfect internal performance here is not indicative of overfitting: the
+silhouette coefficient of 0.40 and mean $|\Delta M| = 2.40$ document a
+genuinely large effect size. The PCA projection
+(Figure~\ref{fig:gse287331_boundary}) confirms a two-cluster geometry
+with a wide, uncontested margin along PC1 (50.7\%, PC2 5.7\%).
 
-\paragraph{Compression to 50 CpGs}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]
+        {images/cap6/GSE287331_boundary_pca_prob_calibrated.pdf}
+    \caption{Projection of the calibrated SVM decision surface onto PC1--PC2
+             (50.7\% and 5.7\% variance explained).}
+    \label{fig:gse287331_boundary}
+\end{figure}
 
-The constrained optimisation ($\mu = 1.0$,
-$w_{\mathrm{COSMIC}} = 0.7$) preserves complete
-separability, as reported in Table~\ref{tab:gse287331_50}.
+\paragraph{Compression to 50 CpGs via MILP}
 
-\begin{table}[H]
+\begin{table}[t]
 \centering
-\caption{Performance metrics — Linear SVM, 50 CpGs
-         (GSE287331, internal test)}
+\scriptsize
+\caption{Performance metrics --- Linear SVM, 50 CpGs (GSE287331, internal test).}
 \label{tab:gse287331_50}
-\begin{tabular}{lc}
+\begin{tabular}{c c c c c c}
 \toprule
-Metric & Value \\
+AUC & BAcc & Precision & Recall & F1 & MCC \\
 \midrule
-AUC               & 1.0000 \\
-Balanced Accuracy & 1.0000 \\
-Precision         & 1.0000 \\
-Recall            & 1.0000 \\
-F1-score          & 1.0000 \\
-Specificity       & 1.0000 \\
-MCC               & 1.0000 \\
+1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The equivalence between 5,000 and 50 CpGs demonstrates
-that the discriminative signal is intrinsically
-low-dimensional: a single compact subset of loci is
-sufficient to encode the separating axis without any
-loss of margin. Figure~\ref{fig:gse287331_scores}
-shows the decision score distributions for both panel
-sizes; complete class separation with no density overlap
-is visible in both panels.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]
+  {images/cap6/GSE287331_knapsack_selected_contributions_stacked.pdf}
+\caption{Component-wise decomposition of the MILP objective for the 50-CpG
+panel in GSE287331. Each bar is one selected locus, sorted by total utility;
+stacked segments show contributions from
+$w_{\mathrm{coef}}\tilde{c}$,
+$w_{\Delta M}\tilde{d}$,
+$w_{\sigma}\tilde{s}$, and
+$w_{\mathrm{COSMIC}} \cdot \mathbf{1}_{\mathrm{cosmic}}$.}
+\label{fig:gse287331_compression}
+\end{figure}
+
+Following the intra-dataset SVM training, the learned coefficient magnitudes
+--- alongside the absolute $\Delta M$ effect sizes and the inverse baseline
+variability scores --- are fed as input to the MILP formulation of
+Section~\ref{sec:knapsack}. The resulting 50-CpG panel, selected under
+$\mu = 1.0$ and $w_{\mathrm{COSMIC}} = 0.7$, is shown in
+Figure~\ref{fig:gse287331_compression} with its component-wise utility
+decomposition. A linear SVM retrained exclusively on these 50 loci yields
+the metrics in Table~\ref{tab:gse287331_50}.
+Complete separability is preserved at 100-fold compression, demonstrating
+that the discriminative signal is intrinsically low-dimensional. Unlike
+GSE225845, the stacked decomposition shows that $w_{\sigma}\tilde{s}$
+(inverse baseline variability) dominates the objective for most loci,
+with the COSMIC component providing secondary contributions. The score
+distributions (Figure~\ref{fig:gse287331_scores}) confirm complete class
+separation with no density overlap in both panel sizes.
 
 \begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE287331_ScoreDist.pdf}
-  \caption{Distribution of SVM decision scores
-           for the 5,000-CpG panel.}
+  \caption{SVM decision score distribution for the 5,000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE287331_svmcheck_score_dist_50cpg.pdf}
-  \caption{Distribution of SVM decision scores
-           for the 50-CpG constrained panel.}
+  \caption{SVM decision score distribution for the 50-CpG panel.}
 \end{subfigure}
-\caption{
-Score distributions for Normal and Adjacent samples under
-the full 5,000-CpG panel and the
-compressed 50-CpG subset in GSE287331.
-}
+\caption{Score distributions for Normal and Adjacent samples in GSE287331.}
 \label{fig:gse287331_scores}
 \end{figure}
 
-\begin{figure}[t]
-\centering
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_boundary_pca_prob_calibrated.pdf}
-  \caption{Projection of the calibrated linear SVM decision surface
-           onto the first two principal components (PC1$-$PC2).
-           }
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE287331_volcano_50cpg.pdf}
-  \caption{Relationship between SVM coefficient magnitude and
-           $\Delta M$ effect size (Adjacent $-$ Normal) for the
-           constrained 50-CpG panel.}
-\end{subfigure}
-\caption{
-Decision geometry and coefficient–effect-size relationship 
-for the constrained 50-CpG predictive model in GSE287331. 
-}  
-\label{fig:gse287331_boundary} 
-\end{figure}
+\paragraph{Separation along the Tumor axis}
 
-
-
-As with GSE225845, the compressed panel generalises
-naturally to the Normal--Tumor contrast. Evaluated on
-Normal versus Tumor tissue within the same cohort
-($n = 106$: 37 Normal, 69 Tumor), the 50-CpG model
-achieves AUC = 1.000 ($\pm 0.000$, five-fold CV),
-silhouette = 0.44, and mean $|\Delta M| = 1.98$ —
-marginally below the Normal--Adjacent values
-(silhouette = 0.40, mean $|\Delta M| = 2.40$). This
-reversal of the usual ordering, in which Adjacent tissue
-is harder to distinguish from Normal than Tumor is,
-reflects the structural peculiarity of GSE287331:
-the Normal--Adjacent drift in this cohort is not merely
-detectable but exceptionally strong, exceeding the
-Normal--Tumor methylation distance along the principal
-component axis (PC1 projection 0.48 vs.\ 0.40). The
-implication is that the 50 selected loci are particularly
-sensitive to the early field-defect rather than to the
-full malignant transition, a property that further
-distinguishes this cohort from the shared drift axis
-of GSE69914 and GSE225845.
-
-Figure~\ref{fig:gse287331_compression} reports the
-compressed panel diagnostics.
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.75\textwidth]
-    {images/cap6/GSE287331_knapsack_selected_contributions_stacked.pdf}
-    \caption{ Component-wise decomposition of the MILP objective for the
-selected 50-CpG panel in GSE287331.
-    }
-    \label{fig:gse287331_compression}
-\end{figure}
-
-\paragraph{Cross-dataset transferability}
-
-Despite perfect internal classification, external
-evaluation reveals complete loss of discriminative
-ability: AUC = 0.436 on GSE69914 and AUC = 0.510 on
-GSE225845, with balanced accuracy collapsing to 0.5
-and zero recall for the Adjacent class in both cases.
-Notably, performance on GSE69914 falls below random
-expectation (AUC $< 0.5$), consistent with directional
-inversion of the learned separating hyperplane rather
-than mere signal absence. This pattern confirms that
-GSE287331 encodes a distinct epigenetic regime whose
-drift orientation is systematically anti-correlated with
-the shared axis of the other two cohorts, as established
-in Chapter~\ref{chap:feature_selection}. The dichotomy
-between perfect internal separability and zero external
-transfer is therefore not paradoxical: it reflects the
-coexistence of a strong but cohort-specific methylation
-signal with a structural misalignment that prevents
-cross-cohort generalisation.
+The same 50-CpG SVM is evaluated on a Normal~(test split) versus
+Tumor~(all available samples) comparison without retraining, yielding
+AUC = 1.000, silhouette = 0.44, and mean
+$|\Delta M| = 1.98$. 
 
 \paragraph{Gene-level coherence and functional enrichment}
 
-The 50-CpG panel maps to 42 unique genes. Unlike
-GSE225845, GO Biological Process analysis identifies
-significant enrichment terms
-(Table~\ref{tab:gse287331_go}), while KEGG analysis
-converges on core oncogenic pathways
-(Table~\ref{tab:gse287331_kegg}).
+The 50-CpG panel maps to 42 unique genes. The component-wise decomposition
+(Figure~\ref{fig:gse287331_compression}) shows $w_{\sigma}\tilde{s}$
+dominating for most loci, consistent with the strong low-variability signal
+in this cohort. The relationship between classifier importance and biological
+effect size is visualised in Figure~\ref{fig:gse287331_volcano}: a weak
+negative Spearman correlation ($\rho = -0.19$) mirrors the pattern observed
+in GSE69914, indicating that discriminative and biologically drifted loci
+are not well aligned. Among the COSMIC-annotated loci, four genes warrant
+biological commentary.
 
-\begin{table}[H]
-\centering
-\caption{GO Biological Process enrichment — 50-CpG panel
-         (GSE287331)}
-\label{tab:gse287331_go}
-\begin{tabular}{lcc}
-\toprule
-Term & Overlap & Adj.\ $p$ \\
-\midrule
-Response to lipid                      & 4/110 & 0.0429 \\
-Regulation of protein kinase activity  & 4/119 & 0.0429 \\
-Cellular response to TNF               & 4/119 & 0.0429 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]
+        {images/cap6/GSE287331_volcano_50cpg.pdf}
+    \caption{SVM coefficient (signed) versus $\Delta\beta$ (Adjacent $-$
+             Normal) for the 50 selected loci. COSMIC breast cancer genes
+             (squares) are annotated by gene name. Spearman $\rho = -0.19$ in GSE287331.}
+    \label{fig:gse287331_volcano}
+\end{figure}
 
-\begin{table}[H]
-\centering
-\caption{KEGG enrichment — 50-CpG panel (GSE287331)}
-\label{tab:gse287331_kegg}
-\begin{tabular}{lcc}
-\toprule
-Pathway & Overlap & Adj.\ $p$ \\
-\midrule
-Breast cancer              & 4/147 & 0.0477 \\
-Pancreatic cancer          & 3/76  & 0.0477 \\
-Small cell lung cancer     & 3/92  & 0.0477 \\
-Epstein--Barr virus infection & 4/202 & 0.0477 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\textbf{TBX3} (cg22635491, hypomethylated in Adjacent): a T-box
+transcriptional repressor overexpressed in breast cancer, where it promotes
+proliferation, invasion, and cancer stem cell expansion by bypassing
+senescence through repression of p14\textsuperscript{ARF} and
+p21\textsuperscript{WAF1}; high \textit{TBX3} expression correlates with
+shorter metastasis-free survival~\cite{fillmore2010tbx3}.
 
-The enrichment is driven by \textit{RB1}, \textit{AKT1},
-\textit{BRCA2}, \textit{ESR1}, \textit{TRAF4},
-\textit{MAP2K4}, and \textit{GATA3} — spanning PI3K/AKT
-signalling, cell-cycle control, homologous recombination
-repair, estrogen receptor signalling, and luminal lineage
-determination, all well-established axes of breast cancer
-biology. The GO terms further point toward inflammatory
-signalling (TNF response) and lipid-mediated regulation,
-extending the picture beyond canonical oncogenic modules.
-The convergence of both KEGG and GO enrichment on
-biologically plausible breast cancer processes confirms
-that the compressed panel, despite being derived from a
-cohort with inverted drift orientation, selects loci
-embedded in functionally coherent genomic neighbourhoods.
-The absence of cross-dataset transferability therefore
-reflects a structural property of the methylation
-landscape rather than a failure of the optimisation
-to identify biologically meaningful loci.
+\textbf{GATA3} (cg15267232, hypomethylated in Adjacent): the master
+transcriptional regulator of luminal cell differentiation in the mammary
+gland; loss of \textit{GATA3} expression marks progression from
+well-differentiated to poorly differentiated, highly metastatic breast
+tumours, and \textit{GATA3} is among the most frequently mutated genes
+in luminal breast cancer~\cite{asselin2007gata3}.
 
+\textbf{RB1} (cg18481241, hypomethylated in Adjacent): the retinoblastoma
+tumour suppressor, a master regulator of the G1/S cell-cycle checkpoint;
+loss of \textit{RB1} function through deletion, mutation, or silencing is
+a recurrent event in breast cancer, particularly in triple-negative and
+basal-like subtypes~\cite{cancer2012comprehensive}.
 
+\textbf{MAP2K4} (cg02746232, hypomethylated in Adjacent): previously
+discussed in the context of GSE69914 (Section~\ref{sec:results_gse69914});
+its selection in this independent cohort with concordant hypomethylation
+reinforces the cross-cohort relevance of this locus.
+
+The remaining COSMIC-annotated loci --- \textit{BRCA2} (cg24674189, hyper),
+\textit{FBLN2} (cg08198486, hypo), \textit{AKT1} (cg15957959, hypo), and
+\textit{ESR1} (cg00920970, hypo) --- are established breast cancer genes
+whose roles are well characterised in the
+literature~\cite{cancer2012comprehensive}. 
+
+\paragraph{Cross-dataset transferability}
+
+Despite perfect internal classification, external evaluation reveals
+complete loss of discriminative ability: AUC = 0.436 on GSE69914 and
+AUC = 0.510 on GSE225845, with balanced accuracy collapsing to 0.5 and
+zero recall for the Adjacent class in both cases. Performance on GSE69914
+falls below random expectation (AUC $< 0.5$), consistent with directional
+inversion of the learned separating hyperplane. The dichotomy between
+perfect internal separability and zero external transfer reflects the
+coexistence of a strong but cohort-specific methylation signal with a
+structural misalignment that prevents cross-cohort generalisation.
 
 %-----------------------------------------------------------
 \section{Inter-Dataset Structure and Batch--Biology
@@ -1148,132 +1013,70 @@ to identify biologically meaningful loci.
 \label{sec:inter_dataset}
 %-----------------------------------------------------------
 
-The intra-dataset results of Section~\ref{sec:results_gse69914}--\ref{sec:results_gse287331}
+The intra-dataset results of
+Sections~\ref{sec:results_gse69914}--\ref{sec:results_gse287331}
 establish that each cohort supports robust within-cohort
 discrimination, but that no trained classifier transfers
-successfully to an external dataset. Before concluding that
-this failure is purely biological in origin, it is necessary
-to quantify how much of the joint methylation variance is
-attributable to dataset identity rather than to phenotype,
-and whether the directional structure of the Normal--Adjacent
-drift is preserved across cohorts or systematically distorted.
-The diagnostics presented in this section address both
-questions and directly motivate the representation-learning
-strategy of Chapter~\ref{chap:multi_cohort_integration}.
+successfully to an external dataset. This section quantifies
+the relative contribution of batch and biological variance
+to the joint feature space, and characterises the
+directional structure of the Normal--Adjacent drift across
+cohorts.
 
-%-----------------------------------------------------------
-\subsection{PC1 as a Diagnostic Axis: Biological Signal
-            versus Batch Structure}
-\label{sec:pc1_diagnostic}
-%-----------------------------------------------------------
+\paragraph{PC1 as a Diagnostic Axis}
 
-The discriminative power of the first principal component
-(PC1), computed on the union panel of all three cohorts,
-is evaluated in two complementary settings: within-dataset
-phenotype separation (Normal vs.\ Adjacent) and
-between-dataset separation (cohort identity). The
-juxtaposition of these two AUC values for the same axis
-quantifies the relative dominance of biological versus
-technical variance in the leading principal direction.
+The discriminative power of PC1, computed on the union panel
+of all three cohorts, is evaluated for within-dataset
+phenotype separation and between-dataset separation
+(Figure~\ref{fig:batch_vs_biology}). In all pairwise
+comparisons, batch-separation AUC meets or exceeds the
+corresponding phenotype-separation AUC, confirming that
+dataset origin dominates the leading variance axis. Any
+cross-cohort modelling strategy operating directly in this
+space will absorb cohort effects before biological signal.
 
-\paragraph{Within-dataset biological signal}
-
-PC1 discriminates Normal from Adjacent tissue with AUC = 0.703
-in GSE69914, AUC = 0.677 in GSE225845, and AUC = 1.000 in
-GSE287331. Biological variation is therefore encoded in the
-leading variance component across all three cohorts, most
-strongly so in GSE287331, consistent with its intrinsically
-large Normal--Adjacent effect size documented in
-Section~\ref{sec:results_gse287331}.
-
-\paragraph{Between-dataset batch effect}
-
-When PC1 is used to discriminate cohort identity, the AUC
-values are 0.806 (GSE69914 vs.\ GSE225845), 0.987 (GSE69914
-vs.\ GSE287331), and 0.994 (GSE225845 vs.\ GSE287331). In
-all three comparisons the batch-separation AUC meets or
-exceeds the corresponding phenotype-separation AUC, and for
-pairs involving GSE287331 the inter-dataset discrimination is
-near-perfect. Figure~\ref{fig:batch_vs_biology} summarises
-these values side by side.
-
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.65\textwidth]
   {images/cap6/6x5_batch_vs_biology_barplot}
 \caption{PC1 discriminative power for phenotype separation
-         (Normal vs.\ Adjacent, within each dataset) and for
-         batch separation (between datasets), reported as AUC.
-         In all pairwise comparisons, dataset identity is at
-         least as separable as biological class.}
+         (Normal vs.\ Adjacent) and batch separation (cohort
+         identity), reported as AUC.}
 \label{fig:batch_vs_biology}
 \end{figure}
 
-These results confirm that, in the joint feature space,
-dataset origin dominates the leading variance axis.
-Any cross-cohort modelling strategy that operates directly
-in this space will therefore capture batch structure before
-biological signal, explaining the systematic collapse of
-cross-dataset transfer performance documented in
-Section~\ref{sec:cross_dataset}.
+\paragraph{Directional Concordance of Methylation Shifts}
 
-%-----------------------------------------------------------
-\subsection{Directional Concordance of Methylation Shifts}
-\label{sec:directional_concordance}
-%-----------------------------------------------------------
+Pairwise concordance of $\Delta M$ (Adjacent -- Normal) is
+assessed via Spearman correlation and sign agreement on the
+shared CpG intersection
+(Table~\ref{tab:pairwise_concordance},
+Figures~\ref{fig:deltam_scatter}--\ref{fig:deltam_violin}).
+GSE69914 and GSE225845 share a consistent drift orientation
+despite differing in effect magnitude, consistent with a
+common biological axis modulated by cohort-specific noise.
+Pairs involving GSE287331 show sign concordance at or below
+50\%, indicating systematic polarity inversion --- a
+structural property that cannot be resolved by scaling or
+harmonisation alone.
 
-A complementary diagnostic addresses the directional
-structure of the Normal--Adjacent drift itself: even if
-absolute effect sizes differ across cohorts, a shared
-biological process would be expected to induce shifts of
-consistent polarity at the same loci. Pairwise concordance
-of $\Delta M$ (Adjacent -- Normal) is assessed via Spearman
-correlation and sign agreement on the CpG intersection of
-the three 5,000-CpG panels.
-
-\paragraph{Pairwise concordance metrics}
-
-\begin{table}[H]
+\begin{table}[t]
 \centering
+\scriptsize
 \caption{Pairwise $\Delta M$ concordance across cohorts.}
 \label{tab:pairwise_concordance}
-\begin{tabular}{lcc}
+\begin{tabular}{l c c}
 \toprule
 Pair & Spearman $\rho$ & Sign concordance \\
 \midrule
-GSE69914 vs.\ GSE225845  & 0.08 & 0.76 \\
-GSE69914 vs.\ GSE287331  & 0.49 & 0.50 \\
-GSE225845 vs.\ GSE287331 & 0.38 & 0.42 \\
+GSE69914--GSE225845  & 0.08 & 0.76 \\
+GSE69914--GSE287331  & 0.49 & 0.50 \\
+GSE225845--GSE287331 & 0.38 & 0.42 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Two structurally distinct regimes emerge from
-Table~\ref{tab:pairwise_concordance}. GSE69914 and
-GSE225845 exhibit high sign concordance (76\%) with
-near-zero rank correlation, indicating that the two cohorts
-agree on the direction of the Normal--Adjacent shift at the
-majority of shared loci but differ substantially in the
-relative ordering of effect magnitudes. This pattern is
-consistent with a shared biological axis whose expression
-is modulated by platform-specific noise, cohort composition,
-and effect-size scaling. Pairs involving GSE287331, by
-contrast, show moderate rank correlation but sign
-concordance at or below 50\%, indicating that the dominant
-drift direction in GSE287331 is systematically inverted
-relative to both partner cohorts — a structural inversion
-rather than stochastic disagreement.
-
-The scatter plots in Figure~\ref{fig:deltam_scatter}
-visualise these patterns. In the GSE69914--GSE225845
-comparison, points cluster symmetrically around the origin
-with mild positive trend. In both comparisons involving
-GSE287331, the point cloud is compressed toward the
-vertical axis, reflecting the effect-size asymmetry, and
-the sign inversion is apparent from the distribution of
-points across quadrants.
-
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.31\textwidth}
   \includegraphics[width=\textwidth]
@@ -1292,65 +1095,65 @@ points across quadrants.
     {images/cap6/6x6_deltaM_scatter_GSE225845_vs_GSE287331.pdf}
   \caption{GSE225845 vs.\ GSE287331\\ ($\rho=0.38$, $c=0.42$).}
 \end{subfigure}
-\caption{Pairwise $\Delta M$ (Adjacent -- Normal) concordance
-         scatter plots on the shared CpG intersection.
-         Each point is one CpG; axes show the mean $\Delta M$
-         computed independently in each cohort.}
+\caption{Pairwise $\Delta M$ concordance scatter plots on the
+         shared CpG intersection. Green = concordant sign,
+         blue = inverted sign.}
 \label{fig:deltam_scatter}
 \end{figure}
 
-
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.65\textwidth]
   {images/cap6/6x6_deltaM_violin.pdf}
 \caption{Distribution of $\Delta M$ (Adjacent -- Normal)
-         across the three cohorts on the shared CpG
-         intersection, stratified by sign-concordance group.}
+         across the three cohorts, stratified by
+         sign-concordance group.}
 \label{fig:deltam_violin}
 \end{figure}
 
 %-----------------------------------------------------------
-\subsection{Synthesis and Implications for Joint Modelling}
-\label{sec:inter_synthesis}
-%-----------------------------------------------------------
-
-The diagnostics of this section converge on three
-structural properties of the joint methylation space.
-First, biological signal is present in the leading variance
-component of all three cohorts, confirming that the
-Normal--Adjacent contrast is not an artefact of
-preprocessing or selection. Second, dataset identity
-dominates the joint variance structure, with batch-driven
-PC1 AUC consistently matching or exceeding phenotype-driven
-AUC; naive joint modelling in this space will absorb cohort
-effects before biological signal. Third, the directional
-structure of the drift is not uniformly conserved: GSE69914
-and GSE225845 share a consistent drift orientation, whereas
-GSE287331 exhibits systematic polarity inversion that
-cannot be resolved by scaling or simple harmonisation.
-
-Together, these findings establish that the failure of
-cross-dataset transfer documented in
-Section~\ref{sec:cross_dataset} reflects two distinct
-obstacles: a dominant batch component that confounds the
-joint feature space, and a structural orientation
-asymmetry in GSE287331 that renders its drift axis
-incompatible with a single shared linear representation.
-Addressing both obstacles simultaneously requires an
-approach that explicitly separates cohort variance from
-phenotype variance while remaining agnostic to the
-polarity of the drift direction. This motivates the
-representation-learning strategy developed in
-Chapter~\ref{chap:multi_cohort_integration}.
-
-%-----------------------------------------------------------
 \section{Synthesis and Implications}
+\label{sec:synthesis_ch6}
 %-----------------------------------------------------------
 
-This section summarises predictive findings,
-identifies structural limitations of linear
-$\Delta\beta$-based signatures,
-and motivates the transition toward
-representation-learning approaches
-in the subsequent chapter.
+The results of this chapter establish three converging
+findings. Within each cohort, the Normal--Adjacent contrast
+is learnable: AUC ranges from 0.78 (GSE69914) to 1.00
+(GSE287331) on the 5,000-CpG panel, and compression to 50
+CpGs via MILP preserves the majority of discriminative
+structure while concentrating loci on biologically annotated
+genes. Across cohorts, however, no trained classifier
+transfers successfully: AUC collapses to near-random or
+inverted values in all six directed transfer experiments,
+with the 50-CpG panels sharing zero loci across datasets.
+
+This failure is not attributable to overfitting or weak
+signal. The PC1 diagnostics of
+Section~\ref{sec:pc1_diagnostic} show that batch variance
+dominates the joint feature space, consistently exceeding
+phenotype variance along the leading principal direction.
+The directional concordance analysis further reveals that
+GSE287331 exhibits systematic polarity inversion of the
+$\Delta M$ axis relative to the other two cohorts --- a
+structural property that cannot be resolved by scaling or
+simple harmonisation. These two obstacles together define
+the \emph{domain shift} problem in this setting: models
+trained on one methylation cohort learn a separating
+hyperplane that is cohort-specific, and the learned axis
+neither aligns with the biological drift direction of
+external cohorts nor survives the dominant batch component
+of the joint variance structure~\cite{DecodingDepression2024}.
+
+Addressing both obstacles simultaneously requires an
+approach that explicitly disentangles cohort variance from
+phenotype variance while remaining agnostic to the polarity
+of the drift direction. The NeuroCombat harmonisation
+framework~\cite{wang2021combatmet} provides a principled
+starting point by removing additive and multiplicative batch
+effects while preserving biological covariance, operating
+directly on DNA methylation $\beta$-values without requiring
+a reference batch. Chapter~\ref{chap:multi_cohort_integration}
+develops this strategy, evaluating whether a harmonised
+joint representation recovers a shared discriminative axis
+and whether cross-cohort transfer improves from the
+near-random baseline documented here.

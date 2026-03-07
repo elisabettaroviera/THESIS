@@ -3,7 +3,7 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{List of Tables}{vi}{section*.1}%
-\contentsline {chapter}{List of Figures}{viii}{section*.2}%
+\contentsline {chapter}{List of Figures}{vii}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Research Motivation }{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Unresolved Limitations and Open Problem}{2}{section.1.2}%
@@ -191,73 +191,71 @@
 \contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{89}{section*.160}%
 \contentsline {paragraph}{Compression to 50 CpGs via MILP}{89}{figure.caption.165}%
 \contentsline {paragraph}{Separation along the Tumor axis}{90}{section*.167}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{90}{section*.168}%
-\contentsline {paragraph}{Cross-dataset transferability}{92}{section*.169}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{90}{figure.caption.169}%
+\contentsline {paragraph}{Cross-dataset transferability}{93}{section*.170}%
 \contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{93}{subsection.6.3.2}%
-\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{section*.171}%
-\contentsline {paragraph}{Cross-dataset transferability of the 5,000-CpG panel}{95}{section*.174}%
-\contentsline {paragraph}{Compression to 50 CpGs}{95}{section*.175}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{96}{section*.179}%
-\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{98}{subsection.6.3.3}%
-\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{98}{section*.181}%
-\contentsline {paragraph}{Compression to 50 CpGs}{99}{section*.183}%
-\contentsline {paragraph}{Cross-dataset transferability}{100}{section*.188}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{101}{section*.189}%
-\contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{102}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}PC1 as a Diagnostic Axis: Biological Signal versus Batch Structure}{103}{subsection.6.4.1}%
-\contentsline {paragraph}{Within-dataset biological signal}{103}{section*.192}%
-\contentsline {paragraph}{Between-dataset batch effect}{103}{section*.193}%
-\contentsline {subsection}{\numberline {6.4.2}Directional Concordance of Methylation Shifts}{104}{subsection.6.4.2}%
-\contentsline {paragraph}{Pairwise concordance metrics}{104}{table.caption.196}%
-\contentsline {subsection}{\numberline {6.4.3}Synthesis and Implications for Joint Modelling}{105}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}Synthesis and Implications}{106}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Biological Synthesis}{107}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{107}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Technical Challenges of Cohort Pooling}{107}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Platform Heterogeneity}{107}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Feature-Space Alignment}{107}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Residual Cohort Effects}{108}{subsection.7.2.3}%
-\contentsline {section}{\numberline {7.3}Unified Preprocessing and Feature Selection}{108}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Preprocessing Standardisation}{108}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Application of the Robust Feature Selection Framework}{108}{subsection.7.3.2}%
-\contentsline {section}{\numberline {7.4}Pooled Multi-Cohort Modelling}{109}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Joint Training Strategy}{109}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Performance Evaluation}{109}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}Robustness Under Heterogeneity}{109}{subsection.7.4.3}%
-\contentsline {section}{\numberline {7.5}Gene-Level Aggregation and Functional Integration}{109}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}CpG-to-Gene Mapping}{109}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}Gene Overlap and Functional Enrichment}{109}{subsection.7.5.2}%
-\contentsline {subsection}{\numberline {7.5.3}Biological Coherence Across Cohorts}{110}{subsection.7.5.3}%
-\contentsline {section}{\numberline {7.6}Integrated Model of Early Epigenetic Drift}{110}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Methodological Considerations}{110}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Synthesis of Multi-Cohort Evidence}{110}{section.7.8}%
-\contentsline {chapter}{\numberline {8}Conclusion and Future work}{111}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Filtering lists}{112}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{112}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{112}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{112}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{113}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{113}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{113}{subsection.A.1.5}%
-\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{114}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Motivation and Scope}{114}{section.B.1}%
-\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{115}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{115}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{116}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{117}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{117}{subsection.B.3.3}%
-\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{118}{subsection.B.3.4}%
-\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{119}{section.B.4}%
-\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{119}{subsection.B.4.1}%
-\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{120}{subsection.B.4.2}%
-\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{122}{subsection.B.4.3}%
-\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{123}{subsection.B.4.4}%
-\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{123}{section*.206}%
-\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{123}{section*.207}%
-\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{123}{section*.208}%
-\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{124}{section.B.5}%
-\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{127}{appendix.C}%
-\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{127}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{128}{section.C.2}%
-\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{130}{section.C.3}%
-\contentsline {chapter}{Bibliography}{131}{figure.caption.213}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{table.caption.172}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{93}{figure.caption.176}%
+\contentsline {paragraph}{Separation along the Tumor axis}{94}{section*.178}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{94}{section*.179}%
+\contentsline {paragraph}{Cross-dataset transferability}{97}{section*.181}%
+\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{97}{subsection.6.3.3}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{97}{table.caption.183}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{98}{figure.caption.187}%
+\contentsline {paragraph}{Separation along the Tumor axis}{98}{section*.189}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{98}{section*.190}%
+\contentsline {paragraph}{Cross-dataset transferability}{101}{section*.192}%
+\contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{101}{section.6.4}%
+\contentsline {paragraph}{PC1 as a Diagnostic Axis}{101}{section*.193}%
+\contentsline {paragraph}{Directional Concordance of Methylation Shifts}{101}{section*.195}%
+\contentsline {section}{\numberline {6.5}Synthesis and Implications}{102}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Biological Synthesis}{104}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{104}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Technical Challenges of Cohort Pooling}{104}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Platform Heterogeneity}{104}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Feature-Space Alignment}{104}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Residual Cohort Effects}{105}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Unified Preprocessing and Feature Selection}{105}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Preprocessing Standardisation}{105}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Application of the Robust Feature Selection Framework}{105}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Pooled Multi-Cohort Modelling}{106}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Joint Training Strategy}{106}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Performance Evaluation}{106}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Robustness Under Heterogeneity}{106}{subsection.7.4.3}%
+\contentsline {section}{\numberline {7.5}Gene-Level Aggregation and Functional Integration}{106}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}CpG-to-Gene Mapping}{106}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Gene Overlap and Functional Enrichment}{106}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Biological Coherence Across Cohorts}{107}{subsection.7.5.3}%
+\contentsline {section}{\numberline {7.6}Integrated Model of Early Epigenetic Drift}{107}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Methodological Considerations}{107}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Synthesis of Multi-Cohort Evidence}{107}{section.7.8}%
+\contentsline {chapter}{\numberline {8}Conclusion and Future work}{108}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Filtering lists}{109}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{109}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{109}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{109}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{110}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{110}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{110}{subsection.A.1.5}%
+\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{111}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Motivation and Scope}{111}{section.B.1}%
+\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{112}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{112}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{113}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{114}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{114}{subsection.B.3.3}%
+\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{115}{subsection.B.3.4}%
+\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{116}{section.B.4}%
+\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{116}{subsection.B.4.1}%
+\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{117}{subsection.B.4.2}%
+\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{119}{subsection.B.4.3}%
+\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{120}{subsection.B.4.4}%
+\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{120}{section*.206}%
+\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{120}{section*.207}%
+\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{120}{section*.208}%
+\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{121}{section.B.5}%
+\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{124}{appendix.C}%
+\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{124}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{125}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{127}{section.C.3}%
+\contentsline {chapter}{Bibliography}{128}{figure.caption.213}%

@@ -50,7 +50,7 @@ The resulting data organization yields a set of standardized, self-contained dat
 \label{sec:intra_dataset}
 
 This section presents a structured intra-dataset exploratory analysis aimed at characterising the internal statistical and biological organisation of each methylation cohort prior to any preprocessing or modelling step. Each dataset is analysed independently in order to assess data integrity, quantify variability patterns, and evaluate whether Normal, Adjacent, and Tumor tissues exhibit distinguishable epigenetic behaviour.
-In the context of breast cancer, epigenetic deregulation is known to manifest through both global and local phenomena, including genome-wide hypomethylation, focal hypermethylation of tumour-suppressor regions, and the presence of pre-neoplastic ``field defects'' in histologically normal tissues proximal to tumours \cite{ehrlich2002, bird2002, Teschendorff2016}. These mechanisms motivate an exploratory investigation focused not only on overt tumour-associated changes, but also on more subtle alterations in Normal and Adjacent samples, which are central to the biological hypothesis of this thesis.
+In the context of breast cancer, epigenetic deregulation is known to manifest through both global and local phenomena, including genome-wide hypomethylation, focal hypermethylation of tumour-suppressor regions, and the presence of pre-neoplastic ``field defects'' in histologically normal tissues proximal to tumours \cite{ehrlich2002, bird2002, Teschendorff2016fielddefects}. These mechanisms motivate an exploratory investigation focused not only on overt tumour-associated changes, but also on more subtle alterations in Normal and Adjacent samples, which are central to the biological hypothesis of this thesis.
 
 This section therefore applies a unified exploratory framework to each dataset (GSE69914 [\ref{subsec:gse69914}], GSE225845 [\ref{subsec:gse225845}], GSE287331 [\ref{subsec:gse287331}]), systematically examining data quality, global methylation distributions, sample-level summaries, CpG-wise variability and instability, correlation structure, dimensionality reduction, and genomic context coverage. The use of a consistent analytical protocol enables direct comparison of intra-dataset behaviour while preserving cohort-specific characteristics.
 
@@ -116,7 +116,7 @@ Tumor samples show a slightly flatter high-$\beta$ peak and a broader low-$\beta
 consistent with the well-described phenomenon of global hypomethylation and increased
 heterogeneity in cancer \cite{ehrlich2002}. Adjacent samples lie between Normal and
 Tumor, suggesting early epigenetic drift and subtle field defects occurring in histologically
-non-neoplastic tissue \cite{Teschendorff2016}.
+non-neoplastic tissue \cite{Teschendorff2016fielddefects}.
 
 \begin{figure}[t]
     \centering
@@ -149,8 +149,8 @@ Complementary $\Delta\beta$ distributions comparing Tumor and Adjacent tissues a
 (Figure~\ref{fig:gse69914_outliers_deltabeta}) show a clear shift toward
 hypomethylation in Tumor samples and a subtler but detectable drift in Adjacent tissues.
 This provides evidence that epigenetic alterations emerge early in histologically normal
-tissue located near the tumor, supporting the field-cancerization model
-\cite{Teschendorff2016}.
+tissue located near the tumor, supporting the field-cancerisation model
+\cite{Teschendorff2016fielddefects}.
 
 \begin{figure}[t]
     \centering
@@ -273,7 +273,7 @@ Using this manifest, the dataset exhibits the expected non-uniform genomic
 distribution of CpG contexts: the largest fraction of probes maps to open-sea or
 non-island regions, followed by CpG islands, then north and south shores, and finally
 north and south shelves. This ordering mirrors the characteristic architecture of the
-HM450 arrays reported in the literature~\cite{zhou2017, pidsley2016}.
+HM450 arrays reported in the literature~\cite{zhou2016, Pidsley2016}.
 The coverage observed is therefore consistent with the known genomic
 composition of the Illumina methylation arrays, supporting correct manifest alignment.
 
@@ -1052,7 +1052,7 @@ For each CpG, the absolute mean difference between Adjacent and Normal was defin
 \end{equation}
 The cross-cohort pattern reveals progressively larger locus-specific shifts from GSE69914 to GSE225845 and GSE287331.  
 Although the absolute magnitude of the effect remains modest, it is consistent in direction across cohorts.  
-This monotonic increase reflects a strengthening early deviation in Adjacent tissues. Comparable locus-wise methylation drifts in histologically normal tissue have been reported in independent systems, such as colonic mucosa adjacent to adenomas~\cite{Yates2024_NormalMucosaField}, supporting the interpretation of these alterations as early manifestations of field cancerization.
+This monotonic increase reflects a strengthening early deviation in Adjacent tissues. Comparable locus-wise methylation drifts in histologically normal tissue have been reported in independent systems, such as colonic mucosa adjacent to adenomas~\cite{Yates2024_NormalMucosaField}, supporting the interpretation of these alterations as early manifestations of field cancerisation.
 
 \paragraph{Global variance ratio}  
 
@@ -1106,7 +1106,7 @@ The silhouette coefficient for sample $s$ is defined as
 \end{equation}
 and the reported score corresponds to the mean silhouette computed across all Normal and Adjacent samples.
 Higher values indicate clearer multivariate separation between Normal and Adjacent states, whereas values near zero reflect substantial overlap. Across cohorts, the silhouette analysis reveals limited separation in GSE69914 and GSE225845, consistent with minimal global displacement in multivariate space. In contrast, GSE287331 exhibits partial separation, indicating that the epigenetic landscape of Adjacent tissue is measurably shifted relative to Normal. This behaviour aligns with mechanistic models in which epigenetic dysregulation constitutes one of the earliest events in tumour initiation~\cite{Zhang2024_TumorInitiationEpigenetic}, preceding morphological transformation.
-Collectively, the set of metrics delineates a consistent Normal--Adjacent gradient across datasets. Early epigenetic drift is detectable in all cohorts, while its magnitude, focality, and multivariate visibility progressively intensify from GSE69914 to GSE287331. Importantly, the combination of stable global variance with pronounced outlier enrichment supports a model in which early pre-neoplastic changes arise through \emph{localised} perturbations, a hallmark of field cancerization~\cite{Teschendorff2016, Yates2024_NormalMucosaField}.
+Collectively, the set of metrics delineates a consistent Normal--Adjacent gradient across datasets. Early epigenetic drift is detectable in all cohorts, while its magnitude, focality, and multivariate visibility progressively intensify from GSE69914 to GSE287331. Importantly, the combination of stable global variance with pronounced outlier enrichment supports a model in which early pre-neoplastic changes arise through \emph{localised} perturbations, a hallmark of field cancerisation~\cite{Teschendorff2016, Yates2024_NormalMucosaField}.
 
 \subsection{Visual Comparative Analysis}
 \label{subsec:inter_visual}

@@ -46,18 +46,19 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Three-way overlap of the final 5{,}000 CpG signatures independently selected in GSE69914, GSE225845 and GSE287331. }}{73}{figure.caption.137}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Inter-dataset effect concordance of the final 5{,}000 CpG signatures. }}{76}{figure.caption.140}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE69914. }}{90}{figure.caption.162}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE69914. }}{91}{figure.caption.166}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE69914. }}{92}{figure.caption.167}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE225845. }}{94}{figure.caption.173}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE225845. }}{96}{figure.caption.177}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE225845. }}{97}{figure.caption.178}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE287331. }}{99}{figure.caption.185}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE287331. }}{100}{figure.caption.186}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE287331. }}{101}{figure.caption.187}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces PC1 discriminative power for phenotype separation (Normal vs.\ Adjacent, within each dataset) and for batch separation (between datasets), reported as AUC. In all pairwise comparisons, dataset identity is at least as separable as biological class.}}{103}{figure.caption.194}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Pairwise $\Delta M$ (Adjacent -- Normal) concordance scatter plots on the shared CpG intersection. Each point is one CpG; axes show the mean $\Delta M$ computed independently in each cohort.}}{105}{figure.caption.197}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts on the shared CpG intersection, stratified by sign-concordance group.}}{105}{figure.caption.198}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Projection of the KNN decision surface onto PC1--PC2 (explaining 30.8\% and 14.8\% of variance, respectively). Train and test samples from both classes overlap extensively, with no geometrically separable structure.}}{89}{figure.caption.162}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Component-wise decomposition of the MILP objective for the 50-CpG panel in GSE69914. Each bar is one selected locus, sorted by total utility; stacked segments show contributions from $w_{\mathrm {coef}}\tilde {c}$, $w_{\Delta M}\tilde {d}$, $w_{\sigma }\tilde {s}$, and $w_{\mathrm {COSMIC}} \cdot \mathbf {1}_{\mathrm {cosmic}}$.}}{91}{figure.caption.165}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Score distributions for Normal and Adjacent samples in GSE69914.}}{92}{figure.caption.166}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces KNN permutation importance versus $\Delta M$ effect size (Adjacent $-$ Normal) for each of the 50 selected loci. COSMIC breast cancer genes are highlighted in green. The weak negative Spearman correlation ($\rho = -0.22$) indicates limited alignment between discriminative weight and biological effect size.}}{93}{figure.caption.170}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE225845. }}{94}{figure.caption.173}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE225845. }}{96}{figure.caption.177}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE225845. }}{97}{figure.caption.178}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Score distributions for Normal and Adjacent samples under the full 5,000-CpG panel and the compressed 50-CpG subset in GSE287331. }}{99}{figure.caption.185}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Decision geometry and coefficient–effect-size relationship for the constrained 50-CpG predictive model in GSE287331. }}{100}{figure.caption.186}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Component-wise decomposition of the MILP objective for the selected 50-CpG panel in GSE287331. }}{101}{figure.caption.187}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces PC1 discriminative power for phenotype separation (Normal vs.\ Adjacent, within each dataset) and for batch separation (between datasets), reported as AUC. In all pairwise comparisons, dataset identity is at least as separable as biological class.}}{103}{figure.caption.194}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Pairwise $\Delta M$ (Adjacent -- Normal) concordance scatter plots on the shared CpG intersection. Each point is one CpG; axes show the mean $\Delta M$ computed independently in each cohort.}}{105}{figure.caption.197}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts on the shared CpG intersection, stratified by sign-concordance group.}}{105}{figure.caption.198}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

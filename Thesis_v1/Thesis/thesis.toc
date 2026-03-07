@@ -187,22 +187,22 @@
 \contentsline {paragraph}{COSMIC cross-reference}{88}{section*.158}%
 \contentsline {paragraph}{Over-representation analysis}{88}{section*.159}%
 \contentsline {section}{\numberline {6.3}Intra-Dataset Results}{88}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{89}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{88}{subsection.6.3.1}%
 \contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{89}{section*.160}%
-\contentsline {paragraph}{Separation along the Tumor axis}{90}{section*.163}%
-\contentsline {paragraph}{Compression to 50 CpGs}{90}{section*.164}%
-\contentsline {paragraph}{Cross-dataset transferability}{91}{section*.168}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{91}{section*.169}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{89}{figure.caption.165}%
+\contentsline {paragraph}{Separation along the Tumor axis}{90}{section*.167}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{90}{section*.168}%
+\contentsline {paragraph}{Cross-dataset transferability}{92}{section*.169}%
 \contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{93}{subsection.6.3.2}%
 \contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{section*.171}%
-\contentsline {paragraph}{Cross-dataset transferability of the 5,000-CpG panel}{94}{section*.174}%
-\contentsline {paragraph}{Compression to 50 CpGs}{94}{section*.175}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{95}{section*.179}%
-\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{97}{subsection.6.3.3}%
+\contentsline {paragraph}{Cross-dataset transferability of the 5,000-CpG panel}{95}{section*.174}%
+\contentsline {paragraph}{Compression to 50 CpGs}{95}{section*.175}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{96}{section*.179}%
+\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{98}{subsection.6.3.3}%
 \contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{98}{section*.181}%
-\contentsline {paragraph}{Compression to 50 CpGs}{98}{section*.183}%
+\contentsline {paragraph}{Compression to 50 CpGs}{99}{section*.183}%
 \contentsline {paragraph}{Cross-dataset transferability}{100}{section*.188}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{100}{section*.189}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{101}{section*.189}%
 \contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{102}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}PC1 as a Diagnostic Axis: Biological Signal versus Batch Structure}{103}{subsection.6.4.1}%
 \contentsline {paragraph}{Within-dataset biological signal}{103}{section*.192}%

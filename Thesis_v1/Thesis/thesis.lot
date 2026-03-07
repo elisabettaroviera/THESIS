@@ -18,17 +18,16 @@
 \contentsline {table}{\numberline {5.1}{\ignorespaces Permutation-based enrichment of pairwise overlaps among the three final $5{,}000$-CpG panels.}}{74}{table.caption.138}%
 \contentsline {table}{\numberline {5.2}{\ignorespaces Number of CpGs retained at each step of the feature selection pipeline (training set).}}{80}{table.caption.146}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics — KNN, 5,000 CpGs (GSE69914, internal test)}}{89}{table.caption.161}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics — KNN, 50 CpGs (GSE69914, internal test)}}{90}{table.caption.165}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE69914)}}{92}{table.caption.170}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE225845, internal test)}}{93}{table.caption.172}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE225845, internal test)}}{95}{table.caption.176}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE225845)}}{96}{table.caption.180}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE287331, internal test)}}{98}{table.caption.182}%
-\contentsline {table}{\numberline {6.8}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE287331, internal test)}}{99}{table.caption.184}%
-\contentsline {table}{\numberline {6.9}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.190}%
-\contentsline {table}{\numberline {6.10}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.191}%
-\contentsline {table}{\numberline {6.11}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{104}{table.caption.196}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}}{89}{table.caption.161}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics --- KNN, 50 CpGs (GSE69914, internal test).}}{90}{table.caption.164}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE225845, internal test)}}{94}{table.caption.172}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE225845, internal test)}}{95}{table.caption.176}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE225845)}}{96}{table.caption.180}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Performance metrics — Linear SVM, 5,000 CpGs (GSE287331, internal test)}}{98}{table.caption.182}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Performance metrics — Linear SVM, 50 CpGs (GSE287331, internal test)}}{99}{table.caption.184}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces GO Biological Process enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.190}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces KEGG enrichment — 50-CpG panel (GSE287331)}}{102}{table.caption.191}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{104}{table.caption.196}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -387,7 +387,6 @@ promoter-flanking or exon-boundary regions — all mapped
 symbols are retained. Gene symbols are deduplicated, and
 unmapped CpGs (annotated as \texttt{--} in the manifest)
 are excluded from gene-level analyses.
-
 Let $\mathcal{G}$ denote the set of unique genes obtained
 from the 50-CpG panel after deduplication. Methylation
 directionality for each locus is assigned from the sign of
@@ -426,15 +425,6 @@ the Enrichr reference universe for each library. Terms with
 Benjamini--Hochberg adjusted $p$-value below $0.05$ are
 considered significant.
 
-The three databases are selected to provide complementary
-resolution: GO Biological Process captures fine-grained
-molecular mechanisms; KEGG identifies curated signalling and
-metabolic pathways; MSigDB Hallmark aggregates
-coordinately expressed gene sets representing well-defined
-biological states. Convergence of enrichment signals across
-independent collections is treated as stronger evidence of
-biological coherence than significance in a single database
-alone.
 
 
 %-----------------------------------------------------------
@@ -448,235 +438,207 @@ the 5,000-CpG panel supports accurate intra-cohort discrimination;
 whether this structure is preserved under compression to 50 CpGs;
 whether the learned separating axis transfers to external cohorts;
 and whether the compressed panel converges on biologically
-coherent gene sets. The three datasets are presented in order
-of increasing internal separability: GSE69914 first, where the
-Normal--Adjacent signal is modest, followed by GSE225845 and
-GSE287331, which exhibit progressively stronger linear
-discriminability.
+coherent gene sets. 
 
 %-----------------------------------------------------------
 \subsection{Dataset GSE69914}
 \label{sec:results_gse69914}
 %-----------------------------------------------------------
 
-GSE69914 presents the most challenging discrimination task
-among the three cohorts. As established in
-Chapter~\ref{chap:feature_selection}, the Normal--Adjacent
-$\Delta\beta$ distribution in this dataset is the narrowest
-and least directionally coherent of the three, suggesting
-that the field-cancerization signal is either attenuated or
-partially confounded by residual technical structure. The
-analyses below quantify the downstream consequences of this
-property on classification performance and external
+GSE69914 presents the most challenging discrimination task among the three
+cohorts. As established in Chapter~\ref{chap:feature_selection}, the
+Normal--Adjacent $\Delta\beta$ distribution in this dataset is the narrowest
+and least directionally coherent of the three, suggesting that the
+field-cancerization signal is either attenuated or partially confounded by
+residual technical structure. The analyses below quantify the downstream
+consequences of this property on classification performance and external
 transferability.
 
 \paragraph{Intrinsic separability of the 5,000-CpG panel}
 
-A $k$-Nearest Neighbours classifier ($k = 21$, uniform
-weights) is applied to the full 5,000-CpG panel under the
-stratified 80/20 split. Test-set performance is reported in
-Table~\ref{tab:gse69914_5k}.
-
-\begin{table}[H]
+A $k$-Nearest Neighbours classifier ($k = 21$, uniform weights) is applied
+to the full 5,000-CpG panel under the stratified 80/20 split. Test-set
+performance is reported in Table~\ref{tab:gse69914_5k}.
+\begin{table}[t]
 \centering
-\caption{Performance metrics — KNN, 5,000 CpGs
-         (GSE69914, internal test)}
+\scriptsize
+\caption{Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}
 \label{tab:gse69914_5k}
-\begin{tabular}{lc}
+\begin{tabular}{c c c c c c c c}
 \toprule
-Metric & Value \\
+AUC & BAcc & Precision & Recall & F1 & MCC \\
 \midrule
-AUC               & 0.7778 \\
-PR-AUC            & 0.7460 \\
-Balanced Accuracy & 0.6167 \\
-Precision         & 0.7500 \\
-Recall            & 0.3333 \\
-F1-score          & 0.4615 \\
-Specificity       & 0.9000 \\
-MCC               & 0.2858 \\
+0.7778 & 0.6167 & 0.7500 & 0.3333 & 0.4615 & 0.2858 \\
+\bottomrule
+\end{tabular}
+\end{table}
+The confusion matrix
+$\bigl[\begin{smallmatrix}9&1\\6&3\end{smallmatrix}\bigr]$
+reveals markedly asymmetric behaviour: Normal samples are identified with
+high reliability, but only one third of Adjacent samples
+are correctly classified (recall 0.33). The AUC of 0.78 confirms that some
+discriminative signal is present in the panel, yet the low MCC (0.29) and
+F1-score (0.46) indicate that no decision threshold achieves balanced
+separation. The PCA projection (Figure~\ref{fig:gse69914_boundary}) and silhouette coefficient of 0.07 are
+consistent with overlapping class geometries rather than the compact separated
+clusters observed in the other cohorts.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/cap6/GSE69914_knn_boundary.pdf}
+    \caption{Projection of the KNN decision surface onto PC1--PC2
+           (explaining 30.8\% and 14.8\% of variance, respectively).
+           Train and test samples from both classes overlap extensively,
+           with no geometrically separable structure.}
+    \label{fig:gse69914_boundary}
+\end{figure}
+
+\paragraph{Compression to 50 CpGs via MILP}
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Performance metrics --- KNN, 50 CpGs (GSE69914, internal test).}
+\label{tab:gse69914_50}
+\begin{tabular}{c c c c c c}
+\toprule
+AUC & BAcc & Precision & Recall & F1-score & MCC \\
+\midrule
+0.6500 & 0.6167 & 0.7500 & 0.3333 & 0.4615 & 0.2858 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The confusion matrix
-$\bigl[\begin{smallmatrix}9&1\\6&3\end{smallmatrix}\bigr]$
-reveals markedly asymmetric behaviour: Normal samples are
-identified with high reliability (specificity 0.90), but
-only one third of Adjacent samples are correctly classified
-(recall 0.33). The AUC of 0.78 confirms that some
-discriminative signal is present in the panel, yet the low
-MCC (0.29) and F1-score (0.46) indicate that no decision
-threshold achieves balanced separation. The PCA projection
-and silhouette coefficient of 0.07 are consistent with
-overlapping class geometries rather than the compact
-separated clusters observed in the other cohorts.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]
+  {images/cap6/GSE69914_knapsack_selected_contributions_stacked.pdf}
+\caption{Component-wise decomposition of the MILP objective for the 50-CpG
+panel in GSE69914. Each bar is one selected locus, sorted by total utility;
+stacked segments show contributions from
+$w_{\mathrm{coef}}\tilde{c}$,
+$w_{\Delta M}\tilde{d}$,
+$w_{\sigma}\tilde{s}$, and
+$w_{\mathrm{COSMIC}} \cdot \mathbf{1}_{\mathrm{cosmic}}$.}
+\label{fig:gse69914_compression}
+\end{figure}
 
-Figure~\ref{fig:gse69914_knn} reports the KNN decision
-boundary projected onto the first two principal components
-alongside the probability score distribution of the
-50-CpG compressed model.
+Following the intra-dataset KNN training, the learned permutation importance
+scores --- alongside the absolute $\Delta M$ effect sizes and the inverse
+baseline variability scores --- are fed as input to the MILP formulation of
+Section~\ref{sec:knapsack}. The resulting 50-CpG panel, selected under
+$\mu = 1.0$ and $w_{\mathrm{COSMIC}} = 1$, is shown in
+Figure~\ref{fig:gse69914_compression} with its component-wise utility
+decomposition. A KNN classifier retrained exclusively on these 50 loci yields
+the metrics in Table~\ref{tab:gse69914_50}. Threshold-level metrics are identical to the 5,000-CpG model, indicating that
+the compressed panel reproduces the same decision structure at 100-fold lower
+dimensionality. The AUC reduction ($0.78 \to 0.65$) reflects the loss of loci
+with marginal discriminative weight that contributed to the ranking surface but
+not to the operating threshold. The score distributions
+(Figure~\ref{fig:gse69914_scores}) confirm that neither panel version achieves
+confident class separation, while the decision boundary and importance--effect
+analysis (Figure~\ref{fig:gse69914_boundary}) show a weak Spearman correlation
+($\rho = -0.22$) between classifier importance and $|\Delta M|$, indicating
+that discriminative and biologically drifted loci are not well aligned in this
+cohort.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE69914_ScoreDist.pdf}
-  \caption{Distribution of KNN decision scores
-           for the 5,000-CpG panel.}
+  \caption{Predicted probability distribution for the 50000-CpG panel.}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.48\textwidth}
   \includegraphics[width=\textwidth]
     {images/cap6/GSE69914_knncheck_proba_dist_50cpg.pdf}
-  \caption{Distribution of KNN decision scores
-           for the 50-CpG constrained panel.}
+  \caption{Predicted probability distribution for the 50-CpG panel.}
 \end{subfigure}
-\caption{
-Score distributions for Normal and Adjacent samples under
-the full 5,000-CpG panel and the
-compressed 50-CpG subset in GSE69914.
-}
-\label{fig:gse69914_knn}
+\caption{Score distributions for Normal and Adjacent samples in GSE69914.}
+\label{fig:gse69914_scores}
 \end{figure}
 
 \paragraph{Separation along the Tumor axis}
 
-For reference, a five-fold cross-validated evaluation on
-Normal versus Tumor tissue yields AUC = 1.000 and mean
-$|\Delta M| = 1.84$. The dataset therefore harbours a
-strong tumour-driven methylation signal; the field-defect
-component separating Normal from Adjacent tissue is
-comparatively subtle, consistent with the biological
-model of progressive epigenetic drift discussed in
-Chapter~\ref{chap:biological_background}.
+To verify that the Normal--Adjacent--Tumor biological axis is preserved in the
+feature space, the same KNN classifier trained to discriminate Normal from
+Adjacent tissue is evaluated on a Normal~(test split) versus Tumor~(all
+available samples) comparison, without any retraining. This zero-shot
+evaluation yields AUC = 1.000 and mean $|\Delta M| = 1.84$, confirming that
+the dataset harbours a strong tumour-driven methylation signal that projects
+clearly onto the learned discriminative axis. The comparatively subtle
+performance on the Normal--Adjacent task therefore reflects the biological
+attenuation of the field-cancerization signal rather than a failure of the
+feature space, consistent with the model of progressive epigenetic drift
+discussed in Chapter~\ref{chap:biological_background}.
 
-\paragraph{Compression to 50 CpGs}
 
-The constrained optimisation ($\mu = 1.0$,
-$w_{\mathrm{COSMIC}} = 1$) yields the metrics in
-Table~\ref{tab:gse69914_50}.
-
-\begin{table}[H]
-\centering
-\caption{Performance metrics — KNN, 50 CpGs
-         (GSE69914, internal test)}
-\label{tab:gse69914_50}
-\begin{tabular}{lc}
-\toprule
-Metric & Value \\
-\midrule
-AUC               & 0.6500 \\
-Balanced Accuracy & 0.6167 \\
-Precision         & 0.7500 \\
-Recall            & 0.3333 \\
-F1-score          & 0.4615 \\
-Specificity       & 0.9000 \\
-MCC               & 0.2858 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The threshold-level metrics are identical to the 5,000-CpG
-model, indicating that the compressed panel reproduces the
-same decision structure at 100-fold lower dimensionality.
-The AUC reduction ($0.78 \to 0.65$) reflects the loss of
-loci with marginal discriminative weight that contributed
-to the ranking surface but not to the operating threshold.
-The probability score distribution (Figure~\ref{fig:gse69914_knn},
-right panel) shows substantial class overlap, confirming
-that neither panel version achieves confident separation
-in this cohort.
-
-\begin{figure}[t]
-\centering
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_knn_boundary.pdf}
-  \caption{Projection of the KNN decision surface
-           onto the first two principal components (PC1$-$PC2).
-           }
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.48\textwidth}
-  \includegraphics[width=\textwidth]
-    {images/cap6/GSE69914_volcano_50cpg.pdf}
-  \caption{Relationship between KNN coefficient magnitude and
-           $\Delta M$ effect size (Adjacent $-$ Normal) for the
-           constrained 50-CpG panel.}
-\end{subfigure}
-\caption{
-Decision geometry and coefficient–effect-size relationship 
-for the constrained 50-CpG predictive model in GSE69914. 
-}  
-\label{fig:gse69914_boundary} 
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.75\textwidth]
-    {images/cap6/GSE69914_knapsack_selected_contributions_stacked.pdf}
-    \caption{ Component-wise decomposition of the MILP objective for the
-selected 50-CpG panel in GSE69914.
-    }
-    \label{fig:gse69914_compression}
-\end{figure}
-
-\paragraph{Cross-dataset transferability}
-
-External evaluation yields near-random discrimination on
-both target cohorts: AUC = 0.517 on GSE225845 and
-AUC = 0.498 on GSE287331, with balanced accuracy
-collapsing to 0.5 and zero recall for the Adjacent class
-in both cases. The failure is symmetric across targets,
-ruling out a directional mismatch specific to one partner
-cohort and suggesting instead that the discriminative
-direction identified in GSE69914 does not project onto a
-shared epigenetic axis — a finding consistent with the
-low pairwise $\Delta\beta$ concordance documented in
-Chapter~\ref{chap:feature_selection}.
 
 \paragraph{Gene-level coherence and functional enrichment}
 
-The 50-CpG panel maps to 40 unique genes. Neither KEGG
-nor MSigDB Hallmark analysis yields significant terms at
-FDR $< 0.05$, indicating absence of broad canonical
-pathway convergence. GO Biological Process analysis
-identifies focussed enrichment in DNA damage surveillance
-and chromatin ubiquitination (Table~\ref{tab:gse69914_go}).
+The 50-CpG panel maps to 40 unique genes. The component-wise decomposition
+of the MILP objective (Figure~\ref{fig:gse69914_compression}) shows that most
+selected loci carry contributions from all three statistical components
+($w_{\mathrm{coef}}\tilde{c}$, $w_{\Delta M}\tilde{d}$,
+$w_{\sigma}\tilde{s}$), with a subset receiving additional weight from the
+COSMIC indicator. Among the COSMIC-annotated loci, four genes warrant
+biological commentary.
 
-\begin{table}[H]
-\centering
-\caption{GO Biological Process enrichment — 50-CpG panel
-         (GSE69914)}
-\label{tab:gse69914_go}
-\begin{tabular}{lcc}
-\toprule
-Term & Overlap & Adj.\ $p$ \\
-\midrule
-Histone H2A ubiquitination          & 2/11 & 0.0205 \\
-Histone monoubiquitination          & 2/12 & 0.0205 \\
-Histone H2A monoubiquitination      & 2/14 & 0.0207 \\
-Protein autoubiquitination          & 3/71 & 0.0207 \\
-Regulation of cell cycle checkpoint & 2/11 & 0.0205 \\
-Regulation of DNA damage checkpoint & 2/18 & 0.0269 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\textbf{BRCA2} (cg26458617, hypomethylated in Adjacent): a tumour suppressor
+central to homologous recombination repair of double-strand DNA breaks;
+germline mutations substantially increase lifetime risk of breast and ovarian
+cancer, and promoter methylation of \textit{BRCA2} has been linked to the
+BRCAness phenotype in sporadic tumours, potentially conferring sensitivity to
+PARP inhibitor therapy~\cite{kalachand2024brca}.
 
-The enrichment is driven by \textit{BARD1},
-\textit{BRCA2}, and \textit{RNF220}. BARD1 and BRCA2
-form part of the BRCA1--BARD1 complex that mediates
-histone H2A ubiquitination during double-strand break
-repair, pointing toward chromatin maintenance mechanisms
-rather than broad oncogenic pathway activation. This
-narrow, mechanistic enrichment profile is in keeping with
-the modest discriminative performance of the panel: where
-GSE225845 and GSE287331 converge on PI3K/AKT, Notch, and
-cell-cycle modules, GSE69914 suggests that early
-epigenetic alterations in this cohort are concentrated in
-DNA damage surveillance and chromatin remodelling
-processes, without large-scale oncogenic pathway
-deregulation.
+\textbf{BARD1} (cg08563601, hypermethylated in Adjacent): the obligate
+heterodimeric partner of BRCA1 in the RING-domain complex involved in DNA
+repair and apoptosis; loss-of-function variants in \textit{BARD1} confer a
+moderate penetrance risk for breast cancer (OR $\approx$ 2.90), with
+particularly elevated risk in triple-negative breast cancer~\cite{graffeo2022bard1}.
+
+\textbf{MAP2K4} (cg02746232, hypermethylated in Adjacent): a MAPKK-family
+kinase that activates both the JNK and p38 stress-response axes; its role in
+breast cancer is context-dependent, with homozygous deletions and loss-of-function
+mutations identified in breast carcinomas supporting a tumour-suppressive function,
+while overexpression has also been reported to promote invasion via PI3K/AKT
+activation~\cite{su1998mkk4,liu2019map2k4}.
+
+\textbf{RBPJ} (cg22002629, hypermethylated in Adjacent): the canonical
+transcriptional effector of the Notch signalling pathway, acting as a
+context-dependent repressor or activator of target gene expression; Notch--RBPJ
+dysregulation contributes to breast cancer progression, cancer stem cell
+maintenance, and resistance to therapy~\cite{stylianou2021notch}.
+
+
+GO Biological Process analysis identifies focussed enrichment in DNA damage
+surveillance and chromatin ubiquitination (Table~\ref{tab:gse69914_go}),
+consistent with the BRCA2--BARD1 axis present in the panel.
+\paragraph{Cross-dataset transferability}
+
+External evaluation yields near-random discrimination on both target cohorts:
+AUC = 0.517 on GSE225845 and AUC = 0.498 on GSE287331, with balanced
+accuracy collapsing to 0.5 and zero recall for the Adjacent class in both
+cases. The failure is symmetric across targets, ruling out a directional
+mismatch specific to one partner cohort and suggesting instead that the
+discriminative direction identified in GSE69914 does not project onto a
+shared epigenetic axis --- a finding consistent with the low pairwise
+$\Delta\beta$ concordance documented in Chapter~\ref{chap:feature_selection}.
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/cap6/GSE69914_volcano_50cpg.pdf}
+    \caption{KNN permutation importance versus $\Delta M$ effect size
+           (Adjacent $-$ Normal) for each of the 50 selected loci.
+           COSMIC breast cancer genes are highlighted in green.
+           The weak negative Spearman correlation ($\rho = -0.22$)
+           indicates limited alignment between discriminative weight
+           and biological effect size.}
+    \label{ffig:gse69914_volcano}
+\end{figure}
+
 
 %-----------------------------------------------------------
 \subsection{Dataset GSE225845}

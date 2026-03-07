@@ -1,2 +1,40 @@
-% abstract, choose between abstract and summary
-manca da fare abstract
+Breast carcinogenesis is not a binary transition from normal to malignant tissue
+but a progressive deviation from epigenetic homeostasis. Field cancerisation theory
+posits that histologically normal tissue adjacent to a tumour harbours early epigenetic
+alterations — detectable as increased methylation variability rather than directional
+mean shifts — that precede overt neoplastic transformation. Their reproducible
+characterisation across independent cohorts under strict statistical control remains
+an open methodological challenge.
+
+This thesis addresses whether DNA methylation alone can discriminate Normal from
+Normal-Adjacent breast tissue across three independent cohorts (GSE69914, GSE225845,
+GSE287331), spanning two Illumina array generations (HumanMethylation450K and EPIC),
+under a fully leakage-controlled framework. A platform-aware preprocessing pipeline
+addressed probe-design bias and statistical scale distortion. Exploratory analysis
+confirmed that Normal--Adjacent differences are globally subtle -- mean $|\Delta\beta|$
+from 0.009 to 0.031 -- yet consistently focal, with outlier burden ratios up to 13.3
+and silhouette coefficients up to 0.34.
+
+A multi-stage stability-based feature selection framework integrated empirical
+variability filtering, biologically weighted resampling with directional stability
+constraints, correlation-based redundancy pruning, and constrained genomic
+diversification, yielding 5,000-CpG panels per cohort. Inter-dataset concordance
+analysis revealed that two cohorts share a concordant drift axis supporting
+bidirectional zero-shot transfer (AUC 0.776--0.794), while the third exhibits
+systematic polarity inversion with direct consequences for cross-cohort generalisation.
+
+A Mixed-Integer Linear Programme (MILP) inspired by the 0--1 knapsack formulation
+was introduced as the central methodological contribution, compressing each panel
+to 50 loci under joint optimisation of discriminative performance and biological
+diversity. Hard constraints enforce chromosomal balance, spatial non-redundancy,
+gene-level diversity, and enrichment in COSMIC breast cancer genes.
+
+For multi-cohort integration, polarity heterogeneity was resolved via absolute
+deviation transformation from cohort-specific Normal references, followed by
+NeuroCombat batch harmonisation. The resulting 50-CpG panel achieves AUC = 0.902
+and balanced accuracy = 0.799 on the held-out test set ($n = 177$), mapping to
+18 COSMIC breast cancer genes --- spanning tumour suppressors, chromatin regulators,
+developmental transcription factors, and signalling components --- compared to 11
+in the unconstrained baseline. These results demonstrate that biologically constrained
+combinatorial optimisation produces compact, interpretable CpG panels that preserve
+near-baseline predictive performance while embedding explicit prior knowledge.

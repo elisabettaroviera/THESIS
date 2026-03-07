@@ -1,16 +1,223 @@
 \chapter{Conclusion and Future work}
 \label{chap:conclusion_future_work}
 
-CONCLUSIONI E PROSPETTIVE DI FUTURO
+% ------------------------------------------------------------
+\section{Conclusions}
+\label{sec:conclusions}
+% ------------------------------------------------------------
 
-A systematic sensitivity analysis of the feature selection 
-pipeline hyperparameters — including the directional 
-stability threshold, the biological prior weight $\lambda$, 
-the correlation redundancy cutoff $\tau_c$, and the 
-diversification target $K$ — would provide empirical 
-grounding for the design choices adopted in 
-Chapter~\ref{chap:feature_selection}. Given the 
-computational cost of re-running stability selection 
-across the full hyperparameter grid, this analysis 
-would benefit from a reduced resampling scheme or 
-surrogate evaluation on a representative subset of CpGs.
+Field cancerisation represents one of the most compelling and, at the same
+time, methodologically challenging phenomena in cancer epigenomics.
+Histologically indistinguishable from healthy tissue, tumour-adjacent breast
+parenchyma harbours early epigenetic alterations that precede overt
+neoplastic transformation and whose systematic characterisation may
+ultimately inform both risk stratification and early detection strategies.
+The central biological question motivating this thesis --- whether DNA
+methylation differences between Normal and Normal-Adjacent tissue are
+detectable, reproducible, and transferable across independent cohorts under
+strict statistical control --- was addressed through an end-to-end
+computational pipeline integrating multi-cohort data harmonisation,
+biologically informed feature selection, and constrained combinatorial
+optimisation.
+
+The study was built on three publicly available DNA methylation datasets
+(\texttt{GSE69914}, \texttt{GSE225845}, \texttt{GSE287331}) spanning the
+Normal\,--\,Adjacent\,--\,Tumour axis in breast tissue across two Illumina
+array generations (450K and EPIC).
+Exploratory analysis confirmed that, at the whole-methylome level, Normal
+and Adjacent tissues are globally similar, with nearly superimposed
+$\beta$-value distributions and comparable variance profiles.
+Yet locus-specific analyses consistently revealed a focal early drift in
+Adjacent samples: outlier burden ratios ranging from~1.35 in
+\texttt{GSE69914} to~13.33 in \texttt{GSE287331}, and silhouette scores up
+to~0.34, provided quantitative evidence for the presence of field effects
+across all three independent cohorts.
+This cross-dataset consistency confirms that the Normal\,--\,Adjacent signal
+is not an artefact of a single study design but a reproducible biological
+phenomenon, coherent with contemporary models of tumour initiation in which
+locally restricted epigenetic perturbations accumulate in histologically
+normal tissue prior to overt malignant transformation.
+
+Building on this exploratory foundation, the preprocessing pipeline
+addressed the principal sources of confounding in multi-cohort methylation
+studies: probe-design bias,
+batch effects between the datasets (corrected via NeuroCombat with age as a
+continuous covariate, estimated strictly on the training set to prevent
+leakage), and age-dependent methylation structure (quantified through the
+Horvath multi-tissue epigenetic clock and subsequently controlled via age
+binning and CpG blacklisting).
+The transformation of raw $\beta$-values into absolute deviations from the
+Normal reference $\lvert\beta - \mu_{\mathrm{Normal}}\rvert$ provided a
+biologically grounded input space that resolves the drift polarity
+heterogeneity identified across cohorts while aligning naturally with the
+field cancerisation hypothesis.
+
+Feature selection proceeded through a multi-stage stability-based pipeline:
+empirical $\beta$-filtering to remove constitutively non-variable CpGs,
+variance filtering in $M$-space, repeated stratified $k$-fold stability
+ranking with directional weighting (RSKF, Spearman
+$\rho = -0.848$ between score and $|\Delta M|$), region anchoring to CpG
+islands, correlation-based redundancy pruning ($|r| \geq 0.85$), and
+genomic diversification with chromosomal and spatial constraints.
+The output of this pipeline --- 5\,000 stable, non-redundant, genomically
+diverse CpG sites --- constituted the input space for a LinearSVC
+classifier, whose coefficients
+were then passed as relevance scores to the main methodological contribution
+of this work.
+
+The MILP knapsack formulation represents the core novelty of this thesis.
+Rather than selecting CpG sites by greedily maximising predictive
+performance, the optimiser explicitly encodes biological prior knowledge as
+hard and soft constraints: enrichment in COSMIC breast cancer genes
+($W_{\mathrm{COSMIC}}$), upper bounds on chromosomal representation
+(\textsc{chr\_max}), spatial diversity (max per 500\,kb window), redundancy
+control (\textsc{corr\_thr}), gene-level diversity (\textsc{max\_per\_gene}),
+and a minimum fraction of hypermethylated sites (\textsc{min\_hyper}).
+Applied to the multi-cohort pooled setting of Chapter~7, the resulting panel
+of 50 CpG sites achieves $\mathrm{AUC} = 0.902$ on the pooled held-out test
+set ($n = 177$: 104 Normal, 73 Adjacent), with per-cohort breakdown
+$\mathrm{AUC}_{\texttt{GSE287331}} = 1.000$,
+$\mathrm{AUC}_{\texttt{GSE225845}} = 0.827$,
+$\mathrm{AUC}_{\texttt{GSE69914}} = 0.487$,
+against the 5\,000-CpG upper bound of $\mathrm{AUC} = 0.944$.
+Of the 50 selected CpGs, 18 overlap with the COSMIC Cancer Gene Census
+breast-cancer subset, compared to~11 in the unconstrained baseline
+($\mu = 0$), demonstrating the effectiveness of the knapsack biological
+penalty.
+
+The biological interpretation of the panel corroborated the coherence of
+the constrained selection.
+The 50 CpGs map to 49 unique genes spanning tumour suppressors
+(\textit{RB1}, \textit{TP53}), chromatin regulators (\textit{HDAC4},
+\textit{NCOR1}), developmental transcription factors (\textit{TBX3},
+\textit{SALL4}, \textit{GATA3}), signalling components (\textit{NOTCH1},
+\textit{NTRK3}, \textit{AKT1}), DNA repair (\textit{BRCA2}), and an
+RNA-binding oncogene (\textit{LIN28B}) --- a multifactorial portrait of
+epigenetic field reprogramming that could not have emerged from a purely
+performance-driven selection.
+This is the central result of the thesis: \emph{interpretability is not a
+by-product of performance --- it must be structurally imposed}.
+
+Taken together, these results demonstrate that it is possible to construct a
+compact, clinically motivated CpG panel that preserves near-baseline
+classification performance while embedding explicit biological knowledge.
+The MILP knapsack framework is fully parametrisable: the constraint
+structure can be adapted to any tumour type or epigenetic phenotype for
+which a reference cancer gene database exists, making the approach general
+beyond the breast cancer context explored here.
+
+
+
+% ------------------------------------------------------------
+\section{Future Work}
+\label{sec:future_work}
+% ------------------------------------------------------------
+
+Several directions naturally extend the present work, ranging from
+immediate experimental validations to broader methodological
+generalisations.
+
+\paragraph{External validation on independent cohorts}
+The most pressing limitation of this study is the absence of evaluation on
+a dataset not involved in any step of the pipeline design.
+The three cohorts employed here were all used in training and feature
+selection, albeit with strict leakage controls.
+Identifying an additional dataset with Normal and Adjacent breast
+tissue samples --- a non-trivial task given the scarcity of publicly
+available adjacent-normal methylation data with consistent phenotype
+annotation --- would provide a genuine out-of-distribution test of the
+50-CpG panel.
+Cross-platform validation, extending the panel to the EPIC~v2 array
+(${\sim}930$k CpG, broader promoter coverage), would further establish its
+robustness across array generations.
+
+\paragraph{Sensitivity analysis on pipeline and MILP hyperparameters}
+A systematic sensitivity analysis of the feature selection pipeline
+hyperparameters --- including the directional stability threshold, the
+biological prior weight $\lambda$, the correlation redundancy cutoff
+$\tau_c$, and the diversification target $K$ --- would provide empirical
+grounding for the design choices adopted in Chapter~5.
+Given the computational cost of re-running stability selection across the
+full hyperparameter grid, this analysis would benefit from a reduced
+resampling scheme or surrogate evaluation on a representative subset of
+CpGs.
+Analogously, varying each MILP constraint independently ($\mu$,
+$W_{\mathrm{COSMIC}}$, \textsc{chr\_max}, \textsc{corr\_thr},
+\textsc{max\_per\_gene}, \textsc{min\_hyper}) while holding the others
+fixed would quantify which constraints drive biological enrichment and which
+are partially redundant, providing practical guidance for adapting the
+framework to other cancer types.
+
+\paragraph{Replacement of SVM coefficients with transformer attention
+weights (CpGPT)}
+In the present formulation, the relevance scores fed to the knapsack are
+the linear coefficients of a LinearSVC trained on the 5\,000 candidate
+CpGs.
+While interpretable and computationally efficient, linear coefficients
+capture only additive, univariate contributions and may miss higher-order
+co-methylation interactions.
+A natural extension is to replace the SVM with a transformer-based model
+pre-trained on large-scale methylation data, such as
+CpGPT~\cite{levy2024cpgpt}, and to use the resulting attention weights as
+the relevance scores for the MILP objective.
+The self-attention mechanism~\cite{vaswani2017attention} learns
+context-dependent representations where the contribution of each CpG is
+modulated by its co-methylation context across the genome; feeding these
+richer relevance estimates into the knapsack would preserve the full
+biological constraint structure while potentially improving both
+discriminative power and biological coherence of the selected panel.
+
+\paragraph{Multi-omic integration}
+DNA methylation captures only one layer of the epigenetic regulation
+underlying field cancerisation.
+The CpG sites identified by the knapsack panel represent natural candidates
+for functional validation through complementary omics modalities.
+Integration with RNA-seq data from matched Normal\,--\,Adjacent\,--\,Tumour
+samples would allow assessment of whether hypermethylation at the selected
+CpGs is associated with transcriptional silencing of the corresponding
+genes, directly linking the epigenetic signal to downstream expression
+changes.
+Similarly, ATAC-seq or ChIP-seq data for histone marks (H3K27me3,
+H3K4me3) at the selected loci would clarify whether the observed
+methylation alterations co-occur with chromatin accessibility changes,
+providing a more complete picture of the epigenetic state of adjacent
+tissue.
+
+\paragraph{Generalisation to other tumour types and phenotypes}
+The MILP constraint structure is fully parametrisable.
+Applying the same pipeline to colorectal, lung, or ovarian cancer ---
+tumour types for which large EPIC methylation datasets with normal and
+adjacent tissue are increasingly available --- would test whether
+biologically constrained CpG panel selection is a generally effective
+strategy or whether its advantages are specific to the breast cancer
+context.
+More broadly, the framework could be adapted to phenotypes other than
+tissue state classification: age-acceleration groups, molecular subtypes,
+or treatment response endpoints could serve as the target variable, with
+the COSMIC constraint replaced by phenotype-relevant gene sets from MSigDB
+or other curated databases.
+
+% ------------------------------------------------------------
+\section{Code and Data Availability}
+\label{sec:availability}
+% ------------------------------------------------------------
+
+All code developed for this thesis, including preprocessing pipelines,
+feature selection notebooks, MILP formulation, and evaluation scripts, is
+publicly available at:
+\begin{center}
+    \url{https://github.com/elisabettaroviera/THESIS}.
+\end{center}
+
+
+%A systematic sensitivity analysis of the feature selection 
+%pipeline hyperparameters — including the directional 
+%stability threshold, the biological prior weight $\lambda$, 
+%the correlation redundancy cutoff $\tau_c$, and the 
+%diversification target $K$ — would provide empirical 
+%grounding for the design choices adopted in 
+%Chapter~\ref{chap:feature_selection}. Given the 
+%computational cost of re-running stability selection 
+%across the full hyperparameter grid, this analysis 
+%would benefit from a reduced resampling scheme or 
+%surrogate evaluation on a representative subset of CpGs.

@@ -223,32 +223,40 @@
 \contentsline {section}{\numberline {7.5}Biological Interpretation of the 50-CpG Panel}{110}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Cross-Cohort Epigenetic Drift}{111}{section.7.6}%
 \contentsline {chapter}{\numberline {8}Conclusion and Future work}{112}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Filtering lists}{113}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{113}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{113}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{113}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{114}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{114}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{114}{subsection.A.1.5}%
-\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{115}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Motivation and Scope}{115}{section.B.1}%
-\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{116}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{116}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{117}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{118}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{118}{subsection.B.3.3}%
-\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{119}{subsection.B.3.4}%
-\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{120}{section.B.4}%
-\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{120}{subsection.B.4.1}%
-\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{121}{subsection.B.4.2}%
-\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{123}{subsection.B.4.3}%
-\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{124}{subsection.B.4.4}%
-\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{124}{section*.211}%
-\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{124}{section*.212}%
-\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{124}{section*.213}%
-\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{125}{section.B.5}%
-\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{128}{appendix.C}%
-\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{128}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{129}{section.C.2}%
-\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{131}{section.C.3}%
-\contentsline {chapter}{Bibliography}{132}{figure.caption.218}%
+\contentsline {section}{\numberline {8.1}Conclusions}{112}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Future Work}{114}{section.8.2}%
+\contentsline {paragraph}{External validation on independent cohorts}{114}{section*.204}%
+\contentsline {paragraph}{Sensitivity analysis on pipeline and MILP hyperparameters}{114}{section*.205}%
+\contentsline {paragraph}{Replacement of SVM coefficients with transformer attention weights (CpGPT)}{114}{section*.206}%
+\contentsline {paragraph}{Multi-omic integration}{115}{section*.207}%
+\contentsline {paragraph}{Generalisation to other tumour types and phenotypes}{115}{section*.208}%
+\contentsline {section}{\numberline {8.3}Code and Data Availability}{115}{section.8.3}%
+\contentsline {chapter}{\numberline {A}Filtering lists}{116}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{116}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{116}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{116}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{117}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{117}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{117}{subsection.A.1.5}%
+\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{118}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Motivation and Scope}{118}{section.B.1}%
+\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{119}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{119}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{120}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{121}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{121}{subsection.B.3.3}%
+\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{122}{subsection.B.3.4}%
+\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{123}{section.B.4}%
+\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{123}{subsection.B.4.1}%
+\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{124}{subsection.B.4.2}%
+\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{126}{subsection.B.4.3}%
+\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{127}{subsection.B.4.4}%
+\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{127}{section*.216}%
+\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{127}{section*.217}%
+\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{127}{section*.218}%
+\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{128}{section.B.5}%
+\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{131}{appendix.C}%
+\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{131}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{132}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{134}{section.C.3}%
+\contentsline {chapter}{Bibliography}{135}{figure.caption.223}%

@@ -5648,6 +5648,113 @@
       \field{pages}{215\bibrangedash 220}
       \range{pages}{6}
     \endentry
+    \entry{levy2024cpgpt}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=cff23680cfebae882df1707d3ed56f61}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Karin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=59c05cfd7037c5e2258d51f60e696639}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Gavriel},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b4fb28c16e8577fd194c4d3652f73879}{%
+           family={Kaplan},
+           familyi={K\bibinitperiod},
+           given={Harel},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d646e38f6c1044b411423d440f4aa853}{%
+           family={Cedar},
+           familyi={C\bibinitperiod},
+           given={Howard},
+           giveni={H\bibinitperiod}}}%
+        {{hash=7da70e02238ceefb60ab347fe042bf44}{%
+           family={Bergman},
+           familyi={B\bibinitperiod},
+           given={Yehudit},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{fullhash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{fullhashraw}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{bibnamehash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{authorbibnamehash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{authornamehash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{authorfullhash}{3f9224d5adfcde2edcaf8322e8706869}
+      \strng{authorfullhashraw}{3f9224d5adfcde2edcaf8322e8706869}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{{CpGPT}: A Foundation Model for {DNA} Methylation}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1101/2024.10.24.619766
+      \endverb
+    \endentry
+    \entry{vaswani2017attention}{inproceedings}{}{}
+      \name{author}{8}{}{%
+        {{hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+        {{hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod}}}%
+        {{hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={{Ł}ukasz},
+           giveni={Ł\bibinitperiod}}}%
+        {{hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{fullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorfullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention Is All You Need}
+      \field{volume}{30}
+      \field{year}{2017}
+    \endentry
     \entry{Zhang2019}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -5832,9 +5939,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{AsselinLabat2007}
-  \missing{Fillmore2010}
-  \missing{TCGA2012}
 \endrefsection
 \endinput
 

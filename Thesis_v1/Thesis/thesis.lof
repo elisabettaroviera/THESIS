@@ -69,13 +69,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{117}{figure.caption.205}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{118}{figure.caption.206}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{119}{figure.caption.207}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{122}{figure.caption.208}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{123}{figure.caption.209}%
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{124}{figure.caption.210}%
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{127}{figure.caption.214}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{120}{figure.caption.210}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{121}{figure.caption.211}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{122}{figure.caption.212}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{125}{figure.caption.213}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{126}{figure.caption.214}%
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{127}{figure.caption.215}%
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{130}{figure.caption.219}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{130}{figure.caption.217}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{131}{figure.caption.218}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{133}{figure.caption.222}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{134}{figure.caption.223}%

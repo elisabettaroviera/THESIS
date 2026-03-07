@@ -62,16 +62,20 @@
 \contentsline {figure}{\numberline {6.14}{\ignorespaces Pairwise $\Delta M$ concordance scatter plots on the shared CpG intersection. Green = concordant sign, blue = inverted sign.}}{103}{figure.caption.197}%
 \contentsline {figure}{\numberline {6.15}{\ignorespaces Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts, stratified by sign-concordance group.}}{103}{figure.caption.198}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces PCA of the pooled training set \emph {prior} to NeuroCombat (PC1\,=\,14.8\%, PC2\,=\,5.3\%). Batch variance dominates PC1; no tissue-label separation is visible.}}{107}{figure.caption.199}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces PCA of the pooled training set \emph {after} NeuroCombat (PC1\,=\,13.0\%, PC2\,=\,5.6\%). Cohort-driven elongation is substantially reduced; a partial Normal--Adjacent separation emerges along PC1.}}{107}{figure.caption.200}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Component-wise decomposition of the MILP objective for the 50-CpG multi-cohort panel.}}{109}{figure.caption.202}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces SVM coefficient (signed) versus $\Delta M$ (Adjacent $-$ Normal, absolute-deviation space) for the 50 selected loci. Spearman $\rho = 0.51$ indicates moderate concordance between discriminative weight and deviation magnitude.}}{110}{figure.caption.203}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{113}{figure.caption.200}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{114}{figure.caption.201}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{115}{figure.caption.202}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{118}{figure.caption.203}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{119}{figure.caption.204}%
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{120}{figure.caption.205}%
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{123}{figure.caption.209}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{117}{figure.caption.205}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{118}{figure.caption.206}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{119}{figure.caption.207}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{122}{figure.caption.208}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{123}{figure.caption.209}%
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{124}{figure.caption.210}%
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{127}{figure.caption.214}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{126}{figure.caption.212}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{127}{figure.caption.213}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{130}{figure.caption.217}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{131}{figure.caption.218}%

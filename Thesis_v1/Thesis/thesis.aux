@@ -17,7 +17,7 @@
 \babel@aux{italian}{}
 \babel@aux{english}{}
 \@writefile{toc}{\contentsline {chapter}{List of Tables}{vi}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{List of Figures}{vii}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{viii}{section*.2}\protected@file@percent }
 \abx@aux@cite{0}{ehrlich2002}
 \abx@aux@segm{0}{0}{ehrlich2002}
 \abx@aux@cite{0}{bird2002}
@@ -1339,189 +1339,220 @@
 \newlabel{fig:deltam_violin}{{6.15}{103}{Distribution of $\Delta M$ (Adjacent -- Normal) across the three cohorts, stratified by sign-concordance group}{figure.caption.198}{}}
 \abx@aux@backref{244}{DecodingDepression2024}{0}{103}{103}
 \abx@aux@backref{245}{wang2021combatmet}{0}{103}{103}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Biological Synthesis}{104}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Joint Modelling}{104}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:multi_cohort_integration}{{7}{104}{Synthesis and Implications}{chapter.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{104}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Technical Challenges of Cohort Pooling}{104}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Platform Heterogeneity}{104}{subsection.7.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Feature-Space Alignment}{104}{subsection.7.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}Residual Cohort Effects}{105}{subsection.7.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Unified Preprocessing and Feature Selection}{105}{section.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Preprocessing Standardisation}{105}{subsection.7.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.2}Application of the Robust Feature Selection Framework}{105}{subsection.7.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Pooled Multi-Cohort Modelling}{106}{section.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Joint Training Strategy}{106}{subsection.7.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Performance Evaluation}{106}{subsection.7.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.3}Robustness Under Heterogeneity}{106}{subsection.7.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}Gene-Level Aggregation and Functional Integration}{106}{section.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}CpG-to-Gene Mapping}{106}{subsection.7.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.2}Gene Overlap and Functional Enrichment}{106}{subsection.7.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.3}Biological Coherence Across Cohorts}{107}{subsection.7.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}Integrated Model of Early Epigenetic Drift}{107}{section.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.7}Methodological Considerations}{107}{section.7.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.8}Synthesis of Multi-Cohort Evidence}{107}{section.7.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion and Future work}{108}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Multi-Cohort Integration Framework}{105}{section.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Construction of a Shared CpG Feature Space}{105}{subsection.7.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Absolute Deviation Transformation}{105}{subsection.7.2.2}\protected@file@percent }
+\abx@aux@cite{0}{Fortin2017}
+\abx@aux@segm{0}{0}{Fortin2017}
+\abx@aux@cite{0}{Horvath2013}
+\abx@aux@segm{0}{0}{Horvath2013}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}Batch Harmonisation via NeuroCombat}{106}{subsection.7.2.3}\protected@file@percent }
+\newlabel{sec:neurocombat}{{7.2.3}{106}{Batch Harmonisation via NeuroCombat}{subsection.7.2.3}{}}
+\abx@aux@backref{246}{Fortin2017}{0}{106}{106}
+\abx@aux@backref{247}{Horvath2013}{0}{106}{106}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Batch Harmonisation Diagnostics}{106}{section.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces PCA of the pooled training set \emph  {prior} to NeuroCombat (PC1\,=\,14.8\%, PC2\,=\,5.3\%). Batch variance dominates PC1; no tissue-label separation is visible.}}{107}{figure.caption.199}\protected@file@percent }
+\newlabel{fig:pca_pre_combat}{{7.1}{107}{PCA of the pooled training set \emph {prior} to NeuroCombat (PC1\,=\,14.8\%, PC2\,=\,5.3\%). Batch variance dominates PC1; no tissue-label separation is visible}{figure.caption.199}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces PCA of the pooled training set \emph  {after} NeuroCombat (PC1\,=\,13.0\%, PC2\,=\,5.6\%). Cohort-driven elongation is substantially reduced; a partial Normal--Adjacent separation emerges along PC1.}}{107}{figure.caption.200}\protected@file@percent }
+\newlabel{fig:pca_post_combat}{{7.2}{107}{PCA of the pooled training set \emph {after} NeuroCombat (PC1\,=\,13.0\%, PC2\,=\,5.6\%). Cohort-driven elongation is substantially reduced; a partial Normal--Adjacent separation emerges along PC1}{figure.caption.200}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}Feature Selection and Predictive Modelling}{107}{section.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Feature Selection on the Harmonised Pool}{108}{subsection.7.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Linear SVM Training and Panel Compression}{108}{subsection.7.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.3}Predictive Performance}{108}{subsection.7.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7.1}{\ignorespaces Performance of the 5{,}000-CpG SVM and the 50-CpG knapsack panel on the pooled test set, with per-cohort AUC breakdown.}}{109}{table.caption.201}\protected@file@percent }
+\newlabel{tab:pooled_results}{{7.1}{109}{Performance of the 5{,}000-CpG SVM and the 50-CpG knapsack panel on the pooled test set, with per-cohort AUC breakdown}{table.caption.201}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces Component-wise decomposition of the MILP objective for the 50-CpG multi-cohort panel.}}{109}{figure.caption.202}\protected@file@percent }
+\newlabel{fig:cap7_knapsack}{{7.3}{109}{Component-wise decomposition of the MILP objective for the 50-CpG multi-cohort panel}{figure.caption.202}{}}
+\abx@aux@cite{0}{fillmore2010tbx3}
+\abx@aux@segm{0}{0}{fillmore2010tbx3}
+\abx@aux@cite{0}{asselin2007gata3}
+\abx@aux@segm{0}{0}{asselin2007gata3}
+\abx@aux@cite{0}{cancer2012comprehensive}
+\abx@aux@segm{0}{0}{cancer2012comprehensive}
+\abx@aux@cite{0}{DiGiorgio2023}
+\abx@aux@segm{0}{0}{DiGiorgio2023}
+\abx@aux@cite{0}{Tognon2002}
+\abx@aux@segm{0}{0}{Tognon2002}
+\abx@aux@cite{0}{Piskounova2011}
+\abx@aux@segm{0}{0}{Piskounova2011}
+\abx@aux@cite{0}{Xie2014}
+\abx@aux@segm{0}{0}{Xie2014}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces SVM coefficient (signed) versus $\Delta M$ (Adjacent $-$ Normal, absolute-deviation space) for the 50 selected loci. Spearman $\rho = 0.51$ indicates moderate concordance between discriminative weight and deviation magnitude.}}{110}{figure.caption.203}\protected@file@percent }
+\newlabel{fig:cap7_volcano}{{7.4}{110}{SVM coefficient (signed) versus $\Delta M$ (Adjacent $-$ Normal, absolute-deviation space) for the 50 selected loci. Spearman $\rho = 0.51$ indicates moderate concordance between discriminative weight and deviation magnitude}{figure.caption.203}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}Biological Interpretation of the 50-CpG Panel}{110}{section.7.5}\protected@file@percent }
+\abx@aux@backref{248}{fillmore2010tbx3}{0}{110}{110}
+\abx@aux@backref{249}{asselin2007gata3}{0}{110}{110}
+\abx@aux@backref{250}{cancer2012comprehensive}{0}{110}{110}
+\abx@aux@backref{251}{DiGiorgio2023}{0}{110}{110}
+\abx@aux@backref{252}{Tognon2002}{0}{111}{111}
+\abx@aux@backref{253}{Piskounova2011}{0}{111}{111}
+\abx@aux@backref{254}{Xie2014}{0}{111}{111}
+\@writefile{toc}{\contentsline {section}{\numberline {7.6}Cross-Cohort Epigenetic Drift}{111}{section.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion and Future work}{112}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion_future_work}{{8}{108}{Synthesis of Multi-Cohort Evidence}{chapter.8}{}}
+\newlabel{chap:conclusion_future_work}{{8}{112}{Cross-Cohort Epigenetic Drift}{chapter.8}{}}
 \abx@aux@cite{0}{naeem2014}
 \abx@aux@segm{0}{0}{naeem2014}
 \abx@aux@cite{0}{chen2013}
 \abx@aux@segm{0}{0}{chen2013}
 \abx@aux@cite{0}{pidsley2016}
 \abx@aux@segm{0}{0}{pidsley2016}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Filtering lists}{109}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Filtering lists}{113}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:probe-filters}{{A}{109}{Synthesis of Multi-Cohort Evidence}{appendix.A}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{109}{section.A.1}\protected@file@percent }
-\newlabel{app:probe_filters}{{A.1}{109}{Probe Filtering Resources}{section.A.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Naeem \textit  {et al.} (2014)}{109}{subsection.A.1.1}\protected@file@percent }
-\newlabel{app:naeem2014}{{A.1.1}{109}{Naeem \textit {et al.} (2014)}{subsection.A.1.1}{}}
-\abx@aux@backref{246}{naeem2014}{0}{109}{109}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Chen \textit  {et al.} (2013)}{109}{subsection.A.1.2}\protected@file@percent }
-\newlabel{app:chen2013}{{A.1.2}{109}{Chen \textit {et al.} (2013)}{subsection.A.1.2}{}}
-\abx@aux@backref{247}{chen2013}{0}{109}{109}
+\newlabel{sec:probe-filters}{{A}{113}{Cross-Cohort Epigenetic Drift}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{113}{section.A.1}\protected@file@percent }
+\newlabel{app:probe_filters}{{A.1}{113}{Probe Filtering Resources}{section.A.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Naeem \textit  {et al.} (2014)}{113}{subsection.A.1.1}\protected@file@percent }
+\newlabel{app:naeem2014}{{A.1.1}{113}{Naeem \textit {et al.} (2014)}{subsection.A.1.1}{}}
+\abx@aux@backref{255}{naeem2014}{0}{113}{113}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Chen \textit  {et al.} (2013)}{113}{subsection.A.1.2}\protected@file@percent }
+\newlabel{app:chen2013}{{A.1.2}{113}{Chen \textit {et al.} (2013)}{subsection.A.1.2}{}}
+\abx@aux@backref{256}{chen2013}{0}{113}{113}
 \abx@aux@cite{0}{zhou2017}
 \abx@aux@segm{0}{0}{zhou2017}
 \abx@aux@cite{0}{mccartney2016}
 \abx@aux@segm{0}{0}{mccartney2016}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{110}{table.caption.199}\protected@file@percent }
-\newlabel{tab:filter_categories}{{A.1}{110}{Technical artefact categories covered by each filtering resource}{table.caption.199}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit  {et al.} (2016)}{110}{subsection.A.1.3}\protected@file@percent }
-\newlabel{app:pidsley2016}{{A.1.3}{110}{Pidsley \textit {et al.} (2016)}{subsection.A.1.3}{}}
-\abx@aux@backref{248}{pidsley2016}{0}{110}{110}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.4}Zhou \textit  {et al.} (2016)}{110}{subsection.A.1.4}\protected@file@percent }
-\newlabel{app:zhou2016}{{A.1.4}{110}{Zhou \textit {et al.} (2016)}{subsection.A.1.4}{}}
-\abx@aux@backref{249}{zhou2017}{0}{110}{110}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.5}McCartney \textit  {et al.} (2016)}{110}{subsection.A.1.5}\protected@file@percent }
-\newlabel{app:mccartney2016}{{A.1.5}{110}{McCartney \textit {et al.} (2016)}{subsection.A.1.5}{}}
-\abx@aux@backref{250}{mccartney2016}{0}{110}{110}
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{114}{table.caption.204}\protected@file@percent }
+\newlabel{tab:filter_categories}{{A.1}{114}{Technical artefact categories covered by each filtering resource}{table.caption.204}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit  {et al.} (2016)}{114}{subsection.A.1.3}\protected@file@percent }
+\newlabel{app:pidsley2016}{{A.1.3}{114}{Pidsley \textit {et al.} (2016)}{subsection.A.1.3}{}}
+\abx@aux@backref{257}{pidsley2016}{0}{114}{114}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.4}Zhou \textit  {et al.} (2016)}{114}{subsection.A.1.4}\protected@file@percent }
+\newlabel{app:zhou2016}{{A.1.4}{114}{Zhou \textit {et al.} (2016)}{subsection.A.1.4}{}}
+\abx@aux@backref{258}{zhou2017}{0}{114}{114}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.5}McCartney \textit  {et al.} (2016)}{114}{subsection.A.1.5}\protected@file@percent }
+\newlabel{app:mccartney2016}{{A.1.5}{114}{McCartney \textit {et al.} (2016)}{subsection.A.1.5}{}}
+\abx@aux@backref{259}{mccartney2016}{0}{114}{114}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{111}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{115}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{app:empirical_variability_extension}{{B}{111}{McCartney \textit {et al.} (2016)}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Motivation and Scope}{111}{section.B.1}\protected@file@percent }
-\abx@aux@backref{251}{Edgar2017}{0}{111}{111}
-\abx@aux@backref{252}{Edgar2017}{0}{111}{111}
+\newlabel{app:empirical_variability_extension}{{B}{115}{McCartney \textit {et al.} (2016)}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Motivation and Scope}{115}{section.B.1}\protected@file@percent }
+\abx@aux@backref{260}{Edgar2017}{0}{115}{115}
+\abx@aux@backref{261}{Edgar2017}{0}{115}{115}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{112}{section.B.2}\protected@file@percent }
-\newlabel{app:sec:framework}{{B.2}{112}{General Framework for Cross-Tissue Extension}{section.B.2}{}}
-\newlabel{eq:nv_tissue}{{B.1}{112}{General Framework for Cross-Tissue Extension}{equation.B.1}{}}
-\abx@aux@backref{253}{Edgar2017}{0}{112}{112}
-\newlabel{eq:nv_core}{{B.2}{112}{General Framework for Cross-Tissue Extension}{equation.B.2}{}}
-\newlabel{eq:nv_update}{{B.3}{112}{General Framework for Cross-Tissue Extension}{equation.B.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{112}{section.B.3}\protected@file@percent }
-\newlabel{app:sec:overlap}{{B.3}{112}{Cross-Tissue Overlap Structure}{section.B.3}{}}
-\abx@aux@backref{254}{Edgar2017}{0}{112}{112}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{113}{figure.caption.200}\protected@file@percent }
-\newlabel{fig:point0_global_structure}{{B.1}{113}{Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue}{figure.caption.200}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{113}{subsection.B.3.1}\protected@file@percent }
-\newlabel{app:sec:stepA}{{B.3.1}{113}{Step A: Stability of Non-Variable CpG Selection}{subsection.B.3.1}{}}
-\newlabel{eq:retention}{{B.4}{113}{Step A: Stability of Non-Variable CpG Selection}{equation.B.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{116}{section.B.2}\protected@file@percent }
+\newlabel{app:sec:framework}{{B.2}{116}{General Framework for Cross-Tissue Extension}{section.B.2}{}}
+\newlabel{eq:nv_tissue}{{B.1}{116}{General Framework for Cross-Tissue Extension}{equation.B.1}{}}
+\abx@aux@backref{262}{Edgar2017}{0}{116}{116}
+\newlabel{eq:nv_core}{{B.2}{116}{General Framework for Cross-Tissue Extension}{equation.B.2}{}}
+\newlabel{eq:nv_update}{{B.3}{116}{General Framework for Cross-Tissue Extension}{equation.B.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{116}{section.B.3}\protected@file@percent }
+\newlabel{app:sec:overlap}{{B.3}{116}{Cross-Tissue Overlap Structure}{section.B.3}{}}
+\abx@aux@backref{263}{Edgar2017}{0}{116}{116}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue. }}{117}{figure.caption.205}\protected@file@percent }
+\newlabel{fig:point0_global_structure}{{B.1}{117}{Global overlap structure of non-variable CpGs across blood, buccal epithelial cells, placenta, and breast tissue}{figure.caption.205}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{117}{subsection.B.3.1}\protected@file@percent }
+\newlabel{app:sec:stepA}{{B.3.1}{117}{Step A: Stability of Non-Variable CpG Selection}{subsection.B.3.1}{}}
+\newlabel{eq:retention}{{B.4}{117}{Step A: Stability of Non-Variable CpG Selection}{equation.B.4}{}}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
-\abx@aux@cite{0}{Edgar2017}
-\abx@aux@segm{0}{0}{Edgar2017}
-\abx@aux@cite{0}{Bock2012}
-\abx@aux@segm{0}{0}{Bock2012}
-\newlabel{fig:stepA_lodo}{{B.2a}{114}{Retention rates under the LODO protocol across held-out datasets (GSE69914, GSE225845, GSE287331)}{figure.caption.201}{}}
-\newlabel{sub@fig:stepA_lodo}{{a}{114}{Retention rates under the LODO protocol across held-out datasets (GSE69914, GSE225845, GSE287331)}{figure.caption.201}{}}
-\newlabel{fig:stepB_stability_vs_size}{{B.2b}{114}{Mean Jaccard similarity $J(\tau )$ and mean non-variable CpG count as functions of the threshold}{figure.caption.201}{}}
-\newlabel{sub@fig:stepB_stability_vs_size}{{b}{114}{Mean Jaccard similarity $J(\tau )$ and mean non-variable CpG count as functions of the threshold}{figure.caption.201}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{114}{figure.caption.201}\protected@file@percent }
-\newlabel{fig:stepAB}{{B.2}{114}{Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets}{figure.caption.201}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{114}{subsection.B.3.2}\protected@file@percent }
-\newlabel{app:sec:stepB}{{B.3.2}{114}{Step B: Stability--Dimensionality Trade-Off}{subsection.B.3.2}{}}
-\newlabel{eq:jaccard}{{B.5}{114}{Step B: Stability--Dimensionality Trade-Off}{equation.B.5}{}}
-\abx@aux@backref{255}{Edgar2017}{0}{114}{114}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{114}{subsection.B.3.3}\protected@file@percent }
-\newlabel{app:sec:stepC}{{B.3.3}{114}{Step C: Methylation Distribution of Non-Variable CpGs}{subsection.B.3.3}{}}
-\newlabel{fig:stepC_beta_distribution}{{B.3a}{115}{Beta-value density for non-variable CpGs (breast tissue) versus genomic background}{figure.caption.202}{}}
-\newlabel{sub@fig:stepC_beta_distribution}{{a}{115}{Beta-value density for non-variable CpGs (breast tissue) versus genomic background}{figure.caption.202}{}}
-\newlabel{fig:stepD_rr_ecdf}{{B.3b}{115}{ECDF of within-normal variability $r_{\beta ,j} = Q_{0.90} - Q_{0.10}$ across CpG subsets}{figure.caption.202}{}}
-\newlabel{sub@fig:stepD_rr_ecdf}{{b}{115}{ECDF of within-normal variability $r_{\beta ,j} = Q_{0.90} - Q_{0.10}$ across CpG subsets}{figure.caption.202}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{115}{figure.caption.202}\protected@file@percent }
-\newlabel{fig:stepCD}{{B.3}{115}{Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior}{figure.caption.202}{}}
-\abx@aux@backref{256}{Edgar2017}{0}{115}{115}
-\abx@aux@backref{257}{Edgar2017}{0}{115}{115}
-\abx@aux@backref{258}{Bock2012}{0}{115}{115}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{115}{subsection.B.3.4}\protected@file@percent }
-\newlabel{app:sec:stepD}{{B.3.4}{115}{Step D: Baseline Variability Profile}{subsection.B.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{116}{section.B.4}\protected@file@percent }
-\newlabel{app:sec:dataset_specific}{{B.4}{116}{Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{section.B.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{116}{subsection.B.4.1}\protected@file@percent }
-\newlabel{app:sec:empirical_variability_spectrum}{{B.4.1}{116}{Empirical Variability Spectrum Across Independent Breast Cohorts}{subsection.B.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{117}{subsection.B.4.2}\protected@file@percent }
-\newlabel{fig:app_rbeta_dist_69914}{{B.4a}{118}{GSE69914}{figure.caption.203}{}}
-\newlabel{sub@fig:app_rbeta_dist_69914}{{a}{118}{GSE69914}{figure.caption.203}{}}
-\newlabel{fig:app_rbeta_dist_225845}{{B.4b}{118}{GSE225845}{figure.caption.203}{}}
-\newlabel{sub@fig:app_rbeta_dist_225845}{{b}{118}{GSE225845}{figure.caption.203}{}}
-\newlabel{fig:app_rbeta_dist_287331}{{B.4c}{118}{GSE287331}{figure.caption.203}{}}
-\newlabel{sub@fig:app_rbeta_dist_287331}{{c}{118}{GSE287331}{figure.caption.203}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces  Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{118}{figure.caption.203}\protected@file@percent }
-\newlabel{fig:app_rbeta_distributions_all}{{B.4}{118}{Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold}{figure.caption.203}{}}
-\abx@aux@cite{0}{Edgar2017}
-\abx@aux@segm{0}{0}{Edgar2017}
-\abx@aux@cite{0}{Edgar2017}
-\abx@aux@segm{0}{0}{Edgar2017}
-\newlabel{fig:app_enrichment_69914}{{B.5a}{119}{GSE69914}{figure.caption.204}{}}
-\newlabel{sub@fig:app_enrichment_69914}{{a}{119}{GSE69914}{figure.caption.204}{}}
-\newlabel{fig:app_enrichment_225845}{{B.5b}{119}{GSE225845}{figure.caption.204}{}}
-\newlabel{sub@fig:app_enrichment_225845}{{b}{119}{GSE225845}{figure.caption.204}{}}
-\newlabel{fig:app_enrichment_287331}{{B.5c}{119}{GSE287331}{figure.caption.204}{}}
-\newlabel{sub@fig:app_enrichment_287331}{{c}{119}{GSE287331}{figure.caption.204}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces  Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{119}{figure.caption.204}\protected@file@percent }
-\newlabel{fig:app_enrichment_all}{{B.5}{119}{Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1)}{figure.caption.204}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{119}{subsection.B.4.3}\protected@file@percent }
-\newlabel{app:sec:phenotype_concordance}{{B.4.3}{119}{Phenotype-Resolved Variability Concordance Analysis}{subsection.B.4.3}{}}
-\newlabel{fig:app_rbeta_scatter_69914}{{B.6a}{120}{GSE69914 \\ Spearman $\rho \approx 0.845$}{figure.caption.205}{}}
-\newlabel{sub@fig:app_rbeta_scatter_69914}{{a}{120}{GSE69914 \\ Spearman $\rho \approx 0.845$}{figure.caption.205}{}}
-\newlabel{fig:app_rbeta_scatter_225845}{{B.6b}{120}{GSE225845 \\ Spearman $\rho \approx 0.881$}{figure.caption.205}{}}
-\newlabel{sub@fig:app_rbeta_scatter_225845}{{b}{120}{GSE225845 \\ Spearman $\rho \approx 0.881$}{figure.caption.205}{}}
-\newlabel{fig:app_rbeta_scatter_287331}{{B.6c}{120}{GSE287331 \\ Spearman $\rho \approx 0.933$}{figure.caption.205}{}}
-\newlabel{sub@fig:app_rbeta_scatter_287331}{{c}{120}{GSE287331 \\ Spearman $\rho \approx 0.933$}{figure.caption.205}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces  Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{120}{figure.caption.205}\protected@file@percent }
-\newlabel{fig:app_rbeta_scatter_all}{{B.6}{120}{Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity}{figure.caption.205}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{120}{subsection.B.4.4}\protected@file@percent }
-\abx@aux@backref{259}{Edgar2017}{0}{120}{120}
-\abx@aux@backref{260}{Edgar2017}{0}{120}{120}
-\@writefile{toc}{\contentsline {paragraph}{Core invariants \( \mathcal  {B} \cap \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \cap \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \)}{120}{section*.206}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal  {B} \cap \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \setminus \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \)}{120}{section*.207}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \cap \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal  {B} \)}{120}{section*.208}\protected@file@percent }
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
 \abx@aux@cite{0}{Bock2012}
 \abx@aux@segm{0}{0}{Bock2012}
+\newlabel{fig:stepA_lodo}{{B.2a}{118}{Retention rates under the LODO protocol across held-out datasets (GSE69914, GSE225845, GSE287331)}{figure.caption.206}{}}
+\newlabel{sub@fig:stepA_lodo}{{a}{118}{Retention rates under the LODO protocol across held-out datasets (GSE69914, GSE225845, GSE287331)}{figure.caption.206}{}}
+\newlabel{fig:stepB_stability_vs_size}{{B.2b}{118}{Mean Jaccard similarity $J(\tau )$ and mean non-variable CpG count as functions of the threshold}{figure.caption.206}{}}
+\newlabel{sub@fig:stepB_stability_vs_size}{{b}{118}{Mean Jaccard similarity $J(\tau )$ and mean non-variable CpG count as functions of the threshold}{figure.caption.206}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets.}}{118}{figure.caption.206}\protected@file@percent }
+\newlabel{fig:stepAB}{{B.2}{118}{Assessment of robustness and trade-off between stability and dimensionality of non-variable CpG sets}{figure.caption.206}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{118}{subsection.B.3.2}\protected@file@percent }
+\newlabel{app:sec:stepB}{{B.3.2}{118}{Step B: Stability--Dimensionality Trade-Off}{subsection.B.3.2}{}}
+\newlabel{eq:jaccard}{{B.5}{118}{Step B: Stability--Dimensionality Trade-Off}{equation.B.5}{}}
+\abx@aux@backref{264}{Edgar2017}{0}{118}{118}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{118}{subsection.B.3.3}\protected@file@percent }
+\newlabel{app:sec:stepC}{{B.3.3}{118}{Step C: Methylation Distribution of Non-Variable CpGs}{subsection.B.3.3}{}}
+\newlabel{fig:stepC_beta_distribution}{{B.3a}{119}{Beta-value density for non-variable CpGs (breast tissue) versus genomic background}{figure.caption.207}{}}
+\newlabel{sub@fig:stepC_beta_distribution}{{a}{119}{Beta-value density for non-variable CpGs (breast tissue) versus genomic background}{figure.caption.207}{}}
+\newlabel{fig:stepD_rr_ecdf}{{B.3b}{119}{ECDF of within-normal variability $r_{\beta ,j} = Q_{0.90} - Q_{0.10}$ across CpG subsets}{figure.caption.207}{}}
+\newlabel{sub@fig:stepD_rr_ecdf}{{b}{119}{ECDF of within-normal variability $r_{\beta ,j} = Q_{0.90} - Q_{0.10}$ across CpG subsets}{figure.caption.207}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior.}}{119}{figure.caption.207}\protected@file@percent }
+\newlabel{fig:stepCD}{{B.3}{119}{Characterization of the selected non-variable CpG set in terms of methylation distribution and baseline risk behavior}{figure.caption.207}{}}
+\abx@aux@backref{265}{Edgar2017}{0}{119}{119}
+\abx@aux@backref{266}{Edgar2017}{0}{119}{119}
+\abx@aux@backref{267}{Bock2012}{0}{119}{119}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{119}{subsection.B.3.4}\protected@file@percent }
+\newlabel{app:sec:stepD}{{B.3.4}{119}{Step D: Baseline Variability Profile}{subsection.B.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{120}{section.B.4}\protected@file@percent }
+\newlabel{app:sec:dataset_specific}{{B.4}{120}{Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{section.B.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{120}{subsection.B.4.1}\protected@file@percent }
+\newlabel{app:sec:empirical_variability_spectrum}{{B.4.1}{120}{Empirical Variability Spectrum Across Independent Breast Cohorts}{subsection.B.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{121}{subsection.B.4.2}\protected@file@percent }
+\newlabel{fig:app_rbeta_dist_69914}{{B.4a}{122}{GSE69914}{figure.caption.208}{}}
+\newlabel{sub@fig:app_rbeta_dist_69914}{{a}{122}{GSE69914}{figure.caption.208}{}}
+\newlabel{fig:app_rbeta_dist_225845}{{B.4b}{122}{GSE225845}{figure.caption.208}{}}
+\newlabel{sub@fig:app_rbeta_dist_225845}{{b}{122}{GSE225845}{figure.caption.208}{}}
+\newlabel{fig:app_rbeta_dist_287331}{{B.4c}{122}{GSE287331}{figure.caption.208}{}}
+\newlabel{sub@fig:app_rbeta_dist_287331}{{c}{122}{GSE287331}{figure.caption.208}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces  Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold. }}{122}{figure.caption.208}\protected@file@percent }
+\newlabel{fig:app_rbeta_distributions_all}{{B.4}{122}{Distribution of $r_{\beta }$ computed on the Normal+Tumor comparison for each dataset. Vertical dashed lines indicate the selected threshold}{figure.caption.208}{}}
 \abx@aux@cite{0}{Edgar2017}
 \abx@aux@segm{0}{0}{Edgar2017}
-\abx@aux@backref{261}{Edgar2017}{0}{121}{121}
-\abx@aux@backref{262}{Bock2012}{0}{121}{121}
-\@writefile{toc}{\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{121}{section.B.5}\protected@file@percent }
-\newlabel{app:sec:positioning}{{B.5}{121}{Positioning Within the Thesis and Generalisability}{section.B.5}{}}
-\abx@aux@backref{263}{Edgar2017}{0}{121}{121}
+\abx@aux@cite{0}{Edgar2017}
+\abx@aux@segm{0}{0}{Edgar2017}
+\newlabel{fig:app_enrichment_69914}{{B.5a}{123}{GSE69914}{figure.caption.209}{}}
+\newlabel{sub@fig:app_enrichment_69914}{{a}{123}{GSE69914}{figure.caption.209}{}}
+\newlabel{fig:app_enrichment_225845}{{B.5b}{123}{GSE225845}{figure.caption.209}{}}
+\newlabel{sub@fig:app_enrichment_225845}{{b}{123}{GSE225845}{figure.caption.209}{}}
+\newlabel{fig:app_enrichment_287331}{{B.5c}{123}{GSE287331}{figure.caption.209}{}}
+\newlabel{sub@fig:app_enrichment_287331}{{c}{123}{GSE287331}{figure.caption.209}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces  Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1). }}{123}{figure.caption.209}\protected@file@percent }
+\newlabel{fig:app_enrichment_all}{{B.5}{123}{Fold-enrichment of genomic context categories among invariant CpGs relative to the background distribution in each dataset. The dashed line indicates enrichment equal to background (fold = 1)}{figure.caption.209}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{123}{subsection.B.4.3}\protected@file@percent }
+\newlabel{app:sec:phenotype_concordance}{{B.4.3}{123}{Phenotype-Resolved Variability Concordance Analysis}{subsection.B.4.3}{}}
+\newlabel{fig:app_rbeta_scatter_69914}{{B.6a}{124}{GSE69914 \\ Spearman $\rho \approx 0.845$}{figure.caption.210}{}}
+\newlabel{sub@fig:app_rbeta_scatter_69914}{{a}{124}{GSE69914 \\ Spearman $\rho \approx 0.845$}{figure.caption.210}{}}
+\newlabel{fig:app_rbeta_scatter_225845}{{B.6b}{124}{GSE225845 \\ Spearman $\rho \approx 0.881$}{figure.caption.210}{}}
+\newlabel{sub@fig:app_rbeta_scatter_225845}{{b}{124}{GSE225845 \\ Spearman $\rho \approx 0.881$}{figure.caption.210}{}}
+\newlabel{fig:app_rbeta_scatter_287331}{{B.6c}{124}{GSE287331 \\ Spearman $\rho \approx 0.933$}{figure.caption.210}{}}
+\newlabel{sub@fig:app_rbeta_scatter_287331}{{c}{124}{GSE287331 \\ Spearman $\rho \approx 0.933$}{figure.caption.210}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces  Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity. }}{124}{figure.caption.210}\protected@file@percent }
+\newlabel{fig:app_rbeta_scatter_all}{{B.6}{124}{Spearman correlation between CpG-level $\Delta \beta $ values computed in the Normal+Adjacent and Normal+Tumor contrasts for each dataset. The diagonal line represents identity}{figure.caption.210}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{124}{subsection.B.4.4}\protected@file@percent }
+\abx@aux@backref{268}{Edgar2017}{0}{124}{124}
+\abx@aux@backref{269}{Edgar2017}{0}{124}{124}
+\@writefile{toc}{\contentsline {paragraph}{Core invariants \( \mathcal  {B} \cap \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \cap \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \)}{124}{section*.211}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal  {B} \cap \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \setminus \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \)}{124}{section*.212}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal  {N}_{\mathrm  {breast}}^{(NA)}(0.05) \cap \mathcal  {N}_{\mathrm  {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal  {B} \)}{124}{section*.213}\protected@file@percent }
+\abx@aux@cite{0}{Edgar2017}
+\abx@aux@segm{0}{0}{Edgar2017}
+\abx@aux@cite{0}{Bock2012}
+\abx@aux@segm{0}{0}{Bock2012}
+\abx@aux@cite{0}{Edgar2017}
+\abx@aux@segm{0}{0}{Edgar2017}
+\abx@aux@backref{270}{Edgar2017}{0}{125}{125}
+\abx@aux@backref{271}{Bock2012}{0}{125}{125}
+\@writefile{toc}{\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{125}{section.B.5}\protected@file@percent }
+\newlabel{app:sec:positioning}{{B.5}{125}{Positioning Within the Thesis and Generalisability}{section.B.5}{}}
+\abx@aux@backref{272}{Edgar2017}{0}{125}{125}
 \abx@aux@cite{0}{Pidsley2016}
 \abx@aux@segm{0}{0}{Pidsley2016}
-\abx@aux@backref{264}{Pidsley2016}{0}{122}{122}
-\newlabel{fig:app_venn_69914}{{B.7a}{123}{GSE69914}{figure.caption.209}{}}
-\newlabel{sub@fig:app_venn_69914}{{a}{123}{GSE69914}{figure.caption.209}{}}
-\newlabel{fig:app_venn_225845}{{B.7b}{123}{GSE225845}{figure.caption.209}{}}
-\newlabel{sub@fig:app_venn_225845}{{b}{123}{GSE225845}{figure.caption.209}{}}
-\newlabel{fig:app_venn_287331}{{B.7c}{123}{GSE287331}{figure.caption.209}{}}
-\newlabel{sub@fig:app_venn_287331}{{c}{123}{GSE287331}{figure.caption.209}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.7}{\ignorespaces  Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{123}{figure.caption.209}\protected@file@percent }
-\newlabel{fig:app_venn_universal_vs_breast}{{B.7}{123}{Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset}{figure.caption.209}{}}
+\abx@aux@backref{273}{Pidsley2016}{0}{126}{126}
+\newlabel{fig:app_venn_69914}{{B.7a}{127}{GSE69914}{figure.caption.214}{}}
+\newlabel{sub@fig:app_venn_69914}{{a}{127}{GSE69914}{figure.caption.214}{}}
+\newlabel{fig:app_venn_225845}{{B.7b}{127}{GSE225845}{figure.caption.214}{}}
+\newlabel{sub@fig:app_venn_225845}{{b}{127}{GSE225845}{figure.caption.214}{}}
+\newlabel{fig:app_venn_287331}{{B.7c}{127}{GSE287331}{figure.caption.214}{}}
+\newlabel{sub@fig:app_venn_287331}{{c}{127}{GSE287331}{figure.caption.214}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.7}{\ignorespaces  Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset. }}{127}{figure.caption.214}\protected@file@percent }
+\newlabel{fig:app_venn_universal_vs_breast}{{B.7}{127}{Overlap between universal invariants and breast-specific invariant sets derived from the Normal+Adjacent and Normal+Tumor contrasts in each dataset}{figure.caption.214}{}}
 \abx@aux@cite{0}{Horvath2013}
 \abx@aux@segm{0}{0}{Horvath2013}
 \abx@aux@cite{0}{Zhang2019}
@@ -1534,16 +1565,16 @@
 \abx@aux@segm{0}{0}{Horvath2013}
 \abx@aux@cite{0}{Zhang2019}
 \abx@aux@segm{0}{0}{Zhang2019}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{124}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{128}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{app:age_estimation}{{C}{124}{Positioning Within the Thesis and Generalisability}{appendix.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{124}{section.C.1}\protected@file@percent }
-\newlabel{app:age:theory}{{C.1}{124}{The Horvath Multi-Tissue Clock}{section.C.1}{}}
-\abx@aux@backref{265}{Horvath2013}{0}{124}{124}
-\abx@aux@backref{266}{Zhang2019}{0}{124}{124}
-\abx@aux@backref{267}{Horvath2013}{0}{124}{124}
-\abx@aux@backref{268}{Zhang2019}{0}{124}{124}
+\newlabel{app:age_estimation}{{C}{128}{Positioning Within the Thesis and Generalisability}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{128}{section.C.1}\protected@file@percent }
+\newlabel{app:age:theory}{{C.1}{128}{The Horvath Multi-Tissue Clock}{section.C.1}{}}
+\abx@aux@backref{274}{Horvath2013}{0}{128}{128}
+\abx@aux@backref{275}{Zhang2019}{0}{128}{128}
+\abx@aux@backref{276}{Horvath2013}{0}{128}{128}
+\abx@aux@backref{277}{Zhang2019}{0}{128}{128}
 \abx@aux@cite{0}{Horvath2013}
 \abx@aux@segm{0}{0}{Horvath2013}
 \abx@aux@cite{0}{Horvath2013}
@@ -1554,57 +1585,58 @@
 \abx@aux@segm{0}{0}{Zhang2019}
 \abx@aux@cite{0}{Horvath2013}
 \abx@aux@segm{0}{0}{Horvath2013}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Global performance of the Horvath epigenetic clock on GSE225845.}}{125}{table.caption.210}\protected@file@percent }
-\newlabel{tab:app:horvath_global}{{C.1}{125}{Global performance of the Horvath epigenetic clock on GSE225845}{table.caption.210}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Performance of the Horvath clock stratified by tissue group.}}{125}{table.caption.211}\protected@file@percent }
-\newlabel{tab:app:horvath_by_tissue}{{C.2}{125}{Performance of the Horvath clock stratified by tissue group}{table.caption.211}{}}
-\abx@aux@backref{269}{Horvath2013}{0}{125}{125}
-\abx@aux@backref{270}{Zhang2019}{0}{125}{125}
-\abx@aux@backref{271}{Horvath2013}{0}{125}{125}
-\abx@aux@backref{272}{Horvath2013}{0}{125}{125}
-\abx@aux@backref{273}{Teschendorff2010}{0}{125}{125}
-\abx@aux@backref{274}{Zhang2019}{0}{125}{125}
-\@writefile{toc}{\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{125}{section.C.2}\protected@file@percent }
-\newlabel{app:age:application}{{C.2}{125}{Empirical Evaluation on GSE225845}{section.C.2}{}}
-\abx@aux@backref{275}{Horvath2013}{0}{125}{125}
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Global performance of the Horvath epigenetic clock on GSE225845.}}{129}{table.caption.215}\protected@file@percent }
+\newlabel{tab:app:horvath_global}{{C.1}{129}{Global performance of the Horvath epigenetic clock on GSE225845}{table.caption.215}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Performance of the Horvath clock stratified by tissue group.}}{129}{table.caption.216}\protected@file@percent }
+\newlabel{tab:app:horvath_by_tissue}{{C.2}{129}{Performance of the Horvath clock stratified by tissue group}{table.caption.216}{}}
+\abx@aux@backref{278}{Horvath2013}{0}{129}{129}
+\abx@aux@backref{279}{Zhang2019}{0}{129}{129}
+\abx@aux@backref{280}{Horvath2013}{0}{129}{129}
+\abx@aux@backref{281}{Horvath2013}{0}{129}{129}
+\abx@aux@backref{282}{Teschendorff2010}{0}{129}{129}
+\abx@aux@backref{283}{Zhang2019}{0}{129}{129}
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{129}{section.C.2}\protected@file@percent }
+\newlabel{app:age:application}{{C.2}{129}{Empirical Evaluation on GSE225845}{section.C.2}{}}
+\abx@aux@backref{284}{Horvath2013}{0}{129}{129}
 \abx@aux@cite{0}{Horvath2013}
 \abx@aux@segm{0}{0}{Horvath2013}
 \abx@aux@cite{0}{Teschendorff2010}
 \abx@aux@segm{0}{0}{Teschendorff2010}
-\newlabel{fig:app:age_true}{{C.1a}{126}{Chronological age at surgery by tissue group}{figure.caption.212}{}}
-\newlabel{sub@fig:app:age_true}{{a}{126}{Chronological age at surgery by tissue group}{figure.caption.212}{}}
-\newlabel{fig:app:pca_raw_age}{{C.1b}{126}{Raw methylation PCA coloured by chronological age}{figure.caption.212}{}}
-\newlabel{sub@fig:app:pca_raw_age}{{b}{126}{Raw methylation PCA coloured by chronological age}{figure.caption.212}{}}
-\newlabel{fig:app:pca_resid_age}{{C.1c}{126}{Residualised PCA after removal of age effects}{figure.caption.212}{}}
-\newlabel{sub@fig:app:pca_resid_age}{{c}{126}{Residualised PCA after removal of age effects}{figure.caption.212}{}}
-\newlabel{fig:app:dnamage_label}{{C.1d}{126}{Horvath DNAmAge by tissue group}{figure.caption.212}{}}
-\newlabel{sub@fig:app:dnamage_label}{{d}{126}{Horvath DNAmAge by tissue group}{figure.caption.212}{}}
-\newlabel{fig:app:pca_raw_dnamage}{{C.1e}{126}{Raw methylation PCA coloured by DNAmAge}{figure.caption.212}{}}
-\newlabel{sub@fig:app:pca_raw_dnamage}{{e}{126}{Raw methylation PCA coloured by DNAmAge}{figure.caption.212}{}}
-\newlabel{fig:app:pca_resid_dnamage}{{C.1f}{126}{Residualised PCA after removal of age-related structure}{figure.caption.212}{}}
-\newlabel{sub@fig:app:pca_resid_dnamage}{{f}{126}{Residualised PCA after removal of age-related structure}{figure.caption.212}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{126}{figure.caption.212}\protected@file@percent }
-\newlabel{fig:app:age_and_pca}{{C.1}{126}{Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}}{figure.caption.212}{}}
-\abx@aux@backref{276}{Horvath2013}{0}{126}{126}
+\newlabel{fig:app:age_true}{{C.1a}{130}{Chronological age at surgery by tissue group}{figure.caption.217}{}}
+\newlabel{sub@fig:app:age_true}{{a}{130}{Chronological age at surgery by tissue group}{figure.caption.217}{}}
+\newlabel{fig:app:pca_raw_age}{{C.1b}{130}{Raw methylation PCA coloured by chronological age}{figure.caption.217}{}}
+\newlabel{sub@fig:app:pca_raw_age}{{b}{130}{Raw methylation PCA coloured by chronological age}{figure.caption.217}{}}
+\newlabel{fig:app:pca_resid_age}{{C.1c}{130}{Residualised PCA after removal of age effects}{figure.caption.217}{}}
+\newlabel{sub@fig:app:pca_resid_age}{{c}{130}{Residualised PCA after removal of age effects}{figure.caption.217}{}}
+\newlabel{fig:app:dnamage_label}{{C.1d}{130}{Horvath DNAmAge by tissue group}{figure.caption.217}{}}
+\newlabel{sub@fig:app:dnamage_label}{{d}{130}{Horvath DNAmAge by tissue group}{figure.caption.217}{}}
+\newlabel{fig:app:pca_raw_dnamage}{{C.1e}{130}{Raw methylation PCA coloured by DNAmAge}{figure.caption.217}{}}
+\newlabel{sub@fig:app:pca_raw_dnamage}{{e}{130}{Raw methylation PCA coloured by DNAmAge}{figure.caption.217}{}}
+\newlabel{fig:app:pca_resid_dnamage}{{C.1f}{130}{Residualised PCA after removal of age-related structure}{figure.caption.217}{}}
+\newlabel{sub@fig:app:pca_resid_dnamage}{{f}{130}{Residualised PCA after removal of age-related structure}{figure.caption.217}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}.}}{130}{figure.caption.217}\protected@file@percent }
+\newlabel{fig:app:age_and_pca}{{C.1}{130}{Age-related methylation structure (GSE225845). Age distributions and PCA before and after age residualisation confirm that DNAmAge captures structured methylation variance, motivating its use as a covariate in the downstream analyses of Chapter~\ref {chap:multi_cohort_integration}}{figure.caption.217}{}}
+\abx@aux@backref{285}{Horvath2013}{0}{130}{130}
 \abx@aux@cite{0}{Gold2013}
 \abx@aux@segm{0}{0}{Gold2013}
 \abx@aux@cite{0}{Azim2012}
 \abx@aux@segm{0}{0}{Azim2012}
-\newlabel{fig:app:bins:gse69914}{{C.2a}{127}{GSE69914}{figure.caption.213}{}}
-\newlabel{sub@fig:app:bins:gse69914}{{a}{127}{GSE69914}{figure.caption.213}{}}
-\newlabel{fig:app:bins:gse225845}{{C.2b}{127}{GSE225845}{figure.caption.213}{}}
-\newlabel{sub@fig:app:bins:gse225845}{{b}{127}{GSE225845}{figure.caption.213}{}}
-\newlabel{fig:app:bins:gse287331}{{C.2c}{127}{GSE287331}{figure.caption.213}{}}
-\newlabel{sub@fig:app:bins:gse287331}{{c}{127}{GSE287331}{figure.caption.213}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{127}{figure.caption.213}\protected@file@percent }
-\newlabel{fig:app:age_bins}{{C.2}{127}{Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly)}{figure.caption.213}{}}
-\abx@aux@backref{277}{Teschendorff2010}{0}{127}{127}
-\@writefile{toc}{\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{127}{section.C.3}\protected@file@percent }
-\newlabel{app:age:binning}{{C.3}{127}{Clinically Motivated Age Stratification}{section.C.3}{}}
-\abx@aux@backref{278}{Gold2013}{0}{127}{127}
-\abx@aux@backref{279}{Azim2012}{0}{127}{127}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{128}{figure.caption.213}\protected@file@percent }
-\abx@aux@read@bbl@mdfivesum{69247F36EBB83686E21764963E4CD053}
+\newlabel{fig:app:bins:gse69914}{{C.2a}{131}{GSE69914}{figure.caption.218}{}}
+\newlabel{sub@fig:app:bins:gse69914}{{a}{131}{GSE69914}{figure.caption.218}{}}
+\newlabel{fig:app:bins:gse225845}{{C.2b}{131}{GSE225845}{figure.caption.218}{}}
+\newlabel{sub@fig:app:bins:gse225845}{{b}{131}{GSE225845}{figure.caption.218}{}}
+\newlabel{fig:app:bins:gse287331}{{C.2c}{131}{GSE287331}{figure.caption.218}{}}
+\newlabel{sub@fig:app:bins:gse287331}{{c}{131}{GSE287331}{figure.caption.218}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.2}{\ignorespaces Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly). }}{131}{figure.caption.218}\protected@file@percent }
+\newlabel{fig:app:age_bins}{{C.2}{131}{Epigenetic age-bin distribution. Sample counts by age group (young, peri-, post-menopausal, elderly)}{figure.caption.218}{}}
+\abx@aux@backref{286}{Teschendorff2010}{0}{131}{131}
+\@writefile{toc}{\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{131}{section.C.3}\protected@file@percent }
+\newlabel{app:age:binning}{{C.3}{131}{Clinically Motivated Age Stratification}{section.C.3}{}}
+\abx@aux@backref{287}{Gold2013}{0}{131}{131}
+\abx@aux@backref{288}{Azim2012}{0}{131}{131}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{132}{figure.caption.218}\protected@file@percent }
+\abx@aux@read@bbl@mdfivesum{1E0D9066267D58274E97B16A49992EB1}
+\abx@aux@read@bblrerun
 \abx@aux@defaultrefcontext{0}{ehrlich2002}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{bird2002}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Teschendorff2016}{none/global//global/global/global}
@@ -1712,8 +1744,12 @@
 \abx@aux@defaultrefcontext{0}{naba2014mammary}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{DecodingDepression2024}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{wang2021combatmet}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{DiGiorgio2023}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{Tognon2002}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{Piskounova2011}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{Xie2014}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Zhang2019}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Gold2013}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Azim2012}{none/global//global/global/global}
 \gdef\svg@ink@ver@settings{{\m@ne }{inkscape}{\m@ne }}
-\gdef \@abspage@last{152}
+\gdef \@abspage@last{158}

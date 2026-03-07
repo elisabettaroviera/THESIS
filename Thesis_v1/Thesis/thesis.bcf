@@ -2617,40 +2617,49 @@
     <bcf:citekey order="184" intorder="1">cancer2012comprehensive</bcf:citekey>
     <bcf:citekey order="185" intorder="1">DecodingDepression2024</bcf:citekey>
     <bcf:citekey order="186" intorder="1">wang2021combatmet</bcf:citekey>
-    <bcf:citekey order="187" intorder="1">naeem2014</bcf:citekey>
-    <bcf:citekey order="188" intorder="1">chen2013</bcf:citekey>
-    <bcf:citekey order="189" intorder="1">pidsley2016</bcf:citekey>
-    <bcf:citekey order="190" intorder="1">zhou2017</bcf:citekey>
-    <bcf:citekey order="191" intorder="1">mccartney2016</bcf:citekey>
-    <bcf:citekey order="192" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="193" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="194" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="195" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="196" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="197" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="198" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="198" intorder="2">Bock2012</bcf:citekey>
-    <bcf:citekey order="199" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="187" intorder="1">Fortin2017</bcf:citekey>
+    <bcf:citekey order="188" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="189" intorder="1">fillmore2010tbx3</bcf:citekey>
+    <bcf:citekey order="190" intorder="1">asselin2007gata3</bcf:citekey>
+    <bcf:citekey order="191" intorder="1">cancer2012comprehensive</bcf:citekey>
+    <bcf:citekey order="192" intorder="1">DiGiorgio2023</bcf:citekey>
+    <bcf:citekey order="193" intorder="1">Tognon2002</bcf:citekey>
+    <bcf:citekey order="194" intorder="1">Piskounova2011</bcf:citekey>
+    <bcf:citekey order="194" intorder="2">Xie2014</bcf:citekey>
+    <bcf:citekey order="195" intorder="1">naeem2014</bcf:citekey>
+    <bcf:citekey order="196" intorder="1">chen2013</bcf:citekey>
+    <bcf:citekey order="197" intorder="1">pidsley2016</bcf:citekey>
+    <bcf:citekey order="198" intorder="1">zhou2017</bcf:citekey>
+    <bcf:citekey order="199" intorder="1">mccartney2016</bcf:citekey>
     <bcf:citekey order="200" intorder="1">Edgar2017</bcf:citekey>
     <bcf:citekey order="201" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="201" intorder="2">Bock2012</bcf:citekey>
     <bcf:citekey order="202" intorder="1">Edgar2017</bcf:citekey>
-    <bcf:citekey order="203" intorder="1">Pidsley2016</bcf:citekey>
-    <bcf:citekey order="204" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="204" intorder="2">Zhang2019</bcf:citekey>
-    <bcf:citekey order="205" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="205" intorder="2">Zhang2019</bcf:citekey>
-    <bcf:citekey order="206" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="206" intorder="2">Zhang2019</bcf:citekey>
-    <bcf:citekey order="207" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="208" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="209" intorder="1">Teschendorff2010</bcf:citekey>
-    <bcf:citekey order="209" intorder="2">Zhang2019</bcf:citekey>
-    <bcf:citekey order="210" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="211" intorder="1">Horvath2013</bcf:citekey>
-    <bcf:citekey order="212" intorder="1">Teschendorff2010</bcf:citekey>
-    <bcf:citekey order="213" intorder="1">Gold2013</bcf:citekey>
-    <bcf:citekey order="214" intorder="1">Azim2012</bcf:citekey>
+    <bcf:citekey order="203" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="204" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="205" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="206" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="206" intorder="2">Bock2012</bcf:citekey>
+    <bcf:citekey order="207" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="208" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="209" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="209" intorder="2">Bock2012</bcf:citekey>
+    <bcf:citekey order="210" intorder="1">Edgar2017</bcf:citekey>
+    <bcf:citekey order="211" intorder="1">Pidsley2016</bcf:citekey>
+    <bcf:citekey order="212" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="212" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="213" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="213" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="214" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="214" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="215" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="216" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="217" intorder="1">Teschendorff2010</bcf:citekey>
+    <bcf:citekey order="217" intorder="2">Zhang2019</bcf:citekey>
+    <bcf:citekey order="218" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="219" intorder="1">Horvath2013</bcf:citekey>
+    <bcf:citekey order="220" intorder="1">Teschendorff2010</bcf:citekey>
+    <bcf:citekey order="221" intorder="1">Gold2013</bcf:citekey>
+    <bcf:citekey order="222" intorder="1">Azim2012</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

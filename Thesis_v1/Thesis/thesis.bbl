@@ -5532,6 +5532,122 @@
       \verb 10.1093/nargab/lqab061
       \endverb
     \endentry
+    \entry{DiGiorgio2023}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=67b368ccb11c2da122bcaaf41c593e4f}{%
+           family={Di\bibnamedelima Giorgio},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Eros},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{fullhash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{fullhashraw}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{bibnamehash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{authorbibnamehash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{authornamehash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{authorfullhash}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \strng{authorfullhashraw}{8201c3b892e86316fc5d27c61a6b7a1b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Genetics}
+      \field{title}{{HDAC4} in cancer: a multitasking platform to drive not only epigenetic modifications}
+      \field{volume}{14}
+      \field{year}{2023}
+      \field{pages}{1130195}
+      \range{pages}{1}
+    \endentry
+    \entry{Tognon2002}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=35f7908c1b5d6a804095d1f1a2b57bcd}{%
+           family={Tognon},
+           familyi={T\bibinitperiod},
+           given={Cristina},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{847247af33e560930a2a5784fafeeb90}
+      \strng{fullhash}{847247af33e560930a2a5784fafeeb90}
+      \strng{fullhashraw}{847247af33e560930a2a5784fafeeb90}
+      \strng{bibnamehash}{847247af33e560930a2a5784fafeeb90}
+      \strng{authorbibnamehash}{847247af33e560930a2a5784fafeeb90}
+      \strng{authornamehash}{847247af33e560930a2a5784fafeeb90}
+      \strng{authorfullhash}{847247af33e560930a2a5784fafeeb90}
+      \strng{authorfullhashraw}{847247af33e560930a2a5784fafeeb90}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cancer Cell}
+      \field{title}{Expression of the {ETV6--NTRK3} gene fusion as a primary event in human secretory breast carcinoma}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{pages}{367\bibrangedash 376}
+      \range{pages}{10}
+    \endentry
+    \entry{Piskounova2011}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=d8423f4c46fea35fae8e4e7041a30351}{%
+           family={Piskounova},
+           familyi={P\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{644d96c840d99a6843f40153ed639516}
+      \strng{fullhash}{644d96c840d99a6843f40153ed639516}
+      \strng{fullhashraw}{644d96c840d99a6843f40153ed639516}
+      \strng{bibnamehash}{644d96c840d99a6843f40153ed639516}
+      \strng{authorbibnamehash}{644d96c840d99a6843f40153ed639516}
+      \strng{authornamehash}{644d96c840d99a6843f40153ed639516}
+      \strng{authorfullhash}{644d96c840d99a6843f40153ed639516}
+      \strng{authorfullhashraw}{644d96c840d99a6843f40153ed639516}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cell}
+      \field{title}{{Lin28A} and {Lin28B} inhibit let-7 microRNA biogenesis by distinct mechanisms}
+      \field{volume}{147}
+      \field{year}{2011}
+      \field{pages}{1066\bibrangedash 1079}
+      \range{pages}{14}
+    \endentry
+    \entry{Xie2014}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=35427070eea3c65b50a92f619b2332bd}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Ruilian},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{fullhash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{fullhashraw}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{bibnamehash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{authorbibnamehash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{authornamehash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{authorfullhash}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \strng{authorfullhashraw}{b40a11c5a9acd7fb53b0e154bbca3b6f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cancer Biotherapy and Radiopharmaceuticals}
+      \field{title}{{Lin28B} expression correlates with aggressive clinicopathological characteristics in breast invasive ductal carcinoma}
+      \field{volume}{29}
+      \field{year}{2014}
+      \field{pages}{215\bibrangedash 220}
+      \range{pages}{6}
+    \endentry
     \entry{Zhang2019}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -5716,6 +5832,9 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{AsselinLabat2007}
+  \missing{Fillmore2010}
+  \missing{TCGA2012}
 \endrefsection
 \endinput
 

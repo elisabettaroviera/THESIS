@@ -52,7 +52,7 @@ The resulting data organization yields a set of standardized, self-contained dat
 This section presents a structured intra-dataset exploratory analysis aimed at characterising the internal statistical and biological organisation of each methylation cohort prior to any preprocessing or modelling step. Each dataset is analysed independently in order to assess data integrity, quantify variability patterns, and evaluate whether Normal, Adjacent, and Tumor tissues exhibit distinguishable epigenetic behaviour.
 In the context of breast cancer, epigenetic deregulation is known to manifest through both global and local phenomena, including genome-wide hypomethylation, focal hypermethylation of tumour-suppressor regions, and the presence of pre-neoplastic ``field defects'' in histologically normal tissues proximal to tumours \cite{ehrlich2002, bird2002, Teschendorff2016fielddefects}. These mechanisms motivate an exploratory investigation focused not only on overt tumour-associated changes, but also on more subtle alterations in Normal and Adjacent samples, which are central to the biological hypothesis of this thesis.
 
-This section therefore applies a unified exploratory framework to each dataset (GSE69914 [\ref{subsec:gse69914}], GSE225845 [\ref{subsec:gse225845}], GSE287331 [\ref{subsec:gse287331}]), systematically examining data quality, global methylation distributions, sample-level summaries, CpG-wise variability and instability, correlation structure, dimensionality reduction, and genomic context coverage. The use of a consistent analytical protocol enables direct comparison of intra-dataset behaviour while preserving cohort-specific characteristics.
+This section therefore applies a unified exploratory framework to each dataset -- GSE69914 (Section~\ref{subsec:gse69914}), GSE225845 (Section~\ref{subsec:gse225845}), GSE287331 (Section~\ref{subsec:gse287331})--, systematically examining data quality, global methylation distributions, sample-level summaries, CpG-wise variability and instability, correlation structure, dimensionality reduction, and genomic context coverage. The use of a consistent analytical protocol enables direct comparison of intra-dataset behaviour while preserving cohort-specific characteristics.
 
 % ============================================
 % 2.1 GSE69914
@@ -898,7 +898,7 @@ Islands, then Shores, with Shelves representing
 the smallest fractions.
 This ordering is consistent with the established
 architecture of EPIC arrays
-\cite{zhou2017, pidsley2016}.
+\cite{zhou2016, Pidsley2016}.
 
 % ============================================
 % Dynamic network proxies
@@ -1041,11 +1041,11 @@ GSE287331 &
 
 To quantify the epigenetic deviation of Adjacent tissue from the Normal methylome across the three cohorts, a set of global and instability-oriented metrics was computed independently within each dataset for the Adjacent versus Normal contrast.
 All metrics reported in Table~\ref{tab:inter_summary_NA} were computed using the complete CpG set available in each dataset, rather than the cross-platform intersection. The resulting values therefore reflect cohort-specific dimensionality and internal variance structure.
-Collectively, these metrics indicate the presence of early epigenetic drift in histologically non-tumour tissue. Across cohorts, increasing mean $|\Delta\beta|$, progressive variance imbalance, elevated outlier ratios, and improved silhouette separation consistently support a directional shift from Normal to Adjacent states, in agreement with the field-defect framewor~\cite{Teschendorff2016} and reinforced in other tissue contexts.
+Collectively, these metrics indicate the presence of early epigenetic drift in histologically non-tumour tissue. Across cohorts, increasing mean $|\Delta\beta|$, progressive variance imbalance, elevated outlier ratios, and improved silhouette separation consistently support a directional shift from Normal to Adjacent states, in agreement with the field-defect framewor~\cite{Teschendorff2016fielddefects} and reinforced in other tissue contexts.
 
 \paragraph{Mean absolute methylation difference}  
 
-For each CpG, the absolute mean difference between Adjacent and Normal was defined as
+For each CpG, the absolute mean difference between Adjacent and Normal was defined as:
 \begin{equation}
 |\Delta\beta_i| = \left| \beta^{(A)}_i - \beta^{(N)}_i \right|.
 \label{eq:mean_abs_delta_beta}
@@ -1060,7 +1060,7 @@ For each sample $s$, the global methylation variance was computed across all CpG
 $
 v_s = \mathrm{Var}\!\left(\beta_{s,1}, \beta_{s,2}, \ldots, \beta_{s,m}\right),
 $
-where $m$ denotes the number of CpGs. Group-wise mean variances were then defined as
+where $m$ denotes the number of CpGs. Group-wise mean variances were then defined as:
 \begin{equation}
 \overline{v}^{(N)} = \frac{1}{|N|} \sum_{s \in N} v_s,
 \qquad
@@ -1098,7 +1098,7 @@ Such behaviour mirrors evidence that increased local methylation variability in 
 \paragraph{Silhouette score}  
 
 For each sample $s$, let $a(s)$ denote the mean distance from $s$ to all other samples within the same group (cohesion), and let $b(s)$ denote the smallest mean distance from $s$ to samples in the alternative group (separation).  
-The silhouette coefficient for sample $s$ is defined as
+The silhouette coefficient for sample $s$ is defined as:
 \begin{equation}
 \mathrm{sil}(s) =
 \frac{b(s) - a(s)}{\max\{a(s),\, b(s)\}},
@@ -1106,7 +1106,7 @@ The silhouette coefficient for sample $s$ is defined as
 \end{equation}
 and the reported score corresponds to the mean silhouette computed across all Normal and Adjacent samples.
 Higher values indicate clearer multivariate separation between Normal and Adjacent states, whereas values near zero reflect substantial overlap. Across cohorts, the silhouette analysis reveals limited separation in GSE69914 and GSE225845, consistent with minimal global displacement in multivariate space. In contrast, GSE287331 exhibits partial separation, indicating that the epigenetic landscape of Adjacent tissue is measurably shifted relative to Normal. This behaviour aligns with mechanistic models in which epigenetic dysregulation constitutes one of the earliest events in tumour initiation~\cite{Zhang2024_TumorInitiationEpigenetic}, preceding morphological transformation.
-Collectively, the set of metrics delineates a consistent Normal--Adjacent gradient across datasets. Early epigenetic drift is detectable in all cohorts, while its magnitude, focality, and multivariate visibility progressively intensify from GSE69914 to GSE287331. Importantly, the combination of stable global variance with pronounced outlier enrichment supports a model in which early pre-neoplastic changes arise through \emph{localised} perturbations, a hallmark of field cancerisation~\cite{Teschendorff2016, Yates2024_NormalMucosaField}.
+Collectively, the set of metrics delineates a consistent Normal--Adjacent gradient across datasets. Early epigenetic drift is detectable in all cohorts, while its magnitude, focality, and multivariate visibility progressively intensify from GSE69914 to GSE287331. Importantly, the combination of stable global variance with pronounced outlier enrichment supports a model in which early pre-neoplastic changes arise through \emph{localised} perturbations, a hallmark of field cancerisation~\cite{Teschendorff2016fielddefects, Yates2024_NormalMucosaField}.
 
 \subsection{Visual Comparative Analysis}
 \label{subsec:inter_visual}
@@ -1116,10 +1116,10 @@ Table~\ref{tab:inter_summary_NA}, this section provides a visual
 characterisation of the Normal--Adjacent contrast across the three 
 cohorts. All analyses are performed on the three-way intersection of 
 326{,}330 CpG sites, ensuring maximal comparability across platforms 
-(HM450 and EPIC) and preprocessing pipelines \cite{zhou2017}. The objective is not to achieve numerical concordance at the single-CpG 
+(HM450 and EPIC) and preprocessing pipelines \cite{zhou2016}. The objective is not to achieve numerical concordance at the single-CpG 
 level---a notoriously difficult task due to platform differences, 
 probe-design effects, and cohort-specific processing 
-\cite{pidsley2016, Fortin2014_funnorm}---but rather to evaluate 
+\cite{Pidsley2016, Fortin2014_funnorm}---but rather to evaluate 
 whether the \emph{shape}, \emph{direction}, and \emph{global behaviour} 
 of early methylation drift remain coherent across studies.
 
@@ -1131,9 +1131,9 @@ All distributions are sharply centred around zero, indicating that
 the N--A methylation drift remains globally subtle in each dataset, 
 consistent with the focal and low-amplitude nature of early 
 epigenetic alterations described in pre-neoplastic tissues 
-\cite{Teschendorff2016, Timp2013_EpigeneticModel}. Despite differences in dispersion—reflecting platform-dependent noise, 
+\cite{Teschendorff2016fielddefects, Timp2013_EpigeneticModel}. Despite differences in dispersion—reflecting platform-dependent noise, 
 probe-type composition, and study-specific variability 
-\cite{maksimovic2012, pidsley2016}—the three curves exhibit a highly similar shape. This pattern indicates that early epigenetic deviations in Adjacent tissue, 
+\cite{maksimovic2012, Pidsley2016}—the three curves exhibit a highly similar shape. This pattern indicates that early epigenetic deviations in Adjacent tissue, 
 although small in magnitude, exhibit reproducible global distributional features across 
 independent cohorts, rather than exact concordance at the single-CpG level.
 
@@ -1158,14 +1158,14 @@ Each point corresponds to a CpG in the three-way intersection; axes represent
 the mean $\Delta\beta$ (A--N) computed independently within each dataset. Across all pairs, Spearman correlations remain weak ($\rho = 0.05$--$0.29$), 
 consistent with the well-established difficulty of achieving 
 single-CpG reproducibility across independent methylation studies 
-\cite{zhou2017, Fortin2014_funnorm, Leek2010_BatchEffects}.  
+\cite{zhou2016, Fortin2014_funnorm, Leek2010_BatchEffects}.  
 The comparison between GSE69914 and GSE225845 exhibits mild monotonic agreement, 
 whereas pairs involving GSE287331 show near-zero correlation.  
 These results indicate that while the \emph{global} N--A drift remains 
 consistent across cohorts (as demonstrated by the density curves), 
 \emph{fine-scale, CpG-specific} effects are strongly influenced by 
 platform architecture, batch structure, and study-specific variability 
-\cite{pidsley2016, Fortin2014_funnorm}.
+\cite{Pidsley2016, Fortin2014_funnorm}.
 
 \begin{figure}[t]
     \centering

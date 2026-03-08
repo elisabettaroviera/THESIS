@@ -113,7 +113,6 @@ signal in GSE69914 is linearly structured or whether it
 resides in local manifold geometry. For a query $x$, let
 $\mathcal{N}_k(x)$ denote the set of the $k$ closest training
 samples under Euclidean distance; the predicted label is:
-
 \begin{equation}
 \hat{y}(x) = \operatorname{mode}\{y_i :\ x_i \in \mathcal{N}_k(x)\}.
 \end{equation}
@@ -614,7 +613,7 @@ kinase that activates both the JNK and p38 stress-response axes; its role in
 breast cancer is context-dependent, with homozygous deletions and
 loss-of-function mutations supporting a tumour-suppressive function, while
 overexpression has also been reported to promote invasion via PI3K/AKT
-activation~\cite{su1998mkk4,liu2019map2k4}.
+activation~\cite{liu2019map2k4}.
 
 \textbf{ERBB2} (cg26041593, hypermethylated in Adjacent): the \textit{ERBB2}
 proto oncogene encodes the HER2 receptor tyrosine kinase at chromosome 17q12;
@@ -1155,12 +1154,12 @@ trained on one methylation cohort learn a separating
 hyperplane that is cohort-specific, and the learned axis
 neither aligns with the biological drift direction of
 external cohorts nor survives the dominant batch component
-of the joint variance structure~\cite{DecodingDepression2024}.
+of the joint variance structure~\cite{Sokolov2024}.
 Addressing both obstacles simultaneously requires an
 approach that explicitly disentangles cohort variance from
 phenotype variance while remaining agnostic to the polarity
 of the drift direction. The NeuroCombat harmonisation
-framework~\cite{wang2021combatmet} provides a principled
+framework~\cite{fortin2018neurocombat} provides a principled
 starting point by removing additive and multiplicative batch
 effects while preserving biological covariance, operating
 directly on DNA methylation $\beta$-values without requiring

@@ -12,25 +12,25 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces CpG filtering summary for the GSE69914 dataset.}}{42}{table.caption.66}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces CpG filtering summary for the GSE225845 dataset.}}{44}{table.caption.74}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces CpG filtering summary for the GSE287331 dataset.}}{49}{table.caption.83}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces CpG filtering summary for the GSE287331 dataset.}}{49}{table.caption.82}%
 \contentsline {table}{\numberline {4.4}{\ignorespaces CpG dimensionality before and after preprocessing.}}{51}{table.caption.89}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Permutation-based enrichment of pairwise overlaps among the three final $5{,}000$-CpG panels.}}{74}{table.caption.138}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Number of CpGs retained at each step of the feature selection pipeline (training set).}}{80}{table.caption.146}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Permutation-based enrichment of pairwise overlaps among the three final $5{,}000$-CpG panels.}}{75}{table.caption.138}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Number of CpGs retained at each step of the feature selection pipeline (training set).}}{81}{table.caption.146}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}}{89}{table.caption.161}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics --- KNN, 50 CpGs (GSE69914, internal test).}}{90}{table.caption.164}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE225845, internal test).}}{93}{table.caption.172}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE225845, internal test).}}{94}{table.caption.174}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE287331, internal test).}}{97}{table.caption.183}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE287331, internal test).}}{98}{table.caption.185}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{102}{table.caption.194}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Performance metrics --- KNN, 5{,}000 CpGs (GSE69914, internal test).}}{90}{table.caption.161}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Performance metrics --- KNN, 50 CpGs (GSE69914, internal test).}}{91}{table.caption.164}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE225845, internal test).}}{94}{table.caption.172}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE225845, internal test).}}{95}{table.caption.174}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Performance metrics --- Linear SVM, 5{,}000 CpGs (GSE287331, internal test).}}{98}{table.caption.183}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Performance metrics --- Linear SVM, 50 CpGs (GSE287331, internal test).}}{99}{table.caption.185}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Pairwise $\Delta M$ concordance across cohorts.}}{103}{table.caption.194}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Performance of the 5{,}000-CpG SVM and the 50-CpG knapsack panel on the pooled test set, with per-cohort AUC breakdown.}}{109}{table.caption.201}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{117}{table.caption.209}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Performance of the 5{,}000-CpG SVM and the 50-CpG knapsack panel on the pooled test set, with per-cohort AUC breakdown.}}{110}{table.caption.201}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Global performance of the Horvath epigenetic clock on GSE225845.}}{132}{table.caption.220}%
-\contentsline {table}{\numberline {C.2}{\ignorespaces Performance of the Horvath clock stratified by tissue group.}}{132}{table.caption.221}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Technical artefact categories covered by each filtering resource.}}{118}{table.caption.209}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Global performance of the Horvath epigenetic clock on GSE225845.}}{133}{table.caption.220}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Performance of the Horvath clock stratified by tissue group.}}{133}{table.caption.221}%

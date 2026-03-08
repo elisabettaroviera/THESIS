@@ -21,7 +21,7 @@ Three main classes of technical issues must be addressed before any statistical
 modelling. First, \emph{probe-design bias} arises from the coexistence of
 Type~I and Type~II probes, which produce inherently different $\beta$-value
 distributions and distort cross-sample comparability if uncorrected
-\cite{Triche2013, Fortin2017}. This issue is not uniform across datasets:
+\cite{Triche2013Noob, Fortin2017}. This issue is not uniform across datasets:
 GSE69914 and GSE225845 were released with normalization already applied, whereas
 GSE287331 shows clear diagnostic evidence of missing probe-type correction,
 requiring an additional decision with non-trivial consequences for downstream
@@ -33,7 +33,7 @@ genuine methylation differences \cite{WilhelmBenartzi2013, Xu2021}. Third, the
 \emph{statistical scale of $\beta$-values}, with their bounded $[0,1]$ support
 and mean-dependent heteroscedasticity, violates the assumptions of standard
 parametric models, motivating transformation to a more statistically
-well-behaved representation \cite{Triche2013}.
+well-behaved representation \cite{Triche2013Noob}.
 
 This chapter addresses these issues through a structured, platform-aware pipeline
 applied consistently across all cohorts. Section~\ref{sec:pipeline} describes
@@ -156,23 +156,23 @@ reliability of downstream differential analyses. Four categories of technically 
 hybridise to multiple genomic loci produce $\beta$-values that cannot 
 be unambiguously attributed to a single CpG site. These are identified 
 using the catalogues of Naeem et al.~\cite{naeem2014}, Chen et 
-al.~\cite{chen2013}, Pidsley et al.~\cite{pidsley2016}, Zhou et 
-al.~\cite{zhou2017}, and McCartney et al.~\cite{mccartney2016}. Full 
+al.~\cite{chen2013}, Pidsley et al.~\cite{Pidsley2016}, Zhou et 
+al.~\cite{zhou2016}, and McCartney et al.~\cite{mccartney2016}. Full 
 descriptions of each resource are provided in Appendix~\ref{sec:probe-filters}.
 
 \paragraph{SNP-affected probes.} Probes whose interrogated CpG 
 dinucleotide, single-base extension site, or probe body overlaps a 
 common genetic variant may measure genotype rather than methylation 
 status, producing population-stratified artefacts in group 
-comparisons~\cite{zhou2017, pidsley2016}. These are excluded using the 
+comparisons~\cite{zhou2016, Pidsley2016}. These are excluded using the 
 \texttt{MASK\_snp5} and \texttt{MASK\_extBase} fields from the Zhou 
-annotation~\cite{zhou2017}, supplemented by variant-aware lists from 
+annotation~\cite{zhou2016}, supplemented by variant-aware lists from 
 Naeem et al.~\cite{naeem2014}.
 
 \paragraph{Non-CpG probes.} Probes targeting non-CpG cytosine contexts 
 (identified by the \texttt{ch} prefix in Illumina probe identifiers) are 
 excluded, as their interpretation differs from canonical CpG methylation 
-and is outside the scope of this analysis~\cite{zhou2017, pidsley2016}.
+and is outside the scope of this analysis~\cite{zhou2016, Pidsley2016}.
 
 \paragraph{Sex-chromosome probes.} Probes located on chromosomes X and Y 
 are removed to prevent sex-driven confounding effects. Sex-chromosome 
@@ -216,7 +216,7 @@ in the intermediate methylation range and nonlinear compression at the
 extremes. The small offset $\varepsilon$ is introduced to handle boundary values 
 numerically. The resulting $M$-value distributions are approximately 
 symmetric and exhibit markedly flatter variance profiles across the full 
-methylation range, making them the standard input for differential methylation analysis within linear modelling frameworks and related inferential procedures~\cite{Triche2013, Fortin2017, Thienpont2016}.
+methylation range, making them the standard input for differential methylation analysis within linear modelling frameworks and related inferential procedures~\cite{Triche2013Noob, Fortin2017, Thienpont2016}.
 
 It is important to note that $M$-values are adopted exclusively for 
 statistical modelling: $\beta$-values are retained in parallel for 
@@ -592,72 +592,76 @@ interest---Normal, Adjacent, and Tumour---were retained. The final working
 matrix consisted of 311 samples and 702{,}916 CpGs, with no residual missing
 values.
 
-\paragraph{Probe-Type Bias Diagnostics and Correction}
-\label{subpar:gse287331_typebias}
+
 
 \begin{figure}[t]
     \centering
-    \begin{subfigure}[t]{0.24\linewidth}
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \vspace{0pt}
-        \includegraphics[height=2cm,keepaspectratio]{images/cap3/GSE69914_08_mean_beta_per_sample.pdf}
+        \includegraphics[width=\textwidth,keepaspectratio]{images/cap3/GSE69914_08_mean_beta_per_sample.pdf}
         \caption{GSE69914}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.24\linewidth}
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \vspace{0pt}
-        \includegraphics[height=2cm,keepaspectratio]{images/cap3/GSE225845_08_mean_beta_per_sample.pdf}
+        \includegraphics[width=\textwidth,keepaspectratio]{images/cap3/GSE225845_08_mean_beta_per_sample.pdf}
         \caption{GSE225845}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.24\linewidth}
+
+    \medskip
+
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \vspace{0pt}
-        \includegraphics[height=2cm,keepaspectratio]{images/cap3/GSE287331_08_mean_beta_per_sample.pdf}
+        \includegraphics[width=\textwidth,keepaspectratio]{images/cap3/GSE287331_08_mean_beta_per_sample.pdf}
         \caption{GSE287331 pre BMIQ}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.24\linewidth}
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \vspace{0pt}
-        \includegraphics[height=2cm,keepaspectratio]{images/cap3/GSE287331_03_mean_beta_per_sample.pdf}
+        \includegraphics[width=\textwidth,keepaspectratio]{images/cap3/GSE287331_03_mean_beta_per_sample.pdf}
         \caption{GSE287331 post BMIQ}
     \end{subfigure}
     \caption{Per-sample mean $\beta$ distributions for the three datasets.}
 \end{figure}
 
-
 \begin{figure}[t]
     \centering
 
-    % -------- Subfigure (a) --------
-    \begin{subfigure}[t]{0.31\linewidth}
+    % -------- Row 1: first two subfigures side by side --------
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[height=2.8cm,keepaspectratio]{images/cap3/GSE287331_23_type_bias_density_pre.pdf}
+        \includegraphics[height=4.5cm,keepaspectratio]{images/cap3/GSE287331_23_type_bias_density_pre.pdf}
         \caption{GSE287331 pre BMIQ}
         \label{fig:gse287331_typeI_II_pre}
     \end{subfigure}
     \hfill
-    % -------- Subfigure (b) --------
-    \begin{subfigure}[t]{0.31\linewidth}
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[height=2.8cm,keepaspectratio]{images/cap3/GSE287331_23_type_bias_density_post.pdf}
+        \includegraphics[height=4.5cm,keepaspectratio]{images/cap3/GSE287331_23_type_bias_density_post.pdf}
         \caption{GSE287331 post BMIQ}
         \label{fig:gse287331_typeI_II_post}
     \end{subfigure}
-    \hfill
-    % -------- Subfigure (c) --------
-    \begin{subfigure}[t]{0.31\linewidth}
+
+    \medskip
+
+    % -------- Row 2: third subfigure centred --------
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[height=2.8cm,keepaspectratio]{images/cap4/GSE287331_type_bias_qqplot.pdf}
+        \includegraphics[height=4.5cm,keepaspectratio]{images/cap4/GSE287331_type_bias_qqplot.pdf}
         \caption{Q--Q comparison of Type~II vs.\ Type~I probes (pre BMIQ).}
         \label{fig:gse287331_type_bias_qq}
     \end{subfigure}
 
-   \caption{Infinium Type~I/II bias diagnostics in GSE287331. Pre-BMIQ densities and Q--Q analysis indicate marked probe-type imbalance; post-BMIQ densities show partial alignment.}
+    \caption{Infinium Type~I/II bias diagnostics in GSE287331. Pre-BMIQ
+      densities and Q--Q analysis indicate marked probe-type imbalance;
+      post-BMIQ densities show partial alignment.}
     \label{fig:mean_beta_comparison_three}
 \end{figure}
+
+\paragraph{Probe-Type Bias Diagnostics and Correction}
+\label{subpar:gse287331_typebias}
+
+
 
 Using the official EPIC v1.0 manifest, 115{,}705 Type~I and 585{,}514 Type~II
 probes were identified. Unlike GSE69914 and GSE225845, for which the original
@@ -694,7 +698,7 @@ Figure~\ref{fig:gse287331_typeI_II_post}). This limited harmonisation is consist
 with documented caveats of quantile-based normalisation on EPIC arrays, which can
 artificially reduce biological variability, remove genuine group-level signal, or
 yield distorted distributions when differences are expressed as broad distributional
-shifts~\cite{Welsh2023EPICnorm, Yousefi2013Normalization, Liu2016Processing}.
+shifts~\cite{Yousefi2013, Welsh2023EPICnorm, Liu2016Processing}.
 The impact on biological structure was assessed quantitatively via silhouette
 analysis: the average silhouette coefficient declined from
 $\mathrm{sil}_{\text{pre}} = 0.2876 \text{ to } \mathrm{sil}_{\text{post}} = 0.2537$
@@ -703,31 +707,13 @@ data and collapsed genuine group-level separation---particularly between Normal
 and Adjacent samples. For this reason, all downstream analyses are carried out on
 the non-BMIQ version of the dataset, which preserves sharper cluster boundaries
 and avoids normalisation-induced shrinkage of biological signal.
+
+
+
 \paragraph{Technical Probe Filtering}
 \label{par:gse287331_step2}
 
-\begin{figure}[t]
-    \centering
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/cap4/GSE287331_technical_lists_histogram.pdf}
-        \caption{
-            CpGs flagged by each technical list.
-        }
-        \label{fig:gse287331_tech_barplot}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/cap4/GSE287331_technical_lists_redundancy_histogram.pdf}
-        \caption{
-             Redundancy across filtering lists.
-        }
-        \label{fig:gse287331_tech_redundancy}
-    \end{subfigure}
-    \caption{Technical filtering summary in GSE287331.}
-    \label{fig:gse287331_technical_filtering}
-\end{figure}
+
 
 Intersection with external technical filtering resources resulted in substantial probe removal, as summarised in Table~\ref{tab:gse287331_cpg_filtering}. The largest individual contributions derive from the Naeem and Zhou annotations, while the remaining resources flag smaller but non-negligible subsets (Figure~\ref{fig:gse287331_tech_barplot}).  
 Importantly, in the unfiltered EPIC matrix the Zhou annotation alone would have excluded 192{,}856 CpGs. This number substantially exceeds the net contribution observed at this stage, indicating that a considerable fraction of Zhou-flagged probes had already been removed during the earlier missingness-cleaning step.
@@ -769,6 +755,29 @@ Final CpGs \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/cap4/GSE287331_technical_lists_histogram.pdf}
+        \caption{
+            CpGs flagged by each technical list.
+        }
+        \label{fig:gse287331_tech_barplot}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/cap4/GSE287331_technical_lists_redundancy_histogram.pdf}
+        \caption{
+             Redundancy across filtering lists.
+        }
+        \label{fig:gse287331_tech_redundancy}
+    \end{subfigure}
+    \caption{Technical filtering summary in GSE287331.}
+    \label{fig:gse287331_technical_filtering}
+\end{figure}
 
 
 \paragraph{Statistical Transformation: $\beta$-to-$M$ Values}
@@ -824,7 +833,7 @@ tissues in GSE287331.}
 Following technical filtering, the $\beta$-value matrix was transformed into
 $M$-values using the logit relation defined in Equation~\eqref{eq:mvalue},
 in accordance with established recommendations for variance stabilisation
-\cite{Du2010, Triche2013, Fortin2017}.
+\cite{Du2010, Triche2013Noob, Fortin2017}.
 The empirical distributions (Figure~\ref{fig:gse287331_beta_m_combined})
 retain the characteristic bounded structure of $\beta$-values; however,
 in contrast to GSE69914 and GSE225845, the profiles appear less sharply

@@ -65,7 +65,7 @@ tumour-associated hypermethylation preferentially targets specific regulatory
 programmes — including Polycomb-repressed developmental genes and 
 oestrogen-regulated loci — while genome-wide methylation changes in 
 histologically normal adjacent tissue are more subtle but nonetheless 
-detectable~\cite{Teschendorff2016, Fleischer2017}. This sparsity 
+detectable~\cite{Teschendorff2016fielddefects, Fleischer2017}. This sparsity 
 motivates filtering strategies that prioritise stable, biologically 
 coherent CpG subsets over exhaustive feature retention.
 
@@ -92,7 +92,7 @@ A second challenge concerns the relationship between statistical
 significance and effect stability. In large feature spaces, extremely 
 small $p$-values may arise for negligible or unstable effect sizes — a 
 manifestation of the multiple testing problem that is not fully 
-resolved by correction alone~\cite{Gelman2014}. Conversely, 
+resolved by correction alone. Conversely, 
 biologically relevant features may show moderate but reproducible 
 signal across subsamples. Stability selection~\cite{Meinshausen2010} 
 addresses this by quantifying the reproducibility of feature inclusion 
@@ -314,7 +314,7 @@ is particularly detrimental in HDLSS settings.
 To address this, the pipeline systematically discards the lowest
 $\alpha$-quantile of CpGs ranked by their empirical standard deviation in
 $M$-space on $\mathcal{D}_{\mathrm{train}}$. Letting $s_j$ denote this
-standard deviation, the retained index set is
+standard deviation, the retained index set is:
 \begin{equation}
     \mathcal{J}_{\mathrm{var}}
     =
@@ -529,7 +529,7 @@ preserving a lower-is-better scoring convention, the
 biological contribution is defined as 
 $1 - w_j^{\mathrm{norm}}$.
 After min--max normalisation of the statistical score 
-$\mathrm{score}_{\mathrm{stat},j}$, the final integrated score is
+$\mathrm{score}_{\mathrm{stat},j}$, the final integrated score is:
 \begin{equation}
 \mathrm{score}_{j}
 =
@@ -816,8 +816,8 @@ Formally:
   \quad \forall g,
 \\
 & |\{ j \in \mathcal{S} : w(j)=\omega \}| 
-  \leq \beta 
-  \quad \forall \omega.
+  \leq B_{\omega}
+  \quad \forall \omega, \; B_{\omega}=15.
 \end{aligned}
 \end{equation}
 Each constraint targets a distinct axis of potential 
@@ -1456,7 +1456,7 @@ GSE225845--GSE287331 & 128 & 37.9 & $3.38$ & $< 10^{-4}$ \\
 Pairwise intersections between the three final $5{,}000$-CpG panels were
 computed and are visualised in Figure~\ref{fig:interfs_venn}.
 The identity-level overlap is summarised by the Jaccard similarity
-coefficient, which for two selection sets $A$ and $B$ is defined as
+coefficient, which for two selection sets $A$ and $B$ is defined as:
 \begin{equation}
     J(A,B) = \frac{|A \cap B|}{|A \cup B|},
     \label{eq:jaccard}
@@ -1574,7 +1574,7 @@ respective $5{,}000$-CpG panels.
 Concordance was assessed through two complementary measures:
 the Spearman rank correlation $\rho$ of signed effect sizes, which
 captures both magnitude and direction, and the directional concordance
-rate
+rate:
 \begin{equation}
   c = \widehat{\mathbb{P}}\!\left(\operatorname{sign}(\Delta\beta^{(A)}_j)
   = \operatorname{sign}(\Delta\beta^{(B)}_j)\right),
@@ -1718,7 +1718,7 @@ where $\mathcal{S}$ denotes the selected CpG panel and $x_j$ the
 methylation level of locus $j$. 
 No re-estimation or adaptation to the target distribution was performed.
 Discriminative performance was quantified via the area under the 
-receiver operating characteristic curve (AUC), defined as
+receiver operating characteristic curve (AUC), defined as:
 \begin{equation}
 \mathrm{AUC}
 =
@@ -1727,7 +1727,7 @@ receiver operating characteristic curve (AUC), defined as
 where $\mathrm{TPR}$ and $\mathrm{FPR}$ denote the true- and false-positive 
 rates across classification thresholds. 
 For the binary Normal–Adjacent problem, this quantity is 
-equivalently expressed as
+equivalently expressed as:
 \begin{equation}
 \mathrm{AUC}
 =

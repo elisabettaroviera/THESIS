@@ -2,8 +2,8 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Tables}{vi}{section*.1}%
-\contentsline {chapter}{List of Figures}{viii}{section*.2}%
+\contentsline {chapter}{List of Tables}{v}{section*.1}%
+\contentsline {chapter}{List of Figures}{vii}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Research Motivation }{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Unresolved Limitations and Open Problem}{2}{section.1.2}%
@@ -91,172 +91,172 @@
 \contentsline {paragraph}{Statistical Transformation: $\beta $-to-$M$ Values}{45}{figure.caption.76}%
 \contentsline {subsection}{\numberline {4.3.3}Dataset GSE287331}{46}{subsection.4.3.3}%
 \contentsline {paragraph}{Structural Integrity and Cohort Harmonization}{46}{section*.77}%
-\contentsline {paragraph}{Probe-Type Bias Diagnostics and Correction}{46}{figure.caption.80}%
-\contentsline {paragraph}{Technical Probe Filtering}{48}{figure.caption.82}%
+\contentsline {paragraph}{Probe-Type Bias Diagnostics and Correction}{46}{section*.80}%
+\contentsline {paragraph}{Technical Probe Filtering}{48}{section*.81}%
 \contentsline {paragraph}{Statistical Transformation: $\beta $-to-$M$ Values}{49}{figure.caption.85}%
-\contentsline {section}{\numberline {4.4}Inter-Dataset Consistency After Preprocessing}{50}{section.4.4}%
-\contentsline {paragraph}{Consistency of the Preprocessing Framework}{50}{section*.87}%
-\contentsline {paragraph}{CpG overlap across datasets}{50}{section*.88}%
-\contentsline {section}{\numberline {4.5}Post-Preprocessing Feature Space and Dimensionality Implications}{51}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Robust Feature Selection for Epigenetic Drift Characterisation}{52}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Statistical Challenges of High-Dimensional DNA Methylation Data}{52}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Structural Properties Motivating Feature Selection}{53}{subsection.5.1.1}%
-\contentsline {paragraph}{High Dimensionality and Overfitting Risk}{53}{section*.90}%
-\contentsline {paragraph}{Spatial Correlation and Redundancy}{53}{section*.91}%
-\contentsline {paragraph}{Biological Sparsity}{53}{section*.92}%
-\contentsline {subsection}{\numberline {5.1.2}Methodological Challenges in Genomic Feature Selection}{53}{subsection.5.1.2}%
-\contentsline {paragraph}{Information Leakage}{54}{section*.93}%
-\contentsline {paragraph}{Significance Versus Stability}{54}{section*.94}%
-\contentsline {paragraph}{Predictive Optimisation Versus Interpretability}{54}{section*.95}%
-\contentsline {subsection}{\numberline {5.1.3}Design Objectives of the Selection Framework}{54}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}General Feature Selection Framework}{55}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Empirical Variability-Based Dimensionality Reduction}{55}{subsection.5.2.1}%
-\contentsline {paragraph}{Data restriction and structural cleaning}{55}{section*.96}%
-\contentsline {paragraph}{Train--test partition}{56}{section*.97}%
-\contentsline {paragraph}{Definition of the variability statistic}{56}{section*.98}%
-\contentsline {paragraph}{Interpretation and scope}{56}{section*.99}%
-\contentsline {subsection}{\numberline {5.2.2}Re-alignment to $M$-values and Residual Variance Regularisation}{57}{subsection.5.2.2}%
-\contentsline {paragraph}{Residual low-variance trimming (train-only)}{57}{section*.100}%
-\contentsline {subsection}{\numberline {5.2.3}Biologically Weighted Stability Selection and Region-Level Consolidation}{58}{subsection.5.2.3}%
-\contentsline {paragraph}{Repeated Stratified Stability Framework}{58}{section*.101}%
-\contentsline {paragraph}{Directional Stability Constraint}{59}{section*.102}%
-\contentsline {paragraph}{Adaptive Effect-Size Filtering}{60}{section*.103}%
-\contentsline {paragraph}{Integration of Biological Priors}{60}{section*.104}%
-\contentsline {paragraph}{Region-Level Anchoring on CpG Islands}{61}{section*.105}%
-\contentsline {subsection}{\numberline {5.2.4}Correlation-Based Redundancy Pruning and Graph Theoretic Clustering}{61}{subsection.5.2.4}%
-\contentsline {paragraph}{Correlation Structure on Training Data}{61}{section*.106}%
-\contentsline {paragraph}{Graph Construction and Connected Components}{62}{section*.107}%
-\contentsline {paragraph}{Representative Selection per Cluster}{62}{section*.108}%
-\contentsline {paragraph}{Separate Clustering of Anchored and Non-Anchored Pools}{63}{section*.109}%
-\contentsline {paragraph}{Statistical and Biological Rationale}{63}{section*.110}%
-\contentsline {subsection}{\numberline {5.2.5}Genomic Diversification via Constrained Greedy Selection}{63}{subsection.5.2.5}%
-\contentsline {paragraph}{Problem Formulation}{64}{section*.111}%
-\contentsline {paragraph}{Chromosomal Balance Constraint}{64}{section*.112}%
-\contentsline {paragraph}{Genomic Context Constraint}{64}{section*.113}%
-\contentsline {paragraph}{Spatial Window Constraint}{65}{section*.114}%
-\contentsline {paragraph}{Greedy Approximation with Progressive Relaxation}{65}{section*.115}%
-\contentsline {section}{\numberline {5.3}Dataset-Specific Implementation}{66}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Dataset GSE69914}{66}{subsection.5.3.1}%
-\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{66}{section*.116}%
-\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{66}{section*.118}%
-\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{67}{section*.119}%
-\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{67}{section*.121}%
-\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{68}{section*.122}%
-\contentsline {subsection}{\numberline {5.3.2}Dataset GSE225845}{68}{subsection.5.3.2}%
-\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{68}{section*.124}%
-\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{69}{section*.125}%
-\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{69}{section*.126}%
-\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{70}{section*.128}%
-\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{70}{section*.129}%
-\contentsline {subsection}{\numberline {5.3.3}Dataset GSE287331}{71}{subsection.5.3.3}%
-\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{71}{section*.131}%
-\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{72}{section*.132}%
-\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{72}{section*.134}%
-\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{72}{section*.135}%
-\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{73}{section*.136}%
-\contentsline {section}{\numberline {5.4}Inter-Dataset Stability of the Final 5{,}000 CpG Signatures}{73}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Set-Level Replicability}{74}{subsection.5.4.1}%
-\contentsline {paragraph}{Permutation-based assessment of overlap significance}{74}{section*.139}%
-\contentsline {subsection}{\numberline {5.4.2}Effect-Direction Concordance}{75}{subsection.5.4.2}%
-\contentsline {paragraph}{GSE69914--GSE225845: shared drift axis}{76}{section*.141}%
-\contentsline {paragraph}{GSE287331: systematic polarity inversion}{76}{section*.142}%
-\contentsline {subsection}{\numberline {5.4.3}Magnitude-Stratified Concordance}{77}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Cross-Dataset Transferability}{78}{subsection.5.4.4}%
-\contentsline {paragraph}{GSE69914--GSE225845}{78}{section*.143}%
-\contentsline {paragraph}{Transfers involving GSE287331}{79}{section*.144}%
-\contentsline {paragraph}{Interpretation}{79}{section*.145}%
-\contentsline {section}{\numberline {5.5}Feature Selection Outcomes and Modelling Implications}{79}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Predictive Modelling, Constrained Optimisation and Biological Interpretation}{81}{chapter.6}%
-\contentsline {section}{\numberline {6.1}From Robust Feature Selection to Predictive Modelling}{81}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Supervised Learning Framework}{82}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Intra-Dataset Supervised Modelling}{82}{subsection.6.2.1}%
-\contentsline {paragraph}{Data partitioning and leakage control}{82}{section*.147}%
-\contentsline {paragraph}{Linear Support Vector Machine}{82}{section*.148}%
-\contentsline {paragraph}{$k$-Nearest Neighbours (GSE69914 only)}{83}{section*.149}%
-\contentsline {paragraph}{Performance metrics}{83}{section*.150}%
-\contentsline {subsection}{\numberline {6.2.2}Cross-Dataset Generalisation Protocol}{84}{subsection.6.2.2}%
-\contentsline {paragraph}{Feature space alignment}{84}{section*.151}%
-\contentsline {paragraph}{Train-on-$A$ / Test-on-$B$ design}{84}{section*.152}%
-\contentsline {paragraph}{Evaluation criteria}{84}{section*.153}%
-\contentsline {subsection}{\numberline {6.2.3}Constrained Subset Optimisation via Knapsack Formulation}{85}{subsection.6.2.3}%
-\contentsline {paragraph}{Decision variables and composite score}{85}{section*.154}%
-\contentsline {paragraph}{Complete MILP formulation}{86}{section*.155}%
-\contentsline {paragraph}{Optimisation strategy and parameter selection}{87}{section*.156}%
-\contentsline {subsection}{\numberline {6.2.4}Functional and Gene-Level Interpretation}{87}{subsection.6.2.4}%
-\contentsline {paragraph}{CpG-to-gene mapping and methylation directionality}{87}{section*.157}%
-\contentsline {paragraph}{COSMIC cross-reference}{88}{section*.158}%
-\contentsline {paragraph}{Over-representation analysis}{88}{section*.159}%
-\contentsline {section}{\numberline {6.3}Intra-Dataset Results}{88}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{88}{subsection.6.3.1}%
-\contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{89}{section*.160}%
-\contentsline {paragraph}{Compression to 50 CpGs via MILP}{89}{figure.caption.165}%
-\contentsline {paragraph}{Separation along the Tumor axis}{91}{section*.167}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{91}{figure.caption.169}%
-\contentsline {paragraph}{Cross-dataset transferability}{93}{section*.170}%
-\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{93}{subsection.6.3.2}%
-\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{93}{table.caption.172}%
-\contentsline {paragraph}{Compression to 50 CpGs via MILP}{93}{figure.caption.176}%
-\contentsline {paragraph}{Separation along the Tumor axis}{94}{section*.178}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{94}{section*.179}%
-\contentsline {paragraph}{Cross-dataset transferability}{97}{section*.181}%
-\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{97}{subsection.6.3.3}%
-\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{97}{table.caption.183}%
-\contentsline {paragraph}{Compression to 50 CpGs via MILP}{97}{figure.caption.187}%
-\contentsline {paragraph}{Separation along the Tumor axis}{98}{section*.189}%
-\contentsline {paragraph}{Gene-level coherence and functional enrichment}{98}{section*.190}%
-\contentsline {paragraph}{Cross-dataset transferability}{101}{section*.192}%
-\contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{101}{section.6.4}%
-\contentsline {paragraph}{PC1 as a Diagnostic Axis}{101}{section*.193}%
-\contentsline {paragraph}{Directional Concordance of Methylation Shifts}{101}{section*.196}%
-\contentsline {section}{\numberline {6.5}Synthesis and Implications}{102}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Joint Modelling}{104}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{104}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Multi-Cohort Integration Framework}{105}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Construction of a Shared CpG Feature Space}{105}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Absolute Deviation Transformation}{105}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Batch Harmonisation via NeuroCombat}{106}{subsection.7.2.3}%
-\contentsline {section}{\numberline {7.3}Batch Harmonisation Diagnostics}{106}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Feature Selection and Predictive Modelling}{107}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Feature Selection on the Harmonised Pool}{108}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Linear SVM Training and Panel Compression}{108}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}Predictive Performance}{108}{subsection.7.4.3}%
-\contentsline {section}{\numberline {7.5}Biological Interpretation of the 50-CpG Panel}{110}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Cross-Cohort Epigenetic Drift}{111}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Conclusion and Future work}{112}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusions}{112}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Future Work}{114}{section.8.2}%
-\contentsline {paragraph}{External validation on independent cohorts}{114}{section*.204}%
-\contentsline {paragraph}{Sensitivity analysis on pipeline and MILP hyperparameters}{114}{section*.205}%
-\contentsline {paragraph}{Replacement of SVM coefficients with transformer attention weights (CpGPT)}{114}{section*.206}%
-\contentsline {paragraph}{Multi-omic integration}{115}{section*.207}%
-\contentsline {paragraph}{Generalisation to other tumour types and phenotypes}{115}{section*.208}%
-\contentsline {section}{\numberline {8.3}Code and Data Availability}{115}{section.8.3}%
-\contentsline {chapter}{\numberline {A}Filtering lists}{116}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{116}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{116}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{116}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{117}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{117}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{117}{subsection.A.1.5}%
-\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{118}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Motivation and Scope}{118}{section.B.1}%
-\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{119}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{119}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{120}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{121}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{121}{subsection.B.3.3}%
-\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{122}{subsection.B.3.4}%
-\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{123}{section.B.4}%
-\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{123}{subsection.B.4.1}%
-\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{124}{subsection.B.4.2}%
-\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{126}{subsection.B.4.3}%
-\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{127}{subsection.B.4.4}%
-\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{127}{section*.216}%
-\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{127}{section*.217}%
-\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{127}{section*.218}%
-\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{128}{section.B.5}%
-\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{131}{appendix.C}%
-\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{131}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{132}{section.C.2}%
-\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{134}{section.C.3}%
-\contentsline {chapter}{Bibliography}{135}{figure.caption.223}%
+\contentsline {section}{\numberline {4.4}Inter-Dataset Consistency After Preprocessing}{51}{section.4.4}%
+\contentsline {paragraph}{Consistency of the Preprocessing Framework}{51}{section*.87}%
+\contentsline {paragraph}{CpG overlap across datasets}{51}{section*.88}%
+\contentsline {section}{\numberline {4.5}Post-Preprocessing Feature Space and Dimensionality Implications}{52}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Robust Feature Selection for Epigenetic Drift Characterisation}{53}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Statistical Challenges of High-Dimensional DNA Methylation Data}{53}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Structural Properties Motivating Feature Selection}{54}{subsection.5.1.1}%
+\contentsline {paragraph}{High Dimensionality and Overfitting Risk}{54}{section*.90}%
+\contentsline {paragraph}{Spatial Correlation and Redundancy}{54}{section*.91}%
+\contentsline {paragraph}{Biological Sparsity}{54}{section*.92}%
+\contentsline {subsection}{\numberline {5.1.2}Methodological Challenges in Genomic Feature Selection}{54}{subsection.5.1.2}%
+\contentsline {paragraph}{Information Leakage}{55}{section*.93}%
+\contentsline {paragraph}{Significance Versus Stability}{55}{section*.94}%
+\contentsline {paragraph}{Predictive Optimisation Versus Interpretability}{55}{section*.95}%
+\contentsline {subsection}{\numberline {5.1.3}Design Objectives of the Selection Framework}{55}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}General Feature Selection Framework}{56}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Empirical Variability-Based Dimensionality Reduction}{56}{subsection.5.2.1}%
+\contentsline {paragraph}{Data restriction and structural cleaning}{56}{section*.96}%
+\contentsline {paragraph}{Train--test partition}{57}{section*.97}%
+\contentsline {paragraph}{Definition of the variability statistic}{57}{section*.98}%
+\contentsline {paragraph}{Interpretation and scope}{57}{section*.99}%
+\contentsline {subsection}{\numberline {5.2.2}Re-alignment to $M$-values and Residual Variance Regularisation}{58}{subsection.5.2.2}%
+\contentsline {paragraph}{Residual low-variance trimming (train-only)}{58}{section*.100}%
+\contentsline {subsection}{\numberline {5.2.3}Biologically Weighted Stability Selection and Region-Level Consolidation}{59}{subsection.5.2.3}%
+\contentsline {paragraph}{Repeated Stratified Stability Framework}{59}{section*.101}%
+\contentsline {paragraph}{Directional Stability Constraint}{60}{section*.102}%
+\contentsline {paragraph}{Adaptive Effect-Size Filtering}{61}{section*.103}%
+\contentsline {paragraph}{Integration of Biological Priors}{61}{section*.104}%
+\contentsline {paragraph}{Region-Level Anchoring on CpG Islands}{62}{section*.105}%
+\contentsline {subsection}{\numberline {5.2.4}Correlation-Based Redundancy Pruning and Graph Theoretic Clustering}{62}{subsection.5.2.4}%
+\contentsline {paragraph}{Correlation Structure on Training Data}{62}{section*.106}%
+\contentsline {paragraph}{Graph Construction and Connected Components}{63}{section*.107}%
+\contentsline {paragraph}{Representative Selection per Cluster}{63}{section*.108}%
+\contentsline {paragraph}{Separate Clustering of Anchored and Non-Anchored Pools}{64}{section*.109}%
+\contentsline {paragraph}{Statistical and Biological Rationale}{64}{section*.110}%
+\contentsline {subsection}{\numberline {5.2.5}Genomic Diversification via Constrained Greedy Selection}{64}{subsection.5.2.5}%
+\contentsline {paragraph}{Problem Formulation}{65}{section*.111}%
+\contentsline {paragraph}{Chromosomal Balance Constraint}{65}{section*.112}%
+\contentsline {paragraph}{Genomic Context Constraint}{65}{section*.113}%
+\contentsline {paragraph}{Spatial Window Constraint}{66}{section*.114}%
+\contentsline {paragraph}{Greedy Approximation with Progressive Relaxation}{66}{section*.115}%
+\contentsline {section}{\numberline {5.3}Dataset-Specific Implementation}{67}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Dataset GSE69914}{67}{subsection.5.3.1}%
+\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{67}{section*.116}%
+\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{67}{section*.118}%
+\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{68}{section*.119}%
+\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{68}{section*.121}%
+\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{69}{section*.122}%
+\contentsline {subsection}{\numberline {5.3.2}Dataset GSE225845}{69}{subsection.5.3.2}%
+\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{69}{section*.124}%
+\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{70}{section*.125}%
+\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{70}{section*.126}%
+\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{71}{section*.128}%
+\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{71}{section*.129}%
+\contentsline {subsection}{\numberline {5.3.3}Dataset GSE287331}{72}{subsection.5.3.3}%
+\contentsline {paragraph}{Empirical Variability-Based Dimensionality Reduction}{72}{section*.131}%
+\contentsline {paragraph}{Re-alignment to $M$-values and Residual Variance Regularisation}{73}{section*.132}%
+\contentsline {paragraph}{Biologically Weighted Stability Selection and Region-Level Consolidation}{73}{section*.134}%
+\contentsline {paragraph}{Correlation-Based Redundancy Pruning and Graph-Theoretic Clustering}{73}{section*.135}%
+\contentsline {paragraph}{Genomic Diversification via Constrained Greedy Selection}{74}{section*.136}%
+\contentsline {section}{\numberline {5.4}Inter-Dataset Stability of the Final 5{,}000 CpG Signatures}{74}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Set-Level Replicability}{75}{subsection.5.4.1}%
+\contentsline {paragraph}{Permutation-based assessment of overlap significance}{75}{section*.139}%
+\contentsline {subsection}{\numberline {5.4.2}Effect-Direction Concordance}{76}{subsection.5.4.2}%
+\contentsline {paragraph}{GSE69914--GSE225845: shared drift axis}{77}{section*.141}%
+\contentsline {paragraph}{GSE287331: systematic polarity inversion}{77}{section*.142}%
+\contentsline {subsection}{\numberline {5.4.3}Magnitude-Stratified Concordance}{78}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Cross-Dataset Transferability}{79}{subsection.5.4.4}%
+\contentsline {paragraph}{GSE69914--GSE225845}{79}{section*.143}%
+\contentsline {paragraph}{Transfers involving GSE287331}{80}{section*.144}%
+\contentsline {paragraph}{Interpretation}{80}{section*.145}%
+\contentsline {section}{\numberline {5.5}Feature Selection Outcomes and Modelling Implications}{80}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Predictive Modelling, Constrained Optimisation and Biological Interpretation}{82}{chapter.6}%
+\contentsline {section}{\numberline {6.1}From Robust Feature Selection to Predictive Modelling}{82}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Supervised Learning Framework}{83}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Intra-Dataset Supervised Modelling}{83}{subsection.6.2.1}%
+\contentsline {paragraph}{Data partitioning and leakage control}{83}{section*.147}%
+\contentsline {paragraph}{Linear Support Vector Machine}{83}{section*.148}%
+\contentsline {paragraph}{$k$-Nearest Neighbours (GSE69914 only)}{84}{section*.149}%
+\contentsline {paragraph}{Performance metrics}{84}{section*.150}%
+\contentsline {subsection}{\numberline {6.2.2}Cross-Dataset Generalisation Protocol}{85}{subsection.6.2.2}%
+\contentsline {paragraph}{Feature space alignment}{85}{section*.151}%
+\contentsline {paragraph}{Train-on-$A$ / Test-on-$B$ design}{85}{section*.152}%
+\contentsline {paragraph}{Evaluation criteria}{85}{section*.153}%
+\contentsline {subsection}{\numberline {6.2.3}Constrained Subset Optimisation via Knapsack Formulation}{86}{subsection.6.2.3}%
+\contentsline {paragraph}{Decision variables and composite score}{86}{section*.154}%
+\contentsline {paragraph}{Complete MILP formulation}{87}{section*.155}%
+\contentsline {paragraph}{Optimisation strategy and parameter selection}{88}{section*.156}%
+\contentsline {subsection}{\numberline {6.2.4}Functional and Gene-Level Interpretation}{88}{subsection.6.2.4}%
+\contentsline {paragraph}{CpG-to-gene mapping and methylation directionality}{88}{section*.157}%
+\contentsline {paragraph}{COSMIC cross-reference}{89}{section*.158}%
+\contentsline {paragraph}{Over-representation analysis}{89}{section*.159}%
+\contentsline {section}{\numberline {6.3}Intra-Dataset Results}{89}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Dataset GSE69914}{89}{subsection.6.3.1}%
+\contentsline {paragraph}{Intrinsic separability of the 5,000-CpG panel}{90}{section*.160}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{90}{figure.caption.165}%
+\contentsline {paragraph}{Separation along the Tumor axis}{92}{section*.167}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{92}{figure.caption.169}%
+\contentsline {paragraph}{Cross-dataset transferability}{94}{section*.170}%
+\contentsline {subsection}{\numberline {6.3.2}Dataset GSE225845}{94}{subsection.6.3.2}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{94}{table.caption.172}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{94}{figure.caption.176}%
+\contentsline {paragraph}{Separation along the Tumor axis}{95}{section*.178}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{95}{section*.179}%
+\contentsline {paragraph}{Cross-dataset transferability}{98}{section*.181}%
+\contentsline {subsection}{\numberline {6.3.3}Dataset GSE287331}{98}{subsection.6.3.3}%
+\contentsline {paragraph}{Linear separability of the 5,000-CpG panel}{98}{table.caption.183}%
+\contentsline {paragraph}{Compression to 50 CpGs via MILP}{98}{figure.caption.187}%
+\contentsline {paragraph}{Separation along the Tumor axis}{99}{section*.189}%
+\contentsline {paragraph}{Gene-level coherence and functional enrichment}{99}{section*.190}%
+\contentsline {paragraph}{Cross-dataset transferability}{102}{section*.192}%
+\contentsline {section}{\numberline {6.4}Inter-Dataset Structure and Batch--Biology Diagnostics}{102}{section.6.4}%
+\contentsline {paragraph}{PC1 as a Diagnostic Axis}{102}{section*.193}%
+\contentsline {paragraph}{Directional Concordance of Methylation Shifts}{102}{section*.196}%
+\contentsline {section}{\numberline {6.5}Synthesis and Implications}{103}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Multi-Cohort Integration and Joint Modelling}{105}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Rationale for Multi-Cohort Integration}{105}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Multi-Cohort Integration Framework}{106}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Construction of a Shared CpG Feature Space}{106}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Absolute Deviation Transformation}{106}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Batch Harmonisation via NeuroCombat}{107}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Batch Harmonisation Diagnostics}{107}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Feature Selection and Predictive Modelling}{108}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Feature Selection on the Harmonised Pool}{109}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Linear SVM Training and Panel Compression}{109}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Predictive Performance}{109}{subsection.7.4.3}%
+\contentsline {section}{\numberline {7.5}Biological Interpretation of the 50-CpG Panel}{111}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Cross-Cohort Epigenetic Drift}{112}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Conclusion and Future work}{113}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusions}{113}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Future Work}{115}{section.8.2}%
+\contentsline {paragraph}{External validation on independent cohorts}{115}{section*.204}%
+\contentsline {paragraph}{Sensitivity analysis on pipeline and MILP hyperparameters}{115}{section*.205}%
+\contentsline {paragraph}{Replacement of SVM coefficients with transformer attention weights (CpGPT)}{115}{section*.206}%
+\contentsline {paragraph}{Multi-omic integration}{116}{section*.207}%
+\contentsline {paragraph}{Generalisation to other tumour types and phenotypes}{116}{section*.208}%
+\contentsline {section}{\numberline {8.3}Code and Data Availability}{116}{section.8.3}%
+\contentsline {chapter}{\numberline {A}Filtering lists}{117}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Probe Filtering Resources}{117}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Naeem \textit {et al.} (2014)}{117}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Chen \textit {et al.} (2013)}{117}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Pidsley \textit {et al.} (2016)}{118}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Zhou \textit {et al.} (2016)}{118}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}McCartney \textit {et al.} (2016)}{118}{subsection.A.1.5}%
+\contentsline {chapter}{\numberline {B}Extension of an Empirically Driven Variability-Based Filtering Framework to Breast Tissue}{119}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Motivation and Scope}{119}{section.B.1}%
+\contentsline {section}{\numberline {B.2}General Framework for Cross-Tissue Extension}{120}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Cross-Tissue Overlap Structure}{120}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Step A: Stability of Non-Variable CpG Selection}{121}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Step B: Stability--Dimensionality Trade-Off}{122}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}Step C: Methylation Distribution of Non-Variable CpGs}{122}{subsection.B.3.3}%
+\contentsline {subsection}{\numberline {B.3.4}Step D: Baseline Variability Profile}{123}{subsection.B.3.4}%
+\contentsline {section}{\numberline {B.4}Cohort-Resolved Characterisation of Breast-Tissue Non-Variability}{124}{section.B.4}%
+\contentsline {subsection}{\numberline {B.4.1}Empirical Variability Spectrum Across Independent Breast Cohorts}{124}{subsection.B.4.1}%
+\contentsline {subsection}{\numberline {B.4.2}Contextual Enrichment Profile of Invariant CpGs}{125}{subsection.B.4.2}%
+\contentsline {subsection}{\numberline {B.4.3}Phenotype-Resolved Variability Concordance Analysis}{127}{subsection.B.4.3}%
+\contentsline {subsection}{\numberline {B.4.4}Invariant-Set Partitioning Across Phenotypic Combinations}{128}{subsection.B.4.4}%
+\contentsline {paragraph}{Core invariants \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{128}{section*.216}%
+\contentsline {paragraph}{Conditionally variable universal CpGs \( \mathcal {B} \cap \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \setminus \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \)}{128}{section*.217}%
+\contentsline {paragraph}{Breast-specific invariants \( \left ( \mathcal {N}_{\mathrm {breast}}^{(NA)}(0.05) \cap \mathcal {N}_{\mathrm {breast}}^{(NT)}(0.05) \right ) \setminus \mathcal {B} \)}{128}{section*.218}%
+\contentsline {section}{\numberline {B.5}Positioning Within the Thesis and Generalisability}{129}{section.B.5}%
+\contentsline {chapter}{\numberline {C}Epigenetic Age as a Covariate and Stratification Framework}{132}{appendix.C}%
+\contentsline {section}{\numberline {C.1}The Horvath Multi-Tissue Clock}{132}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Empirical Evaluation on GSE225845}{133}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Clinically Motivated Age Stratification}{135}{section.C.3}%
+\contentsline {chapter}{Bibliography}{136}{figure.caption.223}%

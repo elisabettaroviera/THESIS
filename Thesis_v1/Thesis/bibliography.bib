@@ -171,17 +171,6 @@
   doi     = {10.1101/gr.103606.109}
 }
 
-@article{Azim2012,
-  author  = {H. A. Azim and S. Michiels and P. L. Bedard and S. K. Singhal and C. Criscitiello and M. Ignatiadis and B. Haibe-Kains and M. J. Piccart and C. Sotiriou},
-  title   = {Personalized medicine in breast cancer: Time for action},
-  journal = {Current Opinion in Oncology},
-  volume  = {24},
-  number  = {6},
-  pages   = {590--597},
-  year    = {2012},
-  doi     = {10.1097/CCO.0b013e328358f9e5}
-}
-
 @article{cortes1995svm,
   author  = {C. Cortes and V. Vapnik},
   title   = {Support-vector networks},
@@ -217,12 +206,13 @@
 
 @article{nishiyama2022ilp,
   author  = {S. Nishiyama and K. Sato and R. Tao},
-  title   = {Integer programming for selecting sets of informative markers},
+  title   = {Integer programming for selecting set of informative markers
+             in paternity inference},
   journal = {BMC Bioinformatics},
   volume  = {23},
-  pages   = {4801},
+  pages   = {265},
   year    = {2022},
-  doi     = {10.1186/s12859-022-04801-x}
+  doi     = {10.1186/s12859-022-04801-z}
 }
 
 @article{kuleshov2016enrichr,
@@ -320,22 +310,19 @@
 }
 
 @article{Fleischer2017,
-  author  = {T. Fleischer and X. Tekpli and A. Mathelier and S. Wang and D. Nebdal and H. P. Dhakal and K. K. Sahlberg and E. Schlichting and A. L. Børresen-Dale and E. Borgen and B. Naume and V. N. Kristensen and P. E. Lønning and J. Tost and S. Nord},
-  title   = {{DNA} methylation at enhancers identifies distinct breast cancer lineages},
+  author  = {T. Fleischer and X. Tekpli and A. Mathelier and S. Wang and
+             D. Nebdal and H. P. Dhakal and K. K. Sahlberg and
+             E. Schlichting and {Oslo Breast Cancer Research Consortium (OSBREAC)} and
+             A. L. B{\o}rresen-Dale and E. Borgen and B. Naume and
+             R. Eskeland and A. Frigessi and J. Tost and
+             A. Hurtado and V. N. Kristensen},
+  title   = {{DNA} methylation at enhancers identifies distinct breast
+             cancer lineages},
   journal = {Nature Communications},
   volume  = {8},
-  number  = {1},
   pages   = {1379},
   year    = {2017},
-  doi     = {10.1038/s41467-017-01434-4}
-}
-
-@book{Gelman2014,
-  author    = {A. Gelman and J. B. Carlin and H. S. Stern and D. B. Dunson and A. Vehtari and D. B. Rubin},
-  title     = {Bayesian Data Analysis},
-  edition   = {3rd},
-  publisher = {CRC Press},
-  year      = {2014}
+  doi     = {10.1038/s41467-017-00510-x}
 }
 
 @article{Meinshausen2010,
@@ -474,11 +461,10 @@
 
 @article{chen2024_mliftover,
   author  = {B. H. Chen and W. Zhou},
-  title   = {mLiftOver: Mapping {DNA} methylation data across array platforms and genome builds},
+  title   = {mLiftOver: harmonizing data across Infinium DNA methylation platforms},
   journal = {Bioinformatics},
   volume  = {40},
   number  = {7},
-  pages   = {btae423},
   year    = {2024},
   doi     = {10.1093/bioinformatics/btae423}
 }
@@ -496,9 +482,9 @@
 
 @manual{Illumina450kAnno,
   author       = {K. D. Hansen},
-  title        = {{IlluminaHumanMethylation450kanno.ilmn12.hg19}: Annotation for Illumina's 450k methylation arrays},
+  title        = {{IlluminaHumanMethylation450kanno.ilmn12.hg19}: Annotation
+                 for Illumina's 450k methylation arrays},
   organization = {Bioconductor},
-  year         = {2015},
   note         = {R package version 0.6.0},
   url          = {https://bioconductor.org/packages/IlluminaHumanMethylation450kanno.ilmn12.hg19}
 }
@@ -506,7 +492,7 @@
 
 @article{Liu2016Processing,
   author  = {J. Liu and K. D. Siegmund},
-  title   = {An evaluation of processing methods for Illumina HumanMethylation450 BeadChip platform},
+  title   = {An evaluation of processing methods for HumanMethylation450 BeadChip data},
   journal = {BMC Genomics},
   volume  = {17},
   number  = {1},
@@ -517,7 +503,7 @@
 
 @article{Welsh2023EPICnorm,
   author  = {H. Welsh and C. M. P. F. Batalha and W. Li and K. L. Mpye and N. C. Souza-Pinto and M. S. Naslavsky and E. J. Parra},
-  title   = {A systematic evaluation of normalization methods and probe replicability using Infinium {EPIC} 850K methylation data},
+  title   = {A systematic evaluation of normalization methods and probe replicability using infinium {EPIC} methylation data},
   journal = {Clinical Epigenetics},
   volume  = {15},
   number  = {1},
@@ -549,7 +535,7 @@
 
 @article{Zhang2024_TumorInitiationEpigenetic,
   author  = {S. Zhang and X. Xiao and Y. Yi and X. Wang and L. Zhu and Y. Shen and D. Lin and C. Wu},
-  title   = {Tumor initiation and early tumorigenesis: Molecular mechanisms and epigenetic drivers},
+  title   = {Tumor initiation and early tumorigenesis: molecular mechanisms and interventional targets},
   journal = {Signal Transduction and Targeted Therapy},
   volume  = {9},
   pages   = {149},
@@ -581,7 +567,7 @@
 
 @article{Timp2013_EpigeneticModel,
   author  = {W. Timp and A. P. Feinberg},
-  title   = {Cancer as a dysregulated epigenome: The epigenetic progenitor model of cancer},
+  title   = {Cancer as a dysregulated epigenome allowing cellular growth advantage at the expense of the host},
   journal = {Nature Reviews Cancer},
   volume  = {13},
   number  = {7},
@@ -624,8 +610,11 @@
 }
 
 @article{WilhelmBenartzi2013,
-  author  = {C. S. Wilhelm-Benartzi and D. C. Koestler and M. R. Karagas and J. M. Flanagan and B. C. Christensen and J. K. Wiencke and K. T. Kelsey and C. J. Marsit and E. A. Houseman},
-  title   = {Review of processing and analysis methods for {DNA} methylation array data},
+  author  = {C. S. Wilhelm-Benartzi and D. C. Koestler and M. R. Karagas and
+             J. M. Flanagan and B. C. Christensen and K. T. Kelsey and
+             C. J. Marsit and E. A. Houseman and R. Brown},
+  title   = {Review of processing and analysis methods for {DNA} methylation
+             array data},
   journal = {British Journal of Cancer},
   volume  = {109},
   number  = {6},
@@ -681,13 +670,13 @@
   author       = {{Illumina Inc.}},
   title        = {Infinium MethylationEPIC BeadChip Manifest File v1.0 B5},
   howpublished = {\url{https://support.illumina.com/}},
-  note         = {Accessed February 2026},
+  note         = {Accessed November 2025},
   year         = {2016}
 }
 
 @article{Wang2015Normalization450K,
   author  = {T. Wang and W. Guan and J. Lin and N. Boutaoui and G. Canino and J. Luo and J. C. Celed{\'o}n and W. Chen},
-  title   = {A Systematic Study of Normalization Methods for Infinium 450K Methylation Data Using Whole-Genome Bisulfite Sequencing as the Gold Standard},
+  title   = {A systematic study of normalization methods for Infinium 450K methylation data using whole-genome bisulfite sequencing data},
   journal = {Epigenetics},
   volume  = {10},
   number  = {6},
@@ -716,7 +705,7 @@
 }
 
 @article{Reinius2012,
-  author  = {L. E. Reinius and N. Acevedo and M. Joerink and G. Pershagen and S. E. Dahl{\'e}n and D. Greco and C. S{\"o}derh{\"a}ll and J. Kere and A. Scheynius},
+  author  = {L. E. Reinius and N. Acevedo and M. Joerink and G. Pershagen and S. E. Dahl{\'e}n and D. Greco and C. S{\"o}derh{\"a}ll and A. Scheynius and J. Kere},
   title   = {Differential {DNA} methylation in purified human blood cells: Implications for cell lineage and studies on disease susceptibility},
   journal = {PLOS ONE},
   volume  = {7},
@@ -787,7 +776,7 @@
   volume  = {105},
   number  = {490},
   pages   = {713--726},
-  year    = {2010},
+  year    = {2012},
   doi     = {10.1198/jasa.2010.tm09415}
 }
 
@@ -835,8 +824,11 @@
 }
 
 @article{wu2016snp,
-  author  = {X. Wu and R. Li and Q. Li and others},
-  title   = {Optimal Design of Low-Density {SNP} Arrays for Genomic Selection},
+  author  = {X.-L. Wu and J. Xu and G. Feng and G. R. Wiggans and
+             J. F. Taylor and J. He and C. Qian and J. Qiu and
+             B. Simpson and J. Walker and S. Bauck},
+  title   = {Optimal Design of Low-Density {SNP} Arrays for Genomic
+             Prediction: Algorithm and Applications},
   journal = {PLOS ONE},
   volume  = {11},
   number  = {9},
@@ -959,8 +951,18 @@
 }
 
 @article{Zhang2019,
-  author  = {Q. Zhang and C. L. Vallerga and R. M. Walker and others},
-  title   = {Improved precision of epigenetic clock estimates across tissues and its implication for biological ageing},
+  author  = {Q. Zhang and C. L. Vallerga and R. M. Walker and T. Lin and
+             A. K. Henders and G. W. Montgomery and J. He and D. Fan and
+             J. Fowdar and M. Kennedy and T. Pitcher and J. Pearson and
+             G. Halliday and J. B. Kwok and I. Hickie and S. Lewis and
+             T. Anderson and P. A. Silburn and G. D. Mellick and
+             S. E. Harris and P. Redmond and A. D. Murray and
+             D. J. Porteous and C. S. Haley and K. L. Evans and
+             A. M. McIntosh and J. Yang and J. Gratten and
+             R. E. Marioni and N. R. Wray and I. J. Deary and
+             A. F. McRae and P. M. Visscher},
+  title   = {Improved precision of epigenetic clock estimates across tissues
+             and its implication for biological ageing},
   journal = {Genome Medicine},
   volume  = {11},
   number  = {1},
@@ -992,19 +994,26 @@
 }
 
 @article{kalachand2024brca,
-  author  = {R. D. Kalachand and others},
-  title   = {{BRCA1} \& {BRCA2} methylation as a prognostic and predictive biomarker in cancer: implementation in liquid biopsy in the era of precision medicine},
+  author  = {M. Panagopoulou and T. Panou and A. Gkountakos and
+             G. Tarapatzi and M. Karaglani and I. Tsamardinos and
+             E. Chatzaki},
+  title   = {{BRCA1} \& {BRCA2} methylation as a prognostic and predictive
+             biomarker in cancer: Implementation in liquid biopsy in the era
+             of precision medicine},
   journal = {Clinical Epigenetics},
   volume  = {16},
-  number  = {1},
-  pages   = {174},
+  pages   = {178},
   year    = {2024},
   doi     = {10.1186/s13148-024-01787-8}
 }
 
 @article{graffeo2022bard1,
-  author  = {R. Graffeo and H. Q. Rana and F. Conforti and others},
-  title   = {Moderate penetrance genes complicate genetic testing for breast cancer diagnosis: {ATM}, {CHEK2}, {BARD1} and {RAD51D}},
+  author  = {R. Graffeo and H. Q. Rana and F. Conforti and B. Bonanni and
+             M. J. Cardoso and S. Paluch-Shimon and O. Pagani and
+             A. Goldhirsch and A. H. Partridge and M. Lambertini and
+             J. E. Garber},
+  title   = {Moderate penetrance genes complicate genetic testing for breast
+             cancer diagnosis: {ATM}, {CHEK2}, {BARD1} and {RAD51D}},
   journal = {The Breast},
   volume  = {65},
   pages   = {32--40},
@@ -1012,23 +1021,14 @@
   doi     = {10.1016/j.breast.2022.06.003}
 }
 
-@article{su1998mkk4,
-  author  = {G. H. Su and W. Hilgers and M. C. Shekher and others},
-  title   = {Alterations in pancreatic, biliary, and breast carcinomas support {MKK4} as a genetically targeted tumor suppressor gene},
-  journal = {Cancer Research},
-  volume  = {58},
-  number  = {11},
-  pages   = {2339--2342},
-  year    = {1998}
-}
-
 @article{liu2019map2k4,
-  author  = {S. Liu and J. Huang and Y. Zhang and others},
-  title   = {{MAP2K4} interacts with {Vimentin} to activate the {PI3K/AKT} pathway and promotes breast cancer pathogenesis},
+  author  = {S. Liu and J. Huang and Y. Zhang and Y. Liu and S. Zuo and R. Li},
+  title   = {{MAP2K4} interacts with {Vimentin} to activate the {PI3K/AKT}
+             pathway and promotes breast cancer pathogenesis},
   journal = {Aging},
   volume  = {11},
-  number  = {24},
-  pages   = {12552--12569},
+  number  = {22},
+  pages   = {10697--10710},
   year    = {2019},
   doi     = {10.18632/aging.102485}
 }
@@ -1075,10 +1075,11 @@
   year    = {2002},
   doi     = {10.1016/S1535-6108(02)00180-0}
 }
-
 @article{liu2010casp8,
-  author  = {J.-X. Liu and J. Zhou and X.-H. Chen and others},
-  title   = {Caspase 8 and maspin are downregulated in breast cancer cells due to {CpG} site promoter methylation},
+  author  = {Y. Wu and M. Alvarez and D. J. Slamon and P. Koeffler and
+             J. V. Vadgama},
+  title   = {Caspase 8 and maspin are downregulated in breast cancer cells
+             due to {CpG} site promoter methylation},
   journal = {BMC Cancer},
   volume  = {10},
   pages   = {32},
@@ -1109,13 +1110,17 @@
 }
 
 @article{fu2022map3k1,
-  author  = {K. Fu and Y. Hu and Y. Ma and T. Li and R. Zhang},
-  title   = {Spectrum of {MAP3K1} mutations in breast cancer is luminal subtype-predominant and related to prognosis},
-  journal = {Frontiers in Oncology},
-  volume  = {11},
-  pages   = {785246},
+  author  = {C. Li and G. Zhang and Y. Wang and B. Chen and K. Li and
+             L. Cao and C. Ren and L. Wen and M. Jia and H. Mok and
+             J. Lai and W. Xiao and X. Li and N. Liao},
+  title   = {Spectrum of {MAP3K1} mutations in breast cancer is luminal
+             subtype-predominant and related to prognosis},
+  journal = {Oncology Letters},
+  volume  = {23},
+  number  = {2},
+  pages   = {68},
   year    = {2022},
-  doi     = {10.3389/fonc.2021.785246}
+  doi     = {10.3892/ol.2022.13187}
 }
 
 @article{cancer2012comprehensive,
@@ -1130,8 +1135,11 @@
 }
 
 @article{fillmore2010tbx3,
-  author  = {C. M. Fillmore and P. B. Gupta and J. A. Rudnick and S. Caballero and D. M. Bhatt and R. A. Weinberg and C. Kuperwasser},
-  title   = {Estrogen expands breast cancer stem-like cells through paracrine {FGF/Tbx3} signalling},
+  author  = {C. M. Fillmore and P. B. Gupta and J. A. Rudnick and
+             S. Caballero and P. J. Keller and E. S. Lander and
+             C. Kuperwasser},
+  title   = {Estrogen expands breast cancer stem-like cells through
+             paracrine {FGF/Tbx3} signaling},
   journal = {Proceedings of the National Academy of Sciences},
   volume  = {107},
   number  = {50},
@@ -1151,21 +1159,29 @@
   doi     = {10.1038/ncb1530}
 }
 
-@article{wang2021combatmet,
-  author  = {J. Wang},
-  title   = {{ComBat}-met: adjusting batch effects in {DNA} methylation data},
-  journal = {NAR Genomics and Bioinformatics},
-  volume  = {3},
-  number  = {3},
-  pages   = {lqab061},
-  year    = {2021},
-  doi     = {10.1093/nargab/lqab061}
+@article{fortin2018neurocombat,
+  author  = {J.-P. Fortin and N. Cullen and Y. I. Sheline and W. D. Taylor and
+             A. Aselcioglu and P. A. Cook and P. Adams and C. Cooper and
+             M. Fava and P. J. McGrath and M. McInnis and M. L. Phillips and
+             M. H. Trivedi and M. M. Weissman and R. T. Shinohara},
+  title   = {Harmonization of cortical thickness measurements across scanners
+             and sites},
+  journal = {NeuroImage},
+  volume  = {167},
+  pages   = {104--120},
+  year    = {2018},
+  doi     = {10.1016/j.neuroimage.2017.11.024}
 }
 
 @article{ibrahim2024fbln2,
-  author  = {A. M. Ibrahim and S. E. Anis and A. Bilsland and S. Rickelt and J. S. Morris and T. Stein},
-  title   = {{FBLN2} is associated with basal cell markers {Krt14} and {ITGB1} in mouse mammary epithelial cells and has a preferential expression in molecular subtypes of human breast cancer},
+  author  = {A. A. WalyEldeen and S. Sabet and S. E. Anis and T. Stein and
+             A. M. Ibrahim},
+  title   = {{FBLN2} is associated with basal cell markers {Krt14} and
+             {ITGB1} in mouse mammary epithelial cells and has a preferential
+             expression in molecular subtypes of human breast cancer},
   journal = {Breast Cancer Research and Treatment},
+  volume  = {208},
+  pages   = {673--686},
   year    = {2024},
   doi     = {10.1007/s10549-024-07447-y}
 }
@@ -1181,18 +1197,23 @@
 }
 
 @article{DiGiorgio2023,
-  author  = {E. {Di Giorgio} and others},
-  title   = {{HDAC4} in cancer: a multitasking platform to drive not only epigenetic modifications},
-  journal = {Frontiers in Genetics},
-  volume  = {14},
-  pages   = {1130195},
+  author  = {E. Cuttini and C. Goi and E. Pellarin and R. Vida and
+             C. Brancolini},
+  title   = {{HDAC4} in cancer: a multitasking platform to drive not only
+             epigenetic modifications},
+  journal = {Frontiers in Molecular Biosciences},
+  volume  = {10},
+  pages   = {1116660},
   year    = {2023},
-  doi     = {10.3389/fgene.2023.1130195}
+  doi     = {10.3389/fmolb.2023.1116660}
 }
 
 @article{Piskounova2011,
-  author  = {E. Piskounova and others},
-  title   = {{Lin28A} and {Lin28B} inhibit let-7 micro{RNA} biogenesis by distinct mechanisms},
+  author  = {E. Piskounova and C. Polytarchou and J. E. Thornton and
+             R. J. LaPierre and C. Pothoulakis and J. P. Hagan and
+             D. Iliopoulos and R. I. Gregory},
+  title   = {Lin28{A} and Lin28{B} Inhibit let-7 {MicroRNA} Biogenesis
+             by Distinct Mechanisms},
   journal = {Cell},
   volume  = {147},
   number  = {5},
@@ -1202,18 +1223,23 @@
 }
 
 @article{Xie2014,
-  author  = {R. Xie and others},
-  title   = {{Lin28B} expression correlates with aggressive clinicopathological characteristics in breast invasive ductal carcinoma},
+  author  = {R. Xie and Y. Wang and W. Nie and W. Huang and W. Song and
+             Z. Wang and X. Guan},
+  title   = {{Lin28B} expression correlates with aggressive
+             clinicopathological characteristics in breast invasive
+             ductal carcinoma},
   journal = {Cancer Biotherapy and Radiopharmaceuticals},
   volume  = {29},
   number  = {5},
   pages   = {215--220},
   year    = {2014},
-  doi     = {10.1089/cbr.2013.1614}
+  doi     = {10.1089/cbr.2014.1610}
 }
 
 @article{levy2024cpgpt,
-  author  = {K. Levy and G. Beck and H. Kaplan and H. Cedar and Y. Bergman},
+  author  = {L. P. {de Lima Camillo} and R. Sehgal and J. Armstrong and
+             H. E. Miller and J. A. Lasky-Su and A. T. Higgins-Chen and
+             S. Horvath and B. Wang},
   title   = {{CpGPT}: A Foundation Model for {DNA} Methylation},
   journal = {bioRxiv},
   year    = {2024},
@@ -1221,11 +1247,13 @@
 }
 
 @inproceedings{vaswani2017attention,
-  author    = {A. Vaswani and N. Shazeer and N. Parmar and J. Uszkoreit and L. Jones and A. N. Gomez and {\L}. Kaiser and I. Polosukhin},
+  author    = {A. Vaswani and N. Shazeer and N. Parmar and J. Uszkoreit and
+               L. Jones and A. N. Gomez and {\L}. Kaiser and I. Polosukhin},
   title     = {Attention Is All You Need},
   booktitle = {Advances in Neural Information Processing Systems},
   volume    = {30},
-  year      = {2017}
+  year      = {2017},
+  doi       = {10.48550/arXiv.1706.03762}
 }
 
 @article{Azim2012youngwomen,
@@ -1248,4 +1276,19 @@
   pages   = {460--465},
   year    = {2014},
   doi     = {10.1511/2014.111.460}
+}
+
+@article{Luo2018,
+  author  = {C. Luo and C. L. Keown and L. Kurihara and J. Zhou and Y. He and
+             J. Li and R. Castanon and J. Lucero and J. R. Nery and
+             J. P. Sandoval and B. Bui and T. J. Sejnowski and T. T. Harkins and
+             E. A. Mukamel and M. M. Behrens and J. R. Ecker},
+  title   = {Single-cell methylomes identify neuronal subtypes and regulatory
+             elements in mammalian cortex},
+  journal = {Science},
+  volume  = {357},
+  number  = {6351},
+  pages   = {600--604},
+  year    = {2017},
+  doi     = {10.1126/science.aan3351}
 }

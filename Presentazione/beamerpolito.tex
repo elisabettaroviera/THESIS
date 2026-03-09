@@ -227,294 +227,297 @@
 
 \end{frame}
 
+\begin{frame}{Correlation Pruning tramite Grafi}
 
+\begin{columns}[T]
 
+  % COLONNA SINISTRA — schema grafo
+  \begin{column}{0.44\textwidth}
+    \centering
+    \vspace{6pt}
+    \begin{tikzpicture}[
+      cpg/.style={circle, draw=maincolor, fill=maincolor!15,
+                  minimum size=0.45cm, inner sep=1pt},
+      rep/.style={circle, draw=maincolor, fill=maincolor!50,
+                  minimum size=0.45cm, inner sep=1pt},
+      edge/.style={thick, color=maincolor!70},
+      arr/.style={->, thick, color=gray!50}
+    ]
+      \node[rep]  (a1) at (0,0)     {};
+      \node[cpg]  (a2) at (0.9,0.4) {};
+      \node[cpg]  (a3) at (0.9,-0.4){};
+      \node[cpg]  (a4) at (1.8,0)   {};
+      \draw[edge] (a1)--(a2);
+      \draw[edge] (a1)--(a3);
+      \draw[edge] (a2)--(a4);
+      \draw[edge] (a3)--(a4);
 
-\begin{frame}{Beamer vs. PowerPoint}
-Compared to PowerPoint, using \LaTeX\ is better because:
-\begin{itemize}
-\item It is not What-You-See-Is-What-You-Get, but
-What-You-\emph{Mean}-Is-What-You-Get:\\
-you write the content, the computer does the typesetting
-\item Produces a \texttt{pdf}: no problems with fonts, formulas,
-      program versions
-\item Easier to keep consistent style, fonts, highlighting, etc.
-\item Math typesetting in \TeX\ is the best:
-\begin{equation*}
-\mathrm{i}\,\hslash\frac{\partial}{\partial t} \Psi(\mathbf{r},t) =
--\frac{\hslash^2}{2\,m}\nabla^2\Psi(\mathbf{r},t)
-+ V(\mathbf{r})\Psi(\mathbf{r},t)
-\end{equation*}
+      \node[rep]  (b1) at (3.0, 0.3) {};
+      \node[cpg]  (b2) at (3.9, 0.3) {};
+      \draw[edge] (b1)--(b2);
 
-\end{itemize}
-\end{frame}
+      \node[rep]  (c1) at (3.0,-0.4) {};
 
-\begin{frame}[fragile]{Getting Started}
-\framesubtitle{Selecting the SINTEF Theme}
-To start working with \texttt{sintefbeamer}, start a \LaTeX\ document with the
-preamble:
-\begin{block}{Minimum SINTEF Beamer Document}
-\verb|\documentclass{beamer}|\\
-\verb|\usetheme{sintef}|\\
-\verb|\begin{document}|\\
-\verb|\begin{frame}{Hello, world!}|\\
-\verb|\end{frame}|\\
-\verb|\end{document}|\\
-\end{block}
-\end{frame}
+      \node[font=\scriptsize, text=maincolor] at (0.9,-0.9) {comp. 1};
+      \node[font=\scriptsize, text=maincolor] at (3.45,-0.9) {comp. 2,3};
 
-\begin{frame}[fragile]{Title page}
-To set a typical title page, you call some commands in the preamble:
-\begin{block}{The Commands for the Title Page}
-\begin{verbatim}
-\title{Sample Title}
-\subtitle{Sample subtitle}
-\author{First Author, Second Author}
-\date{\today} % Can also be (ab)used for conference name &c.
-\end{verbatim}
-\end{block}
-You can then write out the title page with \verb|\maketitle|.
+      \draw[arr] (1.8,-1.1) -- (1.8,-1.6);
 
-To set a \textbf{background image} use the \verb|\titlebackground| command 
-before \verb|\maketitle|; its only argument is the name (or path) of a graphic 
-file.
+      \node[rep] (r1) at (0.6,-2.0) {};
+      \node[rep] (r2) at (1.8,-2.0) {};
+      \node[rep] (r3) at (3.0,-2.0) {};
 
-If you use the \textbf{starred version} \verb|\titlebackground*|, the image 
-will be clipped to a split view on the right side of the title slide.
+      \node[font=\scriptsize] at (1.8,-2.5)
+        {1 rappresentante per componente};
 
-\end{frame}
+    \end{tikzpicture}
 
-\begin{frame}[fragile]{Writing a Simple Slide}
-\framesubtitle{It's really easy!}
-\begin{itemize}[<+->]
-\item A typical slide has bulleted lists
-\item These can be uncovered in sequence
-\end{itemize}
-\begin{block}{Code for a Page with an Itemised List}<+->
-\begin{verbatim}
-\begin{frame}{Writing a Simple Slide}
-  \framesubtitle{It's really easy!}
-  \begin{itemize}[<+->]
-    \item A typical slide has bulleted lists
-    \item These can be uncovered in sequence
-  \end{itemize}\end{frame}
-\end{verbatim}
-\end{block}
-\end{frame}
+    \vspace{2pt}
+    {\scriptsize Arco se $|r| \geq 0.85$}
+  \end{column}
 
-\section{Personalization}
+  % COLONNA DESTRA — biforcazione Pool A / Pool B
+  \begin{column}{0.52\textwidth}
+    \centering
+    \vspace{4pt}
+    \begin{tikzpicture}[
+      box/.style={rectangle, rounded corners=2pt, minimum width=2.6cm,
+                  minimum height=0.55cm, align=center, font=\small,
+                  draw=maincolor!40, fill=maincolor!6},
+      boxa/.style={rectangle, rounded corners=2pt, minimum width=2.6cm,
+                   minimum height=0.55cm, align=center, font=\small,
+                   draw=sinteflightgreen!80!black, fill=sinteflightgreen!25},
+      boxb/.style={rectangle, rounded corners=2pt, minimum width=2.6cm,
+                   minimum height=0.55cm, align=center, font=\small,
+                   draw=maincolor!60, fill=maincolor!10},
+      final/.style={rectangle, rounded corners=2pt, minimum width=3.4cm,
+                    minimum height=0.55cm, align=center, font=\small\bfseries,
+                    draw=maincolor, fill=maincolor!20},
+      arr/.style={->, thick, color=gray!50}
+    ]
 
-\footlinecolor{sintefyellow}
-\begin{frame}[fragile]{Changing Slide Style}
-\begin{itemize}
-\item You can select the white or \textit{maincolor} \textbf{slide style} \emph{in the 
-preamble} with \verb|\themecolor{white}| (default) or \verb|\themecolor{main}|
-      \begin{itemize}
-      \item You should \emph{not} change these within the document: Beamer does 
-      not like it
-      \item If you \emph{really} must, you may have to add 
-      \verb|\usebeamercolor[fg]{normal text}| in the slide
-      \end{itemize}
-\item You can change the \textbf{footline colour} with 
-\verb|\footlinecolor{color}|
-      \begin{itemize}
-      \item Place the command \emph{before} a new \verb|frame|
-      \item There are four ``official'' colors: 
-      \testcolor{maincolor}, \testcolor{sintefyellow}, 
-      \testcolor{sintefgreen}, \testcolor{sintefdarkgreen}
-      \item Default is no footline; you can restore it with 
-      \verb|\footlinecolor{}|
-      \item Others may work, but no guarantees!
-      \item Should \emph{not} be used with the \verb|maincolor| theme!
-      \end{itemize}
-\end{itemize}
-\end{frame}
+      \node[box] (top) at (1.5, 0) {\textbf{15,659} CpG candidati};
 
-\begin{frame}[fragile]{Blocks}
-\begin{columns}
-\begin{column}{0.3\textwidth}
-\begin{block}{Standard Blocks}
-These have a color coordinated with the footline (and grey in the blue theme)
-\begin{verbatim}
-\begin{block}{title}
-content...
-\end{block}
-\end{verbatim}
-\end{block}
-\end{column}
-\begin{column}{0.7\textwidth}
-\begin{colorblock}[black]{sinteflightgreen}{Colour Blocks}
-Similar to the ones on the left, but you pick the colour. Text will be white by 
-default, but you may set it with an optional argument.
-\small
-\begin{verbatim}
-\begin{colorblock}[black]{sinteflightgreen}{title}
-content...
-\end{colorblock}
-\end{verbatim}
-\end{colorblock}
-The ``official'' colours of colour blocks are: \testcolor{sinteflilla}, 
-\testcolor{maincolor}, \testcolor{sintefdarkgreen}, and 
-\testcolor{sintefyellow}.
-\end{column}
+      \node[boxa] (pa) at (0.0,-1.0)
+        {\textbf{Pool A} --- island \\ {\scriptsize 1,937 CpG}};
+      \node[boxb] (pb) at (3.0,-1.0)
+        {\textbf{Pool B} --- resto \\ {\scriptsize 13,722 CpG}};
+
+      \draw[arr] (top) -- (pa);
+      \draw[arr] (top) -- (pb);
+
+      \node[boxa] (ra) at (0.0,-2.1)
+        {pruning $|r|\geq0.85$ \\ {\scriptsize 1,888 CpG}};
+      \node[boxb] (rb) at (3.0,-2.1)
+        {pruning $|r|\geq0.85$ \\ {\scriptsize 12,952 CpG}};
+
+      \draw[arr] (pa) -- (ra);
+      \draw[arr] (pb) -- (rb);
+
+      \node[final] (fin) at (1.5,-3.2) {\textbf{15,523} CpG};
+
+      \draw[arr] (ra) -- (fin);
+      \draw[arr] (rb) -- (fin);
+
+    \end{tikzpicture}
+
+    \vspace{2pt}
+    {\scriptsize Pool A: CpG ancorati a \textit{CpG islands} (biologicamente privilegiati)}
+  \end{column}
+
 \end{columns}
+
 \end{frame}
 
-\footlinecolor{}
-\begin{frame}[fragile]{Using Colours}
-\begin{itemize}[<alert@2>]
-  \item You can use colours with the
-        \verb|\textcolor{<color name>}{text}| command
-  \item The colours are defined in the \texttt{sintefcolor} package:
-  \begin{itemize}
-  \item Primary colours: \testcolor{maincolor} and its sidekick 
-  \testcolor{sintefgrey}
-  \item Three shades of green: \testcolor{sinteflightgreen}, 
-  \testcolor{sintefgreen}, \testcolor{sintefdarkgreen}
-  \item Additional colours: \testcolor{sintefyellow}, \testcolor{sintefred}, 
-        \testcolor{sinteflilla}
-        \begin{itemize}
-        \item These may be shaded---see the \verb|sintefcolor| documentation or 
-        the \hrefcol{https://sintef.sharepoint.com/sites/stottetjenester/%
-        kommunikasjon/grafisk-profil-new/Sider/default.aspx}{SINTEF profile 
-        manual}
-        \end{itemize}
-  \end{itemize}
-  \item Do \emph{not} abuse colours: \verb|\emph{}| is usually enough
-  \item Use \verb|\alert{}| to bring the \alert<2->{focus} somewhere
-  \item<2- | alert@2> If you highlight too much, you don't highlight at all!
-\end{itemize}
+\section{Dalla Feature Selection al Pannello Finale}
+
+\begin{frame}{Selezione del Pannello: MILP Knapsack}
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+{\tiny
+\begin{align*}
+\max_{x} \quad & \sum_{j \in \mathcal{J}} v_j x_j + \mu\, \hat{\Phi}(x, y) \\[4pt]
+\hat{\Phi}(x,y) = \quad & \frac{1}{K(2+\eta)}\!\left(\sum_{j:\,\text{prom}(j)} x_j + \sum_{j:\,\text{isl}(j)} x_j + \eta\sum_g y_g\right) \\[8pt]
+\text{s.t.} \quad 
+& \sum_{j} x_j = K \quad \cdot \quad x_i + x_j \leq 1 \;\forall\,(i,j):|r_{ij}|\geq 0.85 \\[4pt]
+& \sum_{j \in \mathcal{J}_c} x_j \leq \delta_{\text{chr}} \;\forall c \quad \cdot \quad \sum_{j \in \mathcal{J}_A} x_j \geq K_A \\[4pt]
+& x_j \leq y_{g(j)} \;\forall j \quad \cdot \quad \sum_{j:g(j)=g} x_j \leq \delta_{\max} \;\forall g \\[4pt]
+& \sum_g y_g \geq G_{\min} \quad \cdot \quad \sum_{j:\Delta M_j>0} x_j \geq h_{\min} \\[4pt]
+& x_j \in \{0,1\}, \quad y_g \in \{0,1\}
+\end{align*}
+}
+\end{minipage}
+\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Adding images}
-\begin{columns}
-\begin{column}{0.7\textwidth}
-Adding images works like in normal \LaTeX:
-\begin{block}{Code for Adding Images}
-\begin{verbatim}
-\usepackage{graphicx}
-% ...
-\includegraphics[width=\textwidth]
-{assets/logo_RGB}
-\end{verbatim}
-\end{block}
-\end{column}
-\begin{column}{0.3\textwidth}
-\includegraphics[width=\textwidth]
-{assets/logo_RGB}
-\end{column}
+\begin{frame}{Risultati: il Trade-off Esplicito}
+
+\begin{columns}[T]
+
+  % COLONNA SINISTRA — tabella risultati
+  \begin{column}{0.50\textwidth}
+    \vspace{6pt}
+
+    {\small
+    \begin{tabular}{lcc}
+      \hline
+      & \textbf{Greedy} & \textbf{Knapsack} \\
+      \hline
+      CpG selezionati  & 50     & 50 \\
+      AUC              & 0.982  & 0.971 \\
+      BACC             & 0.919  & 0.883 \\
+      COSMIC hits      & 0/50   & 15/50 \\
+      Fisher OR        & 1.00   & 175.08 \\
+      $p$-value        & 1.00   & $1.4\times10^{-27}$ \\
+      \hline
+    \end{tabular}
+    }
+
+    \vspace{10pt}
+
+    {\small
+    \textbf{Wilcoxon} knapsack vs greedy:\\
+    $p < 0.001$ — differenza statisticamente significativa
+    }
+
+  \end{column}
+
+  % COLONNA DESTRA — trade-off + geni
+  \begin{column}{0.46\textwidth}
+    \vspace{6pt}
+
+    \textbf{Il trade-off:}\\[4pt]
+    {\small $-1.1$ punti AUC in cambio di OR$=175$\\
+    L'interpretabilità biologica \textbf{non emerge}\\
+    dalla performance — è \textbf{imposta dai vincoli}}
+
+    \vspace{10pt}
+    \rule{\textwidth}{0.4pt}
+    \vspace{6pt}
+
+    \textbf{Geni chiave selezionati:}\\[6pt]
+
+    {\small
+    \begin{tabular}{ll}
+      \textbf{BRCA2} & 17q21 — DNA repair \\[3pt]
+      \textbf{TP53}  & 17p13 — oncosoppressore \\[3pt]
+      \textbf{ERBB2} & 17q12 — recettore HER2 \\
+    \end{tabular}
+    }
+
+    \vspace{6pt}
+    {\scriptsize Convergenza non supervisionata su chr17\\
+    KEGG Breast Cancer adj. $p = 2\times10^{-6}$}
+
+  \end{column}
+
 \end{columns}
+
 \end{frame}
 
-\begin{frame}[fragile]{Splitting in Columns}
-Splitting the page is easy and common;
-typically, one side has a picture and the other text:
-\begin{columns}
-\begin{column}{0.6\textwidth}
-This is the first column
-\end{column}
-\begin{column}{0.3\textwidth}
-And this the second
-\end{column}
+\section{Conclusioni e Sviluppi Futuri}
+
+\begin{frame}{Conclusioni}
+
+\begin{columns}[T]
+
+  \begin{column}{0.48\textwidth}
+    \vspace{4pt}
+    \textbf{Contributo principale:}\\[6pt]
+    {\small
+    Framework end-to-end riproducibile:\\
+    da \textbf{866k CpG} grezzi a un pannello di \textbf{50 CpG}\\
+    biologicamente vincolato
+    }
+
+    \vspace{10pt}
+
+    {\small
+    \begin{itemize}
+      \item[\textbf{--}] \textbf{NeuroCombat} risolve il batch effect preservando il segnale biologico
+      \item[\textbf{--}] Pipeline di feature selection \textbf{stabile, non ridondante, genomicamente diversificata}
+      \item[\textbf{--}] \textbf{MILP knapsack}: l'interpretabilità biologica è \textbf{imposta dai vincoli}, non emerge dalla performance
+    \end{itemize}
+    }
+
+    \vspace{8pt}
+    {\small
+    \textbf{Il framework è generale:} i vincoli sono\\
+    parametrizzabili per qualsiasi tipo tumorale
+    }
+
+  \end{column}
+
+  \begin{column}{0.48\textwidth}
+    \vspace{4pt}
+    \textbf{Risultato centrale:}\\[6pt]
+
+    {\small
+    \begin{tabular}{lcc}
+      \hline
+      & \textbf{Greedy} & \textbf{Knapsack} \\
+      \hline
+      AUC        & 0.982 & 0.971 \\
+      COSMIC hits & 0/50 & 15/50 \\
+      Fisher OR  & 1.00  & 175.08 \\
+      \hline
+    \end{tabular}
+    }
+
+    \vspace{10pt}
+
+    {\small
+    Geni selezionati: \textbf{TP53}, \textbf{RB1}, \textbf{BRCA2},\\
+    \textbf{NOTCH1}, \textbf{HDAC4}, \textbf{LIN28B}\\[4pt]
+    Pathway: KEGG Breast Cancer adj. $p=2\times10^{-6}$\\[4pt]
+    \textit{``Interpretability is not a by-product\\
+    of performance — it must be\\
+    structurally imposed.''}
+    }
+
+  \end{column}
+
 \end{columns}
-\begin{block}{Column Code}
-\begin{verbatim}
-\begin{columns}
-    \begin{column}{0.6\textwidth}
-        This is the first column
-    \end{column}
-    \begin{column}{0.3\textwidth}
-        And this the second
-    \end{column}
-    % There could be more!
+
+\end{frame}
+
+\begin{frame}{Limitazioni e Sviluppi Futuri}
+
+\begin{columns}[T]
+
+  \begin{column}{0.48\textwidth}
+    \vspace{4pt}
+    \textbf{Limitazioni:}\\[6pt]
+
+    {\small
+    \begin{itemize}
+      \item[\textbf{--}] Validazione su una sola piattaforma (EPIC v1.0)
+      \item[\textbf{--}] Campione moderato ($n=495$, Adjacent$=200$)
+      \item[\textbf{--}] Assenza di validazione su dataset esterno indipendente
+    \end{itemize}
+    }
+  \end{column}
+
+  \begin{column}{0.48\textwidth}
+    \vspace{4pt}
+    \textbf{Sviluppi futuri:}\\[6pt]
+
+    {\small
+    \begin{itemize}
+      \item[\textbf{--}] Validazione su coorti EPIC indipendenti e cross-platform (EPIC v2, $\sim$930k CpG)
+      \item[\textbf{--}] Analisi di sensitività sui parametri della pipeline (stabilità, $\tau_c$, $K$)
+      \item[\textbf{--}] Estensione del framework MILP ad altri tipi tumorali
+      \item[\textbf{--}] Integrazione di dati multi-omici per arricchire i vincoli biologici
+    \end{itemize}
+    }
+  \end{column}
+
 \end{columns}
-\end{verbatim}
-\end{block}
+
 \end{frame}
 
-\begin{chapter}[assets/background_negative]{}{Special Slides}
-\begin{itemize}
-\item Chapter slides
-\item Side-picture slides
-\end{itemize}
-\end{chapter}
 
-\footlinecolor{sintefred}
-\begin{frame}[fragile]{Chapter slides}
-\begin{itemize}
-\item Similar to \verb|frame|s, but with a few more options
-\item Opened with \verb|\begin{chapter}[<image>]{<color>}{<title>}|
-\item Image is optional, colour and title are mandatory
-\item There are seven ``official'' colours: \testcolor{maincolor}, 
-\testcolor{sintefdarkgreen}, \testcolor{sintefgreen}, 
-\testcolor{sinteflightgreen}, \testcolor{sintefred}, \testcolor{sintefyellow}, 
-\testcolor{sinteflilla}.
-      \begin{itemize}
-      \item Strangely enough, these are \emph{more} than the official colours 
-      for the footline.
-      \item It may still be a nice touch to change the footline of following 
-      slides to the same color of a chapter slide. Your choice.
-      \end{itemize}
-\item Otherwise, \verb|chapter| behaves just like \verb|frame|.
-\end{itemize}
-\end{frame}
-
-\begin{sidepic}{assets/background_alternative}{Side-Picture Slides}
-\begin{itemize}
-\item Opened with \texttt{$\backslash$begin\{sidepic\}\{<image>\}\{<title>\}}
-\item Otherwise, \texttt{sidepic} works just like \texttt{frame}
-\end{itemize}
-\end{sidepic}
-
-\footlinecolor{}
-\begin{frame}
-\frametitle{Fonts}
-\begin{itemize}
-\item The paramount task of fonts is being readable
-\item There are good ones...
-  \begin{itemize}
-  \item {\textrm{Use serif fonts only with high-definition projectors}}
-  \item {\textsf{Use sans-serif fonts otherwise (or if you simply prefer 
-them)}}
-  \end{itemize}
-\item ... and not so good ones:
-  \begin{itemize}
-  \item {\texttt{Never use monospace for normal text}}
-  \item {\frakfamily Gothic, calligraphic or weird fonts: should always: be
-  avoided}
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Look}
-\begin{itemize}
-\item To insert a final slide with the title and final thanks, use \verb|\backmatter|.
-      \begin{itemize}
-      \item The title also appears in footlines along with the author name, you can change this text with \verb|\footlinepayoff|
-      \item You can remove the title from the final slide with \verb|\backmatter[notitle]|
-      \end{itemize}
-\item The aspect ratio defaults to 16:9, and you should not change it to 4:3
-      for old projectors as it is inherently impossible to perfectly convert a 
-      16:9 presentation to 4:3 one; spacings \emph{will} break
-      \begin{itemize}
-      \item The \texttt{aspectratio} argument to the \texttt{beamer} class is
-            overridden by the SINTEF theme
-      \item If you \emph{really} know what you are doing, check the package
-            code and look for the \texttt{geometry} class.
-      \end{itemize}
-\end{itemize}
-\end{frame}
-
-\section{Summary}
-
-\begin{frame}
-\frametitle{Good Luck!}
-\begin{itemize}
-\item Enough for an introduction! You should know enough by now
-\item If you have corrections or suggestions,
-\hrefcol{mailto:mattia.ippoliti@studenti.polito.it}{send them to me!}
-\end{itemize}
-\end{frame}
 
 \backmatter
+
 \end{document}

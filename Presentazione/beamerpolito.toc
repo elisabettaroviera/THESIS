@@ -1,4 +1,4 @@
 \beamer@sectionintoc {1}{Dal Problema Biologico ai Dati}{2}{0}{1}
 \beamer@sectionintoc {2}{Dal Dato Grezzo alla Feature Selection}{5}{0}{2}
-\beamer@sectionintoc {3}{Personalization}{14}{0}{3}
-\beamer@sectionintoc {4}{Summary}{26}{0}{4}
+\beamer@sectionintoc {3}{Personalization}{15}{0}{3}
+\beamer@sectionintoc {4}{Summary}{27}{0}{4}

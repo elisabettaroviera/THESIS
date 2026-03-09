@@ -109,51 +109,26 @@
 \begin{frame}{Preprocessing: dal Rumore al Segnale}
 
 \begin{columns}[T]
-
-  % COLONNA SINISTRA — PCA pre
-
   \begin{column}{0.46\textwidth}
-
     \centering
-
-    \includegraphics[width=\textwidth]{images/plot_pca_precombat_by_dataset.pdf}
-
-    {\scriptsize \textit{Pre-ComBat — colorato per dataset}}\\
-
-    {\scriptsize Trustworthiness $(k=5)$ = \textbf{0.7308}}
-
+    \includegraphics[width=0.85\textwidth]{images/plot_pca_precombat_by_dataset.pdf}\\
+    {\scriptsize \textbf{PCA pre-ComBat}: Trustworthiness $(k{=}5)$ = \textbf{0.73}}
   \end{column}
-
-  % COLONNA DESTRA — PCA post
-
   \begin{column}{0.46\textwidth}
-
     \centering
-
-    \includegraphics[width=\textwidth]{images/plot_pca_postcombat_by_dataset.pdf}
-
-    {\scriptsize \textit{Post-ComBat — colorato per dataset}}\\
-
-    {\scriptsize Trustworthiness $(k=5)$ = \textbf{0.7094}}
-
+    \includegraphics[width=0.85\textwidth]{images/plot_pca_postcombat_by_dataset.pdf}\\
+    {\scriptsize \textbf{PCA post-ComBat}: Trustworthiness $(k{=}5)$ = \textbf{0.71}}
   \end{column}
-
 \end{columns}
-
-\vspace{4pt}
 
 \rule{\textwidth}{0.4pt}
 
-\vspace{2pt}
-
 {\small
-
 \begin{itemize}
-
-  \item[\textbf{--}] \textbf{$\sim$174k CpG rimossi} (cross-reattivi, SNP-prossimali) $\rightarrow$ 485k CpG comuni
-  \item[\textbf{--}] Trasformazione $|\beta - \mu_{\text{Normal}}|$: deviazione dal tessuto sano, coerente con la \textit{field cancerization}
-  \item[\textbf{--}] \textbf{ComBat} per batch correction — stimato sul train, applicato al test: zero data leakage
-
+  \item[\textbf{--}] Rimozione probe \textbf{cross-reattive e SNP-prossimali}
+  \item[\textbf{--}] Trasformazione $|\beta_{ij} - \bar{\beta}^{\text{Normal}}_j|$: amplifica la deviazione dal tessuto sano
+  \item[\textbf{--}] \textbf{NeuroCombat}: $Y_{ijd} = \alpha_j + X\beta_j + \gamma_{jd} + \delta_{jd}\varepsilon_{ijd}$\\[2pt]
+  {\scriptsize \hspace{2.2cm} $\gamma_{jd}$: batch additivo \quad $\delta_{jd}$: batch moltiplicativo — stimati via Bayes empirico}
 \end{itemize}
 }
 
@@ -163,51 +138,51 @@
 
 \begin{center}
 \begin{tikzpicture}[
-  node distance=0.38cm,
+  node distance=0.40cm,
   box/.style={
     rectangle, rounded corners=3pt,
-    minimum width=7.5cm, minimum height=0.62cm,
+    minimum width=8.5cm, minimum height=0.65cm,
     text centered, font=\small,
-    draw=maincolor!60, fill=maincolor!8
+    draw=maincolor!40, fill=maincolor!6
   },
   highlight/.style={
     rectangle, rounded corners=3pt,
-    minimum width=7.5cm, minimum height=0.62cm,
+    minimum width=8.5cm, minimum height=0.65cm,
     text centered, font=\small,
-    draw=maincolor, fill=maincolor!15, thick
+    draw=sinteflightgreen!80!black, fill=sinteflightgreen!30, thick
   },
   final/.style={
     rectangle, rounded corners=3pt,
-    minimum width=7.5cm, minimum height=0.62cm,
-    text centered, font=\small,
-    draw=maincolor, fill=maincolor!20, thick
+    minimum width=8.5cm, minimum height=0.65cm,
+    text centered, font=\small\bfseries,
+    draw=maincolor, fill=maincolor!25, thick
   },
   start/.style={
     rectangle, rounded corners=3pt,
-    minimum width=7.5cm, minimum height=0.62cm,
+    minimum width=8.5cm, minimum height=0.65cm,
     text centered, font=\small,
-    draw=gray!50, fill=gray!10
+    draw=gray!50, fill=gray!12
   },
-  arrow/.style={->, thick, color=gray!60}
+  arrow/.style={->, thick, color=gray!50}
 ]
 
 \node[start] (n0)
-  {\textbf{485,453} CpG — post-preprocessing};
+  {Post-preprocessing \quad $\rightarrow$ \quad \textbf{485,453} CpG};
 
 \node[box, below=of n0] (n1)
-  {Filtro variabilità (Edgar $\beta$-filter) \quad $\rightarrow$ \textbf{284,310} CpG};
+  {Filtro variabilità — Edgar $\beta$-filter \quad $\rightarrow$ \quad \textbf{284,310} CpG};
 
 \node[box, below=of n1] (n2)
-  {Filtro varianza M-space (data-driven) \quad $\rightarrow$ \textbf{270,094} CpG};
+  {Filtro varianza M-space — data-driven \quad $\rightarrow$ \quad \textbf{270,094} CpG};
 
 \node[highlight, below=of n2] (n3)
-  {Stability ranking (RSKF) \quad $\rightarrow$ \textbf{15,659} CpG};
+  {Stability ranking — RSKF \quad $\rightarrow$ \quad \textbf{15,659} CpG};
 
 \node[highlight, below=of n3] (n4)
-  {Correlation pruning (grafi) \quad $\rightarrow$ \textbf{15,523} CpG};
+  {Correlation pruning — grafi \quad $\rightarrow$ \quad \textbf{15,523} CpG};
 
 \node[final, below=of n4] (n5)
-  {Diversificazione genomica \quad $\rightarrow$ \textbf{5,000} CpG};
+  {Diversificazione genomica vincolata \quad $\rightarrow$ \quad \textbf{5,000} CpG};
 
 \draw[arrow] (n0) -- (n1);
 \draw[arrow] (n1) -- (n2);
@@ -215,15 +190,45 @@
 \draw[arrow] (n3) -- (n4);
 \draw[arrow] (n4) -- (n5);
 
-\node[font=\scriptsize\itshape, text=maincolor, right=0.2cm of n3]
-  {approfonditi};
-\node[font=\scriptsize\itshape, text=maincolor, right=0.2cm of n4]
-  {nelle slide successive};
-
 \end{tikzpicture}
 \end{center}
 
+\end{frame}   
+
+\begin{frame}{Stability Ranking}
+
+\begin{columns}[T]
+
+  \begin{column}{0.54\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/absDeltaM_vs_score.pdf}
+    {\scriptsize Candidati selezionati (verde) vs scartati (blu) — cutoff data-driven}
+  \end{column}
+
+  \begin{column}{0.42\textwidth}
+    \vspace{6pt}
+
+    \textbf{50 split} (K=5, R=10) per ogni CpG:\\[6pt]
+    $\text{stability} = \dfrac{\text{split concordanti}}{\text{split validi}} \geq 0.75$\\[10pt]
+
+    \rule{\textwidth}{0.4pt}\\[6pt]
+
+   Score composito ($0.8$ stat $+$ $0.2$ bio):\\[4pt]
+{\scriptsize $\text{score\_stat} = \tfrac{1}{2}\,\overline{\text{rank}}_p + \tfrac{1}{2}\,\overline{\text{rank}}_{|\Delta M|}$}\\[3pt]
+{\scriptsize $\text{score\_bio} = \tfrac{1}{2}(1-\text{IP}) + \tfrac{1}{2}(1-\text{bio\_weight})$}\\[3pt]
+{\scriptsize $\text{IP}_j = \dfrac{\Delta M(\text{Adj}-\text{Norm})_j}{\Delta M(\text{Tum}-\text{Norm})_j}$}
+
+    Cutoff $|\Delta M|$ \textbf{data-driven} (elbow cord)\\
+    $\rightarrow$ \textbf{15,659} CpG candidati
+
+  \end{column}
+
+\end{columns}
+
 \end{frame}
+
+
+
 
 \begin{frame}{Beamer vs. PowerPoint}
 Compared to PowerPoint, using \LaTeX\ is better because:

@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage{amsfonts,amsmath,oldgerm}  % rimosso enumitem
 \usetheme{sintef}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 
@@ -35,7 +37,7 @@
   % COLONNA SINISTRA — incidenza
   \begin{column}{0.48\textwidth}
     \centering
-    \includegraphics[height=3.4cm]{images/impatto.png}
+    \includegraphics[height=3.2cm]{images/impatto.png}
     
     {\scriptsize \textit{Tumore più comune per paese — GLOBOCAN 2022}}
     
@@ -50,7 +52,7 @@
   % COLONNA DESTRA — field cancerization
   \begin{column}{0.48\textwidth}
     \centering
-    \includegraphics[height=3.4cm]{images/field_cancerisation.png}
+    \includegraphics[height=3.2cm]{images/field_cancerisation.png}
     
     {\scriptsize \textit{Tessuto tumorale, adiacente e normale a confronto}}\\
     {\scriptsize \textit{Gadaleta et al., J Pathol, 2022}}
@@ -74,36 +76,152 @@
   % COLONNA SINISTRA — plot
   \begin{column}{0.58\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/GSE225845_03_beta_density_random_samples.pdf}
-    {\scriptsize \textit{Distribuzione media del $\beta$-value per classe — GSE225845}}
+    \includegraphics[width=\textwidth]{images/GSE225845_04_beta_density_group_mean.pdf}
+    {\scriptsize \textit{Distribuzione media del $\beta$-value per classe}}
   \end{column}
 
-  % COLONNA DESTRA — concetto + dati
-  \begin{column}{0.38\textwidth}
-    \vspace{6pt}
-    
-    \textbf{Sito CpG:} dinucleotide citosina--guanina.\\
-    La metilazione della citosina regola l'espressione genica.\\[8pt]
-    
-    \textbf{$\beta \in [0,1]$:} grado di metilazione per sito.\\[8pt]
+% COLONNA DESTRA — concetto + dati
+\begin{column}{0.38\textwidth}
+  \vspace{10pt}
 
-    \textbf{Le curve si sovrappongono} $\rightarrow$ il problema è sottile.\\[12pt]
+  Ogni sito \textbf{CpG} produce un valore $\beta \in [0,1]$\\[16pt]
 
-    \rule{\textwidth}{0.4pt}\\[6pt]
+  Le \textbf{distribuzioni globali} non separano le classi\\[20pt]
 
-    {\small
-    \textbf{Illumina EPIC:} $\sim$866k siti CpG\\[4pt]
-    \begin{tabular}{lcc}
-      & \textbf{Norm.} & \textbf{Adj.} \\
-      GSE225845 & 113 & 140 \\
-      GSE287331 & 182 & 60 \\
-      \textbf{Tot.} & \textbf{295} & \textbf{200} \\
-    \end{tabular}
-    }
+  \rule{\textwidth}{0.4pt}\\[8pt]
+
+  {\small
+    Piattaforma \textbf{Illumina EPIC}\\[6pt]
+    $\sim$\textbf{866k} siti CpG per campione\\[6pt]
+    \textbf{495} campioni totali:\\[3pt]
+    \textbf{295} Normali \quad \textbf{200} Adiacenti
+  }
+
+\end{column}
+
+
+\end{columns}
+
+\end{frame}
+
+\section{Dal Dato Grezzo alla Feature Selection}
+
+\begin{frame}{Preprocessing: dal Rumore al Segnale}
+
+\begin{columns}[T]
+
+  % COLONNA SINISTRA — PCA pre
+
+  \begin{column}{0.46\textwidth}
+
+    \centering
+
+    \includegraphics[width=\textwidth]{images/plot_pca_precombat_by_dataset.pdf}
+
+    {\scriptsize \textit{Pre-ComBat — colorato per dataset}}\\
+
+    {\scriptsize Trustworthiness $(k=5)$ = \textbf{0.7308}}
+
+  \end{column}
+
+  % COLONNA DESTRA — PCA post
+
+  \begin{column}{0.46\textwidth}
+
+    \centering
+
+    \includegraphics[width=\textwidth]{images/plot_pca_postcombat_by_dataset.pdf}
+
+    {\scriptsize \textit{Post-ComBat — colorato per dataset}}\\
+
+    {\scriptsize Trustworthiness $(k=5)$ = \textbf{0.7094}}
 
   \end{column}
 
 \end{columns}
+
+\vspace{4pt}
+
+\rule{\textwidth}{0.4pt}
+
+\vspace{2pt}
+
+{\small
+
+\begin{itemize}
+
+  \item[\textbf{--}] \textbf{$\sim$174k CpG rimossi} (cross-reattivi, SNP-prossimali) $\rightarrow$ 485k CpG comuni
+  \item[\textbf{--}] Trasformazione $|\beta - \mu_{\text{Normal}}|$: deviazione dal tessuto sano, coerente con la \textit{field cancerization}
+  \item[\textbf{--}] \textbf{ComBat} per batch correction — stimato sul train, applicato al test: zero data leakage
+
+\end{itemize}
+}
+
+\end{frame}
+
+\begin{frame}{Riduzione dello Spazio delle Feature}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.38cm,
+  box/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=7.5cm, minimum height=0.62cm,
+    text centered, font=\small,
+    draw=maincolor!60, fill=maincolor!8
+  },
+  highlight/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=7.5cm, minimum height=0.62cm,
+    text centered, font=\small,
+    draw=maincolor, fill=maincolor!15, thick
+  },
+  final/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=7.5cm, minimum height=0.62cm,
+    text centered, font=\small,
+    draw=maincolor, fill=maincolor!20, thick
+  },
+  start/.style={
+    rectangle, rounded corners=3pt,
+    minimum width=7.5cm, minimum height=0.62cm,
+    text centered, font=\small,
+    draw=gray!50, fill=gray!10
+  },
+  arrow/.style={->, thick, color=gray!60}
+]
+
+\node[start] (n0)
+  {\textbf{485,453} CpG — post-preprocessing};
+
+\node[box, below=of n0] (n1)
+  {Filtro variabilità (Edgar $\beta$-filter) \quad $\rightarrow$ \textbf{284,310} CpG};
+
+\node[box, below=of n1] (n2)
+  {Filtro varianza M-space (data-driven) \quad $\rightarrow$ \textbf{270,094} CpG};
+
+\node[highlight, below=of n2] (n3)
+  {Stability ranking (RSKF) \quad $\rightarrow$ \textbf{15,659} CpG};
+
+\node[highlight, below=of n3] (n4)
+  {Correlation pruning (grafi) \quad $\rightarrow$ \textbf{15,523} CpG};
+
+\node[final, below=of n4] (n5)
+  {Diversificazione genomica \quad $\rightarrow$ \textbf{5,000} CpG};
+
+\draw[arrow] (n0) -- (n1);
+\draw[arrow] (n1) -- (n2);
+\draw[arrow] (n2) -- (n3);
+\draw[arrow] (n3) -- (n4);
+\draw[arrow] (n4) -- (n5);
+
+\node[font=\scriptsize\itshape, text=maincolor, right=0.2cm of n3]
+  {approfonditi};
+\node[font=\scriptsize\itshape, text=maincolor, right=0.2cm of n4]
+  {nelle slide successive};
+
+\end{tikzpicture}
+\end{center}
 
 \end{frame}
 

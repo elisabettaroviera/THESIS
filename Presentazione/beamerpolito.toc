@@ -1,4 +1,4 @@
 \beamer@sectionintoc {1}{Dal Problema Biologico ai Dati}{2}{0}{1}
 \beamer@sectionintoc {2}{Dal Dato Grezzo alla Feature Selection}{5}{0}{2}
-\beamer@sectionintoc {3}{Dalla Feature Selection al Pannello Finale}{10}{0}{3}
+\beamer@sectionintoc {3}{Dal MILP alla Soluzione}{10}{0}{3}
 \beamer@sectionintoc {4}{Conclusioni e Sviluppi Futuri}{13}{0}{4}

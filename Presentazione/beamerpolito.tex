@@ -5,7 +5,8 @@
 \usetikzlibrary{positioning}
 
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
-
+\definecolor{azzurro}{HTML}{AED6F1}
+\definecolor{azzurroborder}{HTML}{2E86C1}
 \usefonttheme[onlymath]{serif}
 
 \titlebackground*{assets/background}
@@ -39,29 +40,29 @@
     \centering
     \includegraphics[height=3.2cm]{images/impatto.png}
     
-    {\scriptsize \textit{Tumore più comune per paese — GLOBOCAN 2022}}
+    {\scriptsize \textit{Tumore più comune per paese — GLOBOCAN 2022 \\ In rosa è riportato il tumore al seno}}
     
     \vspace{4pt}
     
     \begin{itemize}
-      \item[\textbf{--}] \textbf{2.3 milioni} di nuovi casi (2022)
-      \item[\textbf{--}] Tumore più diagnosticato in \textbf{82 su 185} paesi
+      \item[\textbf{--}] \textbf{2.3 milioni} di nuovi casi
+      \item[\textbf{--}] Più diagnosticato in \textbf{82 su 185} paesi
     \end{itemize}
+
   \end{column}
 
   % COLONNA DESTRA — field cancerization
   \begin{column}{0.48\textwidth}
     \centering
-    \includegraphics[height=3.2cm]{images/field_cancerisation.png}
+    \includegraphics[height=3.1cm]{images/field_cancerisation.png}
     
-    {\scriptsize \textit{Tessuto tumorale, adiacente e normale a confronto}}\\
-    {\scriptsize \textit{Gadaleta et al., J Pathol, 2022}}
+    {\scriptsize \textit{Tessuto tumorale, adiacente e normale a confronto — Gadaleta et al., J Pathol, 2022}}\\
     
     \vspace{4pt}
     
     \begin{itemize}
-      \item[\textbf{--}] Il tessuto adiacente porta \textbf{alterazioni epigenetiche precoci}
-      \item[\textbf{--}] Distinguere Normal da Adjacent ha \textbf{valore clinico reale}
+      \item[\textbf{--}] \textbf{Alterazioni epigenetiche precoci}
+      \item[\textbf{--}] \textbf{Distinguere} Normale da Adiacente ha 
     \end{itemize}
   \end{column}
 
@@ -69,38 +70,37 @@
 
 \end{frame}
 
-\begin{frame}{Il Dato: Metilazione del DNA e Siti CpG}
+\begin{frame}{Metilazione del DNA: Segnale Biologico e Statistico}
 
 \begin{columns}[T]
-
-  % COLONNA SINISTRA — plot
-  \begin{column}{0.58\textwidth}
+  \begin{column}{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/GSE225845_04_beta_density_group_mean.pdf}
-    {\scriptsize \textit{Distribuzione media del $\beta$-value per classe}}
+    \includegraphics[height=3.9cm]{images/beta_normal_vs_adjacent.pdf}\\[2pt]
+    {\scriptsize $\beta$-value $\in [0,1]$\\[2pt]}
   \end{column}
-
-% COLONNA DESTRA — concetto + dati
-\begin{column}{0.38\textwidth}
-  \vspace{10pt}
-
-  Ogni sito \textbf{CpG} produce un valore $\beta \in [0,1]$\\[16pt]
-
-  Le \textbf{distribuzioni globali} non separano le classi\\[20pt]
-
-  \rule{\textwidth}{0.4pt}\\[8pt]
-
-  {\small
-    Piattaforma \textbf{Illumina EPIC}\\[6pt]
-    $\sim$\textbf{866k} siti CpG per campione\\[6pt]
-    \textbf{495} campioni totali:\\[3pt]
-    \textbf{295} Normali \quad \textbf{200} Adiacenti
-  }
-
-\end{column}
-
-
+  \begin{column}{0.48\textwidth}
+    \centering
+    \includegraphics[height=3.9cm]{images/m_normal_vs_adjacent.pdf}\\[2pt]
+    {\scriptsize $M = \log_2\!\left(\frac{\beta}{1-\beta}\right) \in (-\infty, +\infty)$\\[2pt]}
+  \end{column}
 \end{columns}
+
+\vspace{12pt}
+
+{\small
+\begin{columns}[T]
+  \begin{column}{0.48\textwidth}
+    \textbf{Metilazione del DNA}\\[3pt]
+    \quad -- \textbf{Ipermetilazione} $\rightarrow$ gene silenziato\\
+    \quad -- \textbf{Ipometilazione} $\rightarrow$ gene attivo
+  \end{column}
+  \begin{column}{0.48\textwidth}
+    \textbf{Illumina EPIC} $\sim$\textbf{866k} siti CpG\\[3pt]
+    \quad -- \textbf{295} Normali\\
+    \quad -- \textbf{200} Adiacenti
+  \end{column}
+\end{columns}
+}
 
 \end{frame}
 
@@ -109,28 +109,25 @@
 \begin{frame}{Preprocessing: dal Rumore al Segnale}
 
 \begin{columns}[T]
-  \begin{column}{0.46\textwidth}
+  \begin{column}{0.32\textwidth}
     \centering
-    \includegraphics[width=0.85\textwidth]{images/plot_pca_precombat_by_dataset.pdf}\\
-    {\scriptsize \textbf{PCA pre-ComBat}: Trustworthiness $(k{=}5)$ = \textbf{0.73}}
+    \includegraphics[width=\textwidth]{images/plot_raw_beta.pdf}\\[2pt]
+    {\scriptsize $\beta$-value grezzo \\ Segnale biologico
+    e tecnico sovrapposti}
   \end{column}
-  \begin{column}{0.46\textwidth}
+  \begin{column}{0.32\textwidth}
     \centering
-    \includegraphics[width=0.85\textwidth]{images/plot_pca_postcombat_by_dataset.pdf}\\
-    {\scriptsize \textbf{PCA post-ComBat}: Trustworthiness $(k{=}5)$ = \textbf{0.71}}
+    \includegraphics[width=\textwidth]{images/plot_abs_deviation.pdf}\\[2pt]
+    {\scriptsize Post-$|\beta_{ij} - \bar{\beta}^{\text{Normal}}_j|$\\Deviazione
+    dal tessuto sano amplificata}
+  \end{column}
+  \begin{column}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/plot_postcombat.pdf}\\[2pt]
+    {\scriptsize Post-NeuroCombat\\
+    Batch rimosso, segnale preservato}
   \end{column}
 \end{columns}
-
-\rule{\textwidth}{0.4pt}
-
-{\small
-\begin{itemize}
-  \item[\textbf{--}] Rimozione probe \textbf{cross-reattive e SNP-prossimali}
-  \item[\textbf{--}] Trasformazione $|\beta_{ij} - \bar{\beta}^{\text{Normal}}_j|$: amplifica la deviazione dal tessuto sano
-  \item[\textbf{--}] \textbf{NeuroCombat}: $Y_{ijd} = \alpha_j + X\beta_j + \gamma_{jd} + \delta_{jd}\varepsilon_{ijd}$\\[2pt]
-  {\scriptsize \hspace{2.2cm} $\gamma_{jd}$: batch additivo \quad $\delta_{jd}$: batch moltiplicativo — stimati via Bayes empirico}
-\end{itemize}
-}
 
 \end{frame}
 
@@ -138,62 +135,40 @@
 
 \begin{center}
 \begin{tikzpicture}[
-  node distance=0.40cm,
-  box/.style={
+  node distance=0.30cm,
+  base/.style={
     rectangle, rounded corners=3pt,
-    minimum width=8.5cm, minimum height=0.65cm,
-    text centered, font=\small,
-    draw=maincolor!40, fill=maincolor!6
+    minimum width=8.8cm, minimum height=0.58cm,
+    text centered, font=\small, inner sep=4pt,
   },
-  highlight/.style={
-    rectangle, rounded corners=3pt,
-    minimum width=8.5cm, minimum height=0.65cm,
-    text centered, font=\small,
-    draw=sinteflightgreen!80!black, fill=sinteflightgreen!30, thick
-  },
-  final/.style={
-    rectangle, rounded corners=3pt,
-    minimum width=8.5cm, minimum height=0.65cm,
-    text centered, font=\small\bfseries,
-    draw=maincolor, fill=maincolor!25, thick
-  },
-  start/.style={
-    rectangle, rounded corners=3pt,
-    minimum width=8.5cm, minimum height=0.65cm,
-    text centered, font=\small,
-    draw=gray!50, fill=gray!12
-  },
-  arrow/.style={->, thick, color=gray!50}
+  n0style/.style={base, draw=purple!60!black, fill=purple!20},
+  n1style/.style={base, draw=violet!50, fill=violet!12},
+  filterstyle/.style={base, draw=red!40, fill=red!8},
+  hlstyle/.style={base, font=\small\bfseries, thick,
+    draw=azzurroborder, fill=azzurro},
+  arrow/.style={->, thick, color=gray!40, shorten >=1pt, shorten <=1pt}
 ]
 
-\node[start] (n0)
-  {Post-preprocessing \quad $\rightarrow$ \quad \textbf{485,453} CpG};
+\node[n0style]     (n0) {Feature Iniziali \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{866,552} CpG};
+\node[n1style,     below=of n0] (n1) {Pre-processing \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{485,453} CpG};
+\node[filterstyle, below=of n1] (n2) {Filtro variabilità \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{284,310} CpG};
+\node[filterstyle, below=of n2] (n3) {Filtro varianza \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{270,094} CpG};
+\node[hlstyle,     below=of n3] (n4) {Stability ranking \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{15,659} CpG};
+\node[hlstyle,     below=of n4] (n5) {Correlation pruning \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{15,523} CpG};
+\node[filterstyle, below=of n5] (n6) {Diversificazione genomica vincolata \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{5,000} CpG};
 
-\node[box, below=of n0] (n1)
-  {Filtro variabilità — Edgar $\beta$-filter \quad $\rightarrow$ \quad \textbf{284,310} CpG};
-
-\node[box, below=of n1] (n2)
-  {Filtro varianza M-space — data-driven \quad $\rightarrow$ \quad \textbf{270,094} CpG};
-
-\node[highlight, below=of n2] (n3)
-  {Stability ranking — RSKF \quad $\rightarrow$ \quad \textbf{15,659} CpG};
-
-\node[highlight, below=of n3] (n4)
-  {Correlation pruning — grafi \quad $\rightarrow$ \quad \textbf{15,523} CpG};
-
-\node[final, below=of n4] (n5)
-  {Diversificazione genomica vincolata \quad $\rightarrow$ \quad \textbf{5,000} CpG};
-
-\draw[arrow] (n0) -- (n1);
-\draw[arrow] (n1) -- (n2);
-\draw[arrow] (n2) -- (n3);
-\draw[arrow] (n3) -- (n4);
-\draw[arrow] (n4) -- (n5);
+\draw[arrow] (n0.south) -- (n1.north);
+\draw[arrow] (n1.south) -- (n2.north);
+\draw[arrow] (n2.south) -- (n3.north);
+\draw[arrow] (n3.south) -- (n4.north);
+\draw[arrow] (n4.south) -- (n5.north);
+\draw[arrow] (n5.south) -- (n6.north);
 
 \end{tikzpicture}
 \end{center}
 
-\end{frame}   
+\end{frame}
+
 
 \begin{frame}{Stability Ranking}
 
@@ -329,7 +304,7 @@
 
 \end{frame}
 
-\section{Dalla Feature Selection al Pannello Finale}
+\section{Dal MILP alla Soluzione}
 
 \begin{frame}{Selezione del Pannello: MILP Knapsack}
 \begin{center}

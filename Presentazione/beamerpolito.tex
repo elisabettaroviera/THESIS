@@ -3,6 +3,10 @@
 \usetheme{sintef}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usepackage{booktabs}
+\usepackage{appendixnumberbeamer}
+\usepackage{colortbl}
+\definecolor{darkblue}{RGB}{0,51,102}
 
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 \definecolor{azzurro}{HTML}{AED6F1}
@@ -141,11 +145,11 @@
     minimum width=8.8cm, minimum height=0.58cm,
     text centered, font=\small, inner sep=4pt,
   },
-  n0style/.style={base, draw=purple!60!black, fill=purple!20},
-  n1style/.style={base, draw=violet!50, fill=violet!12},
-  filterstyle/.style={base, draw=red!40, fill=red!8},
-  hlstyle/.style={base, font=\small\bfseries, thick,
-    draw=azzurroborder, fill=azzurro},
+  n0style/.style={base, draw=maincolor, fill=maincolor!20},
+  n1style/.style={base, draw=maincolor!40, fill=maincolor!6},
+  filterstyle/.style={base, draw=maincolor!60, fill=maincolor!10},
+  hlstyle/.style={base, font=\small\bfseries,
+    draw=sinteflightgreen!80!black, fill=sinteflightgreen!25},
   arrow/.style={->, thick, color=gray!40, shorten >=1pt, shorten <=1pt}
 ]
 
@@ -167,40 +171,80 @@
 \end{tikzpicture}
 \end{center}
 
-\end{frame}
+\vspace{0.4em}
+\hfill{\scriptsize $\rightarrow$ Step completi in appendice.}
 
+
+\end{frame}
 
 \begin{frame}{Stability Ranking}
 
-\begin{columns}[T]
+\begin{center}
+\begin{tikzpicture}[
+  top/.style={rectangle, rounded corners=3pt,
+    minimum width=8.0cm, minimum height=0.52cm,
+    align=center, font=\small,
+    draw=maincolor!40, fill=maincolor!6},
+  stat/.style={rectangle, rounded corners=3pt,
+    minimum width=3.8cm,
+    align=center, font=\scriptsize, inner sep=7pt,
+    draw=sinteflightgreen!80!black, fill=sinteflightgreen!25},
+  bio/.style={rectangle, rounded corners=3pt,
+    minimum width=3.8cm,
+    align=center, font=\scriptsize, inner sep=7pt,
+    draw=maincolor!60, fill=maincolor!10},
+  cutoff/.style={rectangle, rounded corners=3pt,
+    minimum width=8.0cm, minimum height=0.52cm,
+    align=center, font=\scriptsize,
+    draw=maincolor!40, fill=maincolor!6},
+  sel/.style={rectangle, rounded corners=3pt,
+    minimum width=8.0cm, minimum height=0.52cm,
+    align=center, font=\small\bfseries,
+    draw=maincolor, fill=maincolor!20},
+  arrow/.style={->, thick, color=gray!50,
+    shorten >=1pt, shorten <=1pt}
+]
 
-  \begin{column}{0.54\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/absDeltaM_vs_score.pdf}
-    {\scriptsize Candidati selezionati (verde) vs scartati (blu) — cutoff data-driven}
-  \end{column}
+\node[top]    (input)  at (0, 0.0)
+  {\textbf{270,094} CpG candidati};
 
-  \begin{column}{0.42\textwidth}
-    \vspace{6pt}
+\node[top]    (score)  at (0,-0.85)
+  {$\text{score} = \tfrac{1}{2}\;\text{score\_stat} + \tfrac{1}{2}\;\text{score\_bio}$};
 
-    \textbf{50 split} (K=5, R=10) per ogni CpG:\\[6pt]
-    $\text{stability} = \dfrac{\text{split concordanti}}{\text{split validi}} \geq 0.75$\\[10pt]
+\node[stat] (stat0) at (-2.8,-3.1)
+  {$\text{score\_stat}_i = \tfrac{1}{2}\,\overline{\text{rank}}_{p,i}
+    + \tfrac{1}{2}\,\overline{\text{rank}}_{|\Delta M|,i}$\\[6pt]
+   $\overline{\text{rank}}_{p,i} = 
+     p\text{-value}_{i}$\\[5pt]
+   $\overline{\text{rank}}_{|\Delta M|,i} = 
+     |\bar{M}^i_{\text{ad}} - \bar{M}^i_{\text{no}}|$\\[3pt]
+};
 
-    \rule{\textwidth}{0.4pt}\\[6pt]
+\node[bio] (bio0) at (2.8,-3.1)
+  {$\text{score\_bio}_i = \tfrac{1}{2}(1\!-\!\text{IP}_i)
+    + \tfrac{1}{2}(1\!-\!\text{bio\_w}_i)$\\[6pt]
+   $\text{IP}_i = \dfrac{\bar{M}^i_{\text{ad}} - \bar{M}^i_{\text{no}}}%
+                        {\bar{M}^i_{\text{tum}} - \bar{M}^i_{\text{no}}}$\\[5pt]
+   bio\_w$_i$: posizione genomica};
+\node[cutoff] (cut)    at (0,-5.2)
+  {stabilità del segno \textbf{e}
+   soglia data-driven su $|\Delta M|$};
 
-   Score composito ($0.8$ stat $+$ $0.2$ bio):\\[4pt]
-{\scriptsize $\text{score\_stat} = \tfrac{1}{2}\,\overline{\text{rank}}_p + \tfrac{1}{2}\,\overline{\text{rank}}_{|\Delta M|}$}\\[3pt]
-{\scriptsize $\text{score\_bio} = \tfrac{1}{2}(1-\text{IP}) + \tfrac{1}{2}(1-\text{bio\_weight})$}\\[3pt]
-{\scriptsize $\text{IP}_j = \dfrac{\Delta M(\text{Adj}-\text{Norm})_j}{\Delta M(\text{Tum}-\text{Norm})_j}$}
+\node[sel]    (output) at (0,-6.0)
+  {\textbf{15,659} CpG — ordinati per score};
 
-    Cutoff $|\Delta M|$ \textbf{data-driven} (elbow cord)\\
-    $\rightarrow$ \textbf{15,659} CpG candidati
+\draw[arrow] (input)       -- (score);
+\draw[arrow] (score.south) -- ++(0,-0.25) -| (stat0.north);
+\draw[arrow] (score.south) -- ++(0,-0.25) -| (bio0.north);
+\draw[arrow] (stat0.south) -- ++(0,-0.25) -| (cut.north);
+\draw[arrow] (bio0.south)  -- ++(0,-0.25) -| (cut.north);
+\draw[arrow] (cut)         -- (output);
 
-  \end{column}
-
-\end{columns}
+\end{tikzpicture}
+\end{center}
 
 \end{frame}
+
 
 \begin{frame}{Correlation Pruning tramite Grafi}
 
@@ -227,23 +271,28 @@
       \draw[edge] (a2)--(a4);
       \draw[edge] (a3)--(a4);
 
-      \node[rep]  (b1) at (3.0, 0.3) {};
-      \node[cpg]  (b2) at (3.9, 0.3) {};
+      \node[rep]  (b1) at (3.0, 0.4) {};
+      \node[cpg]  (b2) at (3.9, 0.4) {};
       \draw[edge] (b1)--(b2);
 
-      \node[rep]  (c1) at (3.0,-0.4) {};
+      \node[rep]  (c1) at (3.45,-0.4) {};
 
-      \node[font=\scriptsize, text=maincolor] at (0.9,-0.9) {comp. 1};
-      \node[font=\scriptsize, text=maincolor] at (3.45,-0.9) {comp. 2,3};
+      \node[font=\scriptsize, text=maincolor] at (0.9,-0.9)
+        {componente 1};
+      \node[font=\scriptsize, text=maincolor, align=center] at (3.45, 0.9)
+        {componente 2};
+      \node[font=\scriptsize, text=maincolor, align=center] at (3.45,-0.9)
+        {componente 3};
 
-      \draw[arr] (1.8,-1.1) -- (1.8,-1.6);
+      \draw[arr] (1.8,-1.3) -- (1.8,-1.8);
 
-      \node[rep] (r1) at (0.6,-2.0) {};
-      \node[rep] (r2) at (1.8,-2.0) {};
-      \node[rep] (r3) at (3.0,-2.0) {};
+      \node[rep] (r1) at (0.6,-2.2) {};
+      \node[rep] (r2) at (1.8,-2.2) {};
+      \node[rep] (r3) at (3.0,-2.2) {};
 
-      \node[font=\scriptsize] at (1.8,-2.5)
-        {1 rappresentante per componente};
+      \node[font=\scriptsize, align=center] at (1.8,-2.8)
+        {1 rappresentante per componente\\
+         {\tiny (score minimo nel cluster)}};
 
     \end{tikzpicture}
 
@@ -297,160 +346,194 @@
     \end{tikzpicture}
 
     \vspace{2pt}
-    {\scriptsize Pool A: CpG ancorati a \textit{CpG islands} (biologicamente privilegiati)}
+    {\scriptsize Pool A: CpG ancorati a \textit{CpG islands} (biologicamente privilegiati)\\
+    Pool B: restanti CpG candidati}
   \end{column}
 
 \end{columns}
 
 \end{frame}
 
+
 \section{Dal MILP alla Soluzione}
 
-\begin{frame}{Selezione del Pannello: MILP Knapsack}
-\begin{center}
-\begin{minipage}{0.85\textwidth}
-{\tiny
-\begin{align*}
-\max_{x} \quad & \sum_{j \in \mathcal{J}} v_j x_j + \mu\, \hat{\Phi}(x, y) \\[4pt]
-\hat{\Phi}(x,y) = \quad & \frac{1}{K(2+\eta)}\!\left(\sum_{j:\,\text{prom}(j)} x_j + \sum_{j:\,\text{isl}(j)} x_j + \eta\sum_g y_g\right) \\[8pt]
-\text{s.t.} \quad 
-& \sum_{j} x_j = K \quad \cdot \quad x_i + x_j \leq 1 \;\forall\,(i,j):|r_{ij}|\geq 0.85 \\[4pt]
-& \sum_{j \in \mathcal{J}_c} x_j \leq \delta_{\text{chr}} \;\forall c \quad \cdot \quad \sum_{j \in \mathcal{J}_A} x_j \geq K_A \\[4pt]
-& x_j \leq y_{g(j)} \;\forall j \quad \cdot \quad \sum_{j:g(j)=g} x_j \leq \delta_{\max} \;\forall g \\[4pt]
-& \sum_g y_g \geq G_{\min} \quad \cdot \quad \sum_{j:\Delta M_j>0} x_j \geq h_{\min} \\[4pt]
-& x_j \in \{0,1\}, \quad y_g \in \{0,1\}
-\end{align*}
+
+\begin{frame}{Selezione delle CpG Finali: MILP Knapsack}
+{\scriptsize
+\begin{alignat*}{3}
+\max_{x} \quad
+& \sum_{j \in \mathcal{J}} v_j\, x_j \;+\; \mu \cdot \hat{\Phi}(x, y) & & \\[6pt]
+\text{s.t.} \quad
+& \sum_{j \in \mathcal{J}} x_j = 50
+  &\qquad& \textbf{(Cardinalità)} \\[4pt]
+& \sum_{j \in \mathcal{J}_c} x_j \leq 10 \quad \forall\, c
+  &\qquad& \textbf{(Bilanciamento cromosomico)} \\[4pt]
+& \sum_{j:\,g(j)=g} x_j \leq 2 \quad \forall\, g
+  &\qquad& \textbf{(Max CpG per gene)} \\[4pt]
+& x_j \leq y_{g(j)} \leq \textstyle\sum_{j':\,g(j')=g} x_{j'} \quad \forall\, j : g(j) \neq \emptyset
+  &\qquad& \textbf{(Gene linking)} \\[4pt]
+& x_i + x_j \leq 1 \quad \forall\,(i,j):|r_{ij}|\geq 0.85
+  &\qquad& \textbf{(Non-ridondanza)} \\[4pt]
+& x_j,\, y_g \in \{0,1\}
+\end{alignat*}
 }
-\end{minipage}
-\end{center}
+
+\hfill{\scriptsize $\rightarrow$ Formulazione completa in appendice.}
+
 \end{frame}
 
 \begin{frame}{Risultati: il Trade-off Esplicito}
 
-\begin{columns}[T]
+\begin{columns}[c, onlytextwidth]
 
-  % COLONNA SINISTRA — tabella risultati
-  \begin{column}{0.50\textwidth}
-    \vspace{6pt}
+% ---------------- LEFT ----------------
+\column{0.54\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/GSE225845_boundary_pca_prob_calibrated.pdf}
 
-    {\small
-    \begin{tabular}{lcc}
-      \hline
-      & \textbf{Greedy} & \textbf{Knapsack} \\
-      \hline
-      CpG selezionati  & 50     & 50 \\
-      AUC              & 0.982  & 0.971 \\
-      BACC             & 0.919  & 0.883 \\
-      COSMIC hits      & 0/50   & 15/50 \\
-      Fisher OR        & 1.00   & 175.08 \\
-      $p$-value        & 1.00   & $1.4\times10^{-27}$ \\
-      \hline
-    \end{tabular}
-    }
+{\small Decision boundary nello spazio PCA dei 50 CpG selezionati}
 
-    \vspace{10pt}
+% ---------------- RIGHT ----------------
+\column{0.46\textwidth}
+\centering
 
-    {\small
-    \textbf{Wilcoxon} knapsack vs greedy:\\
-    $p < 0.001$ — differenza statisticamente significativa
-    }
+\vfill
 
-  \end{column}
+{\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Approccio} & \textbf{AUC} & \textbf{BACC} & \textbf{COSMIC} \\
+\midrule
+Baseline           & 0.952 & 0.90 & 1  \\
+Greedy top-50      & 0.982 & 0.92 & 0  \\
+\rowcolor{blue!10}
+MILP knapsack      & 0.974 & 0.91 & 13 \\
+\bottomrule
+\end{tabular}
+}
 
-  % COLONNA DESTRA — trade-off + geni
-  \begin{column}{0.46\textwidth}
-    \vspace{6pt}
+\vspace{6pt}
 
-    \textbf{Il trade-off:}\\[4pt]
-    {\small $-1.1$ punti AUC in cambio di OR$=175$\\
-    L'interpretabilità biologica \textbf{non emerge}\\
-    dalla performance — è \textbf{imposta dai vincoli}}
+{\scriptsize
+\textit{COSMIC}: geni nel Cancer Gene Census\\
+con annotazione breast cancer
+}
 
-    \vspace{10pt}
-    \rule{\textwidth}{0.4pt}
-    \vspace{6pt}
-
-    \textbf{Geni chiave selezionati:}\\[6pt]
-
-    {\small
-    \begin{tabular}{ll}
-      \textbf{BRCA2} & 17q21 — DNA repair \\[3pt]
-      \textbf{TP53}  & 17p13 — oncosoppressore \\[3pt]
-      \textbf{ERBB2} & 17q12 — recettore HER2 \\
-    \end{tabular}
-    }
-
-    \vspace{6pt}
-    {\scriptsize Convergenza non supervisionata su chr17\\
-    KEGG Breast Cancer adj. $p = 2\times10^{-6}$}
-
-  \end{column}
+\vfill
 
 \end{columns}
 
 \end{frame}
 
-\section{Conclusioni e Sviluppi Futuri}
+
+\begin{frame}{Interpretabilità Biologica}
+
+\begin{columns}[t, onlytextwidth]
+
+\column{0.48\textwidth}
+
+% RB1
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\blacksquare$}}\;
+\textbf{RB1} \hfill {\scriptsize \textit{Tumor suppressor}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacksquare$}}
+  \item \textbf{Ruolo:} regolatore principale del ciclo cellulare
+  \item \textbf{Rilevanza:} ipometilazione del promotore tra i marcatori più consolidati di field cancerization mammaria
+\end{itemize}
+}
+\end{beamercolorbox}
+
+\vspace{0.5em}
+
+% TBX3
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\blacklozenge$}}\;
+\textbf{TBX3} \hfill {\scriptsize \textit{Fattore di trascrizione}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacklozenge$}}
+  \item \textbf{Ruolo:} regola l'identità cellulare mammaria
+  \item \textbf{Rilevanza:} alterazione epigenetica associata a perdita di differenziazione nel carcinoma luminale
+\end{itemize}
+}
+\end{beamercolorbox}
+
+\column{0.48\textwidth}
+
+% NOTCH1
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\bullet$}}\;
+\textbf{NOTCH1} \hfill {\scriptsize \textit{Segnalazione}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\bullet$}}
+  \item \textbf{Ruolo:} pathway Notch, mantenimento cellule staminali tumorali
+  \item \textbf{Rilevanza:} promuove progressione verso fenotipi invasivi
+\end{itemize}
+}
+\end{beamercolorbox}
+
+\vspace{0.5em}
+
+% AKT1
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\blacktriangle$}}\;
+\textbf{AKT1} \hfill {\scriptsize \textit{Segnalazione}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacktriangle$}}
+  \item \textbf{Ruolo:} kinasi centrale del pathway PI3K/AKT/mTOR
+  \item \textbf{Rilevanza:} tra i più alterati nel carcinoma mammario, bersaglio di terapie mirate approvate
+\end{itemize}
+}
+\end{beamercolorbox}
+
+\end{columns}
+
+\vspace{0.4em}
+\hfill{\scriptsize $\rightarrow$ Lista completa in appendice.}
+
+\end{frame}
+
+\section{Dalle Conclusioni agli Sviluppi Futuri}
 
 \begin{frame}{Conclusioni}
 
-\begin{columns}[T]
+\vspace{0.5em}
+\centering
+{\small Il pannello da 50 CpG dimostra che \textbf{performance e interpretabilità
+biologica non sono in conflitto}.}
 
-  \begin{column}{0.48\textwidth}
-    \vspace{4pt}
-    \textbf{Contributo principale:}\\[6pt]
-    {\small
-    Framework end-to-end riproducibile:\\
-    da \textbf{866k CpG} grezzi a un pannello di \textbf{50 CpG}\\
-    biologicamente vincolato
-    }
+\vspace{1em}
 
-    \vspace{10pt}
+\begin{columns}[t, onlytextwidth]
 
-    {\small
-    \begin{itemize}
-      \item[\textbf{--}] \textbf{NeuroCombat} risolve il batch effect preservando il segnale biologico
-      \item[\textbf{--}] Pipeline di feature selection \textbf{stabile, non ridondante, genomicamente diversificata}
-      \item[\textbf{--}] \textbf{MILP knapsack}: l'interpretabilità biologica è \textbf{imposta dai vincoli}, non emerge dalla performance
-    \end{itemize}
-    }
+\column{0.23\textwidth}
+\centering
+{\Large \textcolor{darkblue}{$\blacksquare$}}\\[4pt]
+{\footnotesize \textbf{Feature\\Selection}}\\[4pt]
+{\scriptsize 866k $\rightarrow$ 5.000 CpG stabili e non ridondanti}
 
-    \vspace{8pt}
-    {\small
-    \textbf{Il framework è generale:} i vincoli sono\\
-    parametrizzabili per qualsiasi tipo tumorale
-    }
+\column{0.23\textwidth}
+\centering
+{\Large \textcolor{darkblue}{$\blacklozenge$}}\\[4pt]
+{\footnotesize \textbf{MILP\\Knapsack}}\\[4pt]
+{\scriptsize Biologia come vincolo strutturale}
 
-  \end{column}
+\column{0.23\textwidth}
+\centering
+{\Large \textcolor{darkblue}{$\blacktriangle$}}\\[4pt]
+{\footnotesize \textbf{Pannello\\50 CpG}}\\[4pt]
+{\scriptsize AUC 0.974 \\ 13 geni COSMIC breast}
 
-  \begin{column}{0.48\textwidth}
-    \vspace{4pt}
-    \textbf{Risultato centrale:}\\[6pt]
-
-    {\small
-    \begin{tabular}{lcc}
-      \hline
-      & \textbf{Greedy} & \textbf{Knapsack} \\
-      \hline
-      AUC        & 0.982 & 0.971 \\
-      COSMIC hits & 0/50 & 15/50 \\
-      Fisher OR  & 1.00  & 175.08 \\
-      \hline
-    \end{tabular}
-    }
-
-    \vspace{10pt}
-
-    {\small
-    Geni selezionati: \textbf{TP53}, \textbf{RB1}, \textbf{BRCA2},\\
-    \textbf{NOTCH1}, \textbf{HDAC4}, \textbf{LIN28B}\\[4pt]
-    Pathway: KEGG Breast Cancer adj. $p=2\times10^{-6}$\\[4pt]
-    \textit{``Interpretability is not a by-product\\
-    of performance — it must be\\
-    structurally imposed.''}
-    }
-
-  \end{column}
+\column{0.23\textwidth}
+\centering
+{\Large \textcolor{darkblue}{$\bullet$}}\\[4pt]
+{\footnotesize \textbf{Validazione\\Multi-dataset}}\\[4pt]
+{\scriptsize Segnale riproducibile su due coorti EPIC indipendenti}
 
 \end{columns}
 
@@ -458,34 +541,33 @@
 
 \begin{frame}{Limitazioni e Sviluppi Futuri}
 
-\begin{columns}[T]
+\vspace{1em}
 
-  \begin{column}{0.48\textwidth}
-    \vspace{4pt}
-    \textbf{Limitazioni:}\\[6pt]
+\begin{columns}[t, onlytextwidth]
 
-    {\small
-    \begin{itemize}
-      \item[\textbf{--}] Validazione su una sola piattaforma (EPIC v1.0)
-      \item[\textbf{--}] Campione moderato ($n=495$, Adjacent$=200$)
-      \item[\textbf{--}] Assenza di validazione su dataset esterno indipendente
-    \end{itemize}
-    }
-  \end{column}
+\column{0.48\textwidth}
+\centering
+{\large \textcolor{darkblue}{$\triangledown$}}\\[4pt]
+{\footnotesize \textbf{Limitazioni}}\\[0.8em]
 
-  \begin{column}{0.48\textwidth}
-    \vspace{4pt}
-    \textbf{Sviluppi futuri:}\\[6pt]
+{\scriptsize
+\textbf{Validazione esterna}\\
+Nessun dataset EPIC indipendente dalla pipeline.\\[0.6em]
+\textbf{Cross-piattaforma}\\
+Trasferibilità a EPIC v2 e HM450K da verificare.
+}
 
-    {\small
-    \begin{itemize}
-      \item[\textbf{--}] Validazione su coorti EPIC indipendenti e cross-platform (EPIC v2, $\sim$930k CpG)
-      \item[\textbf{--}] Analisi di sensitività sui parametri della pipeline (stabilità, $\tau_c$, $K$)
-      \item[\textbf{--}] Estensione del framework MILP ad altri tipi tumorali
-      \item[\textbf{--}] Integrazione di dati multi-omici per arricchire i vincoli biologici
-    \end{itemize}
-    }
-  \end{column}
+\column{0.48\textwidth}
+\centering
+{\large \textcolor{darkblue}{$\blacktriangleright$}}\\[4pt]
+{\footnotesize \textbf{Sviluppi Futuri}}\\[0.8em]
+
+{\scriptsize
+\textbf{Altri tumori}\\
+Framework MILP parametrizzabile per colon, ovaio.\\[0.6em]
+\textbf{Integrazione multi-omica}\\
+RNA-seq per confermare il ruolo funzionale delle CpG.
+}
 
 \end{columns}
 
@@ -493,6 +575,158 @@
 
 
 
+
 \backmatter
+
+\appendix
+
+\begin{frame}{Appendice — NeuroCombat}
+
+\end{frame}
+
+\begin{frame}{Appendice — Filtro di Variabilità (Edgar)}
+
+\begin{columns}[c, onlytextwidth]
+
+% ---- LEFT: formula ----
+\column{0.42\textwidth}
+
+{\footnotesize \textbf{Statistica di variabilità}}\\[0.6em]
+
+{\small
+\[
+r_{\beta,j} = Q_{0.90}(\beta_j \mid \mathcal{D}_{\text{train}}) - Q_{0.10}(\beta_j \mid \mathcal{D}_{\text{train}})
+\]
+}
+
+\vspace{0.6em}
+{\scriptsize
+Un CpG è ritenuto se e solo se:
+\[
+r_{\beta,j} \geq \tau, \quad \tau = 0.05
+\]
+
+\vspace{0.4em}
+\begin{itemize}\setlength\itemsep{0.3em}
+  \item \textbf{Filtro non supervisionato} — calcolato senza etichette di classe
+  \item \textbf{Stimato solo su train} — applicato identicamente al test
+  \item \textbf{Risultato:} 866k $\rightarrow$ $\sim$285k--485k CpG a seconda della coorte
+\end{itemize}
+}
+
+% ---- RIGHT: immagine ----
+\column{0.55\textwidth}
+\includegraphics[width=\linewidth]{images/GSE287331_edgar_variability.pdf}
+
+\end{columns}
+
+\end{frame}
+\begin{frame}{Appendice — Filtro Varianza in M-space}
+
+\begin{columns}[c, onlytextwidth]
+
+% ---- LEFT: formula ----
+\column{0.42\textwidth}
+
+{\footnotesize \textbf{Residual variance trimming}}\\[0.6em]
+
+{\small
+\[
+\text{SD}_j = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\bigl(M_{ij} - \bar{M}_j\bigr)^2}
+\]
+}
+
+\vspace{0.6em}
+{\scriptsize
+Un CpG è rimosso se:
+\[
+\text{SD}_j < Q_{0.02}\!\left(\text{SD} \mid \mathcal{D}_{\text{train}}\right)
+\]
+
+\vspace{0.4em}
+\begin{itemize}\setlength\itemsep{0.3em}
+  \item \textbf{Motivazione} — la mappa logit è non lineare: loci con $r_{\beta,j}$ basso ma concentrati ai bordi di $[0,1]$ producono M-value quasi costanti
+  \item \textbf{Soglia data-driven} — bottom 2\% della distribuzione SD(M) sul train
+  \item \textbf{Risultato:} rimozione di $\sim$3k--8k CpG residui a seconda della coorte
+\end{itemize}
+}
+
+% ---- RIGHT: immagine ----
+\column{0.55\textwidth}
+\includegraphics[width=\linewidth]{images/GSE287331_sdM_variance_filter.pdf}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Appendice — Diversificazione genomica vincolata}
+
+\end{frame}
+
+\begin{frame}{Appendice — Formulazione completa MILP}
+{\scriptsize
+\begin{alignat*}{3}
+\max_{x} \quad
+& \underbrace{
+    \sum_{j \in \mathcal{J}}
+    \left(
+      \underbrace{w_{\text{coef}}\,\tilde{c}_j}_{\text{coeff. SVM}}
+      + \underbrace{w_{\Delta M}\,\tilde{d}_j}_{|\Delta M|}
+      + \underbrace{w_{\sigma}\,\tilde{s}_j}_{\text{stabilità}}
+      + \underbrace{w_{\text{COSMIC}}\,\mathbf{1}_{j \in \text{CGC}}}_{\text{gene noto}}
+    \right) x_j
+  }_{\text{score composito}}
+  \;+\;
+  \mu \cdot \underbrace{\frac{1}{K(2+\eta)}\!\left(
+    \sum_{j:\,\text{prom}(j)} x_j
+    + \sum_{j:\,\text{isl}(j)} x_j
+    + \eta\sum_g y_g
+  \right)}_{\hat{\Phi}(x,y)} & & \\[8pt]
+\text{s.t.} \quad
+& \sum_{j \in \mathcal{J}} x_j = 50
+  \\[4pt]
+& \sum_{j \in \mathcal{J}_c} x_j \leq 10 \quad \forall\, c
+  \\[4pt]
+& \sum_{j:\,g(j)=g} x_j \leq 2 \quad \forall\, g
+  \\[4pt]
+& x_j \leq y_{g(j)} \leq \textstyle\sum_{j':\,g(j')=g} x_{j'} \quad \forall\, j : g(j) \neq \emptyset
+  \\[4pt]
+& x_i + x_j \leq 1 \quad \forall\,(i,j):|r_{ij}|\geq 0.85
+  \\[4pt]
+& x_j,\, y_g \in \{0,1\}
+\end{alignat*}
+}
+\end{frame}
+
+\begin{frame}{Appendice — Estensione a una diversa piattaforma}
+
+\end{frame}
+
+\begin{frame}{Appendice — Tutti i Geni COSMIC nel Pannello}
+
+\vspace{0.5em}
+\centering
+{\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+\toprule
+\textbf{Gene} & \textbf{Categoria} & \textbf{Gene} & \textbf{Categoria} \\
+\midrule
+RB1     & Tumor suppressor        & AKT1   & Segnalazione \\
+TBX3    & Fattore di trascrizione & NOTCH1 & Segnalazione \\
+NCOR1   & Regolatore cromatina    & MAP2K4 & Segnalazione \\
+SMARCD1 & Regolatore cromatina    & FGF8   & Fattore di crescita \\
+SALL4   & Fattore di trascrizione & WNT5A  & Segnalazione \\
+PLEC    & Strutturale             & TYRO3  & Recettore tirosina kinasi \\
+FBLN2   & Matrice extracellulare  &        & \\
+\bottomrule
+\end{tabular}
+}
+
+\vspace{0.5em}
+{\scriptsize Fisher exact test (one-sided): arricchimento significativo
+rispetto al background EPIC ($p < 0.001$).}
+
+\end{frame}
 
 \end{document}

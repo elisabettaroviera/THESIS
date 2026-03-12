@@ -66,7 +66,7 @@
     
     \begin{itemize}
       \item[\textbf{--}] \textbf{Alterazioni epigenetiche precoci}
-      \item[\textbf{--}] \textbf{Distinguere} Normale da Adiacente ha 
+      \item[\textbf{--}] \textbf{Distinguere} Normale da Adiacente  
     \end{itemize}
   \end{column}
 
@@ -389,7 +389,7 @@
 % ---------------- LEFT ----------------
 \column{0.54\textwidth}
 \centering
-\includegraphics[width=\linewidth]{images/GSE225845_boundary_pca_prob_calibrated.pdf}
+\includegraphics[width=\linewidth]{images/multicohort_boundary_pca_prob_calibrated.pdf}
 
 {\small Decision boundary nello spazio PCA dei 50 CpG selezionati}
 
@@ -441,42 +441,14 @@ con annotazione breast cancer
 \begin{itemize}
   \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacksquare$}}
   \item \textbf{Ruolo:} regolatore principale del ciclo cellulare
-  \item \textbf{Rilevanza:} ipometilazione del promotore tra i marcatori più consolidati di field cancerization mammaria
+  \item \textbf{Rilevanza:} tra i marcatori più consolidati di field cancerization mammaria
 \end{itemize}
 }
 \end{beamercolorbox}
 
 \vspace{0.5em}
 
-% TBX3
-\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
-{\large \textcolor{darkblue}{$\blacklozenge$}}\;
-\textbf{TBX3} \hfill {\scriptsize \textit{Fattore di trascrizione}}\\[3pt]
-{\scriptsize
-\begin{itemize}
-  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacklozenge$}}
-  \item \textbf{Ruolo:} regola l'identità cellulare mammaria
-  \item \textbf{Rilevanza:} alterazione epigenetica associata a perdita di differenziazione nel carcinoma luminale
-\end{itemize}
-}
-\end{beamercolorbox}
 
-\column{0.48\textwidth}
-
-% NOTCH1
-\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
-{\large \textcolor{darkblue}{$\bullet$}}\;
-\textbf{NOTCH1} \hfill {\scriptsize \textit{Segnalazione}}\\[3pt]
-{\scriptsize
-\begin{itemize}
-  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\bullet$}}
-  \item \textbf{Ruolo:} pathway Notch, mantenimento cellule staminali tumorali
-  \item \textbf{Rilevanza:} promuove progressione verso fenotipi invasivi
-\end{itemize}
-}
-\end{beamercolorbox}
-
-\vspace{0.5em}
 
 % AKT1
 \begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
@@ -491,6 +463,36 @@ con annotazione breast cancer
 }
 \end{beamercolorbox}
 
+\column{0.48\textwidth}
+
+% NOTCH1
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\bullet$}}\;
+\textbf{NOTCH1} \hfill {\scriptsize \textit{Segnalazione}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\bullet$}}
+  \item \textbf{Ruolo:} mantenimento cellule staminali tumorali
+  \item \textbf{Rilevanza:} promuove progressione verso fenotipi invasivi
+\end{itemize}
+}
+\end{beamercolorbox}
+
+\vspace{0.5em}
+% TBX3
+\begin{beamercolorbox}[rounded=true, sep=6pt]{block body}
+{\large \textcolor{darkblue}{$\blacklozenge$}}\;
+\textbf{TBX3} \hfill {\scriptsize \textit{Fattore di trascrizione}}\\[3pt]
+{\scriptsize
+\begin{itemize}
+  \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\blacklozenge$}}
+  \item \textbf{Ruolo:} regola l'identità cellulare mammaria
+  \item \textbf{Rilevanza:} alterazione epigenetica associata a perdita di differenziazione nel carcinoma luminale
+\end{itemize}
+}
+\end{beamercolorbox}
+
+
 \end{columns}
 
 \vspace{0.4em}
@@ -504,8 +506,8 @@ con annotazione breast cancer
 
 \vspace{0.5em}
 \centering
-{\small Il pannello da 50 CpG dimostra che \textbf{performance e interpretabilità
-biologica non sono in conflitto}.}
+{\small Le 50 CpG dimostrano che \textbf{performance e interpretabilità
+biologica non sono in conflitto}}
 
 \vspace{1em}
 
@@ -552,9 +554,9 @@ biologica non sono in conflitto}.}
 
 {\scriptsize
 \textbf{Validazione esterna}\\
-Nessun dataset EPIC indipendente dalla pipeline.\\[0.6em]
+Nessun dataset EPIC indipendente dalla pipeline\\[0.6em]
 \textbf{Cross-piattaforma}\\
-Trasferibilità a EPIC v2 e HM450K da verificare.
+Mancata trasferibilità a HM450K
 }
 
 \column{0.48\textwidth}
@@ -564,9 +566,9 @@ Trasferibilità a EPIC v2 e HM450K da verificare.
 
 {\scriptsize
 \textbf{Altri tumori}\\
-Framework MILP parametrizzabile per colon, ovaio.\\[0.6em]
+Framework MILP parametrizzabile per colon, ovaio\\[0.6em]
 \textbf{Integrazione multi-omica}\\
-RNA-seq per confermare il ruolo funzionale delle CpG.
+RNA-seq per confermare il ruolo funzionale delle CpG
 }
 
 \end{columns}
@@ -581,6 +583,48 @@ RNA-seq per confermare il ruolo funzionale delle CpG.
 \appendix
 
 \begin{frame}{Appendice — NeuroCombat}
+
+\begin{columns}[c, onlytextwidth]
+
+% ---- LEFT: formula ----
+\column{0.42\textwidth}
+
+{\footnotesize \textbf{Modello di batch correction}}\\[0.6em]
+
+{\small
+\[
+Y_{ijd} = \alpha_j + X\beta_j + \gamma_{jd} + \delta_{jd}\,\varepsilon_{ijd}
+\]
+}
+
+\vspace{0.5em}
+{\scriptsize
+\begin{itemize}\setlength\itemsep{0.4em}
+  \item $\alpha_j$ — media globale del CpG $j$
+  \item $X\beta_j$ — effetto delle covariate biologiche protette:\\ tissue label + età
+  \item $\gamma_{jd}$ — effetto additivo del batch $d$
+  \item $\delta_{jd}$ — effetto moltiplicativo del batch $d$
+  \item $\gamma_{jd},\,\delta_{jd}$ stimati via \textbf{Empirical Bayes shrinkage}
+\end{itemize}
+
+\vspace{0.4em}
+Parametri stimati \textbf{solo su train}; applicati al test via \texttt{neuroCombatFromTraining} — zero leakage.
+}
+
+% ---- RIGHT: plot pre/post ----
+\column{0.55\textwidth}
+
+\centering
+
+{\scriptsize \textbf{Pre-ComBat}}\\[2pt]
+\includegraphics[width=\linewidth, height=2.9cm, keepaspectratio]{images/plot_pca_precombat_by_dataset.pdf}
+
+\vspace{1pt}
+
+{\scriptsize \textbf{Post-ComBat}}\\[2pt]
+\includegraphics[width=\linewidth, height=2.9cm, keepaspectratio]{images/plot_pca_postcombat_by_dataset.pdf}
+
+\end{columns}
 
 \end{frame}
 
@@ -639,14 +683,14 @@ r_{\beta,j} \geq \tau, \quad \tau = 0.05
 \vspace{0.6em}
 {\scriptsize
 Un CpG è rimosso se:
-\[
-\text{SD}_j < Q_{0.02}\!\left(\text{SD} \mid \mathcal{D}_{\text{train}}\right)
-\]
+\(
+\text{SD}_j < \text{SD}^*
+\)
 
 \vspace{0.4em}
 \begin{itemize}\setlength\itemsep{0.3em}
   \item \textbf{Motivazione} — la mappa logit è non lineare: loci con $r_{\beta,j}$ basso ma concentrati ai bordi di $[0,1]$ producono M-value quasi costanti
-  \item \textbf{Soglia data-driven} — bottom 2\% della distribuzione SD(M) sul train
+  \item \textbf{Soglia data-driven} — primo minimo locale della distribuzione SD(M) sul train, che separa i loci quasi-costanti dallo spazio discriminativo principale
   \item \textbf{Risultato:} rimozione di $\sim$3k--8k CpG residui a seconda della coorte
 \end{itemize}
 }
@@ -659,7 +703,41 @@ Un CpG è rimosso se:
 
 \end{frame}
 
-\begin{frame}{Appendice — Diversificazione genomica vincolata}
+\begin{frame}{Appendice — Diversificazione Genomica Vincolata}
+
+\begin{columns}[c, onlytextwidth]
+
+% ---- LEFT: formula ----
+\column{0.42\textwidth}
+
+{\footnotesize \textbf{Selezione greedy vincolata}}
+
+{\scriptsize
+\begin{alignat*}{2}
+\min_{\mathcal{S} \subseteq \mathcal{R}} \quad
+& \sum_{j \in \mathcal{S}} \text{score}_j \\
+\text{s.t.} \quad
+& |\mathcal{S}| = K_{\text{eff}} \\
+& |\{j \in \mathcal{S} : c(j) = \chi\}| \leq \lfloor \alpha_{\text{chr}} K_{\text{eff}} \rfloor \quad \forall\,\chi \\
+& |\{j \in \mathcal{S} : \gamma(j) = g\}| \leq \lfloor \alpha_{\text{ctx}} K_{\text{eff}} \rfloor \quad \forall\,g \\
+& |\{j \in \mathcal{S} : w(j) = \omega\}| \leq B_\omega \quad \forall\,\omega
+\end{alignat*}
+
+con $\alpha_{\text{chr}} = 0.08$,\; $\alpha_{\text{ctx}} = 0.65$,\; $B_\omega = 15$.
+
+\begin{itemize}\setlength\itemsep{0.3em}
+  \item \textbf{Cardinalità} — esattamente $K = 5.000$ CpG
+  \item \textbf{Cromosomica} — max 8\% per cromosoma
+  \item \textbf{Contesto genomico} — max 65\% per classe (Island, Shore, OpenSea\ldots)
+  \item \textbf{Finestra spaziale} — max 15 CpG per finestra da 500kb
+\end{itemize}
+}
+
+% ---- RIGHT: immagine ----
+\column{0.55\textwidth}
+\includegraphics[width=\linewidth]{images/dataset_chromosome_share_diversified_K5000_maxfrac0.08.pdf}
+
+\end{columns}
 
 \end{frame}
 
@@ -698,7 +776,35 @@ Un CpG è rimosso se:
 }
 \end{frame}
 
-\begin{frame}{Appendice — Estensione a una diversa piattaforma}
+\begin{frame}{Appendice — Estensione a una Diversa Piattaforma}
+
+\begin{columns}[c, onlytextwidth]
+
+% ---- LEFT: testo ----
+\column{0.42\textwidth}
+
+{\footnotesize \textbf{GSE69914 e GSE67919 — HM450K}}\\[0.3em]
+
+{\scriptsize
+Il pannello da 50 CpG è stato derivato su array \textbf{EPIC}.
+L'estensione a HM450K introduce due limitazioni strutturali:
+
+\vspace{0.3em}
+\begin{itemize}\setlength\itemsep{0.2em}
+  \item \textbf{Copertura ridotta} — HM450K interroga $\sim$450k sonde vs $\sim$866k di EPIC: non tutte le 50 CpG sono presenti su entrambi i dataset
+  \item \textbf{Sonde non equivalenti} — le sonde condivise non sono garantite avere lo stesso comportamento chimico
+  \item \textbf{Risultato} — le distribuzioni di $|\beta - \mu_{\text{Normal}}|$ su HM450K sono più larghe e meno separate rispetto alle coorti EPIC
+\end{itemize}
+
+\vspace{0.3em}
+La validazione cross-piattaforma richiede una pipeline dedicata — identificata come sviluppo futuro.
+}
+
+% ---- RIGHT: immagine ----
+\column{0.55\textwidth}
+\includegraphics[width=\linewidth]{images/plot_abs_deviation_postcombat_4datasets (1).pdf}
+
+\end{columns}
 
 \end{frame}
 

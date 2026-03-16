@@ -7,6 +7,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage{colortbl}
 \definecolor{darkblue}{RGB}{0,51,102}
+\usepackage{subcaption}
 
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 \definecolor{azzurro}{HTML}{AED6F1}
@@ -35,7 +36,7 @@
 
 \section{Dal Problema Biologico ai Dati}
 
-\begin{frame}{Il Tumore al Seno: una Sfida Globale}
+\begin{frame}{Il Tumore alla Mammella: una Sfida Globale}
 
 \begin{columns}[T]
 
@@ -44,7 +45,7 @@
     \centering
     \includegraphics[height=3.2cm]{images/impatto.png}
     
-    {\scriptsize \textit{Tumore più comune per paese — GLOBOCAN 2022 \\ In rosa è riportato il tumore al seno}}
+    {\scriptsize \textit{Tumore più comune per paese — GLOBOCAN 2022 \\ In rosa è riportato il tumore alla mammella}}
     
     \vspace{4pt}
     
@@ -157,7 +158,7 @@
 \node[filterstyle, below=of n1] (n2) {Filtro variabilità \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{284,310} CpG};
 \node[filterstyle, below=of n2] (n3) {Filtro varianza \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{270,094} CpG};
 \node[hlstyle,     below=of n3] (n4) {Stability ranking \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{15,659} CpG};
-\node[hlstyle,     below=of n4] (n5) {Correlation pruning \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{15,523} CpG};
+\node[hlstyle,     below=of n4] (n5) {Correlation pruning \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{14,840} CpG};
 \node[filterstyle, below=of n5] (n6) {Diversificazione genomica vincolata \hspace{0.8cm} $\rightarrow$ \hspace{0.4cm} \textbf{5,000} CpG};
 
 \draw[arrow] (n0.south) -- (n1.north);
@@ -175,6 +176,7 @@
 
 
 \end{frame}
+
 
 \begin{frame}{Stability Ranking}
 
@@ -290,8 +292,7 @@
       \node[rep] (r3) at (3.0,-2.2) {};
 
       \node[font=\scriptsize, align=center] at (1.8,-2.8)
-        {1 rappresentante per componente\\
-         {\tiny (score minimo nel cluster)}};
+        {1 rappresentante per componente};
 
     \end{tikzpicture}
 
@@ -337,7 +338,7 @@
       \draw[arr] (pa) -- (ra);
       \draw[arr] (pb) -- (rb);
 
-      \node[final] (fin) at (1.5,-3.2) {\textbf{15,523} CpG};
+      \node[final] (fin) at (1.5,-3.2) {\textbf{14,840} CpG};
 
       \draw[arr] (ra) -- (fin);
       \draw[arr] (rb) -- (fin);
@@ -354,7 +355,7 @@
 \end{frame}
 
 
-\section{Dal MILP alla Soluzione}
+\section{Dal Problema di Ottimizzazione alla Soluzione}
 
 
 \begin{frame}{Selezione delle CpG Finali: MILP Knapsack}
@@ -368,7 +369,7 @@
 & \sum_{j \in \mathcal{J}_c} x_j \leq 10 \quad \forall\, c
   &\qquad& \textbf{(Bilanciamento cromosomico)} \\[4pt]
 & \sum_{j:\,g(j)=g} x_j \leq 2 \quad \forall\, g
-  &\qquad& \textbf{(Max CpG per gene)} \\[4pt]
+  &\qquad& \textbf{(Bilanciamento genico)} \\[4pt]
 & x_j \leq y_{g(j)} \leq \textstyle\sum_{j':\,g(j')=g} x_{j'} \quad \forall\, j : g(j) \neq \emptyset
   &\qquad& \textbf{(Gene linking)} \\[4pt]
 & x_i + x_j \leq 1 \quad \forall\,(i,j):|r_{ij}|\geq 0.85
@@ -471,7 +472,7 @@ con annotazione breast cancer
 {\scriptsize
 \begin{itemize}
   \setbeamertemplate{itemize item}{\textcolor{darkblue}{$\bullet$}}
-  \item \textbf{Ruolo:} mantenimento cellule staminali tumorali
+  \item \textbf{Ruolo:} mantenimento delle cellule staminali 
   \item \textbf{Rilevanza:} promuove progressione verso fenotipi invasivi
 \end{itemize}
 }
@@ -565,7 +566,7 @@ Mancata trasferibilità a HM450K
 
 {\scriptsize
 \textbf{Altri tumori}\\
-Framework MILP parametrizzabile per colon, ovaio\\[0.6em]
+Framework MILP applicato per esempio a colon e ovaio\\[0.6em]
 \textbf{Integrazione multi-omica}\\
 RNA-seq per confermare il ruolo funzionale delle CpG
 }
@@ -579,8 +580,10 @@ RNA-seq per confermare il ruolo funzionale delle CpG
 \centering
 {\footnotesize \textcolor{darkblue}{$\star$}\quad \textbf{Pubblicazione}}\\[0.4em]
 {\scriptsize
-Un \textbf{articolo} basato sulla pipeline presentata è sottomesso a\\
-\textit{\textbf{IWBBIO 2026} — 13th International Work-Conference on Bioinformatics and Biomedical Engineering}\\
+\textit{Biologically-Constrained CpG Panel Selection via MILP for
+Normal--Adjacent Breast Tissue Classification}\\[0.2em]
+\textbf{IWBBIO 2026} — 13th International Work-Conference on
+Bioinformatics and Biomedical Engineering\\
 Gran Canaria, Spagna
 }
 
@@ -593,12 +596,31 @@ Gran Canaria, Spagna
 
 \appendix
 
+\begin{frame}{Appendice — Batch Effect}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{images/GSE69914_GSE225845_GSE287331_07_tsne_by_dataset_NA.pdf}
+        \caption{t-SNE coloured by dataset trustworthiness = 0.976}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{IMAGES/GSE69914_GSE225845_GSE287331_08_tsne_by_group_NA.pdf}
+        \caption{t-SNE coloured by tissue state trustworthiness = 0.976}
+    \end{subfigure}
+\end{figure}
+
+\end{frame}
+
 \begin{frame}{Appendice — NeuroCombat}
 
 \begin{columns}[c, onlytextwidth]
 
 % ---- LEFT: formula ----
-\column{0.42\textwidth}
+\column{0.49\textwidth}
 
 {\footnotesize \textbf{Modello di batch correction}}\\[0.6em]
 
@@ -608,22 +630,20 @@ Y_{ijd} = \alpha_j + X\beta_j + \gamma_{jd} + \delta_{jd}\,\varepsilon_{ijd}
 \]
 }
 
-\vspace{0.5em}
 {\scriptsize
 \begin{itemize}\setlength\itemsep{0.4em}
   \item $\alpha_j$ — media globale del CpG $j$
-  \item $X\beta_j$ — effetto delle covariate biologiche protette:\\ tissue label + età
+  \item $X\beta_j$ — effetto delle covariate biologiche protette
   \item $\gamma_{jd}$ — effetto additivo del batch $d$
   \item $\delta_{jd}$ — effetto moltiplicativo del batch $d$
   \item $\gamma_{jd},\,\delta_{jd}$ stimati via \textbf{Empirical Bayes shrinkage}
 \end{itemize}
 
-\vspace{0.4em}
-Parametri stimati \textbf{solo su train}; applicati al test via \texttt{neuroCombatFromTraining} — zero leakage.
+Modella il valore di \textbf{metilazione di ogni CpG} come somma di una media globale. Per stimare gli effetti di batch, usa una distribuzione a priori ricavata da tutti i CpG insieme. Una volta stimati, questi \textbf{effetti vengono rimossi dal segnale}.
 }
 
 % ---- RIGHT: plot pre/post ----
-\column{0.55\textwidth}
+\column{0.49\textwidth}
 
 \centering
 
@@ -714,6 +734,34 @@ Un CpG è rimosso se:
 
 \end{frame}
 
+\begin{frame}{Appendice — Test di Mann-Whitney}
+
+\textbf{Test non parametrico} per confrontare due gruppi indipendenti 
+senza assumere normalità della distribuzione.
+
+\textbf{Statistica test:}
+\[
+U_1 = \sum_{a \in X_{\text{adj}}} \sum_{b \in X_{\text{nor}}} 
+\left( \mathbf{1}[a > b] + \tfrac{1}{2}\,\mathbf{1}[a = b] \right)
+\]
+
+\textbf{Approssimazione normale} (campioni grandi):
+\[
+z = \frac{U_1 - \mu_U}{\sigma_U}, \qquad
+\mu_U = \frac{n_1 n_2}{2}, \qquad
+\sigma_U = \sqrt{\frac{n_1 n_2 (n_1 + n_2 + 1)}{12}}
+\]
+
+
+$H_0$: le distribuzioni di M-value in Normal e Adjacent sono uguali\\
+$H_1$: le distribuzioni differiscono
+
+\textbf{Conclusione:} p-value basso $\Rightarrow$ la CpG è 
+significativamente differenziata tra i due gruppi 
+$\Rightarrow$ candidata rilevante per la feature selection.
+
+\end{frame}
+
 \begin{frame}{Appendice — Diversificazione Genomica Vincolata}
 
 \begin{columns}[c, onlytextwidth]
@@ -772,7 +820,7 @@ con $\alpha_{\text{chr}} = 0.08$,\; $\alpha_{\text{ctx}} = 0.65$,\; $B_\omega = 
     + \eta\sum_g y_g
   \right)}_{\hat{\Phi}(x,y)} & & \\[8pt]
 \text{s.t.} \quad
-& \sum_{j \in \mathcal{J}} x_j = 50
+& \sum_{j \in \mathcal{J}} x_j = K
   \\[4pt]
 & \sum_{j \in \mathcal{J}_c} x_j \leq 10 \quad \forall\, c
   \\[4pt]

@@ -2869,6 +2869,13 @@ def run_step3_and_downstream(cfg: PipelineConfig, cached_inputs: dict,
         r = extract_selected_30(out["pareto_results"])
         out.update(r)
 
+        print("\n" + "=" * 70)
+        print(f"selected_30 — TUTTE le {len(out['selected_30'])} CpG:")
+        print("=" * 70)
+        for i, cpg in enumerate(out["selected_30"], start=1):
+            print(f"  {i:2d}. {cpg}")
+        print("=" * 70)
+
         if run_fpi:
             r = step_fpi_final(cfg, out["selected_30"], out["common_cpgs"],
                                 out["cpg_cols_current"], out["X_tr_combat"],
@@ -2904,6 +2911,8 @@ def main():
     if "selected_30" in results:
         print(f"selected_30 (FPI panel)     : {len(results['selected_30'])} CpG")
     print("#" * 90)
+
+    example_parameter_sweep()
 
     return results
 

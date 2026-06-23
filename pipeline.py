@@ -162,6 +162,8 @@ class GlobalConfig:
     SAMPLE_ID: str = "id_tissue"
     LABEL_COL: str = "label"
     RANDOM_STATE: int = 42
+    REPRODUCE_NOTEBOOK_BUG: bool = True
+    FPI_USE_CORRECTED_VERSION: bool = False
 
 
 @dataclass
@@ -1807,30 +1809,30 @@ def step6_final_k(cfg: PipelineConfig, selected_diverse: np.ndarray) -> dict:
 # SVM finale su final_cpgs — training, valutazione, bootstrap CI
 # ==============================================================================
 
-def step_svm_train(cfg: PipelineConfig, common_cpgs: list, final_cpgs: np.ndarray,
-                    X_tr_combat: np.ndarray, X_te_combat: np.ndarray,
-                    tissue_labels_tr: np.ndarray) -> dict:
+def step_svm_train(cfg: PipelineConfig, common_cpgs: list, cpg_cols_current: np.ndarray,
+                    final_cpgs: np.ndarray, X_tr_combat: np.ndarray,
+                    X_te_combat: np.ndarray, tissue_labels_tr: np.ndarray) -> dict:
     """CELLA 58 — STEP 6 (modeling): Train SVM sulle CpG di final_cpgs.
 
-    NOTA SUL BUG CORRETTO RISPETTO AL NOTEBOOK ORIGINALE:
-    Nel notebook, gli indici di final_cpgs venivano ricavati da un
-    `col_to_j` costruito sull'ordine di `cpg_cols_current` (~270k CpG
-    post-Edgar/variance-filter), ma applicati a `X_tr_combat`/`X_te_combat`,
-    che vivono invece nello spazio delle 485k CpG comuni (`common_cpgs`,
-    l'ordine nativo prodotto da ComBat). Qui costruiamo la mappa
-    CORRETTAMENTE su `common_cpgs`, lo spazio nativo di X_tr_combat/X_te_combat.
+    Il comportamento e' controllato da cfg.glob.REPRODUCE_NOTEBOOK_BUG:
+      - True  -> riproduce il comportamento originale del notebook (mappa
+                 costruita su cpg_cols_current).
+      - False -> usa la mappa corretta (common_cpgs).
     """
     csvm = cfg.svm
     G = cfg.glob
 
-    col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
+    if getattr(G, "REPRODUCE_NOTEBOOK_BUG", False):
+        col_to_j_common = {c: j for j, c in enumerate(np.asarray(cpg_cols_current, dtype=object).tolist())}
+    else:
+        col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
 
     final_cpgs_indices = np.array(
         [col_to_j_common[c] for c in final_cpgs if c in col_to_j_common], dtype=int
     )
     n_missing = sum(1 for c in final_cpgs if c not in col_to_j_common)
     if n_missing > 0:
-        print(f"\u26a0 {n_missing} CpG di final_cpgs non in common_cpgs — escluse.")
+        print(f"⚠ {n_missing} CpG di final_cpgs non in common_cpgs — escluse.")
 
     X_tr_fs = X_tr_combat[:, final_cpgs_indices]
     X_te_fs = X_te_combat[:, final_cpgs_indices]
@@ -2571,44 +2573,67 @@ def step_fpi_final(cfg: PipelineConfig, selected_30: list, common_cpgs: list,
     OUTDIR.mkdir(parents=True, exist_ok=True)
 
     cpgs_30 = [str(c) for c in selected_30]
+    use_corrected = getattr(cfg.glob, "FPI_USE_CORRECTED_VERSION", True)
 
-    # ── STEP 1a — Indici delle 30 CpG in common_cpgs (spazio Normal/Adjacent) ──
-    col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
-    missing_na = [c for c in cpgs_30 if c not in col_to_j_common]
-    if missing_na:
-        print(f"\u26a0 {len(missing_na)} CpG non trovate in common_cpgs (Normal/Adjacent): {missing_na[:5]}")
+    if use_corrected:
+        # ── STEP 1a — Indici delle 30 CpG in common_cpgs (spazio Normal/Adjacent) ──
+        col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
+        missing_na = [c for c in cpgs_30 if c not in col_to_j_common]
+        if missing_na:
+            print(f"⚠ {len(missing_na)} CpG non trovate in common_cpgs (Normal/Adjacent): {missing_na[:5]}")
 
-    # ── STEP 1b — Indici delle 30 CpG in cols/cpg_cols_current (spazio Tumour) ──
-    col_to_j_270k = {c: j for j, c in enumerate(np.asarray(cols, dtype=object).tolist())}
-    missing_tum = [c for c in cpgs_30 if c not in col_to_j_270k]
-    if missing_tum:
-        print(f"\u26a0 {len(missing_tum)} CpG non trovate in cpg_cols_current (Tumour): {missing_tum[:5]}")
+        # ── STEP 1b — Indici delle 30 CpG in cols/cpg_cols_current (spazio Tumour) ──
+        col_to_j_270k = {c: j for j, c in enumerate(np.asarray(cols, dtype=object).tolist())}
+        missing_tum = [c for c in cpgs_30 if c not in col_to_j_270k]
+        if missing_tum:
+            print(f"⚠ {len(missing_tum)} CpG non trovate in cpg_cols_current (Tumour): {missing_tum[:5]}")
 
-    cpgs_30 = [c for c in cpgs_30 if c in col_to_j_common and c in col_to_j_270k]
-    idx_30_common = np.array([col_to_j_common[c] for c in cpgs_30], dtype=int)
-    idx_30_270k = np.array([col_to_j_270k[c] for c in cpgs_30], dtype=int)
+        cpgs_30 = [c for c in cpgs_30 if c in col_to_j_common and c in col_to_j_270k]
+        idx_30_common = np.array([col_to_j_common[c] for c in cpgs_30], dtype=int)
+        idx_30_270k = np.array([col_to_j_270k[c] for c in cpgs_30], dtype=int)
 
-    print(f"CpG finali utilizzabili per FPI: {len(cpgs_30)} / {len(selected_30)}")
+        print(f"CpG finali utilizzabili per FPI: {len(cpgs_30)} / {len(selected_30)}")
 
-    # ── STEP 2a — Medie Normal/Adjacent (deviazione assoluta beta, pool train+test) ──
-    X_NA_pool = np.vstack([X_tr_combat, X_te_combat])
-    labels_pool = np.concatenate([tissue_labels_tr, tissue_labels_te])
+        # ── STEP 2a — Medie Normal/Adjacent (deviazione assoluta beta, pool train+test) ──
+        X_NA_pool = np.vstack([X_tr_combat, X_te_combat])
+        labels_pool = np.concatenate([tissue_labels_tr, tissue_labels_te])
 
-    mean_N = X_NA_pool[labels_pool == 0][:, idx_30_common].mean(axis=0)
-    mean_A = X_NA_pool[labels_pool == 1][:, idx_30_common].mean(axis=0)
+        mean_N = X_NA_pool[labels_pool == 0][:, idx_30_common].mean(axis=0)
+        mean_A = X_NA_pool[labels_pool == 1][:, idx_30_common].mean(axis=0)
 
-    # ── STEP 2b — Tumour: inverti M-value -> beta, poi -> deviazione assoluta ──
-    idx_common_for_270k = np.array(
-        [col_to_j_common[c] for c in np.asarray(cols, dtype=object).tolist()], dtype=int
-    )
-    mean_nor_225_270k = mean_normal_train["GSE225845"][idx_common_for_270k]
-    mean_nor_287_270k = mean_normal_train["GSE287331"][idx_common_for_270k]
-    mean_nor_pool_270k = (mean_nor_225_270k + mean_nor_287_270k) / 2.0
+        # ── STEP 2b — Tumour: inverti M-value -> beta, poi -> deviazione assoluta ──
+        idx_common_for_270k = np.array(
+            [col_to_j_common[c] for c in np.asarray(cols, dtype=object).tolist()], dtype=int
+        )
+        mean_nor_225_270k = mean_normal_train["GSE225845"][idx_common_for_270k]
+        mean_nor_287_270k = mean_normal_train["GSE287331"][idx_common_for_270k]
+        mean_nor_pool_270k = (mean_nor_225_270k + mean_nor_287_270k) / 2.0
 
-    X_tum_beta = m_to_beta(X_tum_combat, eps=cfpi.EPS_M)
-    X_tum_abs = np.abs(X_tum_beta - mean_nor_pool_270k)
+        X_tum_beta = m_to_beta(X_tum_combat, eps=cfpi.EPS_M)
+        X_tum_abs = np.abs(X_tum_beta - mean_nor_pool_270k)
 
-    mean_T = X_tum_abs[:, idx_30_270k].mean(axis=0)
+        mean_T = X_tum_abs[:, idx_30_270k].mean(axis=0)
+
+    else:
+        # Versione originale del notebook (ultima cella): NON inverte
+        # M-value -> beta per il Tumour, tratta X_tum_combat come se fosse
+        # gia' nello stesso spazio "deviazione assoluta beta" di
+        # X_tr_combat/X_te_combat.
+        col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
+        missing = [c for c in cpgs_30 if c not in col_to_j_common]
+        if missing:
+            print(f"⚠ {len(missing)} CpG non trovate in common_cpgs (escluse): {missing[:5]}")
+        cpgs_30 = [c for c in cpgs_30 if c in col_to_j_common]
+        idx_30_common = np.array([col_to_j_common[c] for c in cpgs_30], dtype=int)
+
+        print(f"CpG finali utilizzabili per FPI: {len(cpgs_30)} / {len(selected_30)}")
+
+        X_NA_pool = np.vstack([X_tr_combat, X_te_combat])
+        labels_pool = np.concatenate([tissue_labels_tr, tissue_labels_te])
+
+        mean_N = X_NA_pool[labels_pool == 0][:, idx_30_common].mean(axis=0)
+        mean_A = X_NA_pool[labels_pool == 1][:, idx_30_common].mean(axis=0)
+        mean_T = X_tum_combat[:, idx_30_common].mean(axis=0)
 
     # ── STEP 3 — FPI (Eq. 5) ──
     num_fpi = mean_A - mean_N
@@ -2823,8 +2848,8 @@ def run_step3_and_downstream(cfg: PipelineConfig, cached_inputs: dict,
     r = step6_final_k(cfg, out["selected_diverse"])
     out.update(r)
 
-    r = step_svm_train(cfg, out["common_cpgs"], out["final_cpgs"], out["X_tr_combat"],
-                        out["X_te_combat"], out["tissue_labels_tr"])
+    r = step_svm_train(cfg, out["common_cpgs"], out["cpg_cols_current"], out["final_cpgs"],
+                        out["X_tr_combat"], out["X_te_combat"], out["tissue_labels_tr"])
     out.update(r)
 
     r = step_svm_eval(cfg, out["svm_final"], out["X_te_fs"], out["tissue_labels_te"],

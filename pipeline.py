@@ -2616,15 +2616,22 @@ def step_fpi_final(cfg: PipelineConfig, selected_30: list, common_cpgs: list,
 
     else:
         # Versione originale del notebook (ultima cella): NON inverte
-        # M-value -> beta per il Tumour, tratta X_tum_combat come se fosse
-        # gia' nello stesso spazio "deviazione assoluta beta" di
-        # X_tr_combat/X_te_combat.
+        # M-value -> beta per il Tumour. Per evitare il crash dovuto al
+        # cambio di spazio di colonne (common_cpgs 485k vs cpg_cols_current
+        # 270k), usiamo la mappa corretta sullo spazio di X_tum_combat (270k)
+        # per indicizzarlo — quello che resta "fedele al bug" e' la MANCATA
+        # conversione di scala (M-value vs deviazione assoluta beta), non
+        # l'indicizzazione, che altrimenti non sarebbe nemmeno eseguibile.
         col_to_j_common = {c: j for j, c in enumerate(common_cpgs)}
-        missing = [c for c in cpgs_30 if c not in col_to_j_common]
+        col_to_j_270k = {c: j for j, c in enumerate(np.asarray(cols, dtype=object).tolist())}
+
+        missing = [c for c in cpgs_30 if c not in col_to_j_common or c not in col_to_j_270k]
         if missing:
-            print(f"⚠ {len(missing)} CpG non trovate in common_cpgs (escluse): {missing[:5]}")
-        cpgs_30 = [c for c in cpgs_30 if c in col_to_j_common]
+            print(f"⚠ {len(missing)} CpG non trovate in uno dei due spazi (escluse): {missing[:5]}")
+        cpgs_30 = [c for c in cpgs_30 if c in col_to_j_common and c in col_to_j_270k]
+
         idx_30_common = np.array([col_to_j_common[c] for c in cpgs_30], dtype=int)
+        idx_30_270k = np.array([col_to_j_270k[c] for c in cpgs_30], dtype=int)
 
         print(f"CpG finali utilizzabili per FPI: {len(cpgs_30)} / {len(selected_30)}")
 
@@ -2633,7 +2640,11 @@ def step_fpi_final(cfg: PipelineConfig, selected_30: list, common_cpgs: list,
 
         mean_N = X_NA_pool[labels_pool == 0][:, idx_30_common].mean(axis=0)
         mean_A = X_NA_pool[labels_pool == 1][:, idx_30_common].mean(axis=0)
-        mean_T = X_tum_combat[:, idx_30_common].mean(axis=0)
+        # BUG riprodotto: nessuna conversione M-value -> beta. X_tum_combat
+        # qui e' in scala M-value (logit), mentre mean_N/mean_A sono in
+        # deviazione assoluta beta — scale diverse, FPI risultera'
+        # artificialmente vicino a 0 per la maggior parte delle CpG.
+        mean_T = X_tum_combat[:, idx_30_270k].mean(axis=0)
 
     # ── STEP 3 — FPI (Eq. 5) ──
     num_fpi = mean_A - mean_N
